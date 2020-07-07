@@ -1,0 +1,82 @@
+syntax = "proto3";
+package proto;
+
+message Empty {}
+
+message Source {
+    string id = 1;
+    enum Category {
+        UNKNOWN = 0;
+        HARVESTER = 1;
+        CONTROLLER = 2;
+        INTELLIGENCE = 3;
+        SIDEKICK = 4;
+    }
+    Category category = 2;
+    string name = 3;
+    string author = 4;
+    string organization = 5;
+    string version = 6;
+}
+
+message Style {
+    string backgroundColor = 1;
+    string primaryColor = 2;
+    string highlightColor = 3;
+}
+
+message Whisper {
+    string label = 1;
+    string markdown = 2;
+    string icon = 3;
+    Style style = 4;
+}
+
+message ConfigResponse {
+    map<string, string> config = 1;
+}
+
+message SetConfigRequest {
+    map<string, string> config = 1;
+}
+
+message StartRequest {
+    uint32 host = 1;
+}
+
+message OnEventRequest {
+    map<string, string> data = 1;
+    Source source = 2;
+}
+
+service Controller {
+    rpc Config(Empty) returns (ConfigResponse);
+    rpc SetConfig(SetConfigRequest) returns (Empty);
+    rpc Start(StartRequest) returns (Empty);
+    rpc Stop(Empty) returns (Empty);
+    rpc OnEvent(OnEventRequest) returns (Empty);
+}
+
+message EmitWhisperRequest {
+    Whisper whisper = 1;
+}
+
+service ControllerHost {
+    rpc EmitWhisper(EmitWhisperRequest) returns (Empty);
+}
+
+service Harvester {
+    rpc Config(Empty) returns (ConfigResponse);
+    rpc SetConfig(SetConfigRequest) returns (Empty);
+    rpc Start(StartRequest) returns (Empty);
+    rpc Stop(Empty) returns (Empty);
+    rpc OnEvent(OnEventRequest) returns (Empty);
+}
+
+message EmitEventRequest {
+    map<string, string> data = 1;
+}
+
+service HarvesterHost {
+    rpc EmitEvent(EmitEventRequest) returns (Empty);
+}
