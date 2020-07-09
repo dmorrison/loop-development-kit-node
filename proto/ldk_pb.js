@@ -511,7 +511,7 @@ proto.proto.Source.serializeBinaryToWriter = function(message, writer) {
  */
 proto.proto.Source.Category = {
   UNKNOWN: 0,
-  HARVESTER: 1,
+  SENSOR: 1,
   CONTROLLER: 2,
   INTELLIGENCE: 3,
   SIDEKICK: 4

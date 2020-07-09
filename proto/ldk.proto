@@ -7,7 +7,7 @@ message Source {
     string id = 1;
     enum Category {
         UNKNOWN = 0;
-        HARVESTER = 1;
+        SENSOR = 1;
         CONTROLLER = 2;
         INTELLIGENCE = 3;
         SIDEKICK = 4;
@@ -65,7 +65,7 @@ service ControllerHost {
     rpc EmitWhisper(EmitWhisperRequest) returns (Empty);
 }
 
-service Harvester {
+service Sensor {
     rpc Config(Empty) returns (ConfigResponse);
     rpc SetConfig(SetConfigRequest) returns (Empty);
     rpc Start(StartRequest) returns (Empty);
@@ -77,6 +77,6 @@ message EmitEventRequest {
     map<string, string> data = 1;
 }
 
-service HarvesterHost {
+service SensorHost {
     rpc EmitEvent(EmitEventRequest) returns (Empty);
 }

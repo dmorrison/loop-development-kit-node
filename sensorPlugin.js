@@ -1,13 +1,13 @@
 const services = require('./proto/ldk_grpc_pb');
 
-const HarvesterGRPCServer = require('./harvesterGrpcServer');
+const SensorGRPCServer = require('./sensorGrpcServer');
 const BrokerGrpcServer = require('./brokerGrpcServer');
 
-class HarvesterPlugin {
+class SensorPlugin {
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
-    this.harvester = new HarvesterGRPCServer(this.server, impl, this.broker);
+    this.sensor = new SensorGRPCServer(this.server, impl, this.broker);
   }
 
   serve() {
@@ -28,4 +28,4 @@ class HarvesterPlugin {
   }
 }
 
-module.exports = HarvesterPlugin;
+module.exports = SensorPlugin;

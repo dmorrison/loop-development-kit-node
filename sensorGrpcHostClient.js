@@ -1,7 +1,7 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
-class HarvesterGrpcHostClient {
+class SensorGrpcHostClient {
   connect(connInfo) {
     return new Promise((resolve, reject) => {
       let address;
@@ -11,7 +11,7 @@ class HarvesterGrpcHostClient {
         address = connInfo.address;
       }
 
-      this.client = new services.HarvesterHostClient(
+      this.client = new services.SensorHostClient(
         address,
         services.grpc.credentials.createInsecure()
       );
@@ -49,4 +49,4 @@ class HarvesterGrpcHostClient {
   }
 }
 
-module.exports = HarvesterGrpcHostClient;
+module.exports = SensorGrpcHostClient;

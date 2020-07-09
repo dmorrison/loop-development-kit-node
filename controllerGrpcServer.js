@@ -3,7 +3,7 @@ const services = require('./proto/ldk_grpc_pb');
 
 const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 
-const categories = ['Unknown', 'Intelligence', 'Controller', 'Harvester', 'Sidekick'];
+const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
 
 class ControllerGRPCServer {
   constructor(server, impl, broker) {

@@ -7,14 +7,10 @@
     "example": "examples"
   },
   "scripts": {
-    "build-examples": "npm run build-examples-controller && npm run build-examples-harvester",
-    "build-examples-controller": "./node_modules/.bin/pkg examples/controller/index.js -t node12-darwin-x64,node12-windows-x64 --output examples/controller/build/controller",
-    "build-examples-harvester": "./node_modules/.bin/pkg examples/harvester/index.js -t node12-darwin-x64,node12-windows-x64 --output examples/harvester/build/harvester",
     "protoc": "npm run protoc-ldk && npm run protoc-broker && npm run protoc-fixes",
-    "protoc-broker": "grpc_tools_node_protoc -I ../ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` ../broker.proto",
+    "protoc-broker": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/broker.proto",
     "protoc-fixes": "node scripts/protoFixes.js",
-    "protoc-ldk": "grpc_tools_node_protoc -I ../ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` ../ldk.proto",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "protoc-ldk": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/ldk.proto"
   },
   "devDependencies": {
     "eslint": "latest",

@@ -1,14 +1,14 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
-const HarvesterGrpcHostClient = require('./harvesterGrpcHostClient');
+const SensorGrpcHostClient = require('./sensorGrpcHostClient');
 
-const categories = ['Unknown', 'Intelligence', 'Controller', 'Harvester', 'Sidekick'];
+const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
 
-class HarvesterGRPCServer {
+class SensorGRPCServer {
   constructor(server, impl, broker) {
     this.broker = broker;
-    server.addService(services.HarvesterService, {
+    server.addService(services.SensorService, {
       start: this.start(impl),
       stop: this.stop(impl),
       config: this.config(impl),
@@ -24,7 +24,7 @@ class HarvesterGRPCServer {
 
       const connInfo = await this.broker.getConnInfo();
 
-      const hostClient = new HarvesterGrpcHostClient();
+      const hostClient = new SensorGrpcHostClient();
       await hostClient.connect(connInfo).catch((err) => {
         throw err;
       });
@@ -98,4 +98,4 @@ class HarvesterGRPCServer {
   }
 }
 
-module.exports = HarvesterGRPCServer;
+module.exports = SensorGRPCServer;

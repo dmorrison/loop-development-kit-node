@@ -156,9 +156,9 @@ var ControllerHostService = exports.ControllerHostService = {
 };
 
 exports.ControllerHostClient = grpc.makeGenericClientConstructor(ControllerHostService);
-var HarvesterService = exports.HarvesterService = {
+var SensorService = exports.SensorService = {
   config: {
-    path: '/proto.Harvester/Config',
+    path: '/proto.Sensor/Config',
     requestStream: false,
     responseStream: false,
     requestType: ldk_pb.Empty,
@@ -169,7 +169,7 @@ var HarvesterService = exports.HarvesterService = {
     responseDeserialize: deserialize_proto_ConfigResponse,
   },
   setConfig: {
-    path: '/proto.Harvester/SetConfig',
+    path: '/proto.Sensor/SetConfig',
     requestStream: false,
     responseStream: false,
     requestType: ldk_pb.SetConfigRequest,
@@ -180,7 +180,7 @@ var HarvesterService = exports.HarvesterService = {
     responseDeserialize: deserialize_proto_Empty,
   },
   start: {
-    path: '/proto.Harvester/Start',
+    path: '/proto.Sensor/Start',
     requestStream: false,
     responseStream: false,
     requestType: ldk_pb.StartRequest,
@@ -191,7 +191,7 @@ var HarvesterService = exports.HarvesterService = {
     responseDeserialize: deserialize_proto_Empty,
   },
   stop: {
-    path: '/proto.Harvester/Stop',
+    path: '/proto.Sensor/Stop',
     requestStream: false,
     responseStream: false,
     requestType: ldk_pb.Empty,
@@ -202,7 +202,7 @@ var HarvesterService = exports.HarvesterService = {
     responseDeserialize: deserialize_proto_Empty,
   },
   onEvent: {
-    path: '/proto.Harvester/OnEvent',
+    path: '/proto.Sensor/OnEvent',
     requestStream: false,
     responseStream: false,
     requestType: ldk_pb.OnEventRequest,
@@ -214,10 +214,10 @@ var HarvesterService = exports.HarvesterService = {
   },
 };
 
-exports.HarvesterClient = grpc.makeGenericClientConstructor(HarvesterService);
-var HarvesterHostService = exports.HarvesterHostService = {
+exports.SensorClient = grpc.makeGenericClientConstructor(SensorService);
+var SensorHostService = exports.SensorHostService = {
   emitEvent: {
-    path: '/proto.HarvesterHost/EmitEvent',
+    path: '/proto.SensorHost/EmitEvent',
     requestStream: false,
     responseStream: false,
     requestType: ldk_pb.EmitEventRequest,
@@ -229,6 +229,6 @@ var HarvesterHostService = exports.HarvesterHostService = {
   },
 };
 
-exports.HarvesterHostClient = grpc.makeGenericClientConstructor(HarvesterHostService);
+exports.SensorHostClient = grpc.makeGenericClientConstructor(SensorHostService);
 
 exports.grpc = grpc;
