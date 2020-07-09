@@ -36,7 +36,7 @@ class SensorGrpcHostClient {
 
       Object.entries(event.data)
         .forEach(([key, value]) => {
-          request.getDataMap().set(key, value);
+          request.getDataMap().set(key, JSON.stringify(value));
         });
 
       this.client.emitEvent(request, (err, response) => {

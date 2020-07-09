@@ -52,7 +52,7 @@ class ControllerGRPCServer {
 
       Object.entries(configData)
         .forEach(([key, value]) => {
-          response.getConfigMap().set(key, value);
+          response.getConfigMap().set(key, JSON.stringify(value));
         });
 
       callback(null, response);
