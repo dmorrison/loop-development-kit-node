@@ -7,7 +7,7 @@ Plugins developed with this library are executed by Sidekick as separate process
 Communication between Sidekick and the plugin is first initialized over stdio and then performed using [GRPC](https://grpc.io/). On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.  
 >NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.
 
-In order for Sidekick to use a plugin, it must be compiled. Sidekick does not compile or interpret source code at runtime. A consequence of this is that plugins will need to be compiled for each operating system that they want to support. We reccomend using [PKG](https://www.npmjs.com/package/pkg) to compile NodeJS plugins into an executable.
+In order for Sidekick to use a plugin, it must be compiled. Sidekick does not compile or interpret source code at runtime. A consequence of this is that plugins will need to be compiled for each operating system that they want to support. We recommend using [PKG](https://www.npmjs.com/package/pkg) to compile NodeJS plugins into an executable.
 
 ## Installation
 
@@ -40,7 +40,7 @@ A Sensor is a type of plugin that generates events.  Events can be as simple as 
 
 ### Examples
 These examples are currently private and only viewable by Olive employees.
-* [Basic Sensor Example](https://bitbucket.org/crosschx/sidekick-sensor-examplenode) - Reccomend using as a starting point for new Sensors.
+* [Basic Sensor Example](https://bitbucket.org/crosschx/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
 * [Filesystem Watch Sensor](https://bitbucket.org/crosschx/sidekick-sensor-watchfolder)
 
 ### Class
@@ -80,7 +80,7 @@ Controllers receive events and use them to generate relevant whispers. Controlle
 
 ### Examples
 These examples are currently private and only viewable by Olive employees.
-* [Basic Controller Example](https://bitbucket.org/crosschx/sidekick-controller-examplenode) - Reccomend using as a starting point for new Controllers.
+* [Basic Controller Example](https://bitbucket.org/crosschx/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 * [Giphy Controller](https://bitbucket.org/crosschx/sidekick-controller-giphy)
 
 ### Class
