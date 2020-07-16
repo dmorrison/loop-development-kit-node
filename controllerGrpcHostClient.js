@@ -35,9 +35,15 @@ class ControllerGrpcHostClient {
       const request = new messages.EmitWhisperRequest();
 
       const style = new messages.Style();
-      style.setBackgroundcolor(whisper.style.backgroundColor);
-      style.setPrimarycolor(whisper.style.primaryColor);
-      style.setHighlightcolor(whisper.style.highlightColor);
+      if (whisper.style) {
+        style.setBackgroundcolor(whisper.style.backgroundColor || "#fff");
+        style.setPrimarycolor(whisper.style.primaryColor || "#666");
+        style.setHighlightcolor(whisper.style.highlightColor || "#651fff");
+      } else {
+        style.setBackgroundcolor("#fff");
+        style.setPrimarycolor("#666");
+        style.setHighlightcolor("#651fff");
+      }
 
       const whisperMsg = new messages.Whisper();
       whisperMsg.setMarkdown(whisper.markdown);
