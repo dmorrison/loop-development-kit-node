@@ -81,6 +81,72 @@ function deserialize_proto_StartRequest(buffer_arg) {
   return ldk_pb.StartRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_proto_StorageDeleteRequest(arg) {
+  if (!(arg instanceof ldk_pb.StorageDeleteRequest)) {
+    throw new Error('Expected argument of type proto.StorageDeleteRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageDeleteRequest(buffer_arg) {
+  return ldk_pb.StorageDeleteRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_proto_StorageKeysResponse(arg) {
+  if (!(arg instanceof ldk_pb.StorageKeysResponse)) {
+    throw new Error('Expected argument of type proto.StorageKeysResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageKeysResponse(buffer_arg) {
+  return ldk_pb.StorageKeysResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_proto_StorageReadAllResponse(arg) {
+  if (!(arg instanceof ldk_pb.StorageReadAllResponse)) {
+    throw new Error('Expected argument of type proto.StorageReadAllResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageReadAllResponse(buffer_arg) {
+  return ldk_pb.StorageReadAllResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_proto_StorageReadRequest(arg) {
+  if (!(arg instanceof ldk_pb.StorageReadRequest)) {
+    throw new Error('Expected argument of type proto.StorageReadRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageReadRequest(buffer_arg) {
+  return ldk_pb.StorageReadRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_proto_StorageReadResponse(arg) {
+  if (!(arg instanceof ldk_pb.StorageReadResponse)) {
+    throw new Error('Expected argument of type proto.StorageReadResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageReadResponse(buffer_arg) {
+  return ldk_pb.StorageReadResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_proto_StorageWriteRequest(arg) {
+  if (!(arg instanceof ldk_pb.StorageWriteRequest)) {
+    throw new Error('Expected argument of type proto.StorageWriteRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageWriteRequest(buffer_arg) {
+  return ldk_pb.StorageWriteRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var ControllerService = exports.ControllerService = {
   config: {
@@ -141,21 +207,6 @@ var ControllerService = exports.ControllerService = {
 };
 
 exports.ControllerClient = grpc.makeGenericClientConstructor(ControllerService);
-var ControllerHostService = exports.ControllerHostService = {
-  emitWhisper: {
-    path: '/proto.ControllerHost/EmitWhisper',
-    requestStream: false,
-    responseStream: false,
-    requestType: ldk_pb.EmitWhisperRequest,
-    responseType: ldk_pb.Empty,
-    requestSerialize: serialize_proto_EmitWhisperRequest,
-    requestDeserialize: deserialize_proto_EmitWhisperRequest,
-    responseSerialize: serialize_proto_Empty,
-    responseDeserialize: deserialize_proto_Empty,
-  },
-};
-
-exports.ControllerHostClient = grpc.makeGenericClientConstructor(ControllerHostService);
 var SensorService = exports.SensorService = {
   config: {
     path: '/proto.Sensor/Config',
@@ -215,6 +266,87 @@ var SensorService = exports.SensorService = {
 };
 
 exports.SensorClient = grpc.makeGenericClientConstructor(SensorService);
+var ControllerHostService = exports.ControllerHostService = {
+  emitWhisper: {
+    path: '/proto.ControllerHost/EmitWhisper',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.EmitWhisperRequest,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_EmitWhisperRequest,
+    requestDeserialize: deserialize_proto_EmitWhisperRequest,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+  storageDelete: {
+    path: '/proto.ControllerHost/StorageDelete',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageDeleteRequest,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_StorageDeleteRequest,
+    requestDeserialize: deserialize_proto_StorageDeleteRequest,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+  storageDeleteAll: {
+    path: '/proto.ControllerHost/StorageDeleteAll',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.Empty,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_Empty,
+    requestDeserialize: deserialize_proto_Empty,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+  storageKeys: {
+    path: '/proto.ControllerHost/StorageKeys',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.Empty,
+    responseType: ldk_pb.StorageKeysResponse,
+    requestSerialize: serialize_proto_Empty,
+    requestDeserialize: deserialize_proto_Empty,
+    responseSerialize: serialize_proto_StorageKeysResponse,
+    responseDeserialize: deserialize_proto_StorageKeysResponse,
+  },
+  storageRead: {
+    path: '/proto.ControllerHost/StorageRead',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageReadRequest,
+    responseType: ldk_pb.StorageReadResponse,
+    requestSerialize: serialize_proto_StorageReadRequest,
+    requestDeserialize: deserialize_proto_StorageReadRequest,
+    responseSerialize: serialize_proto_StorageReadResponse,
+    responseDeserialize: deserialize_proto_StorageReadResponse,
+  },
+  storageReadAll: {
+    path: '/proto.ControllerHost/StorageReadAll',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.Empty,
+    responseType: ldk_pb.StorageReadAllResponse,
+    requestSerialize: serialize_proto_Empty,
+    requestDeserialize: deserialize_proto_Empty,
+    responseSerialize: serialize_proto_StorageReadAllResponse,
+    responseDeserialize: deserialize_proto_StorageReadAllResponse,
+  },
+  storageWrite: {
+    path: '/proto.ControllerHost/StorageWrite',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageWriteRequest,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_StorageWriteRequest,
+    requestDeserialize: deserialize_proto_StorageWriteRequest,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+};
+
+exports.ControllerHostClient = grpc.makeGenericClientConstructor(ControllerHostService);
 var SensorHostService = exports.SensorHostService = {
   emitEvent: {
     path: '/proto.SensorHost/EmitEvent',
@@ -224,6 +356,72 @@ var SensorHostService = exports.SensorHostService = {
     responseType: ldk_pb.Empty,
     requestSerialize: serialize_proto_EmitEventRequest,
     requestDeserialize: deserialize_proto_EmitEventRequest,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+  storageDelete: {
+    path: '/proto.SensorHost/StorageDelete',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageDeleteRequest,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_StorageDeleteRequest,
+    requestDeserialize: deserialize_proto_StorageDeleteRequest,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+  storageDeleteAll: {
+    path: '/proto.SensorHost/StorageDeleteAll',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.Empty,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_Empty,
+    requestDeserialize: deserialize_proto_Empty,
+    responseSerialize: serialize_proto_Empty,
+    responseDeserialize: deserialize_proto_Empty,
+  },
+  storageKeys: {
+    path: '/proto.SensorHost/StorageKeys',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.Empty,
+    responseType: ldk_pb.StorageKeysResponse,
+    requestSerialize: serialize_proto_Empty,
+    requestDeserialize: deserialize_proto_Empty,
+    responseSerialize: serialize_proto_StorageKeysResponse,
+    responseDeserialize: deserialize_proto_StorageKeysResponse,
+  },
+  storageRead: {
+    path: '/proto.SensorHost/StorageRead',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageReadRequest,
+    responseType: ldk_pb.StorageReadResponse,
+    requestSerialize: serialize_proto_StorageReadRequest,
+    requestDeserialize: deserialize_proto_StorageReadRequest,
+    responseSerialize: serialize_proto_StorageReadResponse,
+    responseDeserialize: deserialize_proto_StorageReadResponse,
+  },
+  storageReadAll: {
+    path: '/proto.SensorHost/StorageReadAll',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.Empty,
+    responseType: ldk_pb.StorageReadAllResponse,
+    requestSerialize: serialize_proto_Empty,
+    requestDeserialize: deserialize_proto_Empty,
+    responseSerialize: serialize_proto_StorageReadAllResponse,
+    responseDeserialize: deserialize_proto_StorageReadAllResponse,
+  },
+  storageWrite: {
+    path: '/proto.SensorHost/StorageWrite',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageWriteRequest,
+    responseType: ldk_pb.Empty,
+    requestSerialize: serialize_proto_StorageWriteRequest,
+    requestDeserialize: deserialize_proto_StorageWriteRequest,
     responseSerialize: serialize_proto_Empty,
     responseDeserialize: deserialize_proto_Empty,
   },
