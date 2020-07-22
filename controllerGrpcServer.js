@@ -28,7 +28,7 @@ class ControllerGRPCServer {
       await hostClient.connect(connInfo).catch((err) => {
         throw err;
       });
-      impl.start(hostClient);
+      await impl.start(hostClient);
 
       const response = new messages.Empty();
       callback(null, response);
@@ -36,8 +36,8 @@ class ControllerGRPCServer {
   }
 
   stop(impl) {
-    return (call, callback) => {
-      impl.stop();
+    return async (call, callback) => {
+      await impl.stop();
 
       const response = new messages.Empty();
       callback(null, response);
@@ -45,10 +45,10 @@ class ControllerGRPCServer {
   }
 
   config(impl) {
-    return (call, callback) => {
+    return async (call, callback) => {
       const response = new messages.ConfigResponse();
 
-      const configData = impl.config();
+      const configData = await impl.config();
 
       Object.entries(configData)
         .forEach(([key, value]) => {
@@ -60,13 +60,13 @@ class ControllerGRPCServer {
   }
 
   setConfig(impl) {
-    return ({ request }, callback) => {
+    return async ({ request }, callback) => {
       const configData = request.getConfigMap().toObject().reduce((acc, [key, value]) => {
         acc[key] = value;
         return acc;
       }, {});
 
-      impl.setConfig(configData);
+      await impl.setConfig(configData);
 
       const response = new messages.Empty();
       callback(null, response);
@@ -74,7 +74,7 @@ class ControllerGRPCServer {
   }
 
   onEvent(impl) {
-    return ({ request }, callback) => {
+    return async ({ request }, callback) => {
       const event = {
         data: request.getDataMap().toObject().reduce((acc, [key, value]) => {
           acc[key] = value;
@@ -90,7 +90,7 @@ class ControllerGRPCServer {
         },
       };
 
-      impl.onEvent(event);
+      await impl.onEvent(event);
 
       const response = new messages.Empty();
       callback(null, response);
