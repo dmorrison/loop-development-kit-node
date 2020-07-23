@@ -11,8 +11,6 @@ class ControllerGRPCServer {
     server.addService(services.ControllerService, {
       start: this.start(impl),
       stop: this.stop(impl),
-      config: this.config(impl),
-      setConfig: this.setConfig(impl),
       onEvent: this.onEvent(impl),
     });
   }

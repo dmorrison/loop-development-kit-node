@@ -11,8 +11,6 @@ class SensorGRPCServer {
     server.addService(services.SensorService, {
       start: this.start(impl),
       stop: this.stop(impl),
-      config: this.config(impl),
-      setConfig: this.setConfig(impl),
       onEvent: this.onEvent(impl),
     });
   }
