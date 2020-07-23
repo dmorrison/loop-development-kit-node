@@ -11,12 +11,12 @@ class StdioGrpcServer {
 
   streamStdio() {
     return (call) => {
-      const oldStdoutWrite = process.stdout.write;
-      const oldStderrWrite = process.stderr.write;
+      const oldStdoutWrite = process.stdout.write.bind(process.stdout);
+      const oldStderrWrite = process.stderr.write.bind(process.stderr);
 
       process.stdout.write = (val, encoding, cb) => {
         if (val == null) {
-          oldStdoutWrite.call(process.stdout, val, encoding, cb);
+          oldStdoutWrite(process.stdout, val, encoding, cb);
           return;
         }
 
@@ -30,7 +30,7 @@ class StdioGrpcServer {
         } else if (typeof val === 'string') {
           str = val;
         } else {
-          oldStdoutWrite.call(process.stdout, val, encoding, cb);
+          oldStdoutWrite(process.stdout, val, encoding, cb);
           return;
         }
 
@@ -39,12 +39,12 @@ class StdioGrpcServer {
         message.setChannel(StdioData.Channel.STDOUT);
 
         call.write(message);
-        oldStdoutWrite.call(process.stdout, val, encoding, cb);
+        oldStdoutWrite(process.stdout, val, encoding, cb);
       };
 
       process.stderr.write = (val, encoding, cb) => {
         if (val == null) {
-          oldStderrWrite.call(process.stderr, val, encoding, cb);
+          oldStderrWrite(process.stderr, val, encoding, cb);
           return;
         }
 
@@ -58,7 +58,7 @@ class StdioGrpcServer {
         } else if (typeof val === 'string') {
           str = val;
         } else {
-          oldStderrWrite.call(process.stderr, val, encoding, cb);
+          oldStderrWrite(process.stderr, val, encoding, cb);
           return;
         }
 
@@ -67,7 +67,7 @@ class StdioGrpcServer {
         message.setChannel(StdioData.Channel.STDERR);
 
         call.write(message);
-        oldStderrWrite.call(process.stderr, val, encoding, cb);
+        oldStderrWrite(process.stderr, val, encoding, cb);
       };
     };
   }

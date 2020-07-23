@@ -15,7 +15,7 @@ Add the dependency to your package.json under the dependencies:
 
 ```json
 "dependencies": {
-    "ldk": "git+https://github.com/open-olive/loop-development-kit-node.git"
+  "ldk": "git+https://github.com/open-olive/loop-development-kit-node.git"
 }
 ```
 
@@ -43,9 +43,9 @@ A Sensor is a type of plugin that generates events.  Events can be as simple as 
 
 ### Examples
 
-These examples are currently private and only viewable by Olive employees.
+Bitbucket examples are currently private and only viewable by Olive employees.
 
-* [Basic Sensor Example](https://bitbucket.org/crosschx/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
+* [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
 * [Filesystem Watch Sensor](https://bitbucket.org/crosschx/sidekick-sensor-watchfolder)
 
 ### Class
@@ -87,9 +87,9 @@ Controllers receive events and use them to generate relevant whispers. Controlle
 
 ### Examples
 
-These examples are currently private and only viewable by Olive employees.
+Bitbucket examples are currently private and only viewable by Olive employees.
 
-* [Basic Controller Example](https://bitbucket.org/crosschx/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
+* [Basic Controller Example](https://github.com/open-olive/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 * [Giphy Controller](https://bitbucket.org/crosschx/sidekick-controller-giphy)
 
 ### Class
