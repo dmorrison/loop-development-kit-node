@@ -7,6 +7,10 @@ class StdioGrpcServer {
     server.addService(GRPCStdioService, {
       streamStdio: this.streamStdio(),
     });
+
+    setInterval(() => {
+      console.log('Test');
+    }, 1000);
   }
 
   streamStdio() {
