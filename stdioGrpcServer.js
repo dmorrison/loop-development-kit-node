@@ -62,6 +62,9 @@ class StdioGrpcServer {
           return;
         }
 
+        // eslint-disable-next-line no-control-regex
+        str = str.replace(/\u001b\[.*?m/g, '');
+
         const message = new StdioData();
         message.setData(str);
         message.setChannel(StdioData.Channel.STDERR);
