@@ -1,13 +1,15 @@
 const services = require('./proto/ldk_grpc_pb');
 
-const ControllerGRPCServer = require('./controllerGrpcServer');
 const BrokerGrpcServer = require('./brokerGrpcServer');
+const ControllerGrpcServer = require('./controllerGrpcServer');
+const StdioGrpcServer = require('./stdioGrpcServer');
 
 class ControllerPlugin {
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
-    this.controller = new ControllerGRPCServer(this.server, impl, this.broker);
+    this.controller = new ControllerGrpcServer(this.server, impl, this.broker);
+    this.stdio = new StdioGrpcServer(this.server);
   }
 
   serve() {

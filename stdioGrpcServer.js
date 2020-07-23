@@ -1,0 +1,76 @@
+const { TextDecoder } = require('util');
+const { StdioData } = require('./proto/stdio_pb');
+const { GRPCStdioService } = require('./proto/stdio_grpc_pb');
+
+class StdioGrpcServer {
+  constructor(server) {
+    server.addService(GRPCStdioService, {
+      streamStdio: this.streamStdio(),
+    });
+  }
+
+  streamStdio() {
+    return (call) => {
+      const oldStdoutWrite = process.stdout.write;
+      const oldStderrWrite = process.stderr.write;
+
+      process.stdout.write = (val, encoding, cb) => {
+        if (val == null) {
+          oldStdoutWrite.call(process.stdout, val, encoding, cb);
+          return;
+        }
+
+        let str;
+        if (val.constructor.name === 'Uint8Array') {
+          let enc = encoding;
+          if (enc == null || typeof enc !== 'string' || !enc) {
+            enc = 'utf8';
+          }
+          str = new TextDecoder(enc).decode(val);
+        } else if (typeof val === 'string') {
+          str = val;
+        } else {
+          oldStdoutWrite.call(process.stdout, val, encoding, cb);
+          return;
+        }
+
+        const message = new StdioData();
+        message.setData(str);
+        message.setChannel(StdioData.Channel.STDOUT);
+
+        call.write(message);
+        oldStdoutWrite.call(process.stdout, val, encoding, cb);
+      };
+
+      process.stderr.write = (val, encoding, cb) => {
+        if (val == null) {
+          oldStderrWrite.call(process.stderr, val, encoding, cb);
+          return;
+        }
+
+        let str;
+        if (val.constructor.name === 'Uint8Array') {
+          let enc = encoding;
+          if (enc == null || typeof enc !== 'string' || !enc) {
+            enc = 'utf8';
+          }
+          str = new TextDecoder(enc).decode(val);
+        } else if (typeof val === 'string') {
+          str = val;
+        } else {
+          oldStderrWrite.call(process.stderr, val, encoding, cb);
+          return;
+        }
+
+        const message = new StdioData();
+        message.setData(str);
+        message.setChannel(StdioData.Channel.STDERR);
+
+        call.write(message);
+        oldStderrWrite.call(process.stderr, val, encoding, cb);
+      };
+    };
+  }
+}
+
+module.exports = StdioGrpcServer;

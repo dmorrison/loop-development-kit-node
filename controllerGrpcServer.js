@@ -5,7 +5,7 @@ const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 
 const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
 
-class ControllerGRPCServer {
+class ControllerGrpcServer {
   constructor(server, impl, broker) {
     this.broker = broker;
     server.addService(services.ControllerService, {
@@ -98,4 +98,4 @@ class ControllerGRPCServer {
   }
 }
 
-module.exports = ControllerGRPCServer;
+module.exports = ControllerGrpcServer;

@@ -17,11 +17,11 @@
     "eslint": "latest",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
-    "grpc-tools": "1.9.1",
+    "grpc-tools": "latest",
     "pkg": "latest"
   },
   "dependencies": {
-    "@grpc/grpc-js": "1.1.1",
+    "@grpc/grpc-js": "1.1.2",
     "google-protobuf": "3.12.2"
   }
 }
