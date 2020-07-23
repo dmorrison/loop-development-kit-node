@@ -83,6 +83,27 @@ class SensorGrpcHostClient {
     });
   }
 
+  storageHasKey(key) {
+    return new Promise((resolve, reject) => {
+      if (!key) {
+        reject("key is required");
+        return;
+      }
+
+      const request = new messages.StorageHasKeyRequest();
+      request.setKey(key);
+
+      this.client.storageDelete(request, (err, response) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        const hasKey = response.getHaskey();
+        resolve(hasKey);
+      });
+    });
+  }
+
   storageKeys() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
