@@ -107,7 +107,7 @@ class ControllerGrpcHostClient {
       const request = new messages.StorageHasKeyRequest();
       request.setKey(key);
 
-      this.client.storageDelete(request, (err, response) => {
+      this.client.storageHasKey(request, (err, response) => {
         if (err) {
           reject(err);
           return;
