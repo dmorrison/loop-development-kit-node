@@ -1,6 +1,9 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
+const errMissingRequiredKey = new Error('key is required');
+const errMissingRequiredValue = new Error('value is required');
+
 class SensorGrpcHostClient {
   connect(connInfo) {
     return new Promise((resolve, reject) => {
@@ -52,7 +55,7 @@ class SensorGrpcHostClient {
   storageDelete(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
-        reject("key is required");
+        reject(errMissingRequiredKey);
         return;
       }
 
@@ -61,10 +64,9 @@ class SensorGrpcHostClient {
 
       this.client.storageDelete(request, (err) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
-        resolve();
+        return resolve();
       });
     });
   }
@@ -75,10 +77,9 @@ class SensorGrpcHostClient {
 
       this.client.storageDeleteAll(request, (err) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
-        resolve();
+        return resolve();
       });
     });
   }
@@ -86,7 +87,7 @@ class SensorGrpcHostClient {
   storageHasKey(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
-        reject("key is required");
+        reject(errMissingRequiredKey);
         return;
       }
 
@@ -95,11 +96,10 @@ class SensorGrpcHostClient {
 
       this.client.storageHasKey(request, (err, response) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
         const hasKey = response.getHaskey();
-        resolve(hasKey);
+        return resolve(hasKey);
       });
     });
   }
@@ -110,28 +110,30 @@ class SensorGrpcHostClient {
 
       this.client.storageKeys(request, (err, response) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
         const keys = response.getKeysList();
-        resolve(keys);
+        return resolve(keys);
       });
     });
   }
 
   storageRead(key) {
     return new Promise((resolve, reject) => {
-      const request = new messages.StorageReadRequest();
+      if (!key) {
+        reject(errMissingRequiredKey);
+        return;
+      }
 
+      const request = new messages.StorageReadRequest();
       request.setKey(key);
 
       this.client.storageRead(request, (err, response) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
         const value = response.getValue();
-        resolve(value);
+        return resolve(value);
       });
     });
   }
@@ -142,32 +144,38 @@ class SensorGrpcHostClient {
 
       this.client.storageReadAll(request, (err, response) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
-        const entries = request.getEntriesMap().toObject().reduce((acc, [key, value]) => {
+        const entries = response.getEntriesMap().toObject().reduce((acc, [key, value]) => {
           acc[key] = value;
           return acc;
         }, {});
 
-        resolve(entries);
+        return resolve(entries);
       });
     });
   }
 
   storageWrite(key, value) {
     return new Promise((resolve, reject) => {
-      const request = new messages.StorageWriteRequest();
+      if (!key) {
+        reject(errMissingRequiredKey);
+        return;
+      }
+      if (!value) {
+        reject(errMissingRequiredValue);
+        return;
+      }
 
+      const request = new messages.StorageWriteRequest();
       request.setKey(key);
       request.setValue(value);
 
       this.client.storageWrite(request, (err) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
-        resolve();
+        return resolve();
       });
     });
   }
