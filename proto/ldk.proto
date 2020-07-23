@@ -61,6 +61,14 @@ message StorageDeleteRequest {
     string key = 1;
 }
 
+message StorageHasKeyRequest {
+    string key = 1;
+}
+
+message StorageHasKeyResponse {
+    bool hasKey = 1;
+}
+
 message StorageKeysResponse {
     repeated string keys = 1;
 }
@@ -102,6 +110,7 @@ service ControllerHost {
     rpc EmitWhisper(EmitWhisperRequest) returns (Empty);
     rpc StorageDelete(StorageDeleteRequest) returns (Empty);
     rpc StorageDeleteAll(Empty) returns (Empty);
+	rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
 	rpc StorageKeys(Empty) returns (StorageKeysResponse);
 	rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
 	rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
@@ -112,6 +121,7 @@ service SensorHost {
     rpc EmitEvent(EmitEventRequest) returns (Empty);
     rpc StorageDelete(StorageDeleteRequest) returns (Empty);
     rpc StorageDeleteAll(Empty) returns (Empty);
+	rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
 	rpc StorageKeys(Empty) returns (StorageKeysResponse);
 	rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
 	rpc StorageReadAll(Empty) returns (StorageReadAllResponse);

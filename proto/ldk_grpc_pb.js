@@ -92,6 +92,28 @@ function deserialize_proto_StorageDeleteRequest(buffer_arg) {
   return ldk_pb.StorageDeleteRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_proto_StorageHasKeyRequest(arg) {
+  if (!(arg instanceof ldk_pb.StorageHasKeyRequest)) {
+    throw new Error('Expected argument of type proto.StorageHasKeyRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageHasKeyRequest(buffer_arg) {
+  return ldk_pb.StorageHasKeyRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_proto_StorageHasKeyResponse(arg) {
+  if (!(arg instanceof ldk_pb.StorageHasKeyResponse)) {
+    throw new Error('Expected argument of type proto.StorageHasKeyResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_StorageHasKeyResponse(buffer_arg) {
+  return ldk_pb.StorageHasKeyResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_proto_StorageKeysResponse(arg) {
   if (!(arg instanceof ldk_pb.StorageKeysResponse)) {
     throw new Error('Expected argument of type proto.StorageKeysResponse');
@@ -300,6 +322,17 @@ var ControllerHostService = exports.ControllerHostService = {
     responseSerialize: serialize_proto_Empty,
     responseDeserialize: deserialize_proto_Empty,
   },
+  storageHasKey: {
+    path: '/proto.ControllerHost/StorageHasKey',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageHasKeyRequest,
+    responseType: ldk_pb.StorageHasKeyResponse,
+    requestSerialize: serialize_proto_StorageHasKeyRequest,
+    requestDeserialize: deserialize_proto_StorageHasKeyRequest,
+    responseSerialize: serialize_proto_StorageHasKeyResponse,
+    responseDeserialize: deserialize_proto_StorageHasKeyResponse,
+  },
   storageKeys: {
     path: '/proto.ControllerHost/StorageKeys',
     requestStream: false,
@@ -380,6 +413,17 @@ var SensorHostService = exports.SensorHostService = {
     requestDeserialize: deserialize_proto_Empty,
     responseSerialize: serialize_proto_Empty,
     responseDeserialize: deserialize_proto_Empty,
+  },
+  storageHasKey: {
+    path: '/proto.SensorHost/StorageHasKey',
+    requestStream: false,
+    responseStream: false,
+    requestType: ldk_pb.StorageHasKeyRequest,
+    responseType: ldk_pb.StorageHasKeyResponse,
+    requestSerialize: serialize_proto_StorageHasKeyRequest,
+    requestDeserialize: deserialize_proto_StorageHasKeyRequest,
+    responseSerialize: serialize_proto_StorageHasKeyResponse,
+    responseDeserialize: deserialize_proto_StorageHasKeyResponse,
   },
   storageKeys: {
     path: '/proto.SensorHost/StorageKeys',
