@@ -44,35 +44,6 @@ class SensorGRPCServer {
     };
   }
 
-  config(impl) {
-    return async (call, callback) => {
-      const response = new messages.ConfigResponse();
-
-      const configData = await impl.config();
-
-      Object.entries(configData)
-        .forEach(([key, value]) => {
-          response.getConfigMap().set(key, JSON.stringify(value));
-        });
-
-      callback(null, response);
-    };
-  }
-
-  setConfig(impl) {
-    return async ({ request }, callback) => {
-      const configData = request.getConfigMap().toObject().reduce((acc, [key, value]) => {
-        acc[key] = value;
-        return acc;
-      }, {});
-
-      await impl.setConfig(configData);
-
-      const response = new messages.Empty();
-      callback(null, response);
-    };
-  }
-
   onEvent(impl) {
     return async ({ request }, callback) => {
       const event = {

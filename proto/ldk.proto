@@ -32,14 +32,6 @@ message Whisper {
     Style style = 4;
 }
 
-message ConfigResponse {
-    map<string, string> config = 1;
-}
-
-message SetConfigRequest {
-    map<string, string> config = 1;
-}
-
 message StartRequest {
     uint32 host = 1;
 }
@@ -91,16 +83,12 @@ message StorageWriteRequest {
 }
 
 service Controller {
-    rpc Config(Empty) returns (ConfigResponse);
-    rpc SetConfig(SetConfigRequest) returns (Empty);
     rpc Start(StartRequest) returns (Empty);
     rpc Stop(Empty) returns (Empty);
     rpc OnEvent(OnEventRequest) returns (Empty);
 }
 
 service Sensor {
-    rpc Config(Empty) returns (ConfigResponse);
-    rpc SetConfig(SetConfigRequest) returns (Empty);
     rpc Start(StartRequest) returns (Empty);
     rpc Stop(Empty) returns (Empty);
     rpc OnEvent(OnEventRequest) returns (Empty);

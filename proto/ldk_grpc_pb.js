@@ -4,17 +4,6 @@
 var grpc = require('@grpc/grpc-js');
 var ldk_pb = require('./ldk_pb.js');
 
-function serialize_proto_ConfigResponse(arg) {
-  if (!(arg instanceof ldk_pb.ConfigResponse)) {
-    throw new Error('Expected argument of type proto.ConfigResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_proto_ConfigResponse(buffer_arg) {
-  return ldk_pb.ConfigResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_proto_EmitEventRequest(arg) {
   if (!(arg instanceof ldk_pb.EmitEventRequest)) {
     throw new Error('Expected argument of type proto.EmitEventRequest');
@@ -57,17 +46,6 @@ function serialize_proto_OnEventRequest(arg) {
 
 function deserialize_proto_OnEventRequest(buffer_arg) {
   return ldk_pb.OnEventRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_proto_SetConfigRequest(arg) {
-  if (!(arg instanceof ldk_pb.SetConfigRequest)) {
-    throw new Error('Expected argument of type proto.SetConfigRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_proto_SetConfigRequest(buffer_arg) {
-  return ldk_pb.SetConfigRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_proto_StartRequest(arg) {
@@ -171,28 +149,6 @@ function deserialize_proto_StorageWriteRequest(buffer_arg) {
 
 
 var ControllerService = exports.ControllerService = {
-  config: {
-    path: '/proto.Controller/Config',
-    requestStream: false,
-    responseStream: false,
-    requestType: ldk_pb.Empty,
-    responseType: ldk_pb.ConfigResponse,
-    requestSerialize: serialize_proto_Empty,
-    requestDeserialize: deserialize_proto_Empty,
-    responseSerialize: serialize_proto_ConfigResponse,
-    responseDeserialize: deserialize_proto_ConfigResponse,
-  },
-  setConfig: {
-    path: '/proto.Controller/SetConfig',
-    requestStream: false,
-    responseStream: false,
-    requestType: ldk_pb.SetConfigRequest,
-    responseType: ldk_pb.Empty,
-    requestSerialize: serialize_proto_SetConfigRequest,
-    requestDeserialize: deserialize_proto_SetConfigRequest,
-    responseSerialize: serialize_proto_Empty,
-    responseDeserialize: deserialize_proto_Empty,
-  },
   start: {
     path: '/proto.Controller/Start',
     requestStream: false,
@@ -230,28 +186,6 @@ var ControllerService = exports.ControllerService = {
 
 exports.ControllerClient = grpc.makeGenericClientConstructor(ControllerService);
 var SensorService = exports.SensorService = {
-  config: {
-    path: '/proto.Sensor/Config',
-    requestStream: false,
-    responseStream: false,
-    requestType: ldk_pb.Empty,
-    responseType: ldk_pb.ConfigResponse,
-    requestSerialize: serialize_proto_Empty,
-    requestDeserialize: deserialize_proto_Empty,
-    responseSerialize: serialize_proto_ConfigResponse,
-    responseDeserialize: deserialize_proto_ConfigResponse,
-  },
-  setConfig: {
-    path: '/proto.Sensor/SetConfig',
-    requestStream: false,
-    responseStream: false,
-    requestType: ldk_pb.SetConfigRequest,
-    responseType: ldk_pb.Empty,
-    requestSerialize: serialize_proto_SetConfigRequest,
-    requestDeserialize: deserialize_proto_SetConfigRequest,
-    responseSerialize: serialize_proto_Empty,
-    responseDeserialize: deserialize_proto_Empty,
-  },
   start: {
     path: '/proto.Sensor/Start',
     requestStream: false,
