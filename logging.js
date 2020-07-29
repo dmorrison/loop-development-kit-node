@@ -6,7 +6,6 @@ const logLevels = {
   INFO: 'INFO',
   WARN: 'WARN',
   ERROR: 'ERROR',
-  FATAL: 'FATAL',
 };
 
 const LogContext = class {
@@ -77,10 +76,6 @@ const Logger = class {
 
   error() {
     return new LogContext(logLevels.ERROR, this.name);
-  }
-
-  fatal() {
-    return new LogContext(logLevels.FATAL, this.name);
   }
 };
 
