@@ -19,7 +19,7 @@ const prepareLogging = () => {
   };
 
   console.log = (msg, ...args) => {
-    consoleLog(`[DEBUG] ${msg}`, ...args);
+    consoleLog(`[INFO] ${msg}`, ...args);
   };
 
   console.trace = (msg, ...args) => {
