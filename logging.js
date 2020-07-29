@@ -1,53 +1,33 @@
 const prepareLogging = () => {
   const consoleDebug = console.debug.bind(console);
-  const consoleDir = console.dir.bind(console);
   const consoleError = console.error.bind(console);
   const consoleInfo = console.info.bind(console);
   const consoleLog = console.log.bind(console);
-  const consoleTime = console.time.bind(console);
-  const consoleTimeEnd = console.timeEnd.bind(console);
-  const consoleTimeLog = console.timeEnd.bind(console);
   const consoleTrace = console.trace.bind(console);
   const consoleWarn = console.warn.bind(console);
 
-  console.debug = (...args) => {
-    consoleDebug('[DEBUG]', ...args);
+  console.debug = (msg, ...args) => {
+    consoleDebug(`[DEBUG] ${msg}`, ...args);
   };
 
-  console.dir = (...args) => {
-    consoleDir('[DEBUG]', ...args);
+  console.error = (msg, ...args) => {
+    consoleError(`[ERROR] ${msg}`, ...args);
   };
 
-  console.error = (...args) => {
-    consoleError('[ERROR]', ...args);
+  console.info = (msg, ...args) => {
+    consoleInfo(`[INFO] ${msg}`, ...args);
   };
 
-  console.info = (...args) => {
-    consoleInfo('[INFO]', ...args);
+  console.log = (msg, ...args) => {
+    consoleLog(`[DEBUG] ${msg}`, ...args);
   };
 
-  console.log = (...args) => {
-    consoleLog('[DEBUG]', ...args);
+  console.trace = (msg, ...args) => {
+    consoleTrace(`[TRACE] ${msg}`, ...args);
   };
 
-  console.time = (...args) => {
-    consoleTime('[DEBUG]', ...args);
-  };
-
-  console.timeEnd = (...args) => {
-    consoleTimeEnd('[DEBUG]', ...args);
-  };
-
-  console.timeLog = (...args) => {
-    consoleTimeLog('[DEBUG]', ...args);
-  };
-
-  console.trace = (...args) => {
-    consoleTrace('[TRACE]', ...args);
-  };
-
-  console.warn = (...args) => {
-    consoleWarn('[WARN]', ...args);
+  console.warn = (msg, ...args) => {
+    consoleWarn(`[WARN] ${msg}`, ...args);
   };
 
   process.stdout.write = (...args) => {
