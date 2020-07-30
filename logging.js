@@ -28,24 +28,34 @@ const LogContext = class {
     return this;
   }
 
+  withObj(obj) {
+    this.fields = {
+      ...this.fields,
+      ...obj,
+    };
+    return this;
+  }
+
   msg(str) {
     const json = {
       ...this.fields,
-      time: new Date().toISOString(),
-      pid,
-      pluginName: this.name,
-      message: str,
+      '@timestamp': new Date().toISOString(),
+      '@pid': pid,
+      '@level': this.level,
+      '@module': this.name,
+      '@message': str,
     };
 
     const stringifyOrder = [
-      'time',
-      'pid',
-      'pluginName',
+      '@timestamp',
+      '@pid',
+      '@level',
+      '@module',
+      '@message',
       ...Object.keys(this.fields).sort(),
-      'message',
     ];
 
-    process.stdout.write(`[${this.level}] ${JSON.stringify(json, stringifyOrder)}`);
+    process.stdout.write(JSON.stringify(json, stringifyOrder));
   }
 };
 
