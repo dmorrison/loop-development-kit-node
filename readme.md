@@ -121,7 +121,7 @@ class Controller {
 1. Sidekick executes plugin process
 1. Sidekick calls `Start`, sending the host connection information to the plugin. This connection information is used to create the `ControllerHost`. The `ControllerHost` interface allows the plugin to emit whispers.
 1. On Controller wanting to emit a whisper, the Controller calls the `EmitWhisper` method on the host interface.
-1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controllelr. These events can be ignore or used at the Controllers's choice.
+1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controller. These events can be ignored or used at the Controller's choice.
 1. On User disabling the Controller, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to the process.
 
