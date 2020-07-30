@@ -37,18 +37,18 @@ npm i
 
 **Whisper** - A notification emitted by controllers and displayed in the Sidekick sidebar.
 
-## Sensor
+## Sensors
 
 A Sensor is a type of plugin that generates events.  Events can be as simple as a chunk of text but allow for complicated information. Sensors do not choose which controllers get their events. They are simply emitting the events. The decision about which events to use is left to the controller.
 
-### Examples
+### Sensor Examples
 
 Bitbucket examples are currently private and only viewable by Olive employees.
 
 * [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
 * [Filesystem Watch Sensor](https://bitbucket.org/crosschx/sidekick-sensor-watchfolder)
 
-### Class
+### Sensor Class
 
 Writing a Sensor plugin boils down to writing a class with the following methods.
 
@@ -81,18 +81,18 @@ class Sensor {
 1. On User disabling the Sensor, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to the process.
 
-## Controller
+## Controllers
 
 Controllers receive events and use them to generate relevant whispers. Controllers choose which events they want to use and which they want to ignore.
 
-### Examples
+### Controller Examples
 
 Bitbucket examples are currently private and only viewable by Olive employees.
 
 * [Basic Controller Example](https://github.com/open-olive/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 * [Giphy Controller](https://bitbucket.org/crosschx/sidekick-controller-giphy)
 
-### Class
+### Controller Class
 
 Writing a Controller plugin boils down to writing a class with the following methods.
 
@@ -124,3 +124,20 @@ class Controller {
 1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controllelr. These events can be ignore or used at the Controllers's choice.
 1. On User disabling the Controller, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to the process.
+
+## Logging
+
+To make it easier to integrate with Sidekick's logger, a `Logger` class is provided to you in this library.
+
+Example usage:
+
+```javascript
+const { Logger } = require('ldk');
+
+const logger = new Logger('my-plugin-name');
+
+...
+
+logger.info().with("someKey", someValue).with("anotherKey", anotherValue).msg("Some message");
+// [INFO] {"time":"2020-07-30T14:58:21.057Z","pid":1234,"pluginName":"my-plugin-name","anotherKey":"fdsa","someKey":234,"message":"Some message"}
+```
