@@ -8,42 +8,74 @@ const logLevels = {
   ERROR: 'ERROR',
 };
 
-const LogContext = class {
-  constructor(level, name) {
-    if (!Object.values(logLevels).includes(level)) {
-      throw new Error(`Invalid logger level: ${level}`);
-    }
-
+const Logger = class {
+  constructor(name, fields = {}) {
     if (!name) {
       throw new Error('Invalid logger name');
     }
 
-    this.level = level;
     this.name = name;
-    this.fields = {};
+    this.fields = fields || {};
   }
 
-  with(key, value) {
-    this.fields[key] = value;
-    return this;
-  }
+  with(...args) {
+    if (args.length % 2 !== 0) {
+      throw new Error(`Invalid number of args: ${args.length} (must be even)`);
+    }
 
-  withObj(obj) {
-    this.fields = {
+    const fields = {
       ...this.fields,
-      ...obj,
+      ...this._kvArgsToObj(args),
     };
-    return this;
+    return new Logger(this.name, fields);
   }
 
-  msg(str) {
-    const json = {
+  trace(msg, ...args) {
+    this._write(logLevels.TRACE, msg, ...args);
+  }
+
+  debug(msg, ...args) {
+    this._write(logLevels.DEBUG, msg, ...args);
+  }
+
+  info(msg, ...args) {
+    this._write(logLevels.INFO, msg, ...args);
+  }
+
+  warn(msg, ...args) {
+    this._write(logLevels.WARN, msg, ...args);
+  }
+
+  error(msg, ...args) {
+    this._write(logLevels.ERROR, msg, ...args);
+  }
+
+  _write(lvl, msg, ...args) {
+    let level = lvl;
+    if (!level) {
+      level = logLevels.DEBUG;
+    }
+
+    if (!Object.values(logLevels).includes(level)) {
+      throw new Error(`Invalid log level: ${level}`);
+    }
+
+    if (args.length % 2 !== 0) {
+      throw new Error(`Invalid number of args: ${args.length} (must be even)`);
+    }
+
+    const fields = {
       ...this.fields,
+      ...this._kvArgsToObj(args),
+    };
+
+    const json = {
+      ...fields,
       '@timestamp': new Date().toISOString(),
       '@pid': pid,
-      '@level': this.level,
+      '@level': level,
       '@module': this.name,
-      '@message': str,
+      '@message': msg,
     };
 
     const stringifyOrder = [
@@ -52,40 +84,20 @@ const LogContext = class {
       '@level',
       '@module',
       '@message',
-      ...Object.keys(this.fields).sort(),
+      ...Object.keys(fields).sort(),
     ];
 
     process.stdout.write(JSON.stringify(json, stringifyOrder));
   }
-};
 
-const Logger = class {
-  constructor(name) {
-    if (!name) {
-      throw new Error('Invalid logger name');
-    }
-
-    this.name = name;
-  }
-
-  trace() {
-    return new LogContext(logLevels.TRACE, this.name);
-  }
-
-  debug() {
-    return new LogContext(logLevels.DEBUG, this.name);
-  }
-
-  info() {
-    return new LogContext(logLevels.INFO, this.name);
-  }
-
-  warn() {
-    return new LogContext(logLevels.WARN, this.name);
-  }
-
-  error() {
-    return new LogContext(logLevels.ERROR, this.name);
+  _kvArgsToObj(args) {
+    return args.reduce((acc, cur, idx, array) => {
+      if (idx % 2 === 0) {
+        const next = array[idx + 1];
+        acc[cur] = next;
+      }
+      return acc;
+    }, {});
   }
 };
 
