@@ -138,6 +138,13 @@ const logger = new Logger('my-plugin-name');
 
 ...
 
-logger.info().with("someKey", someValue).with("anotherKey", anotherValue).withObj({objKey: objValue}).msg("Some message");
-// {"@timestamp":"2020-07-30T14:58:21.057Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Some message","anotherKey":"fdsa","objKey":"objValue","someKey":234}
+logger.info('Some message');
+// {"@timestamp":"2020-07-30T14:58:21.057Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Some message"}
+
+logger.info('Another message', 'someKey', 'someValue', 'anotherKey', 'anotherValue');
+// {"@timestamp":"2020-07-30T14:58:21.057Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Another message","anotherKey":"anotherValue","someKey":"someValue"}
+
+const logger2 = logger.with('persistentKey', 'persistentValue');
+logger2.info('Yet another message', 'yetAnotherKey', 'yetAnotherValue');
+// {"@timestamp":"2020-07-30T14:58:21.057Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Yet another message","persistentKey":"persistentValue","yetAnotherKey":"yetAnotherValue"}
 ```
