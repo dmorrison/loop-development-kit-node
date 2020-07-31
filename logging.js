@@ -87,7 +87,7 @@ const Logger = class {
       ...Object.keys(fields).sort(),
     ];
 
-    process.stdout.write(JSON.stringify(json, stringifyOrder));
+    process.stdout.write(`${JSON.stringify(json, stringifyOrder)}\n`);
   }
 
   _kvArgsToObj(args) {
