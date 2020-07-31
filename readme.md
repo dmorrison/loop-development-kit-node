@@ -102,3 +102,59 @@ class Controller {
 1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controllelr. These events can be ignore or used at the Controllers's choice.
 1. On User disabling the Controller, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to thse process.
+
+## Persistent Storage
+The host object provided to the plugin through `Start` provides the plugin with methods it can use for storing information.
+
+### Persistent Storage - Applications
+* Storing credentials provided by the user.
+* Keeping track of data across restarts.
+
+### Persistent Storage - Documentation
+In order for a plugin to use storage, the plugin must first provide Sidekick with documentation. This is accomplished by including a new file `storage.json` with your plugin. The following is example documentation for a single entry.
+```
+{
+ "period": {
+        "name": "Period",
+        "description": "The time the sensor waits between sending example events"
+    }
+}
+```
+
+*NOTE* If the plugin attempts to access a key that is not documented, the request will be rejected. 
+
+### Persistent Storage - Methods
+A method for removing the value of a key.
+```
+storageDelete(key) => Promise
+```
+
+A method for removing the values of all documented keys.
+```
+storageDeleteAll() => Promise
+```
+
+A method for checking if a value has been set for a key.
+```
+storageHasKey(key) => Promise
+```
+
+A method for listing all documented keys.
+```
+storageKeys() => Promise
+```
+
+A method for getting the value of a key.
+```
+storageRead(key) => Promise
+```
+
+A method for getting the values of all documented keys.
+```
+storageReadAll() => Promise
+```
+
+A method for setting the value of a key.
+```
+storageWrite(key, value) => Promise
+```
