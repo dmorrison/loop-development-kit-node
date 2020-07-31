@@ -50,15 +50,9 @@ Writing a Sensor plugin boils down to writing a class with the following methods
 class Sensor {
 	start(host, metadata) {}
 	stop() {}
-	config() {
-	setConfig(config) {
 	onEvent() {
 }
 ```
-
-**Config** - The Sensor should return any configuration used by the plugin.
-
-**SetConfig** - The Sensor should update the plugin configuration with the given values.
 
 **Start** - The Sensor should wait to start operating until this is called. The provided `SensorHost` should be stored in memory for continued use.
 
@@ -90,15 +84,9 @@ Writing a Controller plugin boils down to writing a class with the following met
 class Controller {
 	start(host, metadata) {}
 	stop() {}
-	config() {
-	setConfig(config) {
 	onEvent() {
 }
 ```
-
-**Config** - The Controller should return any configuration used by the plugin.
-
-**SetConfig** - The Controller should update the plugin configuration with the given values.
 
 **Start** - The Controller should wait to start operating until this is called. The provided `ControllerHost` should be stored in memory for continued use.
 
