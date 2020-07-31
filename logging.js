@@ -14,8 +14,8 @@ const Logger = class {
       throw new Error('Invalid logger name');
     }
 
-    this.name = name;
-    this.fields = fields || {};
+    this._name = name;
+    this._fields = fields || {};
   }
 
   with(...args) {
@@ -24,10 +24,10 @@ const Logger = class {
     }
 
     const fields = {
-      ...this.fields,
+      ...this._fields,
       ...this._kvArgsToObj(args),
     };
-    return new Logger(this.name, fields);
+    return new Logger(this._name, fields);
   }
 
   trace(msg, ...args) {
@@ -65,7 +65,7 @@ const Logger = class {
     }
 
     const fields = {
-      ...this.fields,
+      ...this._fields,
       ...this._kvArgsToObj(args),
     };
 
@@ -74,7 +74,7 @@ const Logger = class {
       '@timestamp': new Date().toISOString(),
       '@pid': pid,
       '@level': level,
-      '@module': this.name,
+      '@module': this._name,
       '@message': msg,
     };
 
