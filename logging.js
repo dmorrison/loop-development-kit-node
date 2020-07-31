@@ -71,7 +71,7 @@ const Logger = class {
 
     const json = {
       ...fields,
-      '@timestamp': new Date().toISOString(),
+      '@timestamp': this._getTimestamp(),
       '@pid': pid,
       '@level': level,
       '@module': this._name,
@@ -98,6 +98,10 @@ const Logger = class {
       }
       return acc;
     }, {});
+  }
+
+  _getTimestamp() {
+    return new Date().toISOString().replace(/\.(\d+)Z/, (_, p1) => `.${p1.padEnd(6, '0')}Z`);
   }
 };
 
