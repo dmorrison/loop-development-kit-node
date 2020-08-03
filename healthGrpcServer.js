@@ -25,15 +25,9 @@ class HealthGrpcServer {
 
   watch() {
     return (call) => {
-      call.on('data', () => {
-        const msg = new HealthCheckResponse();
-        msg.setStatus(HealthCheckResponse.SERVING);
-        call.write(msg);
-      });
-
-      call.on('end', () => {
-        call.end();
-      });
+      const msg = new HealthCheckResponse();
+      msg.setStatus(HealthCheckResponse.SERVING);
+      call.write(msg);
     };
   }
 }
