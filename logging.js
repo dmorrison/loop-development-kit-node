@@ -84,7 +84,10 @@ const Logger = class {
     process.stdout.write(`${JSON.stringify(json, stringifyOrder)}\n`);
   }
 
-  // _kvArgsWithFields converts a list of alternating
+  // _kvArgsWithFields converts a list of alternating keys/values to an object.
+  // Example:
+  //   input: ['key1', 'value1', 'key2', 'value2', 'value3']
+  //   output: { 'key1': 'value1', 'key2': 'value2', 'EXTRA_VALUE_AT_END': 'value3' }
   _kvArgsWithFields(args = []) {
     const argsEven = args.slice(0);
 
