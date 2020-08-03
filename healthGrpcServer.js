@@ -11,17 +11,29 @@ class HealthGrpcServer {
 
   check() {
     return (call) => {
-      const msg = new HealthCheckResponse();
-      msg.setStatus(HealthCheckResponse.SERVING);
-      call.write(msg);
+      call.on('data', () => {
+        const msg = new HealthCheckResponse();
+        msg.setStatus(HealthCheckResponse.SERVING);
+        call.write(msg);
+      });
+
+      call.on('end', () => {
+        call.end();
+      });
     };
   }
 
   watch() {
     return (call) => {
-      const msg = new HealthCheckResponse();
-      msg.setStatus(HealthCheckResponse.SERVING);
-      call.write(msg);
+      call.on('data', () => {
+        const msg = new HealthCheckResponse();
+        msg.setStatus(HealthCheckResponse.SERVING);
+        call.write(msg);
+      });
+
+      call.on('end', () => {
+        call.end();
+      });
     };
   }
 }
