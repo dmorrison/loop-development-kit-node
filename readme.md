@@ -56,15 +56,9 @@ Writing a Sensor plugin boils down to writing a class with the following methods
 class Sensor {
   start(host, metadata) {}
   stop() {}
-  config() {
-  setConfig(config) {
   onEvent() {
 }
 ```
-
-**Config** - The Sensor should return any configuration used by the plugin.
-
-**SetConfig** - The Sensor should update the plugin configuration with the given values.
 
 **Start** - The Sensor should wait to start operating until this is called. The provided `SensorHost` should be stored in memory for continued use.
 
@@ -85,14 +79,14 @@ class Sensor {
 
 Controllers receive events and use them to generate relevant whispers. Controllers choose which events they want to use and which they want to ignore.
 
-### Examples
+### Controller Examples
 
 Bitbucket examples are currently private and only viewable by Olive employees.
 
 * [Basic Controller Example](https://github.com/open-olive/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 * [Giphy Controller](https://bitbucket.org/crosschx/sidekick-controller-giphy)
 
-### Class
+### Controller Class
 
 Writing a Controller plugin boils down to writing a class with the following methods.
 
@@ -100,15 +94,9 @@ Writing a Controller plugin boils down to writing a class with the following met
 class Controller {
   start(host, metadata) {}
   stop() {}
-  config() {
-  setConfig(config) {
   onEvent() {
 }
 ```
-
-**Config** - The Controller should return any configuration used by the plugin.
-
-**SetConfig** - The Controller should update the plugin configuration with the given values.
 
 **Start** - The Controller should wait to start operating until this is called. The provided `ControllerHost` should be stored in memory for continued use.
 
@@ -121,6 +109,74 @@ class Controller {
 1. Sidekick executes plugin process
 1. Sidekick calls `Start`, sending the host connection information to the plugin. This connection information is used to create the `ControllerHost`. The `ControllerHost` interface allows the plugin to emit whispers.
 1. On Controller wanting to emit a whisper, the Controller calls the `EmitWhisper` method on the host interface.
-1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controllelr. These events can be ignore or used at the Controllers's choice.
+1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controller. These events can be ignored or used at the Controller's choice.
 1. On User disabling the Controller, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to the process.
+
+## Persistent Storage
+
+The host object provided to the plugin through `Start` provides the plugin with methods it can use for storing information.
+
+### Persistent Storage - Applications
+
+* Storing credentials provided by the user.
+* Keeping track of data across restarts.
+
+### Persistent Storage - Documentation
+
+In order for a plugin to use storage, the plugin must first provide Sidekick with documentation. This is accomplished by including a new file `storage.json` with your plugin. The following is example documentation for a single entry.
+
+```json
+{
+ "period": {
+   "name": "Period",
+   "description": "The time the sensor waits between sending example events"
+  }
+}
+```
+
+*NOTE* If the plugin attempts to access a key that is not documented, the request will be rejected.
+
+### Persistent Storage - Methods
+
+A method for removing the value of a key.
+
+```javascript
+storageDelete(key) => Promise
+```
+
+A method for removing the values of all documented keys.
+
+```javascript
+storageDeleteAll() => Promise
+```
+
+A method for checking if a value has been set for a key.
+
+```javascript
+storageHasKey(key) => Promise
+```
+
+A method for listing all documented keys.
+
+```javascript
+storageKeys() => Promise
+```
+
+A method for getting the value of a key.
+
+```javascript
+storageRead(key) => Promise
+```
+
+A method for getting the values of all documented keys.
+
+```javascript
+storageReadAll() => Promise
+```
+
+A method for setting the value of a key.
+
+```javascript
+storageWrite(key, value) => Promise
+```

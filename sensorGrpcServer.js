@@ -11,8 +11,6 @@ class SensorGRPCServer {
     server.addService(services.SensorService, {
       start: this.start(impl),
       stop: this.stop(impl),
-      config: this.config(impl),
-      setConfig: this.setConfig(impl),
       onEvent: this.onEvent(impl),
     });
   }
@@ -28,7 +26,7 @@ class SensorGRPCServer {
       await hostClient.connect(connInfo).catch((err) => {
         throw err;
       });
-      impl.start(hostClient);
+      await impl.start(hostClient);
 
       const response = new messages.Empty();
       callback(null, response);
@@ -36,37 +34,8 @@ class SensorGRPCServer {
   }
 
   stop(impl) {
-    return (call, callback) => {
-      impl.stop();
-
-      const response = new messages.Empty();
-      callback(null, response);
-    };
-  }
-
-  config(impl) {
-    return (call, callback) => {
-      const response = new messages.ConfigResponse();
-
-      const configData = impl.config();
-
-      Object.entries(configData)
-        .forEach(([key, value]) => {
-          response.getConfigMap().set(key, JSON.stringify(value));
-        });
-
-      callback(null, response);
-    };
-  }
-
-  setConfig(impl) {
-    return ({ request }, callback) => {
-      const configData = request.getConfigMap().toObject().reduce((acc, [key, value]) => {
-        acc[key] = value;
-        return acc;
-      }, {});
-
-      impl.setConfig(configData);
+    return async (call, callback) => {
+      await impl.stop();
 
       const response = new messages.Empty();
       callback(null, response);
@@ -74,7 +43,7 @@ class SensorGRPCServer {
   }
 
   onEvent(impl) {
-    return ({ request }, callback) => {
+    return async ({ request }, callback) => {
       const event = {
         data: request.getDataMap().toObject().reduce((acc, [key, value]) => {
           acc[key] = value;
@@ -90,7 +59,7 @@ class SensorGRPCServer {
         },
       };
 
-      impl.onEvent(event);
+      await impl.onEvent(event);
 
       const response = new messages.Empty();
       callback(null, response);

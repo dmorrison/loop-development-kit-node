@@ -32,14 +32,6 @@ message Whisper {
     Style style = 4;
 }
 
-message ConfigResponse {
-    map<string, string> config = 1;
-}
-
-message SetConfigRequest {
-    map<string, string> config = 1;
-}
-
 message StartRequest {
     uint32 host = 1;
 }
@@ -49,34 +41,77 @@ message OnEventRequest {
     Source source = 2;
 }
 
-service Controller {
-    rpc Config(Empty) returns (ConfigResponse);
-    rpc SetConfig(SetConfigRequest) returns (Empty);
-    rpc Start(StartRequest) returns (Empty);
-    rpc Stop(Empty) returns (Empty);
-    rpc OnEvent(OnEventRequest) returns (Empty);
-}
-
 message EmitWhisperRequest {
     Whisper whisper = 1;
-}
-
-service ControllerHost {
-    rpc EmitWhisper(EmitWhisperRequest) returns (Empty);
-}
-
-service Sensor {
-    rpc Config(Empty) returns (ConfigResponse);
-    rpc SetConfig(SetConfigRequest) returns (Empty);
-    rpc Start(StartRequest) returns (Empty);
-    rpc Stop(Empty) returns (Empty);
-    rpc OnEvent(OnEventRequest) returns (Empty);
 }
 
 message EmitEventRequest {
     map<string, string> data = 1;
 }
 
+message StorageDeleteRequest {
+    string key = 1;
+}
+
+message StorageHasKeyRequest {
+    string key = 1;
+}
+
+message StorageHasKeyResponse {
+    bool hasKey = 1;
+}
+
+message StorageKeysResponse {
+    repeated string keys = 1;
+}
+
+message StorageReadRequest {
+    string key = 1;
+}
+
+message StorageReadResponse {
+    string value = 1;
+}
+
+message StorageReadAllResponse {
+    map<string, string> entries = 1;
+}
+
+message StorageWriteRequest {
+    string key = 1;
+    string value = 2;
+}
+
+service Controller {
+    rpc Start(StartRequest) returns (Empty);
+    rpc Stop(Empty) returns (Empty);
+    rpc OnEvent(OnEventRequest) returns (Empty);
+}
+
+service Sensor {
+    rpc Start(StartRequest) returns (Empty);
+    rpc Stop(Empty) returns (Empty);
+    rpc OnEvent(OnEventRequest) returns (Empty);
+}
+
+service ControllerHost {
+    rpc EmitWhisper(EmitWhisperRequest) returns (Empty);
+    rpc StorageDelete(StorageDeleteRequest) returns (Empty);
+    rpc StorageDeleteAll(Empty) returns (Empty);
+	rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
+	rpc StorageKeys(Empty) returns (StorageKeysResponse);
+	rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
+	rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
+	rpc StorageWrite(StorageWriteRequest) returns (Empty);
+}
+
 service SensorHost {
     rpc EmitEvent(EmitEventRequest) returns (Empty);
+    rpc StorageDelete(StorageDeleteRequest) returns (Empty);
+    rpc StorageDeleteAll(Empty) returns (Empty);
+	rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
+	rpc StorageKeys(Empty) returns (StorageKeysResponse);
+	rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
+	rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
+	rpc StorageWrite(StorageWriteRequest) returns (Empty);
 }
