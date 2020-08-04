@@ -30,9 +30,9 @@ npm i
 ### Controllers
 This LDK can be used to write controllers for Sidekick. More detail about controllers is available [here](docs/controller.md).
 
-* [Basic Controller Example](https://bitbucket.org/crosschx/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
+* [Basic Controller Example](https://github.com/open-olive/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 
 ### Sensors
 This LDK can be used to write sensors for Sidekick. More detail about sensors is available [here](docs/sensor.md).
 
-* [Basic Sensor Example](https://bitbucket.org/crosschx/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
+* [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
