@@ -3,14 +3,17 @@ const { prepareLogging } = require('./logging');
 
 const BrokerGrpcServer = require('./brokerGrpcServer');
 const ControllerGrpcServer = require('./controllerGrpcServer');
-const StdioGrpcServer = require('./stdioGrpcServer');
+const {
+  StdioGrpcServer,
+  StdioService,
+} = require('./stdioGrpcServer');
 
 class ControllerPlugin {
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
+    this.server.addService(StdioService, new StdioGrpcServer());
     this.controller = new ControllerGrpcServer(this.server, impl, this.broker);
-    this.stdio = new StdioGrpcServer(this.server);
   }
 
   serve() {

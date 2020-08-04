@@ -56,15 +56,9 @@ Writing a Sensor plugin boils down to writing a class with the following methods
 class Sensor {
   start(host, metadata) {}
   stop() {}
-  config() {
-  setConfig(config) {
   onEvent() {
 }
 ```
-
-**Config** - The Sensor should return any configuration used by the plugin.
-
-**SetConfig** - The Sensor should update the plugin configuration with the given values.
 
 **Start** - The Sensor should wait to start operating until this is called. The provided `SensorHost` should be stored in memory for continued use.
 
@@ -100,15 +94,9 @@ Writing a Controller plugin boils down to writing a class with the following met
 class Controller {
   start(host, metadata) {}
   stop() {}
-  config() {
-  setConfig(config) {
   onEvent() {
 }
 ```
-
-**Config** - The Controller should return any configuration used by the plugin.
-
-**SetConfig** - The Controller should update the plugin configuration with the given values.
 
 **Start** - The Controller should wait to start operating until this is called. The provided `ControllerHost` should be stored in memory for continued use.
 
@@ -152,3 +140,71 @@ logger2.info('Yet another message', 'yetAnotherKey', 'yetAnotherValue');
 The logger is generally modeled off of [hclog](https://github.com/hashicorp/go-hclog).
 
 So the `trace`/`debug`/`info`/`warn`/`error` methods expect a message as the first arg, with key/value pairs for the rest of the args.
+
+## Persistent Storage
+
+The host object provided to the plugin through `Start` provides the plugin with methods it can use for storing information.
+
+### Persistent Storage - Applications
+
+* Storing credentials provided by the user.
+* Keeping track of data across restarts.
+
+### Persistent Storage - Documentation
+
+In order for a plugin to use storage, the plugin must first provide Sidekick with documentation. This is accomplished by including a new file `storage.json` with your plugin. The following is example documentation for a single entry.
+
+```json
+{
+ "period": {
+   "name": "Period",
+   "description": "The time the sensor waits between sending example events"
+  }
+}
+```
+
+*NOTE* If the plugin attempts to access a key that is not documented, the request will be rejected.
+
+### Persistent Storage - Methods
+
+A method for removing the value of a key.
+
+```javascript
+storageDelete(key) => Promise
+```
+
+A method for removing the values of all documented keys.
+
+```javascript
+storageDeleteAll() => Promise
+```
+
+A method for checking if a value has been set for a key.
+
+```javascript
+storageHasKey(key) => Promise
+```
+
+A method for listing all documented keys.
+
+```javascript
+storageKeys() => Promise
+```
+
+A method for getting the value of a key.
+
+```javascript
+storageRead(key) => Promise
+```
+
+A method for getting the values of all documented keys.
+
+```javascript
+storageReadAll() => Promise
+```
+
+A method for setting the value of a key.
+
+```javascript
+storageWrite(key, value) => Promise
+```
