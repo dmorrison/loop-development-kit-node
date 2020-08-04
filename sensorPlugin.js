@@ -1,12 +1,18 @@
 const services = require('./proto/ldk_grpc_pb');
+const { prepareLogging } = require('./logging');
 
-const SensorGRPCServer = require('./sensorGrpcServer');
 const BrokerGrpcServer = require('./brokerGrpcServer');
+const SensorGRPCServer = require('./sensorGrpcServer');
+const {
+  StdioGrpcServer,
+  StdioService,
+} = require('./stdioGrpcServer');
 
 class SensorPlugin {
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
+    this.server.addService(StdioService, new StdioGrpcServer());
     this.sensor = new SensorGRPCServer(this.server, impl, this.broker);
   }
 
@@ -21,6 +27,7 @@ class SensorPlugin {
           }
           this.server.start();
           process.stdout.write(`1|1|tcp|127.0.0.1:${port}|grpc\n`);
+          prepareLogging();
           resolve();
         }
       );
