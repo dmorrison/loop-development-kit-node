@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "doc": "mkdir -p docs && documentation build *.js -f md --shallow > docs/doc.md ",
+    "doc": "mkdir -p docs && jsdoc2md brokerGrpcServer.js > docs/generated.md",
     "lint": "./node_modules/.bin/eslint --fix .",
     "protoc": "npm run protoc-broker && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-fixes",
     "protoc-broker": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/broker.proto",
@@ -16,12 +16,13 @@
     "protoc-stdio": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/stdio.proto"
   },
   "devDependencies": {
-    "documentation": "latest",
     "eslint": "latest",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
     "eslint-plugin-jsdoc": "latest",
     "grpc-tools": "latest",
+    "jsdoc": "latest",
+    "jsdoc-to-markdown": "latest",
     "pkg": "latest"
   },
   "dependencies": {
