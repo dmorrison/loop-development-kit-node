@@ -4,7 +4,55 @@ const services = require('./proto/ldk_grpc_pb');
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
+/**
+ * @typedef connInfo
+ * @type {object}
+ * @property {string} address - The server or socket address.
+ * @property {string} serviceId - An identifier for the service.
+ * @property {string} network - The network type.
+ */
+
+/**
+ * @typedef style
+ * @type {object}
+ * @property {string} backgroundColor - The background color of the whisper card.
+ * @property {string} highlightColor - The color of important text in the whisper card.
+ * @property {string} primaryColor - The color of normal text in the whisper card.
+ */
+
+/**
+ * @typedef event
+ * @type {object}
+ * @property {object} data - The content of the event.
+ * @example
+ * {
+ *   data: {
+ *     text: "this is an example event with just a text field"
+ *   },
+ * }
+ * @example
+ * {
+ *   data: {
+ *     x: 100,
+ *     y: 525,
+ *   },
+ * }
+ * @example
+ * {
+ *   data: {
+ *     process: "chrome.exe",
+ *   },
+ * }
+ */
+
+/** Class used by the sensor implementation to interact with the host process. */
 class SensorGrpcHostClient {
+  /**
+   * Establish a connection to the host process.
+   *
+   * @param {connInfo} connInfo - An object containing host process connection information.
+   * @returns {Promise.<void>} - Promise resolves when the connection is established.
+   */
   connect(connInfo) {
     return new Promise((resolve, reject) => {
       let address;
@@ -33,6 +81,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Send an event to the host process.
+   *
+   * @param {event} event - An object containing host process connection information.
+   * @returns {Promise.<void>}
+   * - Promise resolves after the host confirms having received the whisper.
+   */
   emitEvent(event) {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
@@ -52,6 +107,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Delete a key from storage.
+   *
+   * @param {string} key - The name of the key in storage.
+   * @returns {Promise.<void>}
+   * - Promise resolves after the host confirms the key was deleted.
+   */
   storageDelete(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
@@ -71,6 +133,12 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Delete all keys from storage.
+   *
+   * @returns {Promise.<void>}
+   * - Promise resolves after the host confirms all keys have been deleted.
+   */
   storageDeleteAll() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
@@ -84,6 +152,12 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Check if a key has a value defined in storage.
+   *
+   * @param {string} key - The name of the key in storage.
+   * @returns {Promise.<boolean>} - Promise resolves to true if the key has a defined value.
+   */
   storageHasKey(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
@@ -104,6 +178,11 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Return a list of all keys.
+   *
+   * @returns {Promise.<string[]>} - Promise resolves to an array of keys.
+   */
   storageKeys() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
@@ -118,6 +197,12 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Get the value of a key in storage.
+   *
+   * @param {string} key - The name of the key in storage.
+   * @returns {Promise.<string>} - Promise resolves to the value of the key.
+   */
   storageRead(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
@@ -138,6 +223,11 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Get an object of key value pairs in storage.
+   *
+   * @returns {Promise.<object>} - Promise resolves to an object of key value pairs.
+   */
   storageReadAll() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
@@ -156,6 +246,14 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Get the value of a key in storage.
+   *
+   * @param {string} key - The name of the key in storage.
+   * @param {string} value - The value to assign to the key in storage.
+   * @returns {Promise.<void>}
+   * - Promise resolves after the host confirms the value was written to the key.
+   */
   storageWrite(key, value) {
     return new Promise((resolve, reject) => {
       if (!key) {
