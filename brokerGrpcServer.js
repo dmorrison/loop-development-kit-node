@@ -31,13 +31,13 @@ class BrokerGrpcServer {
   }
 
   /**
-   * This callback is called when connection info is received from the parent process.
+   * This callback is called when connection info is received from the host process.
    *
    * @callback BrokerGrpcServer~connInfoCallback
-   * @param {connInfo} connInfo
+   * @param {connInfo} connInfo - An object containing host process connection information.
    */
   /**
-   * Start a connection info stream from the parent process.
+   * Start a connection info stream from the host process.
    *
    * @param {BrokerGrpcServer~connInfoCallback} connInfoCallback
    * - The callback that handles receiving connection info.
@@ -60,7 +60,7 @@ class BrokerGrpcServer {
   }
 
   /**
-   * Returns a promise which resolves to the connection information for the parent process.
+   * Returns a promise which resolves to the connection information for the host process.
    *
    * @returns {Promise.<connInfo>} - Promise object represents connection information
    */
