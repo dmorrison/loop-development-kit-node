@@ -1,5 +1,3 @@
-/** @module sensorGrpcServer */
-
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
@@ -9,7 +7,11 @@ const BrokerGrpcServer = require('./brokerGrpcServer');
 const SensorGrpcHostClient = require('./sensorGrpcHostClient');
 const Sensor = require('./sensor');
 
-/** Class used by the host process to interact with the sensor implementation. */
+/**
+ * Class used by the host process to interact with the sensor implementation.
+ *
+ * @private
+ */
 class SensorGRPCServer {
   /**
    * Create a SensorGRPCServer.

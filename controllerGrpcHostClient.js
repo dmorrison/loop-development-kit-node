@@ -6,7 +6,9 @@ const services = require('./proto/ldk_grpc_pb');
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
-/** Class used by the controller implementation to interact with the host process. */
+/**
+ * Class used by the controller implementation to interact with the host process.
+ */
 class ControllerGrpcHostClient {
   /**
    * Establish a connection to the host process.

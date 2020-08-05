@@ -1,5 +1,3 @@
-/** @module controllerGrpcServer */
-
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
@@ -10,7 +8,11 @@ const Controller = require('./controller');
 
 const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 
-/** Class used by the host process to interact with the controller implementation. */
+/**
+ * Class used by the host process to interact with the controller implementation.
+ *
+ * @private
+ */
 class ControllerGrpcServer {
   /**
    * Create a ControllerGrpcServer.

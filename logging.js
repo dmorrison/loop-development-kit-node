@@ -19,7 +19,7 @@ const Logger = class {
    * @param {object} fields - Additional fields to include with each log.
    * @example
    * const package = require('./package.json');
-   * const myLogger = new Logger(package.name);
+   * const logger = new Logger(package.name);
    */
   constructor(name, fields = {}) {
     if (!name) {
@@ -35,6 +35,18 @@ const Logger = class {
    *
    * @param {...any} args - A list of alternating keys/values.
    * @returns {Logger} - A new logger with the provided fields.
+   * @example
+   * const logger2 = logger.with('persistentKey', 'persistentValue');
+   * logger2.info('Yet another message', 'yetAnotherKey', 'yetAnotherValue');
+   * // {
+   * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
+   * //   "@pid": 1234,
+   * //   "@level": "INFO",
+   * //   "@module": "my-plugin-name",
+   * //   "@message": "Yet another message",
+   * //   "persistentKey": "persistentValue",
+   * //   "yetAnotherKey": "yetAnotherValue"
+   * // }
    */
   with(...args) {
     const fields = this._kvArgsWithFields(args);
@@ -47,6 +59,15 @@ const Logger = class {
    * @param {string} msg - The message of the log.
    * @param {...string} args - A list of alternating keys/values.
    * @returns {void}
+   * @example
+   * logger.trace('Some message');
+   * // {
+   * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
+   * //   "@pid": 1234,
+   * //   "@level": "TRACE",
+   * //   "@module": "my-plugin-name",
+   * //   "@message": "Some message"
+   * // }
    */
   trace(msg, ...args) {
     this._write(logLevels.TRACE, msg, ...args);
@@ -58,6 +79,15 @@ const Logger = class {
    * @param {string} msg - The message of the log.
    * @param {...string} args - A list of alternating keys/values.
    * @returns {void}
+   * @example
+   * logger.debug('Some message');
+   * // {
+   * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
+   * //   "@pid": 1234,
+   * //   "@level": "DEBUG",
+   * //   "@module": "my-plugin-name",
+   * //   "@message": "Some message"
+   * // }
    */
   debug(msg, ...args) {
     this._write(logLevels.DEBUG, msg, ...args);
@@ -69,6 +99,15 @@ const Logger = class {
    * @param {string} msg - The message of the log.
    * @param {...string} args - A list of alternating keys/values.
    * @returns {void}
+   * @example
+   * logger.info('Some message');
+   * // {
+   * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
+   * //   "@pid": 1234,
+   * //   "@level": "INFO",
+   * //   "@module": "my-plugin-name",
+   * //   "@message": "Some message"
+   * // }
    */
   info(msg, ...args) {
     this._write(logLevels.INFO, msg, ...args);
@@ -80,6 +119,15 @@ const Logger = class {
    * @param {string} msg - The message of the log.
    * @param {...string} args - A list of alternating keys/values.
    * @returns {void}
+   * @example
+   * logger.warn('Some message');
+   * // {
+   * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
+   * //   "@pid": 1234,
+   * //   "@level": "WARN",
+   * //   "@module": "my-plugin-name",
+   * //   "@message": "Some message"
+   * // }
    */
   warn(msg, ...args) {
     this._write(logLevels.WARN, msg, ...args);
@@ -91,6 +139,15 @@ const Logger = class {
    * @param {string} msg - The message of the log.
    * @param {...string} args - A list of alternating keys/values.
    * @returns {void}
+   * @example
+   * logger.error('Some message');
+   * // {
+   * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
+   * //   "@pid": 1234,
+   * //   "@level": "ERROR",
+   * //   "@module": "my-plugin-name",
+   * //   "@message": "Some message"
+   * // }
    */
   error(msg, ...args) {
     this._write(logLevels.ERROR, msg, ...args);
@@ -99,6 +156,7 @@ const Logger = class {
   /**
    * _write is the underlying implementation for writing a log message.
    *
+   * @private
    * @param {string} lvl - The level of the log.
    * @param {string} msg - The message of the log.
    * @param {...string} args - A list of alternating keys/values.
@@ -184,6 +242,8 @@ const Logger = class {
 /**
  * prepareLogging overwrites basic console methods so they produce output in an expected format.
  * Also pushes all stdout to stderr.
+ *
+ * @private
  */
 const prepareLogging = () => {
   const consoleDebug = console.debug.bind(console);

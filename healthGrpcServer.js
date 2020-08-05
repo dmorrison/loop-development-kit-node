@@ -1,9 +1,11 @@
-/** @module healthGrpcServer */
-
 const { HealthCheckResponse } = require('./proto/health_pb');
 const { HealthService } = require('./proto/health_grpc_pb');
 
-/** Class used to implement the GRPC health service. */
+/**
+ * Class used to implement the GRPC health service.
+ *
+ * @private
+ */
 class HealthGrpcServer {
   /**
    * Create a HealthGrpcServer.

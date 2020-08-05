@@ -6,7 +6,9 @@ const services = require('./proto/ldk_grpc_pb');
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
-/** Class used by the sensor implementation to interact with the host process. */
+/**
+ * Class used by the sensor implementation to interact with the host process.
+ */
 class SensorGrpcHostClient {
   /**
    * Establish a connection to the host process.

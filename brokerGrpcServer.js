@@ -1,8 +1,10 @@
-/** @module brokerGrpcServer */
-
 const services = require('./proto/broker_grpc_pb');
 
-/** Class used to interact with the broker GRPC service. */
+/**
+ * Class used to interact with the broker GRPC service.
+ *
+ * @private
+ */
 class BrokerGrpcServer {
   /**
    * Create a BrokerGrpcServer.
