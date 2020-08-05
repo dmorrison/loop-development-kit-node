@@ -140,6 +140,7 @@ const Logger = class {
   /**
    * _kvArgsWithFields converts a list of alternating keys/values to an object.
    *
+   * @private
    * @param {...string} args - A list of alternating keys/values.
    * @returns {object} - An object created by combining the alternating keys/values.
    * @example
@@ -171,6 +172,7 @@ const Logger = class {
   /**
    * _getTimestamp creates a timestamp in the supported format.
    *
+   * @private
    * @returns {string} - A timestamp in a format compatible with the host process.
    */
   _getTimestamp() {
