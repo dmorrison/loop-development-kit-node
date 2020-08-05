@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ControllerGrpcServer</title>
+    <title>JSDoc: Class: SensorGRPCServer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ControllerGrpcServer</h1>
+    <h1 class="page-title">Class: SensorGRPCServer</h1>
 
     
 
@@ -28,9 +28,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ControllerGrpcServer<span class="signature">(server, impl, broker)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="module-sensorGrpcServer.html">sensorGrpcServer</a>~</span>SensorGRPCServer<span class="signature">(server, impl, broker)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Class used by the host process to interact with the controller implementation.</div>
+            <div class="class-description">Class used by the host process to interact with the sensor implementation.</div>
         
     
 </header>
@@ -45,7 +46,7 @@
     
 
     
-    <h4 class="name" id="ControllerGrpcServer"><span class="type-signature"></span>new ControllerGrpcServer<span class="signature">(server, impl, broker)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="SensorGRPCServer"><span class="type-signature"></span>new SensorGRPCServer<span class="signature">(server, impl, broker)</span><span class="type-signature"></span></h4>
     
 
     
@@ -53,7 +54,7 @@
 
 
 <div class="description">
-    Create a ControllerGrpcServer.
+    Create a SensorGRPCServer.
 </div>
 
 
@@ -118,7 +119,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Controller">Controller</a></span>
+<span class="param-type"><a href="global.html#Sensor">Sensor</a></span>
 
 
             
@@ -128,7 +129,7 @@
 
             
 
-            <td class="description last">The controller implementation.</td>
+            <td class="description last">The sensor implementation.</td>
         </tr>
 
     
@@ -192,7 +193,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllerGrpcServer.js.html">controllerGrpcServer.js</a>, <a href="controllerGrpcServer.js.html#line22">line 22</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -223,7 +224,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>ControllerGrpcServer(server, myController, broker);</code></pre>
+    <pre class="prettyprint"><code>SensorGRPCServer(server, mySensor, broker);</code></pre>
 
 
 
@@ -261,7 +262,7 @@
 
 
 <div class="description">
-    Called by the host to broadcast events to the controller implementation.
+    Called by the host to broadcast events to the sensor implementation.
 </div>
 
 
@@ -303,7 +304,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Controller">Controller</a></span>
+<span class="param-type"><a href="global.html#Sensor">Sensor</a></span>
 
 
             
@@ -313,7 +314,7 @@
 
             
 
-            <td class="description last">The implementation of the controller.</td>
+            <td class="description last">The implementation of the sensor.</td>
         </tr>
 
     
@@ -354,7 +355,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllerGrpcServer.js.html">controllerGrpcServer.js</a>, <a href="controllerGrpcServer.js.html#line79">line 79</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line80">line 80</a>
     </li></ul></dd>
     
 
@@ -416,7 +417,7 @@
 
 
 <div class="description">
-    Called by the host to start the controller implementation.
+    Called by the host to start the sensor implementation.
 </div>
 
 
@@ -458,7 +459,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Controller">Controller</a></span>
+<span class="param-type"><a href="global.html#Sensor">Sensor</a></span>
 
 
             
@@ -468,7 +469,7 @@
 
             
 
-            <td class="description last">The implementation of the controller.</td>
+            <td class="description last">The implementation of the sensor.</td>
         </tr>
 
     
@@ -509,7 +510,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllerGrpcServer.js.html">controllerGrpcServer.js</a>, <a href="controllerGrpcServer.js.html#line38">line 38</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -571,7 +572,7 @@
 
 
 <div class="description">
-    Called by the host to stop the controller implementation.
+    Called by the host to stop the sensor implementation.
 </div>
 
 
@@ -613,7 +614,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Controller">Controller</a></span>
+<span class="param-type"><a href="global.html#Sensor">Sensor</a></span>
 
 
             
@@ -623,7 +624,7 @@
 
             
 
-            <td class="description last">The implementation of the controller.</td>
+            <td class="description last">The implementation of the sensor.</td>
         </tr>
 
     
@@ -664,7 +665,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllerGrpcServer.js.html">controllerGrpcServer.js</a>, <a href="controllerGrpcServer.js.html#line63">line 63</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line64">line 64</a>
     </li></ul></dd>
     
 
@@ -728,13 +729,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-brokerGrpcServer.html">brokerGrpcServer</a></li><li><a href="module-categories.html">categories</a></li><li><a href="module-logging.html">logging</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="ControllerGrpcServer.html">ControllerGrpcServer</a></li><li><a href="ControllerPlugin.html">ControllerPlugin</a></li><li><a href="HealthGrpcServer.html">HealthGrpcServer</a></li><li><a href="module-brokerGrpcServer-BrokerGrpcServer.html">BrokerGrpcServer</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="SensorGRPCServer.html">SensorGRPCServer</a></li><li><a href="SensorPlugin.html">SensorPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-brokerGrpcServer.html">brokerGrpcServer</a></li><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerGrpcHostClient.html">controllerGrpcHostClient</a></li><li><a href="module-controllerGrpcServer.html">controllerGrpcServer</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-healthGrpcServer.html">healthGrpcServer</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorGrpcServer.html">sensorGrpcServer</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="module-brokerGrpcServer-BrokerGrpcServer.html">BrokerGrpcServer</a></li><li><a href="module-controllerGrpcHostClient-ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerGrpcServer-ControllerGrpcServer.html">ControllerGrpcServer</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-healthGrpcServer-HealthGrpcServer.html">HealthGrpcServer</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorGrpcServer-SensorGRPCServer.html">SensorGRPCServer</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 18:12:31 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 18:16:00 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

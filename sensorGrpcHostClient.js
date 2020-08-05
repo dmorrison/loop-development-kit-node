@@ -1,3 +1,5 @@
+/** @module sensorGrpcHostClient */
+
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 

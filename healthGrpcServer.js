@@ -1,3 +1,5 @@
+/** @module healthGrpcServer */
+
 const { HealthCheckResponse } = require('./proto/health_pb');
 const { HealthService } = require('./proto/health_grpc_pb');
 

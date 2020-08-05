@@ -1,3 +1,5 @@
+/** @module controllerPlugin */
+
 const services = require('./proto/ldk_grpc_pb');
 const { prepareLogging } = require('./logging');
 

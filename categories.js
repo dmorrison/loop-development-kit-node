@@ -1,8 +1,4 @@
-/**
- * Categories module.
- *
- * @module categories
- */
+/** @module categories */
 
 /** @constant {string} */
 const CONTROLLER = 'Controller';
