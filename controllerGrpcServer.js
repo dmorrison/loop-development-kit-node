@@ -18,6 +18,15 @@ const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 
 /** Class used by the host process to interact with the controller implementation. */
 class ControllerGrpcServer {
+  /**
+   * Create a ControllerGrpcServer.
+   *
+   * @param {object} server - The GRPC server instance.
+   * @param {controllerImplementation} impl - The controller implementation.
+   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @example
+   * ControllerGrpcServer(server, myController, broker);
+   */
   constructor(server, impl, broker) {
     this.broker = broker;
     server.addService(services.ControllerService, {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: categories.js</title>
+    <title>JSDoc: Source: healthGrpcServer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: categories.js</h1>
+    <h1 class="page-title">Source: healthGrpcServer.js</h1>
 
     
 
@@ -26,32 +26,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/** @constant {string} */
-const CONTROLLER = 'Controller';
+            <pre class="prettyprint source linenums"><code>const { HealthCheckResponse } = require('./proto/health_pb');
+const { HealthService } = require('./proto/health_grpc_pb');
 
-/** @constant {string} */
-const INTELLIGENCE = 'Intelligence';
+/** Class used to implement the GRPC health service. */
+class HealthGrpcServer {
+  /**
+   * Create a HealthGrpcServer.
+   *
+   * @example
+   * HealthGrpcServer();
+   */
+  constructor() {
+    this._statusMap = {
+      plugin: HealthCheckResponse.ServingStatus.SERVING,
+      '': HealthCheckResponse.ServingStatus.NOT_SERVING,
+    };
+  }
 
-/** @constant {string} */
-const SENSOR = 'Sensor';
+  /**
+   * Called by the host to check the health status of the server.
+   *
+   * @async
+   * @param {object} call
+   * @param {function} callback
+   * @returns {void}
+   */
+  check(call, callback) {
+    const reqService = call.request.getService();
+    const status = this._statusMap[reqService] || HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
+    const msg = new HealthCheckResponse();
+    msg.setStatus(status);
+    callback(null, msg);
+  }
 
-/** @constant {string} */
-const SIDEKICK = 'Sidekick';
+  /**
+   * Called by the host to establish a health event stream.
+   * Currently unused.
+   *
+   * @async
+   * @returns {void}
+   */
+  watch() {
+    // Nothing to do
+  }
+}
 
-/** @constant {string} */
-const UNKNOWN = 'Unknown';
-
-/** @constant {string[]} */
-const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
-
-module.exports = Object.freeze({
-  CONTROLLER,
-  INTELLIGENCE,
-  SENSOR,
-  SIDEKICK,
-  UNKNOWN,
-  categories,
-});
+module.exports = {
+  HealthGrpcServer,
+  HealthService,
+};
 </code></pre>
         </article>
     </section>

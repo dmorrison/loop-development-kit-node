@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>SensorGRPCServer<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>SensorGRPCServer<span class="signature">(server, impl, broker)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Class used by the host process to interact with the sensor implementation.</div>
         
@@ -45,19 +45,118 @@
     
 
     
-    <h4 class="name" id="SensorGRPCServer"><span class="type-signature"></span>new SensorGRPCServer<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="SensorGRPCServer"><span class="type-signature"></span>new SensorGRPCServer<span class="signature">(server, impl, broker)</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
+<div class="description">
+    Create a SensorGRPCServer.
+</div>
 
 
 
 
 
 
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>server</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GRPC server instance.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>impl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#sensorImplementation">sensorImplementation</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The sensor implementation.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>broker</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="BrokerGrpcServer.html">BrokerGrpcServer</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GRPC broker server instance.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -93,7 +192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line21">line 21</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -120,6 +219,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>SensorGRPCServer(server, mySensor, broker);</code></pre>
 
 
 
@@ -250,7 +354,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line78">line 78</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -405,7 +509,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line37">line 37</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -560,7 +664,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line62">line 62</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -624,13 +728,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BrokerGrpcServer.html">BrokerGrpcServer</a></li><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="ControllerGrpcServer.html">ControllerGrpcServer</a></li><li><a href="ControllerPlugin.html">ControllerPlugin</a></li><li><a href="SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="SensorGRPCServer.html">SensorGRPCServer</a></li><li><a href="SensorPlugin.html">SensorPlugin</a></li></ul><h3>Global</h3><ul><li><a href="global.html#categories">categories</a></li><li><a href="global.html#CONTROLLER">CONTROLLER</a></li><li><a href="global.html#INTELLIGENCE">INTELLIGENCE</a></li><li><a href="global.html#SENSOR">SENSOR</a></li><li><a href="global.html#SIDEKICK">SIDEKICK</a></li><li><a href="global.html#UNKNOWN">UNKNOWN</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BrokerGrpcServer.html">BrokerGrpcServer</a></li><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="ControllerGrpcServer.html">ControllerGrpcServer</a></li><li><a href="ControllerPlugin.html">ControllerPlugin</a></li><li><a href="HealthGrpcServer.html">HealthGrpcServer</a></li><li><a href="SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="SensorGRPCServer.html">SensorGRPCServer</a></li><li><a href="SensorPlugin.html">SensorPlugin</a></li></ul><h3>Global</h3><ul><li><a href="global.html#categories">categories</a></li><li><a href="global.html#CONTROLLER">CONTROLLER</a></li><li><a href="global.html#INTELLIGENCE">INTELLIGENCE</a></li><li><a href="global.html#SENSOR">SENSOR</a></li><li><a href="global.html#SIDEKICK">SIDEKICK</a></li><li><a href="global.html#UNKNOWN">UNKNOWN</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 14:51:21 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 16:57:39 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

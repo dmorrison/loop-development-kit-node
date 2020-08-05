@@ -18,6 +18,15 @@ const SensorGrpcHostClient = require('./sensorGrpcHostClient');
 
 /** Class used by the host process to interact with the sensor implementation. */
 class SensorGRPCServer {
+  /**
+   * Create a SensorGRPCServer.
+   *
+   * @param {object} server - The GRPC server instance.
+   * @param {sensorImplementation} impl - The sensor implementation.
+   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @example
+   * SensorGRPCServer(server, mySensor, broker);
+   */
   constructor(server, impl, broker) {
     this.broker = broker;
     server.addService(services.SensorService, {

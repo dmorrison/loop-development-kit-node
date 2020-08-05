@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ControllerPlugin</title>
+    <title>JSDoc: Class: HealthGrpcServer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ControllerPlugin</h1>
+    <h1 class="page-title">Class: HealthGrpcServer</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ControllerPlugin<span class="signature">(impl)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>HealthGrpcServer<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Class used to setup the GRPC server and host the controller service.</div>
+            <div class="class-description">Class used to implement the GRPC health service.</div>
         
     
 </header>
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="ControllerPlugin"><span class="type-signature"></span>new ControllerPlugin<span class="signature">(impl)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="HealthGrpcServer"><span class="type-signature"></span>new HealthGrpcServer<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -53,7 +53,120 @@
 
 
 <div class="description">
-    Create a ControllerPlugin.
+    Create a HealthGrpcServer.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="healthGrpcServer.js.html">healthGrpcServer.js</a>, <a href="healthGrpcServer.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>HealthGrpcServer();</code></pre>
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="check"><span class="type-signature">(async) </span>check<span class="signature">(call, callback)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Called by the host to check the health status of the server.
 </div>
 
 
@@ -89,13 +202,13 @@
 
         <tr>
             
-                <td class="name"><code>impl</code></td>
+                <td class="name"><code>call</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#controllerImplementation">controllerImplementation</a></span>
+<span class="param-type">object</span>
 
 
             
@@ -105,7 +218,30 @@
 
             
 
-            <td class="description last">The implementation of the controller.</td>
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -146,7 +282,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllerPlugin.js.html">controllerPlugin.js</a>, <a href="controllerPlugin.js.html#line36">line 36</a>
+        <a href="healthGrpcServer.js.html">healthGrpcServer.js</a>, <a href="healthGrpcServer.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -171,35 +307,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
 
 
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>ControllerPlugin(myController);</code></pre>
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
+    </dd>
+</dl>
 
     
 
-    
 
-    
 
-    
 
-    
-        <h3 class="subsection-title">Methods</h3>
 
         
             
@@ -207,7 +336,7 @@
     
 
     
-    <h4 class="name" id="serve"><span class="type-signature">(async) </span>serve<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="watch"><span class="type-signature">(async) </span>watch<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -215,7 +344,8 @@
 
 
 <div class="description">
-    Run the GRPC server and write connection information to stdout.
+    Called by the host to establish a health event stream.
+Currently unused.
 </div>
 
 
@@ -259,7 +389,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllerPlugin.js.html">controllerPlugin.js</a>, <a href="controllerPlugin.js.html#line50">line 50</a>
+        <a href="healthGrpcServer.js.html">healthGrpcServer.js</a>, <a href="healthGrpcServer.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
