@@ -37,18 +37,18 @@ npm i
 
 **Whisper** - A notification emitted by controllers and displayed in the Sidekick sidebar.
 
-## Sensor
+## Sensors
 
 A Sensor is a type of plugin that generates events.  Events can be as simple as a chunk of text but allow for complicated information. Sensors do not choose which controllers get their events. They are simply emitting the events. The decision about which events to use is left to the controller.
 
-### Examples
+### Sensor Examples
 
 Bitbucket examples are currently private and only viewable by Olive employees.
 
 * [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
 * [Filesystem Watch Sensor](https://bitbucket.org/crosschx/sidekick-sensor-watchfolder)
 
-### Class
+### Sensor Class
 
 Writing a Sensor plugin boils down to writing a class with the following methods.
 
@@ -75,7 +75,7 @@ class Sensor {
 1. On User disabling the Sensor, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to the process.
 
-## Controller
+## Controllers
 
 Controllers receive events and use them to generate relevant whispers. Controllers choose which events they want to use and which they want to ignore.
 
@@ -112,6 +112,34 @@ class Controller {
 1. On Sensor event, Sidekick calls `OnEvent`, passing the event from the Sensor to the Controller. These events can be ignored or used at the Controller's choice.
 1. On User disabling the Controller, Sidekick calls `Stop` then sends `sigterm` to the process.
 1. On Sidekick shutdown, Sidekick calls `Stop` then sends `sigterm` to the process.
+
+## Logging
+
+To make it easier to integrate with Sidekick's logger, a `Logger` class is provided to you in this library.
+
+Example usage:
+
+```javascript
+const { Logger } = require('ldk');
+
+const logger = new Logger('my-plugin-name');
+
+// ...
+
+logger.info('Some message');
+// {"@timestamp":"2020-07-30T14:58:21.057000Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Some message"}
+
+logger.info('Another message', 'someKey', 'someValue', 'anotherKey', 'anotherValue');
+// {"@timestamp":"2020-07-30T14:58:21.057000Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Another message","anotherKey":"anotherValue","someKey":"someValue"}
+
+const logger2 = logger.with('persistentKey', 'persistentValue');
+logger2.info('Yet another message', 'yetAnotherKey', 'yetAnotherValue');
+// {"@timestamp":"2020-07-30T14:58:21.057000Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Yet another message","persistentKey":"persistentValue","yetAnotherKey":"yetAnotherValue"}
+```
+
+The logger is generally modeled off of [hclog](https://github.com/hashicorp/go-hclog).
+
+So the `trace`/`debug`/`info`/`warn`/`error` methods expect a message as the first arg, with key/value pairs for the rest of the args.
 
 ## Persistent Storage
 

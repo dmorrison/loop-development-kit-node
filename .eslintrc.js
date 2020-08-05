@@ -2,15 +2,13 @@ module.exports = {
   env: {
     commonjs: true,
     es6: true,
-    jasmine: true,
-    mocha: true,
     node: true,
   },
-  'parserOptions': {
-    ecmaVersion: 8,
+  parserOptions: {
+    ecmaVersion: 9,
   },
-  'extends': 'airbnb-base',
-  'rules': {
+  extends: 'airbnb-base',
+  rules: {
     'class-methods-use-this': 'off',
     // JB: Trailing commas on functions were blowing up the chxbot build.
     'comma-dangle': ['error', {
@@ -21,7 +19,8 @@ module.exports = {
       functions: 'never',
     }],
     'global-require': 'off',
-    "linebreak-style": 0,
+    'linebreak-style': 0,
+    'max-classes-per-file': 'off',
     'no-nested-ternary': 'off',
     'no-param-reassign': 'off',
     // http://eslint.org/docs/rules/no-restricted-syntax
@@ -44,7 +43,7 @@ module.exports = {
     'no-console': ['off', { allow: ['warn', 'error'] }],
     'unicode-bom': 'off',
     'import/no-dynamic-require': 'off',
-    'import/no-extraneous-dependencies': ['error', { 'devDependencies': true }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-unresolved': ['error', {
       commonjs: true,
       caseSensitive: true,
