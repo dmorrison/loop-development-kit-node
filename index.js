@@ -1,4 +1,5 @@
 module.exports = {
-    ControllerPlugin: require('./controllerPlugin'),
-    SensorPlugin: require('./sensorPlugin'),
-}
+  ControllerPlugin: require('./controllerPlugin'),
+  Logger: require('./logging').Logger,
+  SensorPlugin: require('./sensorPlugin'),
+};

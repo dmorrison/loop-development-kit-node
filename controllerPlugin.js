@@ -1,18 +1,24 @@
 const services = require('./proto/ldk_grpc_pb');
+const { prepareLogging } = require('./logging');
 
-const ControllerGRPCServer = require('./controllerGrpcServer');
 const BrokerGrpcServer = require('./brokerGrpcServer');
+const ControllerGrpcServer = require('./controllerGrpcServer');
 const {
   HealthGrpcServer,
   HealthService,
 } = require('./healthGrpcServer');
+const {
+  StdioGrpcServer,
+  StdioService,
+} = require('./stdioGrpcServer');
 
 class ControllerPlugin {
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
     this.server.addService(HealthService, new HealthGrpcServer());
-    this.controller = new ControllerGRPCServer(this.server, impl, this.broker);
+    this.server.addService(StdioService, new StdioGrpcServer());
+    this.controller = new ControllerGrpcServer(this.server, impl, this.broker);
   }
 
   serve() {
@@ -26,6 +32,7 @@ class ControllerPlugin {
           }
           this.server.start();
           process.stdout.write(`1|1|tcp|127.0.0.1:${port}|grpc\n`);
+          prepareLogging();
           resolve();
         }
       );
