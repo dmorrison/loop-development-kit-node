@@ -2,6 +2,10 @@ const services = require('./proto/ldk_grpc_pb');
 const { prepareLogging } = require('./logging');
 
 const BrokerGrpcServer = require('./brokerGrpcServer');
+const {
+  HealthGrpcServer,
+  HealthService,
+} = require('./healthGrpcServer');
 const SensorGRPCServer = require('./sensorGrpcServer');
 const {
   StdioGrpcServer,
@@ -12,6 +16,7 @@ class SensorPlugin {
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
+    this.server.addService(HealthService, new HealthGrpcServer());
     this.server.addService(StdioService, new StdioGrpcServer());
     this.sensor = new SensorGRPCServer(this.server, impl, this.broker);
   }
