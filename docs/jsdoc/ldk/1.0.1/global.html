@@ -600,6 +600,174 @@
 
             
                 
+<h4 class="name" id="controllerImplementation">controllerImplementation</h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Executed when the host starts the plugin.
+The plugin should not do anything before this is called.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Executed by the host to stop the plugin.
+All plugin activity should stop when this is called.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onEvent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The host will send events to the plugin by calling this function.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllerGrpcServer.js.html">controllerGrpcServer.js</a>, <a href="controllerGrpcServer.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
 <h4 class="name" id="event">event</h4>
 
 
@@ -742,7 +910,7 @@
 
             
                 
-<h4 class="name" id="style">style</h4>
+<h4 class="name" id="sensorImplementation">sensorImplementation</h4>
 
 
 
@@ -789,13 +957,13 @@
 
         <tr>
             
-                <td class="name"><code>backgroundColor</code></td>
+                <td class="name"><code>start</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -805,20 +973,21 @@
 
             
 
-            <td class="description last">The background color of the whisper card.</td>
+            <td class="description last">Executed when the host starts the plugin.
+The plugin should not do anything before this is called.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>highlightColor</code></td>
+                <td class="name"><code>stop</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -828,20 +997,21 @@
 
             
 
-            <td class="description last">The color of important text in the whisper card.</td>
+            <td class="description last">Executed by the host to stop the plugin.
+All plugin activity should stop when this is called.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>primaryColor</code></td>
+                <td class="name"><code>onEvent</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -851,7 +1021,7 @@
 
             
 
-            <td class="description last">The color of normal text in the whisper card.</td>
+            <td class="description last">The host will send events to the plugin by calling this function.</td>
         </tr>
 
     
@@ -890,7 +1060,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sensorGrpcHostClient.js.html">sensorGrpcHostClient.js</a>, <a href="sensorGrpcHostClient.js.html#line15">line 15</a>
+        <a href="sensorGrpcServer.js.html">sensorGrpcServer.js</a>, <a href="sensorGrpcServer.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -1057,6 +1227,172 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="controllerGrpcHostClient.js.html">controllerGrpcHostClient.js</a>, <a href="controllerGrpcHostClient.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="style">style</h4>
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backgroundColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The background color of the whisper card.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>highlightColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The color of important text in the whisper card.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>primaryColor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The color of normal text in the whisper card.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sensorGrpcHostClient.js.html">sensorGrpcHostClient.js</a>, <a href="sensorGrpcHostClient.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -1275,13 +1611,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BrokerGrpcServer.html">BrokerGrpcServer</a></li><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="SensorGrpcHostClient.html">SensorGrpcHostClient</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BrokerGrpcServer.html">BrokerGrpcServer</a></li><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="ControllerGrpcServer.html">ControllerGrpcServer</a></li><li><a href="SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="SensorGRPCServer.html">SensorGRPCServer</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 13:49:20 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Wed Aug 05 2020 14:25:53 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
