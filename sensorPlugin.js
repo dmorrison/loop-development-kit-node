@@ -26,6 +26,13 @@ const {
 
 /** Class used to setup the GRPC server and host the sensor service. */
 class SensorPlugin {
+  /**
+   * Create a SensorPlugin.
+   *
+   * @param {sensorImplementation} impl - The implementation of the sensor.
+   * @example
+   * SensorPlugin(mySensor);
+   */
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);

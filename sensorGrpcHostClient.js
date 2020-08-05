@@ -50,6 +50,7 @@ class SensorGrpcHostClient {
   /**
    * Establish a connection to the host process.
    *
+   * @async
    * @param {connInfo} connInfo - An object containing host process connection information.
    * @returns {Promise.<void>} - Promise resolves when the connection is established.
    */
@@ -84,9 +85,9 @@ class SensorGrpcHostClient {
   /**
    * Send an event to the host process.
    *
+   * @async
    * @param {event} event - An object containing host process connection information.
-   * @returns {Promise.<void>}
-   * - Promise resolves after the host confirms having received the whisper.
+   * @returns {void}
    */
   emitEvent(event) {
     return new Promise((resolve, reject) => {
@@ -110,9 +111,9 @@ class SensorGrpcHostClient {
   /**
    * Delete a key from storage.
    *
+   * @async
    * @param {string} key - The name of the key in storage.
-   * @returns {Promise.<void>}
-   * - Promise resolves after the host confirms the key was deleted.
+   * @returns {void}
    */
   storageDelete(key) {
     return new Promise((resolve, reject) => {
@@ -136,8 +137,8 @@ class SensorGrpcHostClient {
   /**
    * Delete all keys from storage.
    *
-   * @returns {Promise.<void>}
-   * - Promise resolves after the host confirms all keys have been deleted.
+   * @async
+   * @returns {void}
    */
   storageDeleteAll() {
     return new Promise((resolve, reject) => {
@@ -155,8 +156,9 @@ class SensorGrpcHostClient {
   /**
    * Check if a key has a value defined in storage.
    *
+   * @async
    * @param {string} key - The name of the key in storage.
-   * @returns {Promise.<boolean>} - Promise resolves to true if the key has a defined value.
+   * @returns {boolean} - Returns true if the key has a defined value.
    */
   storageHasKey(key) {
     return new Promise((resolve, reject) => {
@@ -181,7 +183,8 @@ class SensorGrpcHostClient {
   /**
    * Return a list of all keys.
    *
-   * @returns {Promise.<string[]>} - Promise resolves to an array of keys.
+   * @async
+   * @returns {string[]} - An array of the keys.
    */
   storageKeys() {
     return new Promise((resolve, reject) => {
@@ -200,8 +203,9 @@ class SensorGrpcHostClient {
   /**
    * Get the value of a key in storage.
    *
+   * @async
    * @param {string} key - The name of the key in storage.
-   * @returns {Promise.<string>} - Promise resolves to the value of the key.
+   * @returns {string} - Returns the value of the key in storage.
    */
   storageRead(key) {
     return new Promise((resolve, reject) => {
@@ -226,7 +230,9 @@ class SensorGrpcHostClient {
   /**
    * Get an object of key value pairs in storage.
    *
-   * @returns {Promise.<object>} - Promise resolves to an object of key value pairs.
+   * @async
+   * @returns {object} - Returns the storage object. Each key in the object
+   * is a key in storage and the value of the key is the value in storage.
    */
   storageReadAll() {
     return new Promise((resolve, reject) => {
@@ -249,10 +255,10 @@ class SensorGrpcHostClient {
   /**
    * Get the value of a key in storage.
    *
+   * @async
    * @param {string} key - The name of the key in storage.
    * @param {string} value - The value to assign to the key in storage.
-   * @returns {Promise.<void>}
-   * - Promise resolves after the host confirms the value was written to the key.
+   * @returns {void}
    */
   storageWrite(key, value) {
     return new Promise((resolve, reject) => {
