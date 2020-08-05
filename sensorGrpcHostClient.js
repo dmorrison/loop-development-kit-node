@@ -4,47 +4,6 @@ const services = require('./proto/ldk_grpc_pb');
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
-/**
- * @typedef connInfo
- * @type {object}
- * @property {string} address - The server or socket address.
- * @property {string} serviceId - An identifier for the service.
- * @property {string} network - The network type.
- */
-
-/**
- * @typedef style
- * @type {object}
- * @property {string} backgroundColor - The background color of the whisper card.
- * @property {string} highlightColor - The color of important text in the whisper card.
- * @property {string} primaryColor - The color of normal text in the whisper card.
- */
-
-/**
- * @typedef event
- * @type {object}
- * @property {object} data - The content of the event.
- * @example
- * {
- *   data: {
- *     text: "this is an example event with just a text field"
- *   },
- * }
- * @example
- * {
- *   data: {
- *     x: 100,
- *     y: 525,
- *   },
- * }
- * @example
- * {
- *   data: {
- *     process: "chrome.exe",
- *   },
- * }
- */
-
 /** Class used by the sensor implementation to interact with the host process. */
 class SensorGrpcHostClient {
   /**

@@ -21,7 +21,7 @@ class HealthGrpcServer {
    *
    * @async
    * @param {object} call
-   * @param {function} callback
+   * @param {Function} callback
    * @returns {void}
    */
   check(call, callback) {

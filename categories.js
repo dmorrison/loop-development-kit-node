@@ -1,3 +1,9 @@
+/**
+ * Categories module.
+ *
+ * @module categories
+ */
+
 /** @constant {string} */
 const CONTROLLER = 'Controller';
 

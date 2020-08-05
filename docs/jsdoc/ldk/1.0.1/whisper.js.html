@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: categories.js</title>
+    <title>JSDoc: Source: whisper.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: categories.js</h1>
+    <h1 class="page-title">Source: whisper.js</h1>
 
     
 
@@ -27,37 +27,13 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Categories module.
- *
- * @module categories
+ * @typedef whisper
+ * @type {object}
+ * @property {string} markdown - The content of the whisper in markdown.
+ * @property {style} style - An object for specifying the styling of the whisper card.
+ * @property {string} label - The title displayed at the top of the whisper card.
+ * @property {string} icon - An icon displayed at the top of the whisper card.
  */
-
-/** @constant {string} */
-const CONTROLLER = 'Controller';
-
-/** @constant {string} */
-const INTELLIGENCE = 'Intelligence';
-
-/** @constant {string} */
-const SENSOR = 'Sensor';
-
-/** @constant {string} */
-const SIDEKICK = 'Sidekick';
-
-/** @constant {string} */
-const UNKNOWN = 'Unknown';
-
-/** @constant {string[]} */
-const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
-
-module.exports = Object.freeze({
-  CONTROLLER,
-  INTELLIGENCE,
-  SENSOR,
-  SIDEKICK,
-  UNKNOWN,
-  categories,
-});
 </code></pre>
         </article>
     </section>

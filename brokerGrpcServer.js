@@ -1,13 +1,5 @@
 const services = require('./proto/broker_grpc_pb');
 
-/**
- * @typedef connInfo
- * @type {object}
- * @property {string} address - The server or socket address.
- * @property {string} serviceId - An identifier for the service.
- * @property {string} network - The network type.
- */
-
 /** Class used to interact with the broker GRPC service. */
 class BrokerGrpcServer {
   /**

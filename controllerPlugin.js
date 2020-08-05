@@ -11,25 +11,14 @@ const {
   StdioGrpcServer,
   StdioService,
 } = require('./stdioGrpcServer');
-
-/**
- * @typedef controllerImplementation
- * @type {object}
- * @property {Function} start - Executed when the host starts the plugin.
- * The plugin should not do anything before this is called.
- * @param {ControllerGrpcHostClient} host
- * @property {Function} stop - Executed by the host to stop the plugin.
- * All plugin activity should stop when this is called.
- * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
- */
+const Controller = require('./controller');
 
 /** Class used to setup the GRPC server and host the controller service. */
 class ControllerPlugin {
   /**
    * Create a ControllerPlugin.
    *
-   * @param {controllerImplementation} impl - The implementation of the controller.
+   * @param {Controller} impl - The implementation of the controller.
    * @example
    * ControllerPlugin(myController);
    */

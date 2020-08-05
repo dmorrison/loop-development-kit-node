@@ -1,20 +1,11 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
+
 const { categories } = require('./categories');
 
+const BrokerGrpcServer = require('./brokerGrpcServer');
 const SensorGrpcHostClient = require('./sensorGrpcHostClient');
-
-/**
- * @typedef sensorImplementation
- * @type {object}
- * @property {Function} start - Executed when the host starts the plugin.
- * The plugin should not do anything before this is called.
- * @param {SensorGrpcHostClient} host
- * @property {Function} stop - Executed by the host to stop the plugin.
- * All plugin activity should stop when this is called.
- * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
- */
+const Sensor = require('./sensor');
 
 /** Class used by the host process to interact with the sensor implementation. */
 class SensorGRPCServer {
@@ -22,7 +13,7 @@ class SensorGRPCServer {
    * Create a SensorGRPCServer.
    *
    * @param {object} server - The GRPC server instance.
-   * @param {sensorImplementation} impl - The sensor implementation.
+   * @param {Sensor} impl - The sensor implementation.
    * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
    * @example
    * SensorGRPCServer(server, mySensor, broker);
@@ -40,7 +31,7 @@ class SensorGRPCServer {
    * Called by the host to start the sensor implementation.
    *
    * @async
-   * @param {sensorImplementation} impl - The implementation of the sensor.
+   * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
   start(impl) {
@@ -65,7 +56,7 @@ class SensorGRPCServer {
    * Called by the host to stop the sensor implementation.
    *
    * @async
-   * @param {sensorImplementation} impl - The implementation of the sensor.
+   * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
   stop(impl) {
@@ -81,7 +72,7 @@ class SensorGRPCServer {
    * Called by the host to broadcast events to the sensor implementation.
    *
    * @async
-   * @param {sensorImplementation} impl - The implementation of the sensor.
+   * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
   onEvent(impl) {

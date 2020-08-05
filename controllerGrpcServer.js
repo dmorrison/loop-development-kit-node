@@ -1,20 +1,12 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
+
 const { categories } = require('./categories');
 
-const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
+const BrokerGrpcServer = require('./brokerGrpcServer');
+const Controller = require('./controller');
 
-/**
- * @typedef controllerImplementation
- * @type {object}
- * @property {Function} start - Executed when the host starts the plugin.
- * The plugin should not do anything before this is called.
- * @param {ControllerGrpcHostClient} host
- * @property {Function} stop - Executed by the host to stop the plugin.
- * All plugin activity should stop when this is called.
- * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
- */
+const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 
 /** Class used by the host process to interact with the controller implementation. */
 class ControllerGrpcServer {
@@ -22,7 +14,7 @@ class ControllerGrpcServer {
    * Create a ControllerGrpcServer.
    *
    * @param {object} server - The GRPC server instance.
-   * @param {controllerImplementation} impl - The controller implementation.
+   * @param {Controller} impl - The controller implementation.
    * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
    * @example
    * ControllerGrpcServer(server, myController, broker);
@@ -40,7 +32,7 @@ class ControllerGrpcServer {
    * Called by the host to start the controller implementation.
    *
    * @async
-   * @param {controllerImplementation} impl - The implementation of the controller.
+   * @param {Controller} impl - The implementation of the controller.
    * @returns {void}
    */
   start(impl) {
@@ -65,7 +57,7 @@ class ControllerGrpcServer {
    * Called by the host to stop the controller implementation.
    *
    * @async
-   * @param {controllerImplementation} impl - The implementation of the controller.
+   * @param {Controller} impl - The implementation of the controller.
    * @returns {void}
    */
   stop(impl) {
@@ -81,7 +73,7 @@ class ControllerGrpcServer {
    * Called by the host to broadcast events to the controller implementation.
    *
    * @async
-   * @param {controllerImplementation} impl - The implementation of the controller.
+   * @param {Controller} impl - The implementation of the controller.
    * @returns {void}
    */
   onEvent(impl) {

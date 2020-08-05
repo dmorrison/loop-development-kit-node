@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: categories.js</title>
+    <title>JSDoc: Source: sensor.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: categories.js</h1>
+    <h1 class="page-title">Source: sensor.js</h1>
 
     
 
@@ -26,38 +26,19 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Categories module.
- *
- * @module categories
+            <pre class="prettyprint source linenums"><code>const SensorGrpcHostClient = require('./sensorGrpcHostClient');
+
+/**
+ * @typedef Sensor
+ * @type {object}
+ * @property {Function} start - Executed when the host starts the plugin.
+ * The plugin should not do anything before this is called.
+ * @param {SensorGrpcHostClient} host
+ * @property {Function} stop - Executed by the host to stop the plugin.
+ * All plugin activity should stop when this is called.
+ * @property {Function} onEvent - The host will send events to the plugin by calling this function.
+ * @param {event} event
  */
-
-/** @constant {string} */
-const CONTROLLER = 'Controller';
-
-/** @constant {string} */
-const INTELLIGENCE = 'Intelligence';
-
-/** @constant {string} */
-const SENSOR = 'Sensor';
-
-/** @constant {string} */
-const SIDEKICK = 'Sidekick';
-
-/** @constant {string} */
-const UNKNOWN = 'Unknown';
-
-/** @constant {string[]} */
-const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
-
-module.exports = Object.freeze({
-  CONTROLLER,
-  INTELLIGENCE,
-  SENSOR,
-  SIDEKICK,
-  UNKNOWN,
-  categories,
-});
 </code></pre>
         </article>
     </section>
