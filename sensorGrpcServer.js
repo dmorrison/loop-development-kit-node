@@ -1,9 +1,8 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
+const categories = require('./categories');
 
 const SensorGrpcHostClient = require('./sensorGrpcHostClient');
-
-const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
 
 class SensorGRPCServer {
   constructor(server, impl, broker) {
