@@ -1,6 +1,6 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
-const categories = require('./categories');
+const { categories } = require('./categories');
 
 const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 

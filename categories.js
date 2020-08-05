@@ -1,3 +1,16 @@
-const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
+const CONTROLLER = 'Controller';
+const INTELLIGENCE = 'Intelligence';
+const SENSOR = 'Sensor';
+const SIDEKICK = 'Sidekick';
+const UNKNOWN = 'Unknown';
 
-module.exports = categories;
+const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
+
+module.exports = Object.freeze({
+  CONTROLLER,
+  INTELLIGENCE,
+  SENSOR,
+  SIDEKICK,
+  UNKNOWN,
+  categories,
+});
