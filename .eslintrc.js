@@ -9,8 +9,10 @@ module.exports = {
   },
   plugins: [
     'jsdoc',
+    '@typescript-eslint',
   ],
-  extends: 'airbnb-base',
+  parser: '@typescript-eslint/parser',
+  extends: ['airbnb-base', 'plugin:@typescript-eslint/recommended'],
   rules: {
     'class-methods-use-this': 'off',
     // JB: Trailing commas on functions were blowing up the chxbot build.
