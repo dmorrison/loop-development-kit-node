@@ -1,0 +1,12 @@
+{
+  "opts": {
+    "destination": "docs",
+    "package": "",
+    "readme": "readme.md"
+  },
+  "templates": {
+    "default": {
+      "includeDate": false
+    }
+  }
+}
