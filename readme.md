@@ -26,6 +26,7 @@ npm i
 ```
 
 ## Usage
+Full documentation available on [here](https://open-olive.github.io/loop-development-kit-node).
 
 ### Controllers
 This LDK can be used to write controllers for Sidekick. More detail about controllers is available [here](docs/controller.md).
