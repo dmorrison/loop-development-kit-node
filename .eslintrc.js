@@ -74,4 +74,13 @@ module.exports = {
     'jsdoc/require-returns-type': 1, // Recommended
     'jsdoc/valid-types': 1, // Recommended
   },
+  overrides: [
+    {
+      rules: {
+        'import/no-unresolved': ['off'],
+        'import/extensions': ['off'],
+      },
+      files: ['**/*.ts'],
+    },
+  ],
 };

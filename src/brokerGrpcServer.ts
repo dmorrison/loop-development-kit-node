@@ -1,11 +1,13 @@
-const services = require('./proto/broker_grpc_pb');
+import services from './proto/broker_grpc_pb';
 
 /**
  * Class used to interact with the broker GRPC service.
  *
  * @private
  */
-class BrokerGrpcServer {
+export default class BrokerGrpcServer {
+  private connInfoPromise: Promise<void>;
+
   /**
    * Create a BrokerGrpcServer.
    *
@@ -64,5 +66,3 @@ class BrokerGrpcServer {
     return this.connInfoPromise;
   }
 }
-
-module.exports = BrokerGrpcServer;

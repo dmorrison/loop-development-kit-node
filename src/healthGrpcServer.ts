@@ -1,5 +1,5 @@
-const { HealthCheckResponse } = require('./proto/health_pb');
-const { HealthService } = require('./proto/health_grpc_pb');
+import { HealthCheckResponse } from './proto/health_pb';
+import { HealthService } from './proto/health_grpc_pb';
 
 /**
  * Class used to implement the GRPC health service.
@@ -7,6 +7,8 @@ const { HealthService } = require('./proto/health_grpc_pb');
  * @private
  */
 class HealthGrpcServer {
+  private _statusMap: {[key: string]: string;}
+
   /**
    * Create a HealthGrpcServer.
    *
@@ -48,7 +50,8 @@ class HealthGrpcServer {
   }
 }
 
-module.exports = {
+export {
   HealthGrpcServer,
+  HealthCheckResponse,
   HealthService,
 };

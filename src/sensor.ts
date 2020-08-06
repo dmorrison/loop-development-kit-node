@@ -1,4 +1,4 @@
-const SensorGrpcHostClient = require('./sensorGrpcHostClient');
+import SensorGrpcHostClient from './sensorGrpcHostClient';
 
 /**
  * @typedef Sensor
@@ -42,3 +42,8 @@ const SensorGrpcHostClient = require('./sensorGrpcHostClient');
  *   }
  * }
  */
+export interface Sensor {
+ start(host: SensorGrpcHostClient): void;
+ stop(): void;
+ onEvent(event: event): void;
+}

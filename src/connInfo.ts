@@ -11,3 +11,8 @@
  *   network: "tcp",
  * }
  */
+export interface connInfo {
+  address: string;
+  serviceId: string;
+  network: string;
+}

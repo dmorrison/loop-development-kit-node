@@ -1,4 +1,4 @@
-const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
+import ControllerGrpcHostClient from './controllerGrpcHostClient';
 
 /**
  * @typedef Controller
@@ -45,3 +45,8 @@ const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
  *   }
  * }
  */
+export interface Controller {
+  start(host: ControllerGrpcHostClient): void;
+  stop(): void;
+  onEvent(event: event): void;
+}

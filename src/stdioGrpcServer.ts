@@ -1,5 +1,5 @@
 // const { StdioData } = require('./proto/stdio_pb');
-const { GRPCStdioService } = require('./proto/stdio_grpc_pb');
+import { GRPCStdioService } from './proto/stdio_grpc_pb';
 
 class StdioGrpcServer {
   streamStdio() {
@@ -8,7 +8,7 @@ class StdioGrpcServer {
   }
 }
 
-module.exports = {
-  StdioService: GRPCStdioService,
+export {
+  GRPCStdioService as StdioService,
   StdioGrpcServer,
 };

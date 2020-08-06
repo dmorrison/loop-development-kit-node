@@ -1,21 +1,39 @@
-/** @module sensorGrpcHostClient */
+/** @module controllerGrpcHostClient */
 
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
+import { Whisper } from './whisper';
+import messages from './proto/ldk_pb';
+import services from './proto/ldk_grpc_pb';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
+type Request<TRequest = any, TResponse = any> =
+  (request: TRequest, callback: (error, response: TResponse) => void) => void;
+
+interface ControllerHostClient {
+  waitForReady: Request<Date>
+  emitWhisper: Request;
+  storageDeleteAll: Request;
+  storageDelete: Request;
+  storageHasKey: Request;
+  storageKeys: Request;
+  storageRead: Request;
+  storageReadAll: Request;
+  storageWrite: Request;
+}
+
 /**
- * Class used by the sensor implementation to interact with the host process.
+ * Class used by the controller implementation to interact with the host process.
  */
-class SensorGrpcHostClient {
+class ControllerGrpcHostClient {
+  private client: ControllerHostClient;
+
   /**
    * Establish a connection to the host process.
    *
    * @async
    * @param {connInfo} connInfo - An object containing host process connection information.
-   * @returns {Promise.<void>} - Promise resolves when the connection is established.
+   * @returns {void}
    */
   connect(connInfo) {
     return new Promise((resolve, reject) => {
@@ -26,47 +44,59 @@ class SensorGrpcHostClient {
         address = connInfo.address;
       }
 
-      this.client = new services.SensorHostClient(
+      this.client = new services.ControllerHostClient(
         address,
         services.grpc.credentials.createInsecure()
-      );
+      ) as any;
 
       // set a 5 second deadline
       const deadline = new Date();
       deadline.setSeconds(deadline.getSeconds() + 5);
 
-      this.client.waitForReady(deadline, (err, value) => {
+      this.client.waitForReady(deadline, (err) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
-        resolve(value);
+        return resolve();
       });
     });
   }
 
   /**
-   * Send an event to the host process.
+   * Send a Whisper to the host process.
    *
    * @async
-   * @param {event} event - An object containing host process connection information.
+   * @param {Whisper} whisper - An object defining the contents of the Whisper.
    * @returns {void}
    */
-  emitEvent(event) {
+  emitWhisper(whisper: Whisper) {
     return new Promise((resolve, reject) => {
-      const request = new messages.EmitEventRequest();
+      const request = new messages.EmitWhisperRequest();
 
-      Object.entries(event.data)
-        .forEach(([key, value]) => {
-          request.getDataMap().set(key, JSON.stringify(value));
-        });
+      const style = new messages.Style();
+      if (whisper.style) {
+        style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
+        style.setPrimarycolor(whisper.style.primaryColor || '#666');
+        style.setHighlightcolor(whisper.style.highlightColor || '#651fff');
+      } else {
+        style.setBackgroundcolor('#fff');
+        style.setPrimarycolor('#666');
+        style.setHighlightcolor('#651fff');
+      }
 
-      this.client.emitEvent(request, (err, response) => {
+      const whisperMsg = new messages.Whisper();
+      whisperMsg.setMarkdown(whisper.markdown);
+      whisperMsg.setLabel(whisper.label);
+      whisperMsg.setStyle(style);
+      whisperMsg.setIcon(whisper.icon);
+
+      request.setWhisper(whisperMsg);
+
+      this.client.emitWhisper(request, (err) => {
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
-        resolve(response);
+        return resolve();
       });
     });
   }
@@ -248,4 +278,4 @@ class SensorGrpcHostClient {
   }
 }
 
-module.exports = SensorGrpcHostClient;
+export default ControllerGrpcHostClient;

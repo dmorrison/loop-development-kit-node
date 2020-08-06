@@ -1,12 +1,9 @@
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
-
-const { categories } = require('./categories');
-
-const BrokerGrpcServer = require('./brokerGrpcServer');
-const Controller = require('./controller');
-
-const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
+import BrokerGrpcServer from './brokerGrpcServer';
+import { Controller } from './controller';
+import ControllerGrpcHostClient from './controllerGrpcHostClient';
+import { categories } from './categories';
+import messages from './proto/ldk_pb';
+import services from './proto/ldk_grpc_pb';
 
 /**
  * Class used by the host process to interact with the controller implementation.
@@ -14,6 +11,8 @@ const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
  * @private
  */
 class ControllerGrpcServer {
+  private broker: BrokerGrpcServer;
+
   /**
    * Create a ControllerGrpcServer.
    *
@@ -23,7 +22,7 @@ class ControllerGrpcServer {
    * @example
    * ControllerGrpcServer(server, myController, broker);
    */
-  constructor(server, impl, broker) {
+  constructor(server, impl: Controller, broker) {
     this.broker = broker;
     server.addService(services.ControllerService, {
       start: this.start(impl),
@@ -105,4 +104,4 @@ class ControllerGrpcServer {
   }
 }
 
-module.exports = ControllerGrpcServer;
+export default ControllerGrpcServer;

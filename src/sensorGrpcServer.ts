@@ -1,11 +1,9 @@
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
-
-const { categories } = require('./categories');
-
-const BrokerGrpcServer = require('./brokerGrpcServer');
-const SensorGrpcHostClient = require('./sensorGrpcHostClient');
-const Sensor = require('./sensor');
+import BrokerGrpcServer from './brokerGrpcServer';
+import messages from './proto/ldk_pb';
+import services from './proto/ldk_grpc_pb';
+import { categories } from './categories';
+import SensorGrpcHostClient from './sensorGrpcHostClient';
+import { Sensor } from './sensor';
 
 /**
  * Class used by the host process to interact with the sensor implementation.
@@ -13,6 +11,8 @@ const Sensor = require('./sensor');
  * @private
  */
 class SensorGRPCServer {
+  private broker: BrokerGrpcServer;
+
   /**
    * Create a SensorGRPCServer.
    *
@@ -22,7 +22,7 @@ class SensorGRPCServer {
    * @example
    * SensorGRPCServer(server, mySensor, broker);
    */
-  constructor(server, impl, broker) {
+  constructor(server, impl: Sensor, broker) {
     this.broker = broker;
     server.addService(services.SensorService, {
       start: this.start(impl),
@@ -104,4 +104,4 @@ class SensorGRPCServer {
   }
 }
 
-module.exports = SensorGRPCServer;
+export default SensorGRPCServer;

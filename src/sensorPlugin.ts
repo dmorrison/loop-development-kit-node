@@ -1,22 +1,21 @@
 /** @module sensorPlugin */
 
-const services = require('./proto/ldk_grpc_pb');
-const { prepareLogging } = require('./logging');
-
-const BrokerGrpcServer = require('./brokerGrpcServer');
-const {
-  HealthGrpcServer,
-  HealthService,
-} = require('./healthGrpcServer');
-const SensorGRPCServer = require('./sensorGrpcServer');
-const {
-  StdioGrpcServer,
-  StdioService,
-} = require('./stdioGrpcServer');
-const Sensor = require('./sensor');
+import services from './proto/ldk_grpc_pb';
+import { prepareLogging } from './logging';
+import BrokerGrpcServer from './brokerGrpcServer';
+import { HealthGrpcServer, HealthService } from './healthGrpcServer';
+import SensorGRPCServer from './sensorGrpcServer';
+import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
+import { Sensor } from './sensor';
 
 /** Class used to setup the GRPC server and host the sensor service. */
 class SensorPlugin {
+  private server: typeof services.grpc.Server;
+
+  private sensor: SensorGRPCServer;
+
+  private broker: BrokerGrpcServer;
+
   /**
    * Create a SensorPlugin.
    *
@@ -24,7 +23,7 @@ class SensorPlugin {
    * @example
    * SensorPlugin(mySensor);
    */
-  constructor(impl) {
+  constructor(impl: Sensor) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
     this.server.addService(HealthService, new HealthGrpcServer());
@@ -57,4 +56,4 @@ class SensorPlugin {
   }
 }
 
-module.exports = SensorPlugin;
+export default SensorPlugin;

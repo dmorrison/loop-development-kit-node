@@ -1,21 +1,23 @@
-/** @module controllerGrpcHostClient */
+/** @module sensorGrpcHostClient */
 
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
+import messages from './proto/ldk_pb';
+import services from './proto/ldk_grpc_pb';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
 /**
- * Class used by the controller implementation to interact with the host process.
+ * Class used by the sensor implementation to interact with the host process.
  */
-class ControllerGrpcHostClient {
+class SensorGrpcHostClient {
+  private client: services.SensorHostClient;
+
   /**
    * Establish a connection to the host process.
    *
    * @async
    * @param {connInfo} connInfo - An object containing host process connection information.
-   * @returns {void}
+   * @returns {Promise.<void>} - Promise resolves when the connection is established.
    */
   connect(connInfo) {
     return new Promise((resolve, reject) => {
@@ -26,7 +28,7 @@ class ControllerGrpcHostClient {
         address = connInfo.address;
       }
 
-      this.client = new services.ControllerHostClient(
+      this.client = new services.SensorHostClient(
         address,
         services.grpc.credentials.createInsecure()
       );
@@ -35,50 +37,38 @@ class ControllerGrpcHostClient {
       const deadline = new Date();
       deadline.setSeconds(deadline.getSeconds() + 5);
 
-      this.client.waitForReady(deadline, (err) => {
+      this.client.waitForReady(deadline, (err, value) => {
         if (err) {
-          return reject(err);
+          reject(err);
+          return;
         }
-        return resolve();
+        resolve(value);
       });
     });
   }
 
   /**
-   * Send a whisper to the host process.
+   * Send an event to the host process.
    *
    * @async
-   * @param {whisper} whisper - An object defining the contents of the whisper.
+   * @param {event} event - An object containing host process connection information.
    * @returns {void}
    */
-  emitWhisper(whisper) {
+  emitEvent(event) {
     return new Promise((resolve, reject) => {
-      const request = new messages.EmitWhisperRequest();
+      const request = new messages.EmitEventRequest();
 
-      const style = new messages.Style();
-      if (whisper.style) {
-        style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
-        style.setPrimarycolor(whisper.style.primaryColor || '#666');
-        style.setHighlightcolor(whisper.style.highlightColor || '#651fff');
-      } else {
-        style.setBackgroundcolor('#fff');
-        style.setPrimarycolor('#666');
-        style.setHighlightcolor('#651fff');
-      }
+      Object.entries(event.data)
+        .forEach(([key, value]) => {
+          request.getDataMap().set(key, JSON.stringify(value));
+        });
 
-      const whisperMsg = new messages.Whisper();
-      whisperMsg.setMarkdown(whisper.markdown);
-      whisperMsg.setLabel(whisper.label);
-      whisperMsg.setStyle(style);
-      whisperMsg.setIcon(whisper.icon);
-
-      request.setWhisper(whisperMsg);
-
-      this.client.emitWhisper(request, (err) => {
+      this.client.emitEvent(request, (err, response) => {
         if (err) {
-          return reject(err);
+          reject(err);
+          return;
         }
-        return resolve();
+        resolve(response);
       });
     });
   }
@@ -260,4 +250,4 @@ class ControllerGrpcHostClient {
   }
 }
 
-module.exports = ControllerGrpcHostClient;
+export default SensorGrpcHostClient;

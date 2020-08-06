@@ -9,3 +9,6 @@
  *   },
  * }
  */
+interface event {
+  data: any;
+}

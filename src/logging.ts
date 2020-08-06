@@ -12,6 +12,10 @@ const logLevels = {
 
 /** Logger is a supported way to get logs to Sidekick in the expected format. */
 const Logger = class {
+  private _name: string;
+
+  private _fields: any;
+
   /**
    * Create a Logger.
    *
@@ -277,12 +281,10 @@ const prepareLogging = () => {
     consoleWarn(`[WARN] ${msg}`, ...args);
   };
 
-  process.stdout.write = (...args) => {
-    process.stderr.write(...args);
-  };
+  process.stdout.write = (...args) => (process.stderr.write as any)(...args);
 };
 
-module.exports = {
+export {
   Logger,
   prepareLogging,
 };

@@ -1,22 +1,20 @@
 /** @module controllerPlugin */
-
-const services = require('./proto/ldk_grpc_pb');
-const { prepareLogging } = require('./logging');
-
-const BrokerGrpcServer = require('./brokerGrpcServer');
-const ControllerGrpcServer = require('./controllerGrpcServer');
-const {
-  HealthGrpcServer,
-  HealthService,
-} = require('./healthGrpcServer');
-const {
-  StdioGrpcServer,
-  StdioService,
-} = require('./stdioGrpcServer');
-const Controller = require('./controller');
+import ControllerGrpcServer from './controllerGrpcServer';
+import BrokerGrpcServer from './brokerGrpcServer';
+import { Controller } from './controller';
+import services from './proto/ldk_grpc_pb';
+import { prepareLogging } from './logging';
+import { HealthGrpcServer, HealthService } from './healthGrpcServer';
+import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
 
 /** Class used to setup the GRPC server and host the controller service. */
 class ControllerPlugin {
+  private server: any;
+
+  private broker: BrokerGrpcServer;
+
+  private controller: ControllerGrpcServer;
+
   /**
    * Create a ControllerPlugin.
    *
@@ -57,4 +55,4 @@ class ControllerPlugin {
   }
 }
 
-module.exports = ControllerPlugin;
+export default ControllerPlugin;

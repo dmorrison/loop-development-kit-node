@@ -18,11 +18,11 @@ const UNKNOWN = 'Unknown';
 /** @constant {string[]} */
 const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
 
-module.exports = Object.freeze({
+export {
   CONTROLLER,
   INTELLIGENCE,
   SENSOR,
   SIDEKICK,
   UNKNOWN,
   categories,
-});
+};
