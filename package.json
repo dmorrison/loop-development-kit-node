@@ -10,12 +10,13 @@
     "doc": "mkdir -p docs && ./node_modules/.bin/jsdoc . --destination docs/jsdoc --package package.json --readme readme.md",
     "build": "rm -rf dist && tsc",
     "lint": "./node_modules/.bin/eslint --fix .",
-    "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-fixes",
+    "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-ts && npm run protoc-fixes",
     "protoc-broker": "grpc_tools_node_protoc -I src/proto --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/broker.proto",
     "protoc-fixes": "node scripts/protoFixes.js",
     "protoc-health": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/health.proto",
     "protoc-ldk": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/ldk.proto",
-    "protoc-stdio": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/stdio.proto"
+    "protoc-stdio": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/stdio.proto",
+    "protoc-ts": "grpc_tools_node_protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --ts_out=src/proto -I src/proto/ src/proto/*.proto"
   },
   "husky": {
     "hooks": {
@@ -31,6 +32,7 @@
     "eslint-plugin-import": "latest",
     "eslint-plugin-jsdoc": "latest",
     "grpc-tools": "latest",
+    "grpc_tools_node_protoc_ts": "4.1.2",
     "husky": "4.2.5",
     "jsdoc": "latest",
     "pkg": "latest",
