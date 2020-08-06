@@ -6,7 +6,9 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "sourceMap": true,
-    "strict": true
-  }
+    "strict": true,
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

@@ -8,13 +8,14 @@
   },
   "scripts": {
     "doc": "mkdir -p docs && ./node_modules/.bin/jsdoc . --destination docs/jsdoc --package package.json --readme readme.md",
+    "build": "rm -rf dist && tsc",
     "lint": "./node_modules/.bin/eslint --fix .",
     "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-fixes",
-    "protoc-broker": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/broker.proto",
+    "protoc-broker": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/broker.proto",
     "protoc-fixes": "node scripts/protoFixes.js",
-    "protoc-health": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/health.proto",
-    "protoc-ldk": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/ldk.proto",
-    "protoc-stdio": "grpc_tools_node_protoc -I proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/stdio.proto"
+    "protoc-health": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/health.proto",
+    "protoc-ldk": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/ldk.proto",
+    "protoc-stdio": "grpc_tools_node_protoc -I src/proto/ --js_out=import_style=commonjs,binary:proto --grpc_out=proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` proto/stdio.proto"
   },
   "husky": {
     "hooks": {
@@ -22,6 +23,7 @@
     }
   },
   "devDependencies": {
+    "@types/node": "14.0.27",
     "eslint": "latest",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",

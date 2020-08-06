@@ -1,5 +1,5 @@
-const { HealthCheckResponse } = require('../proto/health_pb');
-const { HealthService } = require('../proto/health_grpc_pb');
+const { HealthCheckResponse } = require('./proto/health_pb');
+const { HealthService } = require('./proto/health_grpc_pb');
 
 /**
  * Class used to implement the GRPC health service.

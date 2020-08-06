@@ -1,7 +1,7 @@
 /** @module controllerGrpcHostClient */
 
-const messages = require('../proto/ldk_pb');
-const services = require('../proto/ldk_grpc_pb');
+const messages = require('./proto/ldk_pb');
+const services = require('./proto/ldk_grpc_pb');
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
