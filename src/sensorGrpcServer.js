@@ -1,31 +1,30 @@
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
+const messages = require('../proto/ldk_pb');
+const services = require('../proto/ldk_grpc_pb');
 
 const { categories } = require('./categories');
 
 const BrokerGrpcServer = require('./brokerGrpcServer');
-const Controller = require('./controller');
-
-const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
+const SensorGrpcHostClient = require('./sensorGrpcHostClient');
+const Sensor = require('./sensor');
 
 /**
- * Class used by the host process to interact with the controller implementation.
+ * Class used by the host process to interact with the sensor implementation.
  *
  * @private
  */
-class ControllerGrpcServer {
+class SensorGRPCServer {
   /**
-   * Create a ControllerGrpcServer.
+   * Create a SensorGRPCServer.
    *
    * @param {object} server - The GRPC server instance.
-   * @param {Controller} impl - The controller implementation.
+   * @param {Sensor} impl - The sensor implementation.
    * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
    * @example
-   * ControllerGrpcServer(server, myController, broker);
+   * SensorGRPCServer(server, mySensor, broker);
    */
   constructor(server, impl, broker) {
     this.broker = broker;
-    server.addService(services.ControllerService, {
+    server.addService(services.SensorService, {
       start: this.start(impl),
       stop: this.stop(impl),
       onEvent: this.onEvent(impl),
@@ -33,10 +32,10 @@ class ControllerGrpcServer {
   }
 
   /**
-   * Called by the host to start the controller implementation.
+   * Called by the host to start the sensor implementation.
    *
    * @async
-   * @param {Controller} impl - The implementation of the controller.
+   * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
   start(impl) {
@@ -46,7 +45,7 @@ class ControllerGrpcServer {
 
       const connInfo = await this.broker.getConnInfo();
 
-      const hostClient = new ControllerGrpcHostClient();
+      const hostClient = new SensorGrpcHostClient();
       await hostClient.connect(connInfo).catch((err) => {
         throw err;
       });
@@ -58,10 +57,10 @@ class ControllerGrpcServer {
   }
 
   /**
-   * Called by the host to stop the controller implementation.
+   * Called by the host to stop the sensor implementation.
    *
    * @async
-   * @param {Controller} impl - The implementation of the controller.
+   * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
   stop(impl) {
@@ -74,10 +73,10 @@ class ControllerGrpcServer {
   }
 
   /**
-   * Called by the host to broadcast events to the controller implementation.
+   * Called by the host to broadcast events to the sensor implementation.
    *
    * @async
-   * @param {Controller} impl - The implementation of the controller.
+   * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
   onEvent(impl) {
@@ -105,4 +104,4 @@ class ControllerGrpcServer {
   }
 }
 
-module.exports = ControllerGrpcServer;
+module.exports = SensorGRPCServer;

@@ -2,7 +2,7 @@
   "name": "ldk",
   "version": "1.1.0",
   "description": "Loop Development Kit",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "example": "examples"
   },
@@ -29,7 +29,8 @@
     "grpc-tools": "latest",
     "husky": "4.2.5",
     "jsdoc": "latest",
-    "pkg": "latest"
+    "pkg": "latest",
+    "typescript": "3.9.7"
   },
   "dependencies": {
     "@grpc/grpc-js": "1.1.3",

@@ -1,4 +1,4 @@
-const services = require('./proto/broker_grpc_pb');
+const services = require('../proto/broker_grpc_pb');
 
 /**
  * Class used to interact with the broker GRPC service.

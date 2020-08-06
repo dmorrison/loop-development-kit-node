@@ -1,5 +1,5 @@
 // const { StdioData } = require('./proto/stdio_pb');
-const { GRPCStdioService } = require('./proto/stdio_grpc_pb');
+const { GRPCStdioService } = require('../proto/stdio_grpc_pb');
 
 class StdioGrpcServer {
   streamStdio() {
