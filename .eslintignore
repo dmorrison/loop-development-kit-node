@@ -1,1 +1,3 @@
-./proto
+docs
+node_modules
+proto

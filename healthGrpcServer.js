@@ -1,7 +1,18 @@
 const { HealthCheckResponse } = require('./proto/health_pb');
 const { HealthService } = require('./proto/health_grpc_pb');
 
+/**
+ * Class used to implement the GRPC health service.
+ *
+ * @private
+ */
 class HealthGrpcServer {
+  /**
+   * Create a HealthGrpcServer.
+   *
+   * @example
+   * HealthGrpcServer();
+   */
   constructor() {
     this._statusMap = {
       plugin: HealthCheckResponse.ServingStatus.SERVING,
@@ -9,6 +20,14 @@ class HealthGrpcServer {
     };
   }
 
+  /**
+   * Called by the host to check the health status of the server.
+   *
+   * @async
+   * @param {object} call
+   * @param {Function} callback
+   * @returns {void}
+   */
   check(call, callback) {
     const reqService = call.request.getService();
     const status = this._statusMap[reqService] || HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
@@ -17,6 +36,13 @@ class HealthGrpcServer {
     callback(null, msg);
   }
 
+  /**
+   * Called by the host to establish a health event stream.
+   * Currently unused.
+   *
+   * @async
+   * @returns {void}
+   */
   watch() {
     // Nothing to do
   }

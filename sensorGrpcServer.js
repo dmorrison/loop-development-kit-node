@@ -1,11 +1,27 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
+const { categories } = require('./categories');
+
+const BrokerGrpcServer = require('./brokerGrpcServer');
 const SensorGrpcHostClient = require('./sensorGrpcHostClient');
+const Sensor = require('./sensor');
 
-const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
-
+/**
+ * Class used by the host process to interact with the sensor implementation.
+ *
+ * @private
+ */
 class SensorGRPCServer {
+  /**
+   * Create a SensorGRPCServer.
+   *
+   * @param {object} server - The GRPC server instance.
+   * @param {Sensor} impl - The sensor implementation.
+   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @example
+   * SensorGRPCServer(server, mySensor, broker);
+   */
   constructor(server, impl, broker) {
     this.broker = broker;
     server.addService(services.SensorService, {
@@ -15,6 +31,13 @@ class SensorGRPCServer {
     });
   }
 
+  /**
+   * Called by the host to start the sensor implementation.
+   *
+   * @async
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @returns {void}
+   */
   start(impl) {
     return async (call, callback) => {
       // TODO: Figure out why I don't need this
@@ -33,6 +56,13 @@ class SensorGRPCServer {
     };
   }
 
+  /**
+   * Called by the host to stop the sensor implementation.
+   *
+   * @async
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @returns {void}
+   */
   stop(impl) {
     return async (call, callback) => {
       await impl.stop();
@@ -42,6 +72,13 @@ class SensorGRPCServer {
     };
   }
 
+  /**
+   * Called by the host to broadcast events to the sensor implementation.
+   *
+   * @async
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @returns {void}
+   */
   onEvent(impl) {
     return async ({ request }, callback) => {
       const event = {

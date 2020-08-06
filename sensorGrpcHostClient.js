@@ -1,10 +1,22 @@
+/** @module sensorGrpcHostClient */
+
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
+/**
+ * Class used by the sensor implementation to interact with the host process.
+ */
 class SensorGrpcHostClient {
+  /**
+   * Establish a connection to the host process.
+   *
+   * @async
+   * @param {connInfo} connInfo - An object containing host process connection information.
+   * @returns {Promise.<void>} - Promise resolves when the connection is established.
+   */
   connect(connInfo) {
     return new Promise((resolve, reject) => {
       let address;
@@ -33,6 +45,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Send an event to the host process.
+   *
+   * @async
+   * @param {event} event - An object containing host process connection information.
+   * @returns {void}
+   */
   emitEvent(event) {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
@@ -52,6 +71,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Delete a key from storage.
+   *
+   * @async
+   * @param {string} key - The name of the key in storage.
+   * @returns {void}
+   */
   storageDelete(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
@@ -71,6 +97,12 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Delete all keys from storage.
+   *
+   * @async
+   * @returns {void}
+   */
   storageDeleteAll() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
@@ -84,6 +116,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Check if a key has a value defined in storage.
+   *
+   * @async
+   * @param {string} key - The name of the key in storage.
+   * @returns {boolean} - Returns true if the key has a defined value.
+   */
   storageHasKey(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
@@ -104,6 +143,12 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Return a list of all keys.
+   *
+   * @async
+   * @returns {string[]} - An array of the keys.
+   */
   storageKeys() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
@@ -118,6 +163,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Get the value of a key in storage.
+   *
+   * @async
+   * @param {string} key - The name of the key in storage.
+   * @returns {string} - Returns the value of the key in storage.
+   */
   storageRead(key) {
     return new Promise((resolve, reject) => {
       if (!key) {
@@ -138,6 +190,13 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Get an object of key value pairs in storage.
+   *
+   * @async
+   * @returns {object} - Returns the storage object. Each key in the object
+   * is a key in storage and the value of the key is the value in storage.
+   */
   storageReadAll() {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
@@ -156,6 +215,14 @@ class SensorGrpcHostClient {
     });
   }
 
+  /**
+   * Get the value of a key in storage.
+   *
+   * @async
+   * @param {string} key - The name of the key in storage.
+   * @param {string} value - The value to assign to the key in storage.
+   * @returns {void}
+   */
   storageWrite(key, value) {
     return new Promise((resolve, reject) => {
       if (!key) {

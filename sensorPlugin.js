@@ -1,3 +1,5 @@
+/** @module sensorPlugin */
+
 const services = require('./proto/ldk_grpc_pb');
 const { prepareLogging } = require('./logging');
 
@@ -11,8 +13,17 @@ const {
   StdioGrpcServer,
   StdioService,
 } = require('./stdioGrpcServer');
+const Sensor = require('./sensor');
 
+/** Class used to setup the GRPC server and host the sensor service. */
 class SensorPlugin {
+  /**
+   * Create a SensorPlugin.
+   *
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @example
+   * SensorPlugin(mySensor);
+   */
   constructor(impl) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
@@ -21,6 +32,12 @@ class SensorPlugin {
     this.sensor = new SensorGRPCServer(this.server, impl, this.broker);
   }
 
+  /**
+   * Run the GRPC server and write connection information to stdout.
+   *
+   * @async
+   * @returns {void}
+   */
   serve() {
     return new Promise((resolve, reject) => {
       this.server.bindAsync(

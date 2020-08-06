@@ -1,11 +1,28 @@
 const messages = require('./proto/ldk_pb');
 const services = require('./proto/ldk_grpc_pb');
 
+const { categories } = require('./categories');
+
+const BrokerGrpcServer = require('./brokerGrpcServer');
+const Controller = require('./controller');
+
 const ControllerGrpcHostClient = require('./controllerGrpcHostClient');
 
-const categories = ['Unknown', 'Intelligence', 'Controller', 'Sensor', 'Sidekick'];
-
+/**
+ * Class used by the host process to interact with the controller implementation.
+ *
+ * @private
+ */
 class ControllerGrpcServer {
+  /**
+   * Create a ControllerGrpcServer.
+   *
+   * @param {object} server - The GRPC server instance.
+   * @param {Controller} impl - The controller implementation.
+   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @example
+   * ControllerGrpcServer(server, myController, broker);
+   */
   constructor(server, impl, broker) {
     this.broker = broker;
     server.addService(services.ControllerService, {
@@ -15,6 +32,13 @@ class ControllerGrpcServer {
     });
   }
 
+  /**
+   * Called by the host to start the controller implementation.
+   *
+   * @async
+   * @param {Controller} impl - The implementation of the controller.
+   * @returns {void}
+   */
   start(impl) {
     return async (call, callback) => {
       // TODO: Figure out why I don't need this
@@ -33,6 +57,13 @@ class ControllerGrpcServer {
     };
   }
 
+  /**
+   * Called by the host to stop the controller implementation.
+   *
+   * @async
+   * @param {Controller} impl - The implementation of the controller.
+   * @returns {void}
+   */
   stop(impl) {
     return async (call, callback) => {
       await impl.stop();
@@ -42,6 +73,13 @@ class ControllerGrpcServer {
     };
   }
 
+  /**
+   * Called by the host to broadcast events to the controller implementation.
+   *
+   * @async
+   * @param {Controller} impl - The implementation of the controller.
+   * @returns {void}
+   */
   onEvent(impl) {
     return async ({ request }, callback) => {
       const event = {
