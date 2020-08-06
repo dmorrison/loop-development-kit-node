@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 // load files that need edited
-const brokerGrpcPbPath = path.join(__dirname, '../proto/broker_grpc_pb.js');
-const healthGrpcPbPath = path.join(__dirname, '../proto/health_grpc_pb.js');
-const ldkGrpcPbPath = path.join(__dirname, '../proto/ldk_grpc_pb.js');
-const stdioGrpcPbPath = path.join(__dirname, '../proto/stdio_grpc_pb.js');
+const brokerGrpcPbPath = path.join(__dirname, '../src/proto/broker_grpc_pb.js');
+const healthGrpcPbPath = path.join(__dirname, '../src/proto/health_grpc_pb.js');
+const ldkGrpcPbPath = path.join(__dirname, '../src/proto/ldk_grpc_pb.js');
+const stdioGrpcPbPath = path.join(__dirname, '../src/proto/stdio_grpc_pb.js');
 let brokerGrpcPb = fs.readFileSync(brokerGrpcPbPath, 'utf-8');
 let healthGrpcPb = fs.readFileSync(healthGrpcPbPath, 'utf-8');
 let ldkGrpcPb = fs.readFileSync(ldkGrpcPbPath, 'utf-8');
