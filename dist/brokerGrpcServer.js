@@ -13,7 +13,7 @@ class BrokerGrpcServer {
     /**
      * Create a BrokerGrpcServer.
      *
-     * @param {object} server - The GRPC server instance.
+     * @param server - The GRPC server instance.
      * @example
      * BrokerGrpcServer(server);
      */

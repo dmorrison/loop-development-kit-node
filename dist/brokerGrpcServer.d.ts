@@ -1,3 +1,4 @@
+import { grpc } from './proto/ldk_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
 /**
  * Class used to interact with the broker GRPC service.
@@ -9,11 +10,11 @@ export default class BrokerGrpcServer {
     /**
      * Create a BrokerGrpcServer.
      *
-     * @param {object} server - The GRPC server instance.
+     * @param server - The GRPC server instance.
      * @example
      * BrokerGrpcServer(server);
      */
-    constructor(server: any);
+    constructor(server: grpc.Server);
     /**
      * This callback is called when connection info is received from the host process.
      *

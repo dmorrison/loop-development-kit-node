@@ -1,3 +1,4 @@
+import { grpc } from './proto/ldk_grpc_pb';
 import services from './proto/broker_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
 
@@ -12,11 +13,11 @@ export default class BrokerGrpcServer {
   /**
    * Create a BrokerGrpcServer.
    *
-   * @param {object} server - The GRPC server instance.
+   * @param server - The GRPC server instance.
    * @example
    * BrokerGrpcServer(server);
    */
-  constructor(server) {
+  constructor(server: grpc.Server) {
     let connInfoCallback;
     this.connInfoPromise = new Promise((resolve) => {
       connInfoCallback = (connInfo) => {
