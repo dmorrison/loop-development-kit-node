@@ -1,5 +1,9 @@
 "use strict";
-const services = require('./proto/broker_grpc_pb');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const broker_grpc_pb_1 = __importDefault(require("./proto/broker_grpc_pb"));
 /**
  * Class used to interact with the broker GRPC service.
  *
@@ -20,7 +24,7 @@ class BrokerGrpcServer {
                 resolve(connInfo);
             };
         });
-        server.addService(services.GRPCBrokerService, {
+        server.addService(broker_grpc_pb_1.default.GRPCBrokerService, {
             startStream: this.startStream(connInfoCallback),
         });
     }
@@ -61,4 +65,4 @@ class BrokerGrpcServer {
         return this.connInfoPromise;
     }
 }
-module.exports = BrokerGrpcServer;
+exports.default = BrokerGrpcServer;

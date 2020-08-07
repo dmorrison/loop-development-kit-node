@@ -1,6 +1,10 @@
 "use strict";
-const { HealthCheckResponse } = require('./proto/health_pb');
-const { HealthService } = require('./proto/health_grpc_pb');
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HealthService = exports.HealthCheckResponse = exports.HealthGrpcServer = void 0;
+const health_pb_1 = require("./proto/health_pb");
+Object.defineProperty(exports, "HealthCheckResponse", { enumerable: true, get: function () { return health_pb_1.HealthCheckResponse; } });
+const health_grpc_pb_1 = require("./proto/health_grpc_pb");
+Object.defineProperty(exports, "HealthService", { enumerable: true, get: function () { return health_grpc_pb_1.HealthService; } });
 /**
  * Class used to implement the GRPC health service.
  *
@@ -15,8 +19,8 @@ class HealthGrpcServer {
      */
     constructor() {
         this._statusMap = {
-            plugin: HealthCheckResponse.ServingStatus.SERVING,
-            '': HealthCheckResponse.ServingStatus.NOT_SERVING,
+            plugin: health_pb_1.HealthCheckResponse.ServingStatus.SERVING,
+            '': health_pb_1.HealthCheckResponse.ServingStatus.NOT_SERVING,
         };
     }
     /**
@@ -29,8 +33,8 @@ class HealthGrpcServer {
      */
     check(call, callback) {
         const reqService = call.request.getService();
-        const status = this._statusMap[reqService] || HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
-        const msg = new HealthCheckResponse();
+        const status = this._statusMap[reqService] || health_pb_1.HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
+        const msg = new health_pb_1.HealthCheckResponse();
         msg.setStatus(status);
         callback(null, msg);
     }
@@ -45,7 +49,4 @@ class HealthGrpcServer {
         // Nothing to do
     }
 }
-module.exports = {
-    HealthGrpcServer,
-    HealthService,
-};
+exports.HealthGrpcServer = HealthGrpcServer;

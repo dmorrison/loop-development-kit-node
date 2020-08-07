@@ -1,4 +1,3 @@
-"use strict";
 // source: broker.proto
 /**
  * @fileoverview

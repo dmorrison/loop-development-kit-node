@@ -1,12 +1,15 @@
 "use strict";
 /** @module sensorPlugin */
-const services = require('./proto/ldk_grpc_pb');
-const { prepareLogging } = require('./logging');
-const BrokerGrpcServer = require('./brokerGrpcServer');
-const { HealthGrpcServer, HealthService, } = require('./healthGrpcServer');
-const SensorGRPCServer = require('./sensorGrpcServer');
-const { StdioGrpcServer, StdioService, } = require('./stdioGrpcServer');
-const Sensor = require('./sensor');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ldk_grpc_pb_1 = __importDefault(require("./proto/ldk_grpc_pb"));
+const logging_1 = require("./logging");
+const brokerGrpcServer_1 = __importDefault(require("./brokerGrpcServer"));
+const healthGrpcServer_1 = require("./healthGrpcServer");
+const sensorGrpcServer_1 = __importDefault(require("./sensorGrpcServer"));
+const stdioGrpcServer_1 = require("./stdioGrpcServer");
 /** Class used to setup the GRPC server and host the sensor service. */
 class SensorPlugin {
     /**
@@ -17,11 +20,11 @@ class SensorPlugin {
      * SensorPlugin(mySensor);
      */
     constructor(impl) {
-        this.server = new services.grpc.Server();
-        this.broker = new BrokerGrpcServer(this.server);
-        this.server.addService(HealthService, new HealthGrpcServer());
-        this.server.addService(StdioService, new StdioGrpcServer());
-        this.sensor = new SensorGRPCServer(this.server, impl, this.broker);
+        this.server = new ldk_grpc_pb_1.default.grpc.Server();
+        this.broker = new brokerGrpcServer_1.default(this.server);
+        this.server.addService(healthGrpcServer_1.HealthService, new healthGrpcServer_1.HealthGrpcServer());
+        this.server.addService(stdioGrpcServer_1.StdioService, new stdioGrpcServer_1.StdioGrpcServer());
+        this.sensor = new sensorGrpcServer_1.default(this.server, impl, this.broker);
     }
     /**
      * Run the GRPC server and write connection information to stdout.
@@ -31,16 +34,16 @@ class SensorPlugin {
      */
     serve() {
         return new Promise((resolve, reject) => {
-            this.server.bindAsync('127.0.0.1:0', services.grpc.ServerCredentials.createInsecure(), (err, port) => {
+            this.server.bindAsync('127.0.0.1:0', ldk_grpc_pb_1.default.grpc.ServerCredentials.createInsecure(), (err, port) => {
                 if (err) {
                     reject(err);
                 }
                 this.server.start();
                 process.stdout.write(`1|1|tcp|127.0.0.1:${port}|grpc\n`);
-                prepareLogging();
+                logging_1.prepareLogging();
                 resolve();
             });
         });
     }
 }
-module.exports = SensorPlugin;
+exports.default = SensorPlugin;

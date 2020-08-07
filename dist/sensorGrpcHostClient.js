@@ -1,7 +1,11 @@
 "use strict";
 /** @module sensorGrpcHostClient */
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ldk_pb_1 = __importDefault(require("./proto/ldk_pb"));
+const ldk_grpc_pb_1 = __importDefault(require("./proto/ldk_grpc_pb"));
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 /**
@@ -12,7 +16,7 @@ class SensorGrpcHostClient {
      * Establish a connection to the host process.
      *
      * @async
-     * @param {connInfo} connInfo - An object containing host process connection information.
+     * @param {ConnInfo.AsObject} connInfo - An object containing host process connection information.
      * @returns {Promise.<void>} - Promise resolves when the connection is established.
      */
     connect(connInfo) {
@@ -24,16 +28,16 @@ class SensorGrpcHostClient {
             else {
                 address = connInfo.address;
             }
-            this.client = new services.SensorHostClient(address, services.grpc.credentials.createInsecure());
+            this.client = new ldk_grpc_pb_1.default.SensorHostClient(address, ldk_grpc_pb_1.default.grpc.credentials.createInsecure());
             // set a 5 second deadline
             const deadline = new Date();
             deadline.setSeconds(deadline.getSeconds() + 5);
-            this.client.waitForReady(deadline, (err, value) => {
+            this.client.waitForReady(deadline, (err) => {
                 if (err) {
                     reject(err);
                     return;
                 }
-                resolve(value);
+                resolve();
             });
         });
     }
@@ -46,7 +50,7 @@ class SensorGrpcHostClient {
      */
     emitEvent(event) {
         return new Promise((resolve, reject) => {
-            const request = new messages.EmitEventRequest();
+            const request = new ldk_pb_1.default.EmitEventRequest();
             Object.entries(event.data)
                 .forEach(([key, value]) => {
                 request.getDataMap().set(key, JSON.stringify(value));
@@ -73,7 +77,7 @@ class SensorGrpcHostClient {
                 reject(errMissingRequiredKey);
                 return;
             }
-            const request = new messages.StorageDeleteRequest();
+            const request = new ldk_pb_1.default.StorageDeleteRequest();
             request.setKey(key);
             this.client.storageDelete(request, (err) => {
                 if (err) {
@@ -91,7 +95,7 @@ class SensorGrpcHostClient {
      */
     storageDeleteAll() {
         return new Promise((resolve, reject) => {
-            const request = new messages.Empty();
+            const request = new ldk_pb_1.default.Empty();
             this.client.storageDeleteAll(request, (err) => {
                 if (err) {
                     return reject(err);
@@ -113,7 +117,7 @@ class SensorGrpcHostClient {
                 reject(errMissingRequiredKey);
                 return;
             }
-            const request = new messages.StorageHasKeyRequest();
+            const request = new ldk_pb_1.default.StorageHasKeyRequest();
             request.setKey(key);
             this.client.storageHasKey(request, (err, response) => {
                 if (err) {
@@ -132,7 +136,7 @@ class SensorGrpcHostClient {
      */
     storageKeys() {
         return new Promise((resolve, reject) => {
-            const request = new messages.Empty();
+            const request = new ldk_pb_1.default.Empty();
             this.client.storageKeys(request, (err, response) => {
                 if (err) {
                     return reject(err);
@@ -155,7 +159,7 @@ class SensorGrpcHostClient {
                 reject(errMissingRequiredKey);
                 return;
             }
-            const request = new messages.StorageReadRequest();
+            const request = new ldk_pb_1.default.StorageReadRequest();
             request.setKey(key);
             this.client.storageRead(request, (err, response) => {
                 if (err) {
@@ -175,7 +179,7 @@ class SensorGrpcHostClient {
      */
     storageReadAll() {
         return new Promise((resolve, reject) => {
-            const request = new messages.Empty();
+            const request = new ldk_pb_1.default.Empty();
             this.client.storageReadAll(request, (err, response) => {
                 if (err) {
                     return reject(err);
@@ -206,7 +210,7 @@ class SensorGrpcHostClient {
                 reject(errMissingRequiredValue);
                 return;
             }
-            const request = new messages.StorageWriteRequest();
+            const request = new ldk_pb_1.default.StorageWriteRequest();
             request.setKey(key);
             request.setValue(value);
             this.client.storageWrite(request, (err) => {
@@ -218,4 +222,4 @@ class SensorGrpcHostClient {
         });
     }
 }
-module.exports = SensorGrpcHostClient;
+exports.default = SensorGrpcHostClient;

@@ -11,7 +11,7 @@ const logLevels = {
 };
 
 /** Logger is a supported way to get logs to Sidekick in the expected format. */
-const Logger = class {
+class Logger {
   private _name: string;
 
   private _fields: any;
@@ -241,7 +241,7 @@ const Logger = class {
     // toISOString() is close, but the seconds value needs to have 6 decimal places.
     return new Date().toISOString().replace(/\.(\d+)Z$/, (_, p1) => `.${p1.padEnd(6, '0')}Z`);
   }
-};
+}
 
 /**
  * prepareLogging overwrites basic console methods so they produce output in an expected format.

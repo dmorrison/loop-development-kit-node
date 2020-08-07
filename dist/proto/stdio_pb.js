@@ -1,4 +1,3 @@
-"use strict";
 // source: stdio.proto
 /**
  * @fileoverview

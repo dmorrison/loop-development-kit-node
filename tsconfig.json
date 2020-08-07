@@ -6,7 +6,8 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "declaration": true
   },
   "exclude": ["node_modules", "dist", "docs", "scripts"]
 }

@@ -1,7 +1,30 @@
 "use strict";
 /** @module controllerGrpcHostClient */
-const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ldk_pb_1 = __importDefault(require("./proto/ldk_pb"));
+const services = __importStar(require("./proto/ldk_grpc_pb"));
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 /**
@@ -37,16 +60,16 @@ class ControllerGrpcHostClient {
         });
     }
     /**
-     * Send a whisper to the host process.
+     * Send a Whisper to the host process.
      *
      * @async
-     * @param {whisper} whisper - An object defining the contents of the whisper.
+     * @param {Whisper} whisper - An object defining the contents of the Whisper.
      * @returns {void}
      */
     emitWhisper(whisper) {
         return new Promise((resolve, reject) => {
-            const request = new messages.EmitWhisperRequest();
-            const style = new messages.Style();
+            const request = new ldk_pb_1.default.EmitWhisperRequest();
+            const style = new ldk_pb_1.default.Style();
             if (whisper.style) {
                 style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
                 style.setPrimarycolor(whisper.style.primaryColor || '#666');
@@ -57,7 +80,7 @@ class ControllerGrpcHostClient {
                 style.setPrimarycolor('#666');
                 style.setHighlightcolor('#651fff');
             }
-            const whisperMsg = new messages.Whisper();
+            const whisperMsg = new ldk_pb_1.default.Whisper();
             whisperMsg.setMarkdown(whisper.markdown);
             whisperMsg.setLabel(whisper.label);
             whisperMsg.setStyle(style);
@@ -84,7 +107,7 @@ class ControllerGrpcHostClient {
                 reject(errMissingRequiredKey);
                 return;
             }
-            const request = new messages.StorageDeleteRequest();
+            const request = new ldk_pb_1.default.StorageDeleteRequest();
             request.setKey(key);
             this.client.storageDelete(request, (err) => {
                 if (err) {
@@ -102,7 +125,7 @@ class ControllerGrpcHostClient {
      */
     storageDeleteAll() {
         return new Promise((resolve, reject) => {
-            const request = new messages.Empty();
+            const request = new ldk_pb_1.default.Empty();
             this.client.storageDeleteAll(request, (err) => {
                 if (err) {
                     return reject(err);
@@ -124,7 +147,7 @@ class ControllerGrpcHostClient {
                 reject(errMissingRequiredKey);
                 return;
             }
-            const request = new messages.StorageHasKeyRequest();
+            const request = new ldk_pb_1.default.StorageHasKeyRequest();
             request.setKey(key);
             this.client.storageHasKey(request, (err, response) => {
                 if (err) {
@@ -143,7 +166,7 @@ class ControllerGrpcHostClient {
      */
     storageKeys() {
         return new Promise((resolve, reject) => {
-            const request = new messages.Empty();
+            const request = new ldk_pb_1.default.Empty();
             this.client.storageKeys(request, (err, response) => {
                 if (err) {
                     return reject(err);
@@ -166,7 +189,7 @@ class ControllerGrpcHostClient {
                 reject(errMissingRequiredKey);
                 return;
             }
-            const request = new messages.StorageReadRequest();
+            const request = new ldk_pb_1.default.StorageReadRequest();
             request.setKey(key);
             this.client.storageRead(request, (err, response) => {
                 if (err) {
@@ -186,7 +209,7 @@ class ControllerGrpcHostClient {
      */
     storageReadAll() {
         return new Promise((resolve, reject) => {
-            const request = new messages.Empty();
+            const request = new ldk_pb_1.default.Empty();
             this.client.storageReadAll(request, (err, response) => {
                 if (err) {
                     return reject(err);
@@ -217,7 +240,7 @@ class ControllerGrpcHostClient {
                 reject(errMissingRequiredValue);
                 return;
             }
-            const request = new messages.StorageWriteRequest();
+            const request = new ldk_pb_1.default.StorageWriteRequest();
             request.setKey(key);
             request.setValue(value);
             this.client.storageWrite(request, (err) => {
@@ -229,4 +252,4 @@ class ControllerGrpcHostClient {
         });
     }
 }
-module.exports = ControllerGrpcHostClient;
+exports.default = ControllerGrpcHostClient;
