@@ -9,7 +9,7 @@ import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
 
 /** Class used to setup the GRPC server and host the controller service. */
 class ControllerPlugin {
-  private server: any;
+  private server: services.grpc.Server;
 
   private broker: BrokerGrpcServer;
 
@@ -22,11 +22,11 @@ class ControllerPlugin {
    * @example
    * ControllerPlugin(myController);
    */
-  constructor(impl) {
+  constructor(impl: Controller) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
-    this.server.addService(HealthService, new HealthGrpcServer());
-    this.server.addService(StdioService, new StdioGrpcServer());
+    this.server.addService(HealthService, new HealthGrpcServer() as any);
+    this.server.addService(StdioService, new StdioGrpcServer() as any);
     this.controller = new ControllerGrpcServer(this.server, impl, this.broker);
   }
 

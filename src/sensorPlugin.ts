@@ -10,7 +10,7 @@ import { Sensor } from './sensor';
 
 /** Class used to setup the GRPC server and host the sensor service. */
 class SensorPlugin {
-  private server: typeof services.grpc.Server;
+  private server: services.grpc.Server;
 
   private sensor: SensorGRPCServer;
 
@@ -26,8 +26,8 @@ class SensorPlugin {
   constructor(impl: Sensor) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
-    this.server.addService(HealthService, new HealthGrpcServer());
-    this.server.addService(StdioService, new StdioGrpcServer());
+    this.server.addService(HealthService, new HealthGrpcServer() as any);
+    this.server.addService(StdioService, new StdioGrpcServer() as any);
     this.sensor = new SensorGRPCServer(this.server, impl, this.broker);
   }
 

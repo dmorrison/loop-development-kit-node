@@ -2,7 +2,7 @@
 
 import { Whisper } from './whisper';
 import messages from './proto/ldk_pb';
-import services from './proto/ldk_grpc_pb';
+import * as services from './proto/ldk_grpc_pb';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');

@@ -82,5 +82,11 @@ module.exports = {
       },
       files: ['**/*.ts'],
     },
+    {
+      rules: {
+        '@typescript-eslint/no-var-requires': ['off'],
+      },
+      files: ['**/*.js'],
+    },
   ],
 };

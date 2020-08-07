@@ -2,6 +2,7 @@
 
 import messages from './proto/ldk_pb';
 import services from './proto/ldk_grpc_pb';
+import { ConnInfo } from './proto/broker_pb';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
@@ -16,10 +17,10 @@ class SensorGrpcHostClient {
    * Establish a connection to the host process.
    *
    * @async
-   * @param {connInfo} connInfo - An object containing host process connection information.
+   * @param {ConnInfo.AsObject} connInfo - An object containing host process connection information.
    * @returns {Promise.<void>} - Promise resolves when the connection is established.
    */
-  connect(connInfo) {
+  connect(connInfo: ConnInfo.AsObject): Promise<void> {
     return new Promise((resolve, reject) => {
       let address;
       if (connInfo.network === 'unix') {
@@ -37,12 +38,12 @@ class SensorGrpcHostClient {
       const deadline = new Date();
       deadline.setSeconds(deadline.getSeconds() + 5);
 
-      this.client.waitForReady(deadline, (err, value) => {
+      this.client.waitForReady(deadline, (err) => {
         if (err) {
           reject(err);
           return;
         }
-        resolve(value);
+        resolve();
       });
     });
   }

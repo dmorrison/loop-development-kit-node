@@ -1,4 +1,5 @@
 import services from './proto/broker_grpc_pb';
+import { ConnInfo } from './proto/broker_pb';
 
 /**
  * Class used to interact with the broker GRPC service.
@@ -6,7 +7,7 @@ import services from './proto/broker_grpc_pb';
  * @private
  */
 export default class BrokerGrpcServer {
-  private connInfoPromise: Promise<void>;
+  private connInfoPromise: Promise<ConnInfo.AsObject>;
 
   /**
    * Create a BrokerGrpcServer.
@@ -44,7 +45,7 @@ export default class BrokerGrpcServer {
   startStream(connInfoCallback) {
     return (call) => {
       call.on('data', (msg) => {
-        const connInfo = {
+        const connInfo: ConnInfo.AsObject = {
           address: msg.getAddress(),
           serviceId: msg.getServiceId(),
           network: msg.getNetwork(),
@@ -62,7 +63,7 @@ export default class BrokerGrpcServer {
    *
    * @returns {Promise.<connInfo>} - Promise object represents connection information
    */
-  getConnInfo() {
+  getConnInfo(): Promise<ConnInfo.AsObject> {
     return this.connInfoPromise;
   }
 }

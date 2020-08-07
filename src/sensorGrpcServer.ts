@@ -1,6 +1,6 @@
 import BrokerGrpcServer from './brokerGrpcServer';
 import messages from './proto/ldk_pb';
-import services from './proto/ldk_grpc_pb';
+import services, { grpc } from './proto/ldk_grpc_pb';
 import { categories } from './categories';
 import SensorGrpcHostClient from './sensorGrpcHostClient';
 import { Sensor } from './sensor';
@@ -22,7 +22,7 @@ class SensorGRPCServer {
    * @example
    * SensorGRPCServer(server, mySensor, broker);
    */
-  constructor(server, impl: Sensor, broker) {
+  constructor(server: services.grpc.Server, impl: Sensor, broker: BrokerGrpcServer) {
     this.broker = broker;
     server.addService(services.SensorService, {
       start: this.start(impl),
@@ -38,7 +38,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  start(impl) {
+  start(impl: Sensor): grpc.handleUnaryCall<any, any> {
     return async (call, callback) => {
       // TODO: Figure out why I don't need this
       // const host = call.request.getHost();
@@ -63,7 +63,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  stop(impl) {
+  stop(impl: Sensor) {
     return async (call, callback) => {
       await impl.stop();
 
@@ -79,7 +79,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  onEvent(impl) {
+  onEvent(impl: Sensor) {
     return async ({ request }, callback) => {
       const event = {
         data: request.getDataMap().toObject().reduce((acc, [key, value]) => {

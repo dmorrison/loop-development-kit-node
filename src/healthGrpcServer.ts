@@ -7,7 +7,7 @@ import { HealthService } from './proto/health_grpc_pb';
  * @private
  */
 class HealthGrpcServer {
-  private _statusMap: {[key: string]: string;}
+  private _statusMap: {[key: string]: HealthCheckResponse.ServingStatus;}
 
   /**
    * Create a HealthGrpcServer.
