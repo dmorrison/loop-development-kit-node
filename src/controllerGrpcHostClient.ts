@@ -7,11 +7,13 @@ import * as services from './proto/ldk_grpc_pb';
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
-type Request<TRequest = any, TResponse = any> =
-  (request: TRequest, callback: (error, response: TResponse) => void) => void;
+type Request<TRequest = any, TResponse = any> = (
+  request: TRequest,
+  callback: (error, response: TResponse) => void,
+) => void;
 
 interface ControllerHostClient {
-  waitForReady: Request<Date>
+  waitForReady: Request<Date>;
   emitWhisper: Request;
   storageDeleteAll: Request;
   storageDelete: Request;
@@ -46,7 +48,7 @@ class ControllerGrpcHostClient {
 
       this.client = new services.ControllerHostClient(
         address,
-        services.grpc.credentials.createInsecure()
+        services.grpc.credentials.createInsecure(),
       ) as any;
 
       // set a 5 second deadline
@@ -235,10 +237,13 @@ class ControllerGrpcHostClient {
         if (err) {
           return reject(err);
         }
-        const entries = response.getEntriesMap().toObject().reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
+        const entries = response
+          .getEntriesMap()
+          .toObject()
+          .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+          }, {});
 
         return resolve(entries);
       });

@@ -50,7 +50,11 @@ class SensorGRPCServer {
    * @example
    * SensorGRPCServer(server, mySensor, broker);
    */
-  constructor(server: services.grpc.Server, impl: Sensor, broker: BrokerGrpcServer) {
+  constructor(
+    server: services.grpc.Server,
+    impl: Sensor,
+    broker: BrokerGrpcServer,
+  ) {
     this.broker = broker;
     server.addService(services.SensorService, {
       start: this.start(impl),
@@ -110,10 +114,13 @@ class SensorGRPCServer {
   onEvent(impl: Sensor) {
     return async ({ request }, callback) => {
       const event = {
-        data: request.getDataMap().toObject().reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {}),
+        data: request
+          .getDataMap()
+          .toObject()
+          .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+          }, {}),
         source: {
           id: request.getSource().getId(),
           category: categories[request.getSource().getCategory()],

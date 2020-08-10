@@ -49,7 +49,7 @@ class ControllerPlugin {
           process.stdout.write(`1|1|tcp|127.0.0.1:${port}|grpc\n`);
           prepareLogging();
           resolve();
-        }
+        },
       );
     });
   }

@@ -18,11 +18,4 @@ const UNKNOWN = 'Unknown';
 /** @constant {string[]} */
 const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
 
-export {
-  CONTROLLER,
-  INTELLIGENCE,
-  SENSOR,
-  SIDEKICK,
-  UNKNOWN,
-  categories,
-};
+export { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };

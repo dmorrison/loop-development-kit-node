@@ -10,6 +10,7 @@
     "doc": "mkdir -p docs && ./node_modules/.bin/jsdoc src --configure .jsdoc.json",
     "build": "rm -rf dist && tsc",
     "lint": "./node_modules/.bin/eslint --fix .",
+    "prettier-all": "prettier --write '**/*.{js,ts}'",
     "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-ts && npm run protoc-fixes",
     "protoc-broker": "grpc_tools_node_protoc -I src/proto --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/broker.proto",
     "protoc-fixes": "node scripts/protoFixes.js",
@@ -20,7 +21,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build && npm run doc && git add docs"
+      "pre-commit": "lint-staged && npm run build && npm run doc && git add docs"
     }
   },
   "lint-staged": {

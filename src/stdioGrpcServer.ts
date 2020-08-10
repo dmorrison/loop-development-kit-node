@@ -8,7 +8,4 @@ class StdioGrpcServer {
   }
 }
 
-export {
-  GRPCStdioService as StdioService,
-  StdioGrpcServer,
-};
+export { GRPCStdioService as StdioService, StdioGrpcServer };

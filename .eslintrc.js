@@ -7,10 +7,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 9,
   },
-  plugins: [
-    'jsdoc',
-    '@typescript-eslint',
-  ],
+  plugins: ['jsdoc', '@typescript-eslint'],
   parser: '@typescript-eslint/parser',
   extends: ['airbnb-base', 'plugin:@typescript-eslint/recommended', 'prettier'],
   rules: {
@@ -25,15 +22,18 @@ module.exports = {
       'error',
       {
         selector: 'ForInStatement',
-        message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+        message:
+          'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
       },
       {
         selector: 'LabeledStatement',
-        message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+        message:
+          'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
       },
       {
         selector: 'WithStatement',
-        message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+        message:
+          '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
       },
     ],
     'no-underscore-dangle': 'off',
@@ -41,13 +41,14 @@ module.exports = {
     'unicode-bom': 'off',
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-    'import/no-unresolved': ['error', {
-      commonjs: true,
-      caseSensitive: true,
-      ignore: [
-        'node-win32-automation',
-      ],
-    }],
+    'import/no-unresolved': [
+      'error',
+      {
+        commonjs: true,
+        caseSensitive: true,
+        ignore: ['node-win32-automation'],
+      },
+    ],
     'jsdoc/check-alignment': 1, // Recommended
     'jsdoc/check-param-names': 1, // Recommended
     'jsdoc/check-tag-names': 1, // Recommended

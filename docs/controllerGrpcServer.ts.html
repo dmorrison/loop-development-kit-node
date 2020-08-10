@@ -110,10 +110,13 @@ class ControllerGrpcServer {
   onEvent(impl) {
     return async ({ request }, callback) => {
       const event = {
-        data: request.getDataMap().toObject().reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {}),
+        data: request
+          .getDataMap()
+          .toObject()
+          .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+          }, {}),
         source: {
           id: request.getSource().getId(),
           category: categories[request.getSource().getCategory()],

@@ -7,7 +7,7 @@ import { HealthService } from './proto/health_grpc_pb';
  * @private
  */
 class HealthGrpcServer {
-  private _statusMap: {[key: string]: HealthCheckResponse.ServingStatus;}
+  private _statusMap: { [key: string]: HealthCheckResponse.ServingStatus };
 
   /**
    * Create a HealthGrpcServer.
@@ -32,7 +32,9 @@ class HealthGrpcServer {
    */
   check(call, callback) {
     const reqService = call.request.getService();
-    const status = this._statusMap[reqService] || HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
+    const status =
+      this._statusMap[reqService] ||
+      HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
     const msg = new HealthCheckResponse();
     msg.setStatus(status);
     callback(null, msg);
@@ -50,8 +52,4 @@ class HealthGrpcServer {
   }
 }
 
-export {
-  HealthGrpcServer,
-  HealthCheckResponse,
-  HealthService,
-};
+export { HealthGrpcServer, HealthCheckResponse, HealthService };

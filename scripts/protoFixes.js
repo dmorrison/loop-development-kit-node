@@ -22,8 +22,8 @@ let stdioGrpcTs = fs.readFileSync(stdioGrpcTsPath, 'utf-8');
 
 // The proto compiler uses the only grpc moduled "grpc".
 // We need to use the new module "@grpc/grpc-js" which supports sockets.
-const searchJsValue = 'var grpc = require(\'grpc\');';
-const replaceJsValue = 'var grpc = require(\'@grpc/grpc-js\');';
+const searchJsValue = "var grpc = require('grpc');";
+const replaceJsValue = "var grpc = require('@grpc/grpc-js');";
 brokerGrpcPb = brokerGrpcPb.replace(searchJsValue, replaceJsValue);
 healthGrpcPb = healthGrpcPb.replace(searchJsValue, replaceJsValue);
 ldkGrpcPb = ldkGrpcPb.replace(searchJsValue, replaceJsValue);

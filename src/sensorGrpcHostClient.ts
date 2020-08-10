@@ -31,7 +31,7 @@ class SensorGrpcHostClient {
 
       this.client = new services.SensorHostClient(
         address,
-        services.grpc.credentials.createInsecure()
+        services.grpc.credentials.createInsecure(),
       );
 
       // set a 5 second deadline
@@ -59,10 +59,9 @@ class SensorGrpcHostClient {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
 
-      Object.entries(event.data)
-        .forEach(([key, value]) => {
-          request.getDataMap().set(key, JSON.stringify(value));
-        });
+      Object.entries(event.data).forEach(([key, value]) => {
+        request.getDataMap().set(key, JSON.stringify(value));
+      });
 
       this.client.emitEvent(request, (err, response) => {
         if (err) {
@@ -208,10 +207,13 @@ class SensorGrpcHostClient {
         if (err) {
           return reject(err);
         }
-        const entries = response.getEntriesMap().toObject().reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
+        const entries = response
+          .getEntriesMap()
+          .toObject()
+          .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+          }, {});
 
         return resolve(entries);
       });

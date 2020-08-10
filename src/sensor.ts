@@ -43,7 +43,7 @@ import SensorGrpcHostClient from './sensorGrpcHostClient';
  * }
  */
 export interface Sensor {
- start(host: SensorGrpcHostClient): void;
- stop(): void;
- onEvent(event: event): void;
+  start(host: SensorGrpcHostClient): void;
+  stop(): void;
+  onEvent(event: event): void;
 }
