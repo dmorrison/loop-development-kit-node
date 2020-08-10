@@ -2,19 +2,20 @@
 
 const { pid } = process;
 
-const logLevels = {
-  TRACE: 'TRACE',
-  DEBUG: 'DEBUG',
-  INFO: 'INFO',
-  WARN: 'WARN',
-  ERROR: 'ERROR',
-};
+enum logLevels {
+  TRACE = 'TRACE',
+  DEBUG = 'DEBUG',
+  INFO = 'INFO',
+  WARN = 'WARN',
+  ERROR = 'ERROR',
+}
 
 /** Logger is a supported way to get logs to Sidekick in the expected format. */
 class Logger {
   private _name: string;
 
-  private _fields: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private _fields: { [index: string]: any };
 
   /**
    * Create a Logger.
@@ -25,7 +26,7 @@ class Logger {
    * const package = require('./package.json');
    * const logger = new Logger(package.name);
    */
-  constructor(name, fields = {}) {
+  constructor(name: string, fields = {}) {
     if (!name) {
       throw new Error('Invalid logger name');
     }
@@ -52,7 +53,8 @@ class Logger {
    * //   "yetAnotherKey": "yetAnotherValue"
    * // }
    */
-  with(...args) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  with(...args: any[]): Logger {
     const fields = this._kvArgsWithFields(args);
     return new Logger(this._name, fields);
   }
@@ -73,7 +75,7 @@ class Logger {
    * //   "@message": "Some message"
    * // }
    */
-  trace(msg, ...args) {
+  trace(msg: string, ...args: string[]): void {
     this._write(logLevels.TRACE, msg, ...args);
   }
 
@@ -93,7 +95,7 @@ class Logger {
    * //   "@message": "Some message"
    * // }
    */
-  debug(msg, ...args) {
+  debug(msg: string, ...args: string[]): void {
     this._write(logLevels.DEBUG, msg, ...args);
   }
 
@@ -113,7 +115,7 @@ class Logger {
    * //   "@message": "Some message"
    * // }
    */
-  info(msg, ...args) {
+  info(msg: string, ...args: string[]): void {
     this._write(logLevels.INFO, msg, ...args);
   }
 
@@ -133,7 +135,7 @@ class Logger {
    * //   "@message": "Some message"
    * // }
    */
-  warn(msg, ...args) {
+  warn(msg: string, ...args: string[]): void {
     this._write(logLevels.WARN, msg, ...args);
   }
 
@@ -153,7 +155,7 @@ class Logger {
    * //   "@message": "Some message"
    * // }
    */
-  error(msg, ...args) {
+  error(msg: string, ...args: string[]): void {
     this._write(logLevels.ERROR, msg, ...args);
   }
 
@@ -166,7 +168,7 @@ class Logger {
    * @param {...string} args - A list of alternating keys/values.
    * @returns {void}
    */
-  _write(lvl, msg, ...args) {
+  private _write(lvl: logLevels, msg: string, ...args: string[]): void {
     let level = lvl;
     if (!level) {
       level = logLevels.DEBUG;
@@ -209,7 +211,9 @@ class Logger {
    * _kvArgsWithFields(['key1', 'value1', 'key2', 'value2', 'value3'])
    * // returns { 'key1': 'value1', 'key2': 'value2', 'EXTRA_VALUE_AT_END': 'value3' }
    */
-  _kvArgsWithFields(args = []) {
+  private _kvArgsWithFields(
+    args = [] as string[],
+  ): { [index: string]: string } {
     const argsEven = args.slice(0);
 
     if (argsEven.length % 2 !== 0) {
@@ -217,13 +221,16 @@ class Logger {
       argsEven.push('EXTRA_VALUE_AT_END', extra);
     }
 
-    const fields = argsEven.reduce((acc, cur, idx, array) => {
-      if (idx % 2 === 0) {
-        const next = array[idx + 1];
-        acc[cur] = next;
-      }
-      return acc;
-    }, {});
+    const fields = argsEven.reduce(
+      (acc: { [index: string]: string }, cur, idx, array) => {
+        if (idx % 2 === 0) {
+          const next = array[idx + 1];
+          acc[cur] = next;
+        }
+        return acc;
+      },
+      {},
+    );
 
     return {
       ...this._fields,
@@ -237,7 +244,7 @@ class Logger {
    * @private
    * @returns {string} - A timestamp in a format compatible with the host process.
    */
-  _getTimestamp() {
+  private _getTimestamp(): string {
     // toISOString() is close, but the seconds value needs to have 6 decimal places.
     return new Date()
       .toISOString()
@@ -251,7 +258,7 @@ class Logger {
  *
  * @private
  */
-const prepareLogging = () => {
+const prepareLogging = (): void => {
   const consoleDebug = console.debug.bind(console);
   const consoleError = console.error.bind(console);
   const consoleInfo = console.info.bind(console);
@@ -259,31 +266,35 @@ const prepareLogging = () => {
   const consoleTrace = console.trace.bind(console);
   const consoleWarn = console.warn.bind(console);
 
-  console.debug = (msg, ...args) => {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  // Using any b/c console functions accept any type.
+  console.debug = (msg: any, ...args: any[]) => {
     consoleDebug(`[DEBUG] ${msg}`, ...args);
   };
 
-  console.error = (msg, ...args) => {
+  console.error = (msg: any, ...args: any[]) => {
     consoleError(`[ERROR] ${msg}`, ...args);
   };
 
-  console.info = (msg, ...args) => {
+  console.info = (msg: any, ...args: any[]) => {
     consoleInfo(`[INFO] ${msg}`, ...args);
   };
 
-  console.log = (msg, ...args) => {
+  console.log = (msg: any, ...args: any[]) => {
     consoleLog(`[INFO] ${msg}`, ...args);
   };
 
-  console.trace = (msg, ...args) => {
+  console.trace = (msg: any, ...args: any[]) => {
     consoleTrace(`[TRACE] ${msg}`, ...args);
   };
 
-  console.warn = (msg, ...args) => {
+  console.warn = (msg: any, ...args: any[]) => {
     consoleWarn(`[WARN] ${msg}`, ...args);
   };
 
-  process.stdout.write = (...args) => (process.stderr.write as any)(...args);
+  process.stdout.write = (...args: any[]) =>
+    (process.stderr.write as any)(...args);
+  /* eslint-any @typescript-eslint/no-explicit-any */
 };
 
 export { Logger, prepareLogging };

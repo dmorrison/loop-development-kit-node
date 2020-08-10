@@ -13,14 +13,14 @@ export default class BrokerGrpcServer {
   /**
    * Create a BrokerGrpcServer.
    *
-   * @param server - The GRPC server instance.
+   * @param {grpc.Server} server - The GRPC server instance.
    * @example
    * BrokerGrpcServer(server);
    */
   constructor(server: grpc.Server) {
     let connInfoCallback;
     this.connInfoPromise = new Promise((resolve) => {
-      connInfoCallback = (connInfo) => {
+      connInfoCallback = (connInfo: ConnInfo.AsObject) => {
         resolve(connInfo);
       };
     });
@@ -43,9 +43,11 @@ export default class BrokerGrpcServer {
    * - The callback that handles receiving connection info.
    * @returns {void}
    */
-  startStream(connInfoCallback) {
+  startStream(
+    connInfoCallback: (connInfo: ConnInfo.AsObject) => void,
+  ): grpc.handleBidiStreamingCall<ConnInfo, ConnInfo> {
     return (call) => {
-      call.on('data', (msg) => {
+      call.on('data', (msg: ConnInfo) => {
         const connInfo: ConnInfo.AsObject = {
           address: msg.getAddress(),
           serviceId: msg.getServiceId(),

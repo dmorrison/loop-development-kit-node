@@ -33,7 +33,8 @@ class HealthGrpcServer {
      */
     check(call, callback) {
         const reqService = call.request.getService();
-        const status = this._statusMap[reqService] || health_pb_1.HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
+        const status = this._statusMap[reqService] ||
+            health_pb_1.HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
         const msg = new health_pb_1.HealthCheckResponse();
         msg.setStatus(status);
         callback(null, msg);

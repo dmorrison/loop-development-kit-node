@@ -3,7 +3,7 @@ import { Controller } from './controller';
 import ControllerGrpcHostClient from './controllerGrpcHostClient';
 import { categories } from './categories';
 import messages from './proto/ldk_pb';
-import services from './proto/ldk_grpc_pb';
+import services, { IControllerServer } from './proto/ldk_grpc_pb';
 
 /**
  * Class used by the host process to interact with the controller implementation.
@@ -16,19 +16,25 @@ class ControllerGrpcServer {
   /**
    * Create a ControllerGrpcServer.
    *
-   * @param {object} server - The GRPC server instance.
+   * @param {services.grpc.Server} server - The GRPC server instance.
    * @param {Controller} impl - The controller implementation.
    * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
    * @example
    * ControllerGrpcServer(server, myController, broker);
    */
-  constructor(server, impl: Controller, broker) {
+  constructor(
+    server: services.grpc.Server,
+    impl: Controller,
+    broker: BrokerGrpcServer,
+  ) {
     this.broker = broker;
-    server.addService(services.ControllerService, {
+    server.addService(services.ControllerService, ({
       start: this.start(impl),
       stop: this.stop(impl),
       onEvent: this.onEvent(impl),
-    });
+      // Returning any as the server expects an untyped implementation.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as IControllerServer) as any);
   }
 
   /**
@@ -38,7 +44,9 @@ class ControllerGrpcServer {
    * @param {Controller} impl - The implementation of the controller.
    * @returns {void}
    */
-  start(impl) {
+  start(
+    impl: Controller,
+  ): services.grpc.handleUnaryCall<messages.StartRequest, messages.Empty> {
     return async (call, callback) => {
       // TODO: Figure out why I don't need this
       // const host = call.request.getHost();
@@ -63,7 +71,9 @@ class ControllerGrpcServer {
    * @param {Controller} impl - The implementation of the controller.
    * @returns {void}
    */
-  stop(impl) {
+  stop(
+    impl: Controller,
+  ): services.grpc.handleUnaryCall<messages.Empty, messages.Empty> {
     return async (call, callback) => {
       await impl.stop();
 
@@ -79,13 +89,15 @@ class ControllerGrpcServer {
    * @param {Controller} impl - The implementation of the controller.
    * @returns {void}
    */
-  onEvent(impl) {
+  onEvent(
+    impl: Controller,
+  ): services.grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty> {
     return async ({ request }, callback) => {
       const event = {
         data: request
           .getDataMap()
           .toObject()
-          .reduce((acc, [key, value]) => {
+          .reduce((acc: { [index: string]: string }, [key, value]) => {
             acc[key] = value;
             return acc;
           }, {}),

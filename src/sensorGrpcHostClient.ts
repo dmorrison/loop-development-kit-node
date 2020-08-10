@@ -55,7 +55,7 @@ class SensorGrpcHostClient {
    * @param {event} event - An object containing host process connection information.
    * @returns {void}
    */
-  emitEvent(event) {
+  emitEvent(event: event): Promise<messages.Empty> {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
 
@@ -80,7 +80,7 @@ class SensorGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {void}
    */
-  storageDelete(key) {
+  storageDelete(key: string): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
@@ -105,7 +105,7 @@ class SensorGrpcHostClient {
    * @async
    * @returns {void}
    */
-  storageDeleteAll() {
+  storageDeleteAll(): Promise<void> {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
 
@@ -125,7 +125,7 @@ class SensorGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {boolean} - Returns true if the key has a defined value.
    */
-  storageHasKey(key) {
+  storageHasKey(key: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
@@ -151,7 +151,7 @@ class SensorGrpcHostClient {
    * @async
    * @returns {string[]} - An array of the keys.
    */
-  storageKeys() {
+  storageKeys(): Promise<string[]> {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
 
@@ -172,7 +172,7 @@ class SensorGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {string} - Returns the value of the key in storage.
    */
-  storageRead(key) {
+  storageRead(key: string): Promise<string> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
@@ -199,7 +199,7 @@ class SensorGrpcHostClient {
    * @returns {object} - Returns the storage object. Each key in the object
    * is a key in storage and the value of the key is the value in storage.
    */
-  storageReadAll() {
+  storageReadAll(): Promise<{ [index: string]: string }> {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
 
@@ -210,7 +210,7 @@ class SensorGrpcHostClient {
         const entries = response
           .getEntriesMap()
           .toObject()
-          .reduce((acc, [key, value]) => {
+          .reduce((acc: { [index: string]: string }, [key, value]) => {
             acc[key] = value;
             return acc;
           }, {});
@@ -228,7 +228,7 @@ class SensorGrpcHostClient {
    * @param {string} value - The value to assign to the key in storage.
    * @returns {void}
    */
-  storageWrite(key, value) {
+  storageWrite(key: string, value: string): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);

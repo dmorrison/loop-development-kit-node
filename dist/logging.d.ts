@@ -153,4 +153,4 @@ declare class Logger {
  * @private
  */
 declare const prepareLogging: () => void;
-export { Logger, prepareLogging, };
+export { Logger, prepareLogging };

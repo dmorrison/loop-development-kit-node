@@ -84,7 +84,10 @@ class ControllerGrpcServer {
     onEvent(impl) {
         return ({ request }, callback) => __awaiter(this, void 0, void 0, function* () {
             const event = {
-                data: request.getDataMap().toObject().reduce((acc, [key, value]) => {
+                data: request
+                    .getDataMap()
+                    .toObject()
+                    .reduce((acc, [key, value]) => {
                     acc[key] = value;
                     return acc;
                 }, {}),

@@ -214,7 +214,10 @@ class ControllerGrpcHostClient {
                 if (err) {
                     return reject(err);
                 }
-                const entries = response.getEntriesMap().toObject().reduce((acc, [key, value]) => {
+                const entries = response
+                    .getEntriesMap()
+                    .toObject()
+                    .reduce((acc, [key, value]) => {
                     acc[key] = value;
                     return acc;
                 }, {});

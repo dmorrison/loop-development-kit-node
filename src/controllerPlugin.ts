@@ -25,8 +25,10 @@ class ControllerPlugin {
   constructor(impl: Controller) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     this.server.addService(HealthService, new HealthGrpcServer() as any);
     this.server.addService(StdioService, new StdioGrpcServer() as any);
+    /* eslint-enable @typescript-eslint/no-explicit-any */
     this.controller = new ControllerGrpcServer(this.server, impl, this.broker);
   }
 
@@ -36,7 +38,7 @@ class ControllerPlugin {
    * @async
    * @returns {void}
    */
-  serve() {
+  serve(): Promise<void> {
     return new Promise((resolve, reject) => {
       this.server.bindAsync(
         '127.0.0.1:0',

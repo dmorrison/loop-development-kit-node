@@ -51,8 +51,7 @@ class SensorGrpcHostClient {
     emitEvent(event) {
         return new Promise((resolve, reject) => {
             const request = new ldk_pb_1.default.EmitEventRequest();
-            Object.entries(event.data)
-                .forEach(([key, value]) => {
+            Object.entries(event.data).forEach(([key, value]) => {
                 request.getDataMap().set(key, JSON.stringify(value));
             });
             this.client.emitEvent(request, (err, response) => {
@@ -184,7 +183,10 @@ class SensorGrpcHostClient {
                 if (err) {
                     return reject(err);
                 }
-                const entries = response.getEntriesMap().toObject().reduce((acc, [key, value]) => {
+                const entries = response
+                    .getEntriesMap()
+                    .toObject()
+                    .reduce((acc, [key, value]) => {
                     acc[key] = value;
                     return acc;
                 }, {});

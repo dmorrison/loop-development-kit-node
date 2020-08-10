@@ -32,4 +32,4 @@ declare class HealthGrpcServer {
      */
     watch(): void;
 }
-export { HealthGrpcServer, HealthCheckResponse, HealthService, };
+export { HealthGrpcServer, HealthCheckResponse, HealthService };

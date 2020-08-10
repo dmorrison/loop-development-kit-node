@@ -42,7 +42,9 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  start(impl: Sensor): grpc.handleUnaryCall<any, any> {
+  start(
+    impl: Sensor,
+  ): grpc.handleUnaryCall<messages.StartRequest, messages.Empty> {
     return async (call, callback) => {
       // TODO: Figure out why I don't need this
       // const host = call.request.getHost();
@@ -67,7 +69,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  stop(impl: Sensor) {
+  stop(impl: Sensor): grpc.handleUnaryCall<messages.Empty, messages.Empty> {
     return async (call, callback) => {
       await impl.stop();
 
@@ -83,13 +85,15 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  onEvent(impl: Sensor) {
+  onEvent(
+    impl: Sensor,
+  ): grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty> {
     return async ({ request }, callback) => {
       const event = {
         data: request
           .getDataMap()
           .toObject()
-          .reduce((acc, [key, value]) => {
+          .reduce((acc: { [index: string]: string }, [key, value]) => {
             acc[key] = value;
             return acc;
           }, {}),

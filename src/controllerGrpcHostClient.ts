@@ -3,26 +3,11 @@
 import { Whisper } from './whisper';
 import messages from './proto/ldk_pb';
 import * as services from './proto/ldk_grpc_pb';
+import { ConnInfo } from './proto/broker_pb';
+import { ControllerHostClient } from './proto/ldk_grpc_pb';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
-
-type Request<TRequest = any, TResponse = any> = (
-  request: TRequest,
-  callback: (error, response: TResponse) => void,
-) => void;
-
-interface ControllerHostClient {
-  waitForReady: Request<Date>;
-  emitWhisper: Request;
-  storageDeleteAll: Request;
-  storageDelete: Request;
-  storageHasKey: Request;
-  storageKeys: Request;
-  storageRead: Request;
-  storageReadAll: Request;
-  storageWrite: Request;
-}
 
 /**
  * Class used by the controller implementation to interact with the host process.
@@ -37,7 +22,7 @@ class ControllerGrpcHostClient {
    * @param {connInfo} connInfo - An object containing host process connection information.
    * @returns {void}
    */
-  connect(connInfo) {
+  connect(connInfo: ConnInfo.AsObject): Promise<void> {
     return new Promise((resolve, reject) => {
       let address;
       if (connInfo.network === 'unix') {
@@ -49,7 +34,7 @@ class ControllerGrpcHostClient {
       this.client = new services.ControllerHostClient(
         address,
         services.grpc.credentials.createInsecure(),
-      ) as any;
+      );
 
       // set a 5 second deadline
       const deadline = new Date();
@@ -71,7 +56,7 @@ class ControllerGrpcHostClient {
    * @param {Whisper} whisper - An object defining the contents of the Whisper.
    * @returns {void}
    */
-  emitWhisper(whisper: Whisper) {
+  emitWhisper(whisper: Whisper): Promise<Error | void> {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitWhisperRequest();
 
@@ -110,7 +95,7 @@ class ControllerGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {void}
    */
-  storageDelete(key) {
+  storageDelete(key: string): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
@@ -135,7 +120,7 @@ class ControllerGrpcHostClient {
    * @async
    * @returns {void}
    */
-  storageDeleteAll() {
+  storageDeleteAll(): Promise<void> {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
 
@@ -155,7 +140,7 @@ class ControllerGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {boolean} - Returns true if the key has a defined value.
    */
-  storageHasKey(key) {
+  storageHasKey(key: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
@@ -181,7 +166,7 @@ class ControllerGrpcHostClient {
    * @async
    * @returns {string[]} - An array of the keys.
    */
-  storageKeys() {
+  storageKeys(): Promise<string[]> {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
 
@@ -202,7 +187,7 @@ class ControllerGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {string} - Returns the value of the key in storage.
    */
-  storageRead(key) {
+  storageRead(key: string): Promise<string | void> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
@@ -229,7 +214,7 @@ class ControllerGrpcHostClient {
    * @returns {object} - Returns the storage object. Each key in the object
    * is a key in storage and the value of the key is the value in storage.
    */
-  storageReadAll() {
+  storageReadAll(): Promise<{ [index: string]: string }> {
     return new Promise((resolve, reject) => {
       const request = new messages.Empty();
 
@@ -240,7 +225,7 @@ class ControllerGrpcHostClient {
         const entries = response
           .getEntriesMap()
           .toObject()
-          .reduce((acc, [key, value]) => {
+          .reduce((acc: { [index: string]: string }, [key, value]) => {
             acc[key] = value;
             return acc;
           }, {});
@@ -258,7 +243,7 @@ class ControllerGrpcHostClient {
    * @param {string} value - The value to assign to the key in storage.
    * @returns {void}
    */
-  storageWrite(key, value) {
+  storageWrite(key: string, value: string): Promise<void> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);
