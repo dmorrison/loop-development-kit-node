@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: sensorGrpcHostClient</title>
+    <title>JSDoc: Source: whisper.ts</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,59 +17,45 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: sensorGrpcHostClient</h1>
+    <h1 class="page-title">Source: whisper.ts</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { style } from './style';
 
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+/**
+ * @typedef whisper
+ * @type {object}
+ * @property {string} markdown - The content of the Whisper in markdown.
+ * @property {style} style - An object for specifying the styling of the Whisper card.
+ * @property {string} label - The title displayed at the top of the Whisper card.
+ * @property {string} icon - An icon displayed at the top of the Whisper card.
+ * @example
+ * {
+ *   markdown: '# Markdown\nThis is markdown',
+ *   label: 'Whisper!',
+ *   icon: 'bathtub',
+ *   style: {
+ *     backgroundColor: '#fff',
+ *     highlightColor: '#651fff',
+ *     primaryColor: '#666',
+ *   },
+ * }
+ */
+export interface Whisper {
+  markdown: string;
+  icon: string;
+  label: string;
+  style: style;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: logging.js</title>
+    <title>JSDoc: Source: logging.ts</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: logging.js</h1>
+    <h1 class="page-title">Source: logging.ts</h1>
 
     
 
@@ -39,7 +39,11 @@ const logLevels = {
 };
 
 /** Logger is a supported way to get logs to Sidekick in the expected format. */
-const Logger = class {
+class Logger {
+  private _name: string;
+
+  private _fields: any;
+
   /**
    * Create a Logger.
    *
@@ -265,7 +269,7 @@ const Logger = class {
     // toISOString() is close, but the seconds value needs to have 6 decimal places.
     return new Date().toISOString().replace(/\.(\d+)Z$/, (_, p1) => `.${p1.padEnd(6, '0')}Z`);
   }
-};
+}
 
 /**
  * prepareLogging overwrites basic console methods so they produce output in an expected format.
@@ -305,12 +309,10 @@ const prepareLogging = () => {
     consoleWarn(`[WARN] ${msg}`, ...args);
   };
 
-  process.stdout.write = (...args) => {
-    process.stderr.write(...args);
-  };
+  process.stdout.write = (...args) => (process.stderr.write as any)(...args);
 };
 
-module.exports = {
+export {
   Logger,
   prepareLogging,
 };
@@ -324,7 +326,7 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerGrpcHostClient.html">controllerGrpcHostClient</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="module-controllerGrpcHostClient-ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3>Interfaces</h3><ul><li><a href="connInfo.html">connInfo</a></li><li><a href="Controller.html">Controller</a></li><li><a href="event.html">event</a></li><li><a href="Sensor.html">Sensor</a></li><li><a href="style.html">style</a></li><li><a href="Whisper.html">Whisper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getConnInfo">getConnInfo</a></li><li><a href="global.html#startStream">startStream</a></li></ul>
 </nav>
 
 <br class="clear">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: sensorGrpcServer.js</title>
+    <title>JSDoc: Source: sensorGrpcServer.ts</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: sensorGrpcServer.js</h1>
+    <h1 class="page-title">Source: sensorGrpcServer.ts</h1>
 
     
 
@@ -26,14 +26,12 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const messages = require('./proto/ldk_pb');
-const services = require('./proto/ldk_grpc_pb');
-
-const { categories } = require('./categories');
-
-const BrokerGrpcServer = require('./brokerGrpcServer');
-const SensorGrpcHostClient = require('./sensorGrpcHostClient');
-const Sensor = require('./sensor');
+            <pre class="prettyprint source linenums"><code>import BrokerGrpcServer from './brokerGrpcServer';
+import messages from './proto/ldk_pb';
+import services, { grpc } from './proto/ldk_grpc_pb';
+import { categories } from './categories';
+import SensorGrpcHostClient from './sensorGrpcHostClient';
+import { Sensor } from './sensor';
 
 /**
  * Class used by the host process to interact with the sensor implementation.
@@ -41,6 +39,8 @@ const Sensor = require('./sensor');
  * @private
  */
 class SensorGRPCServer {
+  private broker: BrokerGrpcServer;
+
   /**
    * Create a SensorGRPCServer.
    *
@@ -50,7 +50,7 @@ class SensorGRPCServer {
    * @example
    * SensorGRPCServer(server, mySensor, broker);
    */
-  constructor(server, impl, broker) {
+  constructor(server: services.grpc.Server, impl: Sensor, broker: BrokerGrpcServer) {
     this.broker = broker;
     server.addService(services.SensorService, {
       start: this.start(impl),
@@ -66,7 +66,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  start(impl) {
+  start(impl: Sensor): grpc.handleUnaryCall&lt;any, any> {
     return async (call, callback) => {
       // TODO: Figure out why I don't need this
       // const host = call.request.getHost();
@@ -91,7 +91,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  stop(impl) {
+  stop(impl: Sensor) {
     return async (call, callback) => {
       await impl.stop();
 
@@ -107,7 +107,7 @@ class SensorGRPCServer {
    * @param {Sensor} impl - The implementation of the sensor.
    * @returns {void}
    */
-  onEvent(impl) {
+  onEvent(impl: Sensor) {
     return async ({ request }, callback) => {
       const event = {
         data: request.getDataMap().toObject().reduce((acc, [key, value]) => {
@@ -132,7 +132,7 @@ class SensorGRPCServer {
   }
 }
 
-module.exports = SensorGRPCServer;
+export default SensorGRPCServer;
 </code></pre>
         </article>
     </section>
@@ -143,7 +143,7 @@ module.exports = SensorGRPCServer;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerGrpcHostClient.html">controllerGrpcHostClient</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="module-controllerGrpcHostClient-ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3>Interfaces</h3><ul><li><a href="connInfo.html">connInfo</a></li><li><a href="Controller.html">Controller</a></li><li><a href="event.html">event</a></li><li><a href="Sensor.html">Sensor</a></li><li><a href="style.html">style</a></li><li><a href="Whisper.html">Whisper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getConnInfo">getConnInfo</a></li><li><a href="global.html#startStream">startStream</a></li></ul>
 </nav>
 
 <br class="clear">

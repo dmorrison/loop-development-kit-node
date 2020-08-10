@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: sensorGrpcHostClient</title>
+    <title>JSDoc: Source: event.ts</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,59 +17,32 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: sensorGrpcHostClient</h1>
+    <h1 class="page-title">Source: event.ts</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @typedef event
+ * @type {object}
+ * @property {object} data - The content of the event.
+ * @example
+ * {
+ *   data: {
+ *     text: "this is an example event with just a text field"
+ *   },
+ * }
+ */
+interface event {
+  data: any;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

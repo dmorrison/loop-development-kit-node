@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: sensorGrpcHostClient</title>
+    <title>JSDoc: Source: style.ts</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,59 +17,36 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: sensorGrpcHostClient</h1>
+    <h1 class="page-title">Source: style.ts</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @typedef style
+ * @type {object}
+ * @property {string} backgroundColor - The background color of the Whisper card.
+ * @property {string} highlightColor - The color of important text in the Whisper card.
+ * @property {string} primaryColor - The color of normal text in the Whisper card.
+ * @example
+ * {
+ *   backgroundColor: '#fff',
+ *   highlightColor: '#651fff',
+ *   primaryColor: '#666',
+ * }
+ */
+export interface style {
+  backgroundColor: string;
+  highlightColor: string;
+  primaryColor: string;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

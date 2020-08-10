@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: healthGrpcServer.js</title>
+    <title>JSDoc: Source: healthGrpcServer.ts</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: healthGrpcServer.js</h1>
+    <h1 class="page-title">Source: healthGrpcServer.ts</h1>
 
     
 
@@ -26,8 +26,8 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const { HealthCheckResponse } = require('./proto/health_pb');
-const { HealthService } = require('./proto/health_grpc_pb');
+            <pre class="prettyprint source linenums"><code>import { HealthCheckResponse } from './proto/health_pb';
+import { HealthService } from './proto/health_grpc_pb';
 
 /**
  * Class used to implement the GRPC health service.
@@ -35,6 +35,8 @@ const { HealthService } = require('./proto/health_grpc_pb');
  * @private
  */
 class HealthGrpcServer {
+  private _statusMap: {[key: string]: HealthCheckResponse.ServingStatus;}
+
   /**
    * Create a HealthGrpcServer.
    *
@@ -76,8 +78,9 @@ class HealthGrpcServer {
   }
 }
 
-module.exports = {
+export {
   HealthGrpcServer,
+  HealthCheckResponse,
   HealthService,
 };
 </code></pre>
@@ -90,7 +93,7 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerGrpcHostClient.html">controllerGrpcHostClient</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="module-controllerGrpcHostClient-ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3>Interfaces</h3><ul><li><a href="connInfo.html">connInfo</a></li><li><a href="Controller.html">Controller</a></li><li><a href="event.html">event</a></li><li><a href="Sensor.html">Sensor</a></li><li><a href="style.html">style</a></li><li><a href="Whisper.html">Whisper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getConnInfo">getConnInfo</a></li><li><a href="global.html#startStream">startStream</a></li></ul>
 </nav>
 
 <br class="clear">
