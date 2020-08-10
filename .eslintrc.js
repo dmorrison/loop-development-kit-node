@@ -12,17 +12,9 @@ module.exports = {
     '@typescript-eslint',
   ],
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb-base', 'plugin:@typescript-eslint/recommended'],
+  extends: ['airbnb-base', 'plugin:@typescript-eslint/recommended', 'prettier'],
   rules: {
     'class-methods-use-this': 'off',
-    // JB: Trailing commas on functions were blowing up the chxbot build.
-    'comma-dangle': ['error', {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'never',
-    }],
     'global-require': 'off',
     'linebreak-style': 0,
     'max-classes-per-file': 'off',
