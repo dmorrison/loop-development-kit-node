@@ -1,0 +1,118 @@
+import BrokerGrpcServer from './brokerGrpcServer';
+import messages from './proto/ldk_pb';
+import services, { grpc } from './proto/ldk_grpc_pb';
+import { categories } from './categories';
+import SensorGrpcHostClient from './sensorGrpcHostClient';
+import { Sensor } from './sensor';
+
+/**
+ * Class used by the host process to interact with the sensor implementation.
+ *
+ * @private
+ */
+class SensorGRPCServer {
+  private broker: BrokerGrpcServer;
+
+  /**
+   * Create a SensorGRPCServer.
+   *
+   * @param {object} server - The GRPC server instance.
+   * @param {Sensor} impl - The sensor implementation.
+   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @example
+   * SensorGRPCServer(server, mySensor, broker);
+   */
+  constructor(
+    server: services.grpc.Server,
+    impl: Sensor,
+    broker: BrokerGrpcServer,
+  ) {
+    this.broker = broker;
+    server.addService(services.SensorService, {
+      start: this.start(impl),
+      stop: this.stop(impl),
+      onEvent: this.onEvent(impl),
+    });
+  }
+
+  /**
+   * Called by the host to start the sensor implementation.
+   *
+   * @async
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @returns {void}
+   */
+  start(
+    impl: Sensor,
+  ): grpc.handleUnaryCall<messages.StartRequest, messages.Empty> {
+    return async (call, callback) => {
+      // TODO: Figure out why I don't need this
+      // const host = call.request.getHost();
+
+      const connInfo = await this.broker.getConnInfo();
+
+      const hostClient = new SensorGrpcHostClient();
+      await hostClient.connect(connInfo).catch((err) => {
+        throw err;
+      });
+      await impl.start(hostClient);
+
+      const response = new messages.Empty();
+      callback(null, response);
+    };
+  }
+
+  /**
+   * Called by the host to stop the sensor implementation.
+   *
+   * @async
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @returns {void}
+   */
+  stop(impl: Sensor): grpc.handleUnaryCall<messages.Empty, messages.Empty> {
+    return async (call, callback) => {
+      await impl.stop();
+
+      const response = new messages.Empty();
+      callback(null, response);
+    };
+  }
+
+  /**
+   * Called by the host to broadcast events to the sensor implementation.
+   *
+   * @async
+   * @param {Sensor} impl - The implementation of the sensor.
+   * @returns {void}
+   */
+  onEvent(
+    impl: Sensor,
+  ): grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty> {
+    return async ({ request }, callback) => {
+      const event = {
+        data: request
+          .getDataMap()
+          .toObject()
+          .reduce((acc: { [index: string]: string }, [key, value]) => {
+            acc[key] = value;
+            return acc;
+          }, {}),
+        source: {
+          id: request.getSource().getId(),
+          category: categories[request.getSource().getCategory()],
+          name: request.getSource().getName(),
+          author: request.getSource().getAuthor(),
+          organization: request.getSource().getOrganization(),
+          version: request.getSource().getVersion(),
+        },
+      };
+
+      await impl.onEvent(event);
+
+      const response = new messages.Empty();
+      callback(null, response);
+    };
+  }
+}
+
+export default SensorGRPCServer;
