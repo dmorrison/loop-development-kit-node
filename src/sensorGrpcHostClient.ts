@@ -11,7 +11,7 @@ const errMissingRequiredValue = new Error('value is required');
  * Class used by the sensor implementation to interact with the host process.
  */
 class SensorGrpcHostClient {
-  private client: services.SensorHostClient;
+  private _client: services.SensorHostClient | undefined;
 
   /**
    * Establish a connection to the host process.
@@ -250,6 +250,17 @@ class SensorGrpcHostClient {
         return resolve();
       });
     });
+  }
+
+  private get client(): services.SensorHostClient {
+    if (this._client === undefined) {
+      throw new Error('Accessing client before connected');
+    }
+    return this._client;
+  }
+
+  private set client(client) {
+    this._client = client;
   }
 }
 

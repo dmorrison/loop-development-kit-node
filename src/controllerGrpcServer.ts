@@ -93,25 +93,27 @@ class ControllerGrpcServer {
     impl: Controller,
   ): services.grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty> {
     return async ({ request }, callback) => {
-      const event = {
-        data: request
-          .getDataMap()
-          .toObject()
-          .reduce((acc: { [index: string]: string }, [key, value]) => {
-            acc[key] = value;
-            return acc;
-          }, {}),
-        source: {
-          id: request.getSource().getId(),
-          category: categories[request.getSource().getCategory()],
-          name: request.getSource().getName(),
-          author: request.getSource().getAuthor(),
-          organization: request.getSource().getOrganization(),
-          version: request.getSource().getVersion(),
-        },
-      };
-
-      await impl.onEvent(event);
+      const source = request?.getSource();
+      if (request && source) {
+        const event = {
+          data: request
+            .getDataMap()
+            .toObject()
+            .reduce((acc: { [index: string]: string }, [key, value]) => {
+              acc[key] = value;
+              return acc;
+            }, {}),
+          source: {
+            id: source.getId(),
+            category: categories[source.getCategory()],
+            name: source.getName(),
+            author: source.getAuthor(),
+            organization: source.getOrganization(),
+            version: source.getVersion(),
+          },
+        };
+        await impl.onEvent(event);
+      }
 
       const response = new messages.Empty();
       callback(null, response);
