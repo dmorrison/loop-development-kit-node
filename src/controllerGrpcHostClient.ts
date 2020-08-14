@@ -13,7 +13,7 @@ const errMissingRequiredValue = new Error('value is required');
  * Class used by the controller implementation to interact with the host process.
  */
 class ControllerGrpcHostClient {
-  private client: ControllerHostClient;
+  private _client: ControllerHostClient | undefined;
 
   /**
    * Establish a connection to the host process.
@@ -265,6 +265,17 @@ class ControllerGrpcHostClient {
         return resolve();
       });
     });
+  }
+
+  private get client(): ControllerHostClient {
+    if (this._client === undefined) {
+      throw new Error('Accessing client before connected');
+    }
+    return this._client;
+  }
+
+  private set client(client) {
+    this._client = client;
   }
 }
 

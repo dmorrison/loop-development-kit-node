@@ -218,7 +218,7 @@ class Logger {
 
     if (argsEven.length % 2 !== 0) {
       const extra = argsEven.pop();
-      argsEven.push('EXTRA_VALUE_AT_END', extra);
+      argsEven.push('EXTRA_VALUE_AT_END', extra as string);
     }
 
     const fields = argsEven.reduce(
