@@ -1,4 +1,5 @@
 import ControllerGrpcHostClient from './controllerGrpcHostClient';
+import { Event } from './event';
 
 /**
  * @typedef Controller
@@ -9,7 +10,7 @@ import ControllerGrpcHostClient from './controllerGrpcHostClient';
  * @property {Function} stop - Executed by the host to stop the plugin.
  * All plugin activity should stop when this is called.
  * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
+ * @param {Event} Event
  * @example
  * const { Logger } = require('ldk');
  * const { name } = require('./package');
@@ -48,5 +49,5 @@ import ControllerGrpcHostClient from './controllerGrpcHostClient';
 export interface Controller {
   start(host: ControllerGrpcHostClient): void;
   stop(): void;
-  onEvent(event: event): void;
+  onEvent(event: Event): void;
 }

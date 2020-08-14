@@ -19,8 +19,7 @@ class ControllerGrpcHostClient {
    * Establish a connection to the host process.
    *
    * @async
-   * @param {connInfo} connInfo - An object containing host process connection information.
-   * @returns {void}
+   * @param connInfo - An object containing host process connection information.
    */
   connect(connInfo: ConnInfo.AsObject): Promise<void> {
     return new Promise((resolve, reject) => {

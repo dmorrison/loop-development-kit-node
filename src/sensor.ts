@@ -1,4 +1,5 @@
 import SensorGrpcHostClient from './sensorGrpcHostClient';
+import { Event } from './event';
 
 /**
  * @typedef Sensor
@@ -9,7 +10,7 @@ import SensorGrpcHostClient from './sensorGrpcHostClient';
  * @property {Function} stop - Executed by the host to stop the plugin.
  * All plugin activity should stop when this is called.
  * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
+ * @param {event} Event
  * @example
  * const { Logger } = require('ldk');
  * const { name } = require('./package');
@@ -45,5 +46,5 @@ import SensorGrpcHostClient from './sensorGrpcHostClient';
 export interface Sensor {
   start(host: SensorGrpcHostClient): void;
   stop(): void;
-  onEvent(event: event): void;
+  onEvent(event: Event): void;
 }

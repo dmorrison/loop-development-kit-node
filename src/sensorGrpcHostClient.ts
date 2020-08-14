@@ -3,6 +3,7 @@
 import messages from './proto/ldk_pb';
 import services from './proto/ldk_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
+import { Event } from './event';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
@@ -55,7 +56,7 @@ class SensorGrpcHostClient {
    * @param {event} event - An object containing host process connection information.
    * @returns {void}
    */
-  emitEvent(event: event): Promise<messages.Empty> {
+  emitEvent(event: Event): Promise<messages.Empty> {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
 

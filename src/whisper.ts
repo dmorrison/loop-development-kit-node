@@ -1,4 +1,4 @@
-import { style } from './style';
+import { WhisperStyle } from './whisperStyle';
 
 /**
  * @typedef whisper
@@ -23,5 +23,5 @@ export interface Whisper {
   markdown: string;
   icon: string;
   label: string;
-  style: style;
+  style: WhisperStyle;
 }

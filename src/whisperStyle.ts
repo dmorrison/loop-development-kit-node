@@ -11,7 +11,7 @@
  *   primaryColor: '#666',
  * }
  */
-export interface style {
+export interface WhisperStyle {
   backgroundColor: string;
   highlightColor: string;
   primaryColor: string;
