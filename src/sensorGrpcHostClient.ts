@@ -3,7 +3,8 @@
 import messages from './proto/ldk_pb';
 import services from './proto/ldk_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
-import { Event } from './event';
+import { PluginEvent } from './pluginEvent';
+import { SensorHost } from './sensorHost';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
@@ -11,7 +12,7 @@ const errMissingRequiredValue = new Error('value is required');
 /**
  * Class used by the sensor implementation to interact with the host process.
  */
-class SensorGrpcHostClient {
+class SensorGrpcHostClient implements SensorHost {
   private client: services.SensorHostClient;
 
   /**
@@ -56,7 +57,7 @@ class SensorGrpcHostClient {
    * @param {event} event - An object containing host process connection information.
    * @returns {void}
    */
-  emitEvent(event: Event): Promise<messages.Empty> {
+  emitEvent(event: PluginEvent): Promise<void> {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
 
@@ -64,12 +65,12 @@ class SensorGrpcHostClient {
         request.getDataMap().set(key, JSON.stringify(value));
       });
 
-      this.client.emitEvent(request, (err, response) => {
+      this.client.emitEvent(request, (err) => {
         if (err) {
           reject(err);
           return;
         }
-        resolve(response);
+        resolve();
       });
     });
   }

@@ -1,12 +1,6 @@
-import { Whisper } from './whisper';
+import {Whisper} from './whisper';
+import {PluginHost} from "./pluginHost";
 
-export interface ControllerHost {
+export interface ControllerHost extends PluginHost {
   emitWhisper(whisper: Whisper): Promise<Error | void>;
-  storageDelete(key: string): Promise<void>;
-  storageDeleteAll(): Promise<void>;
-  storageHasKey(key: string): Promise<boolean>;
-  storageKeys(): Promise<string[]>;
-  storageRead(key: string): Promise<string>;
-  storageReadAll(): Promise<{ [index: string]: string }>;
-  storageWrite(key: string, value: string): Promise<void>;
 }

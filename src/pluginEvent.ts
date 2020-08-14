@@ -9,7 +9,7 @@
  *   },
  * }
  */
-export interface Event {
+export interface PluginEvent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: { [index: string]: any };
 }

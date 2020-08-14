@@ -1,4 +1,4 @@
-import { Event } from './event';
+import { PluginEvent } from './pluginEvent';
 import { ControllerHost } from './controllerHost';
 
 /**
@@ -60,5 +60,5 @@ export interface Controller {
    *
    * @param event
    */
-  onEvent(event: Event): void;
+  onEvent(event: PluginEvent): void;
 }
