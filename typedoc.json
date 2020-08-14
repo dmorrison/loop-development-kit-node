@@ -1,0 +1,8 @@
+{
+  "out": "newdoc",
+  "includeDeclarations": true,
+  "excludeExternals": true,
+  "mode": "library",
+  "toc": [],
+  "exclude": ["**/proto/*.js"]
+}

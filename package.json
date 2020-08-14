@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "doc": "mkdir -p docs && ./node_modules/.bin/jsdoc src --configure .jsdoc.json",
+    "doc": "rm -rf newdoc && mkdir -p newdoc && ./node_modules/.bin/typedoc src --options typedoc.json",
     "build": "rm -rf dist && tsc",
     "lint": "./node_modules/.bin/eslint --fix .",
     "prettier-all": "prettier --write '**/*.{js,ts}'",
@@ -50,6 +50,7 @@
     "lint-staged": "10.2.11",
     "pkg": "latest",
     "prettier": "2.0.5",
+    "typedoc": "0.17.0-3",
     "typescript": "3.9.7"
   },
   "dependencies": {
