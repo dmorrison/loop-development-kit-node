@@ -5,6 +5,7 @@ import messages from './proto/ldk_pb';
 import * as services from './proto/ldk_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
 import { ControllerHostClient } from './proto/ldk_grpc_pb';
+import { ControllerHost } from './controllerHost';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
@@ -12,7 +13,7 @@ const errMissingRequiredValue = new Error('value is required');
 /**
  * Class used by the controller implementation to interact with the host process.
  */
-class ControllerGrpcHostClient {
+class ControllerGrpcHostClient implements ControllerHost {
   private client: ControllerHostClient;
 
   /**
@@ -186,7 +187,7 @@ class ControllerGrpcHostClient {
    * @param {string} key - The name of the key in storage.
    * @returns {string} - Returns the value of the key in storage.
    */
-  storageRead(key: string): Promise<string | void> {
+  storageRead(key: string): Promise<string> {
     return new Promise((resolve, reject) => {
       if (!key) {
         reject(errMissingRequiredKey);

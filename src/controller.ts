@@ -1,5 +1,5 @@
-import ControllerGrpcHostClient from './controllerGrpcHostClient';
 import { Event } from './event';
+import { ControllerHost } from './controllerHost';
 
 /**
  * Your Controllers must implement this interface.
@@ -48,7 +48,7 @@ export interface Controller {
    *
    * @param host - The host controller. You should assign this as an instance property for use by the Controller.
    */
-  start(host: ControllerGrpcHostClient): void;
+  start(host: ControllerHost): void;
   /**
    * Executed by the host to stop the plugin.
    * All plugin activity should stop when this is called.
