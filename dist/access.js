@@ -1,5 +1,5 @@
 "use strict";
-/** @module operatingSystem */
+/** @module access */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.access = exports.PUBLIC = exports.ORGANIZATION = exports.USER = exports.UNKNOWN = void 0;
 /** @constant {string} */

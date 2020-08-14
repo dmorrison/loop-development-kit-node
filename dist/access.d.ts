@@ -1,4 +1,4 @@
-/** @module operatingSystem */
+/** @module access */
 /** @constant {string} */
 declare const UNKNOWN = "unknown";
 /** @constant {string} */
