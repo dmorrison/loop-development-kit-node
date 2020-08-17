@@ -16,11 +16,13 @@ class SensorGRPCServer {
   /**
    * Create a SensorGRPCServer.
    *
-   * @param {object} server - The GRPC server instance.
-   * @param {Sensor} impl - The sensor implementation.
-   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @param server - The GRPC server instance.
+   * @param impl - The sensor implementation.
+   * @param broker - The GRPC broker server instance.
    * @example
-   * SensorGRPCServer(server, mySensor, broker);
+   * ```
+   * new SensorGRPCServer(server, mySensor, broker);
+   * ```
    */
   constructor(
     server: services.grpc.Server,
@@ -38,9 +40,7 @@ class SensorGRPCServer {
   /**
    * Called by the host to start the sensor implementation.
    *
-   * @async
-   * @param {Sensor} impl - The implementation of the sensor.
-   * @returns {void}
+   * @param impl - The implementation of the sensor.
    */
   start(
     impl: Sensor,
@@ -65,9 +65,7 @@ class SensorGRPCServer {
   /**
    * Called by the host to stop the sensor implementation.
    *
-   * @async
-   * @param {Sensor} impl - The implementation of the sensor.
-   * @returns {void}
+   * @param impl - The implementation of the sensor.
    */
   stop(impl: Sensor): grpc.handleUnaryCall<messages.Empty, messages.Empty> {
     return async (call, callback) => {
@@ -82,8 +80,8 @@ class SensorGRPCServer {
    * Called by the host to broadcast events to the sensor implementation.
    *
    * @async
-   * @param {Sensor} impl - The implementation of the sensor.
-   * @returns {void}
+   * @param impl - The implementation of the sensor.
+   * @returns
    */
   onEvent(
     impl: Sensor,

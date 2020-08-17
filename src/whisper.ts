@@ -1,12 +1,10 @@
 import { WhisperStyle } from './whisperStyle';
 
 /**
- * @typedef whisper
- * @type {object}
- * @property {string} markdown - The content of the Whisper in markdown.
+ *
  * @property {style} style - An object for specifying the styling of the Whisper card.
  * @property {string} label - The title displayed at the top of the Whisper card.
- * @property {string} icon - An icon displayed at the top of the Whisper card.
+ * @property {string} icon -
  * @example
  * {
  *   markdown: '# Markdown\nThis is markdown',
@@ -20,7 +18,13 @@ import { WhisperStyle } from './whisperStyle';
  * }
  */
 export interface Whisper {
+  /**
+   * The content of the Whisper in markdown.
+   */
   markdown: string;
+  /**
+   * The icon displayed at the top of the Whisper card.
+   */
   icon: string;
   label: string;
   style: WhisperStyle;
