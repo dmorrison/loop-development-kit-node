@@ -1,6 +1,6 @@
 /** @module operatingSystem */
 
-export enum operatingSystem {
+export enum OperatingSystem {
   UNKNOWN = 'unknown',
   WINDOWS = 'win32',
   MACOS = 'darwin',
@@ -8,4 +8,4 @@ export enum operatingSystem {
   ANY = 'any',
 }
 
-export default operatingSystem;
+export default OperatingSystem;

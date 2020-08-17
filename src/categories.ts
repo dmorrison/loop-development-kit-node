@@ -1,23 +1,14 @@
 /** @module categories */
 
-/** @constant {string} */
-const CONTROLLER = 'Controller';
-
-/** @constant {string} */
-const INTELLIGENCE = 'Intelligence';
-
-/** @constant {string} */
-const SENSOR = 'Sensor';
-
-/** @constant {string} */
-const SIDEKICK = 'Sidekick';
-
-/** @constant {string} */
-const UNKNOWN = 'Unknown';
+export enum Category {
+  CONTROLLER = 'controller',
+  INTELLIGENCE = 'Intelligence',
+  SENSOR = 'Sensor',
+  SIDEKICK = 'Sidekick',
+  UNKNOWN = 'Unknown',
+}
 
 /** @constant {string[]} */
-const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
+export const categories = [Category.UNKNOWN, Category.INTELLIGENCE, Category.CONTROLLER, Category.SENSOR, Category.SIDEKICK];
 
-export { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };
-
-export default { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };
+export default Category;
