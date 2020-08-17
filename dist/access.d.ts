@@ -1,8 +1,8 @@
 /** @module access */
-export declare enum access {
+export declare enum Access {
     UNKNOWN = "unknown",
     USER = "user",
     ORGANIZATION = "organization",
     PUBLIC = "public"
 }
-export default access;
+export default Access;

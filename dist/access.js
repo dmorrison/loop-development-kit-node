@@ -1,13 +1,13 @@
 "use strict";
 /** @module access */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.access = void 0;
+exports.Access = void 0;
 // eslint-disable-next-line import/prefer-default-export
-var access;
-(function (access) {
-    access["UNKNOWN"] = "unknown";
-    access["USER"] = "user";
-    access["ORGANIZATION"] = "organization";
-    access["PUBLIC"] = "public";
-})(access = exports.access || (exports.access = {}));
-exports.default = access;
+var Access;
+(function (Access) {
+    Access["UNKNOWN"] = "unknown";
+    Access["USER"] = "user";
+    Access["ORGANIZATION"] = "organization";
+    Access["PUBLIC"] = "public";
+})(Access = exports.Access || (exports.Access = {}));
+exports.default = Access;
