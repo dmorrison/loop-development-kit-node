@@ -26,14 +26,13 @@ npm i
 ```
 
 ## Usage
-Full documentation available on [here](https://open-olive.github.io/loop-development-kit-node).
 
 ### Controllers
-This LDK can be used to write controllers for Sidekick. More detail about controllers is available [here](docs/controller.md).
+This LDK can be used to write controllers for Sidekick. More detail about controllers is available on the {@page Controllers} page.
 
 * [Basic Controller Example](https://github.com/open-olive/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 
 ### Sensors
-This LDK can be used to write sensors for Sidekick. More detail about sensors is available [here](docs/sensor.md).
+This LDK can be used to write sensors for Sidekick. More detail about sensors is available on the {@page Sensors} page.
 
 * [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.

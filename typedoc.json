@@ -6,7 +6,38 @@
   "mode": "file",
   "toc": [],
   "exclude": ["src/proto/**/*"],
-  "inputFiles": ["src/index.ts"],
+  "inputFiles": ["src/index.ts", "docsExtra/*.md"],
   "stripInternal": true,
-  "name": "Loop Development Kit for Node.js"
+  "theme": "pages-plugin",
+  "name": "Loop Development Kit for Node.js",
+  "pages": {
+    "groups": [
+      {
+        "title": "Concepts",
+        "pages": [
+          {
+            "title": "Controllers",
+            "source": "./docsExtra/controller.md"
+          },
+          {
+            "title": "Logging",
+            "source": "./docsExtra/logging.md"
+          },
+          {
+            "title": "Storage",
+            "source": "./docsExtra/storage.md"
+          },
+          {
+            "title": "Sensors",
+            "source": "./docsExtra/sensor.md"
+          },
+          {
+            "title": "Terminology",
+            "source": "./docsExtra/terminology.md"
+          }
+        ]
+      }
+    ],
+    "theme": "pages-plugin"
+  }
 }

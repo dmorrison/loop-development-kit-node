@@ -51,6 +51,7 @@
     "pkg": "latest",
     "prettier": "2.0.5",
     "typedoc": "0.17.0-3",
+    "typedoc-plugin-pages": "1.0.1",
     "typescript": "3.9.7"
   },
   "dependencies": {
