@@ -1,5 +1,5 @@
 {
-  "out": "newdoc",
+  "out": "docs",
   "includeDeclarations": true,
   "excludeExternals": true,
   "mode": "library",
