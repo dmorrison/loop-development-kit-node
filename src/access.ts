@@ -1,18 +1,11 @@
 /** @module access */
 
-/** @constant {string} */
-const UNKNOWN = 'unknown';
+// eslint-disable-next-line import/prefer-default-export
+export enum access {
+  UNKNOWN = 'unknown',
+  USER = 'user',
+  ORGANIZATION = 'organization',
+  PUBLIC = 'public',
+}
 
-/** @constant {string} */
-const USER = 'user';
-
-/** @constant {string} */
-const ORGANIZATION = 'organization';
-
-/** @constant {string} */
-const PUBLIC = 'public';
-
-/** @constant {string[]} */
-const access = [UNKNOWN, USER, ORGANIZATION, PUBLIC];
-
-export { UNKNOWN, USER, ORGANIZATION, PUBLIC, access };
+export default access;

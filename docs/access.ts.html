@@ -26,24 +26,18 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/** @module operatingSystem */
+            <pre class="prettyprint source linenums"><code>/** @module access */
 
-/** @constant {string} */
-const UNKNOWN = 'unknown';
+// eslint-disable-next-line import/prefer-default-export
+export enum access {
+  UNKNOWN = 'unknown',
+  USER = 'user',
+  ORGANIZATION = 'organization',
+  PUBLIC = 'public',
+}
 
-/** @constant {string} */
-const USER = 'user';
-
-/** @constant {string} */
-const ORGANIZATION = 'organization';
-
-/** @constant {string} */
-const PUBLIC = 'public';
-
-/** @constant {string[]} */
-const access = [UNKNOWN, USER, ORGANIZATION, PUBLIC];
-
-export { UNKNOWN, USER, ORGANIZATION, PUBLIC, access };</code></pre>
+export default access;
+</code></pre>
         </article>
     </section>
 
@@ -53,7 +47,7 @@ export { UNKNOWN, USER, ORGANIZATION, PUBLIC, access };</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-operatingSystem.html">operatingSystem</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3>Interfaces</h3><ul><li><a href="connInfo.html">connInfo</a></li><li><a href="Controller.html">Controller</a></li><li><a href="event.html">event</a></li><li><a href="Sensor.html">Sensor</a></li><li><a href="style.html">style</a></li><li><a href="Whisper.html">Whisper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getConnInfo">getConnInfo</a></li><li><a href="global.html#startStream">startStream</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-access.html">access</a></li><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-operatingSystem.html">operatingSystem</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3>Interfaces</h3><ul><li><a href="connInfo.html">connInfo</a></li><li><a href="Controller.html">Controller</a></li><li><a href="event.html">event</a></li><li><a href="Sensor.html">Sensor</a></li><li><a href="style.html">style</a></li><li><a href="Whisper.html">Whisper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getConnInfo">getConnInfo</a></li><li><a href="global.html#startStream">startStream</a></li></ul>
 </nav>
 
 <br class="clear">

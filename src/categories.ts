@@ -19,3 +19,5 @@ const UNKNOWN = 'Unknown';
 const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
 
 export { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };
+
+export default { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };

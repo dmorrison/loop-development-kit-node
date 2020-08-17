@@ -20,3 +20,4 @@ exports.UNKNOWN = UNKNOWN;
 /** @constant {string[]} */
 const categories = [UNKNOWN, INTELLIGENCE, CONTROLLER, SENSOR, SIDEKICK];
 exports.categories = categories;
+exports.default = { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };
