@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "doc": "rm -rf newdoc && mkdir -p newdoc && ./node_modules/.bin/typedoc src --options typedoc.json",
+    "doc": "rm -rf docs && mkdir -p docs && ./node_modules/.bin/typedoc --options typedoc.json",
     "build": "rm -rf dist && tsc",
     "lint": "./node_modules/.bin/eslint --fix .",
     "prettier-all": "prettier --write '**/*.{js,ts}'",

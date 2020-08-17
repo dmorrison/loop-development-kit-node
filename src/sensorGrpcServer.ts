@@ -8,7 +8,7 @@ import { Sensor } from './sensor';
 /**
  * Class used by the host process to interact with the sensor implementation.
  *
- * @private
+ * @internal
  */
 class SensorGRPCServer {
   private broker: BrokerGrpcServer;

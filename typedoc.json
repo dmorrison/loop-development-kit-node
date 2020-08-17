@@ -2,7 +2,9 @@
   "out": "docs",
   "includeDeclarations": true,
   "excludeExternals": true,
-  "mode": "library",
+  "mode": "file",
   "toc": [],
-  "exclude": ["**/proto/*.js"]
+  "exclude": ["src/proto/**/*"],
+  "inputFiles": ["src/index.ts"],
+  "stripInternal": true
 }

@@ -1,5 +1,8 @@
 import { GRPCStdioService } from './proto/stdio_grpc_pb';
 
+/**
+ * @internal
+ */
 class StdioGrpcServer {
   streamStdio(): void {
     // This appears to be used in Go, but we're not quite sure how to use

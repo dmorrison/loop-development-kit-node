@@ -12,6 +12,7 @@ const errMissingRequiredValue = new Error('value is required');
 
 /**
  * Class used by the controller implementation to interact with the host process.
+ * @internal
  */
 class ControllerGrpcHostClient implements ControllerHost {
   private client: ControllerHostClient;

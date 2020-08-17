@@ -1,8 +1,14 @@
 /** @module logging */
 
+/**
+ * @internal
+ */
 const { pid } = process;
 
-enum logLevels {
+/**
+ * @internal
+ */
+enum LogLevels {
   TRACE = 'TRACE',
   DEBUG = 'DEBUG',
   INFO = 'INFO',
@@ -82,7 +88,7 @@ class Logger {
    * ```
    */
   trace(msg: string, ...args: string[]): void {
-    this._write(logLevels.TRACE, msg, ...args);
+    this._write(LogLevels.TRACE, msg, ...args);
   }
 
   /**
@@ -103,7 +109,7 @@ class Logger {
    * ```
    */
   debug(msg: string, ...args: string[]): void {
-    this._write(logLevels.DEBUG, msg, ...args);
+    this._write(LogLevels.DEBUG, msg, ...args);
   }
 
   /**
@@ -124,7 +130,7 @@ class Logger {
    * ```
    */
   info(msg: string, ...args: string[]): void {
-    this._write(logLevels.INFO, msg, ...args);
+    this._write(LogLevels.INFO, msg, ...args);
   }
 
   /**
@@ -145,7 +151,7 @@ class Logger {
    * ```
    */
   warn(msg: string, ...args: string[]): void {
-    this._write(logLevels.WARN, msg, ...args);
+    this._write(LogLevels.WARN, msg, ...args);
   }
 
   /**
@@ -166,7 +172,7 @@ class Logger {
    * ```
    */
   error(msg: string, ...args: string[]): void {
-    this._write(logLevels.ERROR, msg, ...args);
+    this._write(LogLevels.ERROR, msg, ...args);
   }
 
   /**
@@ -177,13 +183,13 @@ class Logger {
    * @param msg - The message of the log.
    * @param  args - A list of alternating keys/values.
    */
-  private _write(lvl: logLevels, msg: string, ...args: string[]): void {
+  private _write(lvl: LogLevels, msg: string, ...args: string[]): void {
     let level = lvl;
     if (!level) {
-      level = logLevels.DEBUG;
+      level = LogLevels.DEBUG;
     }
 
-    if (!Object.values(logLevels).includes(level)) {
+    if (!Object.values(LogLevels).includes(level)) {
       throw new Error(`Invalid log level: ${level}`);
     }
 
@@ -264,6 +270,7 @@ class Logger {
 /**
  * prepareLogging overwrites basic console methods so they produce output in an expected format.
  * Also pushes all stdout to stderr.
+ * @internal
  */
 const prepareLogging = (): void => {
   const consoleDebug = console.debug.bind(console);
