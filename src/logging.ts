@@ -3,7 +3,8 @@
 /**
  * @internal
  */
-const { pid } = process;
+// eslint-disable-next-line prefer-destructuring
+const pid = process.pid;
 
 /**
  * @internal

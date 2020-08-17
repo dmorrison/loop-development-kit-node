@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Loop Development Kit for Node.js</title>
+	<title>ControllerPlugin | Loop Development Kit for Node.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">Loop Development Kit for Node.js</a>
+					<a href="../index.html" class="title">Loop Development Kit for Node.js</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -51,122 +51,195 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="controllerplugin.html">ControllerPlugin</a>
 				</li>
 			</ul>
-			<h1>Loop Development Kit for Node.js</h1>
+			<h1>Class ControllerPlugin</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#loop-development-kit-ldk-for-nodejs" id="loop-development-kit-ldk-for-nodejs" style="color: inherit; text-decoration: none;">
-					<h1>Loop Development Kit (LDK) for NodeJS</h1>
-				</a>
-				<p>The LDK is a plugin system for Sidekick. The LDK is built with <a href="https://github.com/hashicorp/go-plugin">go-plugin</a>, a HashiCorp plugin system used in several of their projects.</p>
-				<p>Plugins developed with this library are executed by Sidekick as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Sidekick process.</p>
-				<p>Communication between Sidekick and the plugin is first initialized over stdio and then performed using <a href="https://grpc.io/">GRPC</a>. On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.</p>
-				<blockquote>
-					<p>NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.</p>
-				</blockquote>
-				<p>In order for Sidekick to use a plugin, it must be compiled. Sidekick does not compile or interpret source code at runtime. A consequence of this is that plugins will need to be compiled for each operating system that they want to support. We recommend using <a href="https://www.npmjs.com/package/pkg">PKG</a> to compile NodeJS plugins into an executable.</p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
-				</a>
-				<p>Add the dependency to your package.json under the dependencies:</p>
-				<pre><code class="language-json">&quot;dependencies&quot;: {
-  &quot;ldk&quot;: &quot;git+https://github.com/open-olive/loop-development-kit-node.git&quot;
-}</code></pre>
-				<p>Install using NPM</p>
-				<pre><code class="language-shell">npm i</code></pre>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
-				</a>
-				<p>Full documentation available on <a href="https://open-olive.github.io/loop-development-kit-node">here</a>.</p>
-				<a href="#controllers" id="controllers" style="color: inherit; text-decoration: none;">
-					<h3>Controllers</h3>
-				</a>
-				<p>This LDK can be used to write controllers for Sidekick. More detail about controllers is available <a href="docs/controller.md">here</a>.</p>
-				<ul>
-					<li><a href="https://github.com/open-olive/sidekick-controller-examplenode">Basic Controller Example</a> - Recommend using as a starting point for new Controllers.</li>
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class used to setup the GRPC server and host the controller service.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ControllerPlugin</span>
+					</li>
 				</ul>
-				<a href="#sensors" id="sensors" style="color: inherit; text-decoration: none;">
-					<h3>Sensors</h3>
-				</a>
-				<p>This LDK can be used to write sensors for Sidekick. More detail about sensors is available <a href="docs/sensor.md">here</a>.</p>
-				<ul>
-					<li><a href="https://github.com/open-olive/sidekick-sensor-examplenode">Basic Sensor Example</a> - Recommend using as a starting point for new Sensors.</li>
-				</ul>
-			</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="controllerplugin.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="controllerplugin.html#serve" class="tsd-kind-icon">serve</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Controller<wbr>Plugin<span class="tsd-signature-symbol">(</span>impl<span class="tsd-signature-symbol">: </span><a href="../interfaces/controller.html" class="tsd-signature-type">Controller</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="controllerplugin.html" class="tsd-signature-type">ControllerPlugin</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/8830d7f/src/controllerPlugin.ts#L16">controllerPlugin.ts:16</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a ControllerPlugin.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>impl: <a href="../interfaces/controller.html" class="tsd-signature-type">Controller</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The implementation of the controller.</p>
+											<pre><code><span class="hljs-keyword">new</span> <span class="hljs-constructor">ControllerPlugin(<span class="hljs-params">myController</span>)</span>;</code></pre>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="controllerplugin.html" class="tsd-signature-type">ControllerPlugin</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="serve" class="tsd-anchor"></a>
+					<h3>serve</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">serve<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/8830d7f/src/controllerPlugin.ts#L41">controllerPlugin.ts:41</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Run the GRPC server and write connection information to stdout.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Promise resolving when the server starts.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="controllerplugin.html" class="tsd-kind-icon">Controller<wbr>Plugin</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="controllerplugin.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="controllerplugin.html#serve" class="tsd-kind-icon">serve</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/controllerplugin.html" class="tsd-kind-icon">Controller<wbr>Plugin</a>
+						<a href="logger.html" class="tsd-kind-icon">Logger</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/sensorplugin.html" class="tsd-kind-icon">Sensor<wbr>Plugin</a>
+						<a href="sensorplugin.html" class="tsd-kind-icon">Sensor<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/controller.html" class="tsd-kind-icon">Controller</a>
+						<a href="../interfaces/controller.html" class="tsd-kind-icon">Controller</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/controllerhost.html" class="tsd-kind-icon">Controller<wbr>Host</a>
+						<a href="../interfaces/controllerhost.html" class="tsd-kind-icon">Controller<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/pluginevent.html" class="tsd-kind-icon">Plugin<wbr>Event</a>
+						<a href="../interfaces/pluginevent.html" class="tsd-kind-icon">Plugin<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/pluginhost.html" class="tsd-kind-icon">Plugin<wbr>Host</a>
+						<a href="../interfaces/pluginhost.html" class="tsd-kind-icon">Plugin<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/sensor.html" class="tsd-kind-icon">Sensor</a>
+						<a href="../interfaces/sensor.html" class="tsd-kind-icon">Sensor</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/sensorhost.html" class="tsd-kind-icon">Sensor<wbr>Host</a>
+						<a href="../interfaces/sensorhost.html" class="tsd-kind-icon">Sensor<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/whisper.html" class="tsd-kind-icon">Whisper</a>
+						<a href="../interfaces/whisper.html" class="tsd-kind-icon">Whisper</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
+						<a href="../interfaces/whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#controller" class="tsd-kind-icon">CONTROLLER</a>
+						<a href="../globals.html#controller" class="tsd-kind-icon">CONTROLLER</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#intelligence" class="tsd-kind-icon">INTELLIGENCE</a>
+						<a href="../globals.html#intelligence" class="tsd-kind-icon">INTELLIGENCE</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#sensor" class="tsd-kind-icon">SENSOR</a>
+						<a href="../globals.html#sensor" class="tsd-kind-icon">SENSOR</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#sidekick" class="tsd-kind-icon">SIDEKICK</a>
+						<a href="../globals.html#sidekick" class="tsd-kind-icon">SIDEKICK</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#unknown" class="tsd-kind-icon">UNKNOWN</a>
+						<a href="../globals.html#unknown" class="tsd-kind-icon">UNKNOWN</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#categories" class="tsd-kind-icon">categories</a>
+						<a href="../globals.html#categories" class="tsd-kind-icon">categories</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#errmissingrequiredkey" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key</a>
+						<a href="../globals.html#errmissingrequiredkey" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
+						<a href="../globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
 					</li>
 				</ul>
 			</nav>
@@ -237,7 +310,7 @@
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

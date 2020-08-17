@@ -2,9 +2,11 @@
   "out": "docs",
   "includeDeclarations": true,
   "excludeExternals": true,
+  "excludePrivate": true,
   "mode": "file",
   "toc": [],
   "exclude": ["src/proto/**/*"],
   "inputFiles": ["src/index.ts"],
-  "stripInternal": true
+  "stripInternal": true,
+  "name": "Loop Development Kit for Node.js"
 }
