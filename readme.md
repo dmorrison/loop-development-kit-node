@@ -26,6 +26,27 @@ npm i
 ```
 
 ## Usage
+
+To launch a Controller:
+
+```javascript
+import { launchControllerPlugin } from 'ldk';
+import Controller from './controller'; // Your controller class.
+
+launchControllerPlugin(new Controller());
+```
+
+To launch a Sensor:
+
+```javascript
+import { launchSensorPlugin } from 'ldk';
+import Sensor from './sensor'; // Your sensor class.
+
+launchSensorPlugin(new Sensor());
+```
+
+
+
 Full documentation available on [here](https://open-olive.github.io/loop-development-kit-node).
 
 ### Controllers
