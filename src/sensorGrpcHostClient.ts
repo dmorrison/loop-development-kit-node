@@ -11,6 +11,7 @@ const errMissingRequiredValue = new Error('value is required');
 
 /**
  * Class used by the sensor implementation to interact with the host process.
+ *
  * @internal
  */
 class SensorGrpcHostClient implements SensorHost {

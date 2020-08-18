@@ -12,6 +12,7 @@ const errMissingRequiredValue = new Error('value is required');
 
 /**
  * Class used by the controller implementation to interact with the host process.
+ *
  * @internal
  */
 class ControllerGrpcHostClient implements ControllerHost {
@@ -94,7 +95,6 @@ class ControllerGrpcHostClient implements ControllerHost {
    *
    * @async
    * @param key - The name of the key in storage.
-   * @returns
    */
   storageDelete(key: string): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -239,7 +239,6 @@ class ControllerGrpcHostClient implements ControllerHost {
    * @async
    * @param key - The name of the key in storage.
    * @param value - The value to assign to the key in storage.
-   * @returns
    */
   storageWrite(key: string, value: string): Promise<void> {
     return new Promise((resolve, reject) => {

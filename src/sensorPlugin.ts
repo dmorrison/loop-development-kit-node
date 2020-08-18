@@ -37,8 +37,6 @@ class SensorPlugin {
 
   /**
    * Run the GRPC server and write connection information to stdout.
-   *
-   * @returns
    */
   serve(): Promise<void> {
     return new Promise((resolve, reject) => {

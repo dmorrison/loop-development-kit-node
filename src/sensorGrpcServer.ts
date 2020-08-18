@@ -81,7 +81,6 @@ class SensorGRPCServer {
    *
    * @async
    * @param impl - The implementation of the sensor.
-   * @returns
    */
   onEvent(
     impl: Sensor,

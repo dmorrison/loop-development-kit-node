@@ -271,6 +271,7 @@ class Logger {
 /**
  * prepareLogging overwrites basic console methods so they produce output in an expected format.
  * Also pushes all stdout to stderr.
+ *
  * @internal
  */
 const prepareLogging = (): void => {
