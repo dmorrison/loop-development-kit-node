@@ -1,6 +1,6 @@
 /** @module categories */
 export declare enum Category {
-    CONTROLLER = "controller",
+    CONTROLLER = "Controller",
     INTELLIGENCE = "Intelligence",
     SENSOR = "Sensor",
     SIDEKICK = "Sidekick",

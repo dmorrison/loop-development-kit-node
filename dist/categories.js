@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.categories = exports.Category = void 0;
 var Category;
 (function (Category) {
-    Category["CONTROLLER"] = "controller";
+    Category["CONTROLLER"] = "Controller";
     Category["INTELLIGENCE"] = "Intelligence";
     Category["SENSOR"] = "Sensor";
     Category["SIDEKICK"] = "Sidekick";
