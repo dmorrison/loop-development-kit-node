@@ -69,34 +69,38 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>The Sensor interface should be implemented by consumers.</p>
-						<p>```
-							const { Logger } = require(&#39;ldk&#39;);
-						const { name } = require(&#39;./package&#39;);</p>
 					</div>
-					<p>class Sensor {
-						constructor() {
-						this.logger = new Logger(name);
-					}</p>
-					<p>  start(host) {
-					this.host = host;</p>
-					<pre><code><span class="hljs-keyword">this</span>.<span class="hljs-keyword">loop</span> = setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">this</span>.host.emitEvent({
-    data: {
-      text: `<span class="javascript">Event <span class="hljs-keyword">from</span> example Node sensor: ${<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()}</span>`,
-    },
-  });
-}, <span class="hljs-number">1000</span>);
-<span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">'started'</span>);</code></pre><p>  }</p>
-					<p>  stop() {
-						this.host = null;
-						clearInterval(this.loop);
-						this.logger.info(&#39;stopped&#39;);
-					}</p>
-					<p>  onEvent() {
-						this.logger.info(&#39;ignored an event&#39;);
-						}
-					}</p>
-					<pre><code></code></pre>
+					<pre><code><span class="hljs-keyword">const</span> { Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+<span class="hljs-keyword">const</span> { name } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./package'</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sensor</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">this</span>.logger = <span class="hljs-keyword">new</span> Logger(name);
+  }
+
+  start(host) {
+    <span class="hljs-keyword">this</span>.host = host;
+
+    <span class="hljs-keyword">this</span>.loop = setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+      <span class="hljs-keyword">this</span>.host.emitEvent({
+        <span class="hljs-attr">data</span>: {
+          <span class="hljs-attr">text</span>: <span class="hljs-string">`Event from example Node sensor: <span class="hljs-subst">${<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()}</span>`</span>,
+        },
+      });
+    }, <span class="hljs-number">1000</span>);
+    <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">'started'</span>);
+  }
+
+  stop() {
+    <span class="hljs-keyword">this</span>.host = <span class="hljs-literal">null</span>;
+    clearInterval(<span class="hljs-keyword">this</span>.loop);
+    <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">'stopped'</span>);
+  }
+
+  onEvent() {
+    <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">'ignored an event'</span>);
+  }
+}</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -134,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14f4b52/src/sensor.ts#L58">sensor.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/1ac3706/src/sensor.ts#L60">sensor.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -165,7 +169,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14f4b52/src/sensor.ts#L46">sensor.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/1ac3706/src/sensor.ts#L48">sensor.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -196,7 +200,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14f4b52/src/sensor.ts#L51">sensor.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/1ac3706/src/sensor.ts#L53">sensor.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

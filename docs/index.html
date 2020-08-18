@@ -73,8 +73,11 @@
 					<p>NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.</p>
 				</blockquote>
 				<p>In order for Sidekick to use a plugin, it must be compiled. Sidekick does not compile or interpret source code at runtime. A consequence of this is that plugins will need to be compiled for each operating system that they want to support. We recommend using <a href="https://www.npmjs.com/package/pkg">PKG</a> to compile NodeJS plugins into an executable.</p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
+				<a href="#setup" id="setup" style="color: inherit; text-decoration: none;">
+					<h2>Setup</h2>
+				</a>
+				<a href="#install-the-package" id="install-the-package" style="color: inherit; text-decoration: none;">
+					<h3>Install the package</h3>
 				</a>
 				<p>Add the dependency to your package.json under the dependencies:</p>
 				<pre><code class="language-json">&quot;dependencies&quot;: {
@@ -82,9 +85,30 @@
 }</code></pre>
 				<p>Install using NPM</p>
 				<pre><code class="language-shell">npm i</code></pre>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
+				<a href="#setting-up-your-plugin" id="setting-up-your-plugin" style="color: inherit; text-decoration: none;">
+					<h3>Setting Up Your Plugin</h3>
 				</a>
+				<p>Sidekick expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:</p>
+				<ul>
+					<li>Create your <code>package.json</code> file.</li>
+					<li>Import the LDK.</li>
+					<li>Create your <code>main</code> script (usually <code>index.js</code> or <code>src/index.js</code>):<ul>
+							<li>Create an implementation object that satisfies the <a href="interfaces/controller.html">Controller</a> or <a href="interfaces/sensor.html">Sensor</a> contracts/interfaces.</li>
+							<li>Initialize the appropriate plugin with your implementation and serve it.</li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#example-controller" id="example-controller" style="color: inherit; text-decoration: none;">
+					<h4>Example Controller</h4>
+				</a>
+				<p>Here&#39;s an example main script for a Controller plugin:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { ControllerPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+<span class="hljs-keyword">const</span> Controller = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./controller'</span>);
+
+<span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'example-loop'</span>);
+<span class="hljs-keyword">const</span> impl = <span class="hljs-keyword">new</span> Controller(logger);
+<span class="hljs-keyword">const</span> controllerPlugin = <span class="hljs-keyword">new</span> ControllerPlugin(impl);
+controllerPlugin.serve();</code></pre>
 				<a href="#controllers" id="controllers" style="color: inherit; text-decoration: none;">
 					<h3>Controllers</h3>
 				</a>

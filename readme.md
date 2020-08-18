@@ -9,8 +9,8 @@ Communication between Sidekick and the plugin is first initialized over stdio an
 
 In order for Sidekick to use a plugin, it must be compiled. Sidekick does not compile or interpret source code at runtime. A consequence of this is that plugins will need to be compiled for each operating system that they want to support. We recommend using [PKG](https://www.npmjs.com/package/pkg) to compile NodeJS plugins into an executable.
 
-## Installation
-
+## Setup
+### Install the package
 Add the dependency to your package.json under the dependencies:
 
 ```json
@@ -25,7 +25,41 @@ Install using NPM
 npm i
 ```
 
-## Usage
+### Setting Up Your Plugin
+Sidekick expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:
+
+- Create your `package.json` file.
+- Import the LDK.
+- Create your `main` script (usually `index.js` or `src/index.js`):
+  - Create an implementation object that satisfies the [[Controller]] or [[Sensor]] contracts/interfaces.
+  - Initialize the appropriate plugin with your implementation and call `.serve` on it.
+
+#### Example Controller
+Here's an example main script for a Controller plugin:
+
+```javascript
+const { ControllerPlugin, Logger } = require('ldk');
+const Controller = require('./controller');
+
+const logger = new Logger('example-loop');
+const impl = new Controller(logger);
+const controllerPlugin = new ControllerPlugin(impl);
+controllerPlugin.serve();
+```
+
+#### Example Sensor
+Here's an example main script for a Sensor plugin:
+
+```javascript
+const { SensorPlugin, Logger } = require('ldk');
+const Sensor = require('./sensor');
+
+const logger = new Logger('example-loop');
+const impl = new Sensor(logger);
+const sensorPlugin = new SensorPlugin(impl);
+sensorPlugin.serve();
+```
+
 
 ### Controllers
 This LDK can be used to write controllers for Sidekick. More detail about controllers is available on the {@page Controllers} page.

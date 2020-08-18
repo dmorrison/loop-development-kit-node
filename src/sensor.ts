@@ -3,7 +3,8 @@ import { SensorHost } from './sensorHost';
 
 /**
  * The Sensor interface should be implemented by consumers.
- * ```
+ *
+ *  ```
  * const { Logger } = require('ldk');
  * const { name } = require('./package');
  *
@@ -36,6 +37,7 @@ import { SensorHost } from './sensorHost';
  *   }
  * }
  * ```
+ *
  */
 export interface Sensor {
   /**
