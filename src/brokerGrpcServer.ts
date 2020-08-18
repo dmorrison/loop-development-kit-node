@@ -18,7 +18,7 @@ export default class BrokerGrpcServer {
    * BrokerGrpcServer(server);
    */
   constructor(server: grpc.Server) {
-    let connInfoCallback;
+    let connInfoCallback!: (connInf: ConnInfo.AsObject) => void;
     this.connInfoPromise = new Promise((resolve) => {
       connInfoCallback = (connInfo: ConnInfo.AsObject) => {
         resolve(connInfo);

@@ -15,7 +15,7 @@ const errMissingRequiredValue = new Error('value is required');
  * @internal
  */
 class ControllerGrpcHostClient implements ControllerHost {
-  private client: ControllerHostClient;
+  private _client: ControllerHostClient | undefined;
 
   /**
    * Establish a connection to the host process.
@@ -263,6 +263,17 @@ class ControllerGrpcHostClient implements ControllerHost {
         return resolve();
       });
     });
+  }
+
+  private get client(): ControllerHostClient {
+    if (this._client === undefined) {
+      throw new Error('Accessing client before connected');
+    }
+    return this._client;
+  }
+
+  private set client(client) {
+    this._client = client;
   }
 }
 

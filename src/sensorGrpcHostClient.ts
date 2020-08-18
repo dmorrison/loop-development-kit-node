@@ -14,7 +14,7 @@ const errMissingRequiredValue = new Error('value is required');
  * @internal
  */
 class SensorGrpcHostClient implements SensorHost {
-  private client: services.SensorHostClient;
+  private _client: services.SensorHostClient | undefined;
 
   /**
    * Establish a connection to the host process.
@@ -241,6 +241,17 @@ class SensorGrpcHostClient implements SensorHost {
         return resolve();
       });
     });
+  }
+
+  private get client(): services.SensorHostClient {
+    if (this._client === undefined) {
+      throw new Error('Accessing client before connected');
+    }
+    return this._client;
+  }
+
+  private set client(client) {
+    this._client = client;
   }
 }
 

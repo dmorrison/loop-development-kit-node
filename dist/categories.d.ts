@@ -1,14 +1,11 @@
 /** @module categories */
-/** @constant {string} */
-declare const CONTROLLER = "Controller";
-/** @constant {string} */
-declare const INTELLIGENCE = "Intelligence";
-/** @constant {string} */
-declare const SENSOR = "Sensor";
-/** @constant {string} */
-declare const SIDEKICK = "Sidekick";
-/** @constant {string} */
-declare const UNKNOWN = "Unknown";
+export declare enum Category {
+    CONTROLLER = "Controller",
+    INTELLIGENCE = "Intelligence",
+    SENSOR = "Sensor",
+    SIDEKICK = "Sidekick",
+    UNKNOWN = "Unknown"
+}
 /** @constant {string[]} */
-declare const categories: string[];
-export { CONTROLLER, INTELLIGENCE, SENSOR, SIDEKICK, UNKNOWN, categories };
+export declare const categories: Category[];
+export default Category;

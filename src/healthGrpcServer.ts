@@ -35,9 +35,9 @@ class HealthGrpcServer {
     call: grpc.ServerUnaryCall<HealthCheckRequest, HealthCheckResponse>,
     callback: grpc.sendUnaryData<HealthCheckResponse>,
   ): void {
-    const reqService = call.request.getService();
+    const reqService = call?.request?.getService();
     const status =
-      this._statusMap[reqService] ||
+      this._statusMap[reqService || 'unknown'] ||
       HealthCheckResponse.ServingStatus.SERVICE_UNKNOWN;
     const msg = new HealthCheckResponse();
     msg.setStatus(status);
