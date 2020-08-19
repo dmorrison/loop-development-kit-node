@@ -30,19 +30,19 @@ npm i
 To launch a Controller:
 
 ```javascript
-import { launchControllerPlugin } from 'ldk';
-import Controller from './controller'; // Your controller class.
+import { serveControllerPlugin } from 'ldk';
+import Controller from './controller'; // Constructor that generates objects meeting the Controller interface.
 
-launchControllerPlugin(new Controller());
+serveControllerPlugin(new Controller());
 ```
 
 To launch a Sensor:
 
 ```javascript
-import { launchSensorPlugin } from 'ldk';
-import Sensor from './sensor'; // Your sensor class.
+import { serveSensorPlugin } from 'ldk';
+import Sensor from './sensor'; // Constructor that generates objects meeting the Sensor interface.
 
-launchSensorPlugin(new Sensor());
+serveSensorPlugin(new Sensor());
 ```
 
 

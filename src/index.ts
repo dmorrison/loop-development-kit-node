@@ -4,7 +4,7 @@ import controllerPlugin from './controllerPlugin';
 import { Logger } from './logging';
 import operatingSystem from './operatingSystem';
 import sensorPlugin from './sensorPlugin';
-import { launchControllerPlugin, launchSensorPlugin } from './launch';
+import { serveControllerPlugin, serveSensorPlugin } from './serve';
 
 export {
   access,
@@ -13,6 +13,6 @@ export {
   operatingSystem,
   sensorPlugin as SensorPlugin,
   Logger,
-  launchControllerPlugin,
-  launchSensorPlugin,
+  serveControllerPlugin,
+  serveSensorPlugin,
 };
