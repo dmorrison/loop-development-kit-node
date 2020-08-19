@@ -98,24 +98,22 @@
 					<h5>Example Controller</h5>
 				</a>
 				<p>Here&#39;s an example main script for a Controller plugin:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { ControllerPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
-<span class="hljs-keyword">const</span> Controller = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./controller'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { serveControllerPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+<span class="hljs-keyword">const</span> Controller = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./controller'</span>); <span class="hljs-comment">// Constructor that generates objects meeting the Controller interface.</span>
 
 <span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'example-loop'</span>);
 <span class="hljs-keyword">const</span> impl = <span class="hljs-keyword">new</span> Controller(logger);
-<span class="hljs-keyword">const</span> controllerPlugin = <span class="hljs-keyword">new</span> ControllerPlugin(impl);
-controllerPlugin.serve();</code></pre>
+serveControllerPlugin(impl);</code></pre>
 				<a href="#example-sensor" id="example-sensor" style="color: inherit; text-decoration: none;">
 					<h5>Example Sensor</h5>
 				</a>
 				<p>Here&#39;s an example main script for a Sensor plugin:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { SensorPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
-<span class="hljs-keyword">const</span> Sensor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./sensor'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { serveSensorPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+<span class="hljs-keyword">const</span> Sensor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./sensor'</span>); <span class="hljs-comment">// Constructor that generates objects meeting the Sensor interface.</span>
 
 <span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'example-loop'</span>);
 <span class="hljs-keyword">const</span> impl = <span class="hljs-keyword">new</span> Sensor(logger);
-<span class="hljs-keyword">const</span> sensorPlugin = <span class="hljs-keyword">new</span> SensorPlugin(impl);
-sensorPlugin.serve();</code></pre>
+serveSensorPlugin(impl);</code></pre>
 				<a href="#running-locally" id="running-locally" style="color: inherit; text-decoration: none;">
 					<h3>Running Locally</h3>
 				</a>
@@ -258,6 +256,12 @@ sensorPlugin.serve();</code></pre>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a>
 					</li>
 				</ul>
 			</nav>

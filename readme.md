@@ -29,26 +29,24 @@ npm i
 Here's an example main script for a Controller plugin:
 
 ```javascript
-const { ControllerPlugin, Logger } = require('ldk');
-const Controller = require('./controller');
+const { serveControllerPlugin, Logger } = require('ldk');
+const Controller = require('./controller'); // Constructor that generates objects meeting the Controller interface.
 
 const logger = new Logger('example-loop');
 const impl = new Controller(logger);
-const controllerPlugin = new ControllerPlugin(impl);
-controllerPlugin.serve();
+serveControllerPlugin(impl);
 ```
 
 ##### Example Sensor
 Here's an example main script for a Sensor plugin:
 
 ```javascript
-const { SensorPlugin, Logger } = require('ldk');
-const Sensor = require('./sensor');
+const { serveSensorPlugin, Logger } = require('ldk');
+const Sensor = require('./sensor'); // Constructor that generates objects meeting the Sensor interface.
 
 const logger = new Logger('example-loop');
 const impl = new Sensor(logger);
-const sensorPlugin = new SensorPlugin(impl);
-sensorPlugin.serve();
+serveSensorPlugin(impl);
 ```
 
 ### Running Locally

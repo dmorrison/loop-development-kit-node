@@ -103,6 +103,13 @@
 								<li class="tsd-kind-variable"><a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -114,7 +121,7 @@
 					<div class="tsd-signature tsd-kind-icon">categories<span class="tsd-signature-symbol">:</span> <a href="enums/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [Category.UNKNOWN, Category.INTELLIGENCE, Category.CONTROLLER, Category.SENSOR, Category.SIDEKICK]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14c616a/src/categories.ts#L9">categories.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/categories.ts#L9">categories.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -124,8 +131,8 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;key is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14c616a/src/controllerGrpcHostClient.ts#L10">controllerGrpcHostClient.ts:10</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14c616a/src/sensorGrpcHostClient.ts#L9">sensorGrpcHostClient.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/controllerGrpcHostClient.ts#L10">controllerGrpcHostClient.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/sensorGrpcHostClient.ts#L9">sensorGrpcHostClient.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -135,10 +142,75 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;value is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14c616a/src/controllerGrpcHostClient.ts#L11">controllerGrpcHostClient.ts:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/14c616a/src/sensorGrpcHostClient.ts#L10">sensorGrpcHostClient.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/controllerGrpcHostClient.ts#L11">controllerGrpcHostClient.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/sensorGrpcHostClient.ts#L10">sensorGrpcHostClient.ts:10</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="servecontrollerplugin" class="tsd-anchor"></a>
+					<h3>serve<wbr>Controller<wbr>Plugin</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">serve<wbr>Controller<wbr>Plugin<span class="tsd-signature-symbol">(</span>controller<span class="tsd-signature-symbol">: </span><a href="interfaces/controller.html" class="tsd-signature-type">Controller</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/serve.ts#L10">serve.ts:10</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a controller implementation and launches the plugin.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>controller: <a href="interfaces/controller.html" class="tsd-signature-type">Controller</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The controller implementation.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="servesensorplugin" class="tsd-anchor"></a>
+					<h3>serve<wbr>Sensor<wbr>Plugin</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin<span class="tsd-signature-symbol">(</span>sensor<span class="tsd-signature-symbol">: </span><a href="interfaces/sensor.html" class="tsd-signature-type">Sensor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f50e5a5/src/serve.ts#L19">serve.ts:19</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a sensor implementation and launches the plugin.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sensor: <a href="interfaces/sensor.html" class="tsd-signature-type">Sensor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The sensor implementation.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -223,6 +295,12 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a>
 					</li>
 				</ul>
 			</nav>
