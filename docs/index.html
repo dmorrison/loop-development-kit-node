@@ -1,97 +1,335 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="default no-js">
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Home</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Loop Development Kit for Node.js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/pages.css">
 </head>
-
 <body>
-
-<div id="main">
-
-    <h1 class="page-title">Home</h1>
-
-    
-
-
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article><h1>Loop Development Kit (LDK) for NodeJS</h1>
-<p>The LDK is a plugin system for Sidekick. The LDK is built with <a href="https://github.com/hashicorp/go-plugin">go-plugin</a>, a HashiCorp plugin system used in several of their projects.</p>
-<p>Plugins developed with this library are executed by Sidekick as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Sidekick process.</p>
-<p>Communication between Sidekick and the plugin is first initialized over stdio and then performed using <a href="https://grpc.io/">GRPC</a>. On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.</p>
-<blockquote>
-<p>NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.</p>
-</blockquote>
-<p>In order for Sidekick to use a plugin, it must be compiled. Sidekick does not compile or interpret source code at runtime. A consequence of this is that plugins will need to be compiled for each operating system that they want to support. We recommend using <a href="https://www.npmjs.com/package/pkg">PKG</a> to compile NodeJS plugins into an executable.</p>
-<h2>Installation</h2>
-<p>Add the dependency to your package.json under the dependencies:</p>
-<pre class="prettyprint source lang-json"><code>&quot;dependencies&quot;: {
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Loop Development Kit for Node.js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>Loop Development Kit for Node.js</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#loop-development-kit-ldk-for-nodejs" id="loop-development-kit-ldk-for-nodejs" style="color: inherit; text-decoration: none;">
+					<h1>Loop Development Kit (LDK) for NodeJS</h1>
+				</a>
+				<a href="#developing" id="developing" style="color: inherit; text-decoration: none;">
+					<h2>Developing</h2>
+				</a>
+				<a href="#setup" id="setup" style="color: inherit; text-decoration: none;">
+					<h3>Setup</h3>
+				</a>
+				<a href="#setting-up-your-plugin" id="setting-up-your-plugin" style="color: inherit; text-decoration: none;">
+					<h4>Setting Up Your Plugin</h4>
+				</a>
+				<p>Sidekick expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:</p>
+				<ul>
+					<li>Create your <code>package.json</code> file.</li>
+					<li>Import the LDK.</li>
+					<li>Create your <code>main</code> script (usually <code>index.js</code> or <code>src/index.js</code>):<ul>
+							<li>Create an implementation object that satisfies the <a href="interfaces/controller.html">Controller</a> or <a href="interfaces/sensor.html">Sensor</a> contracts/interfaces.</li>
+							<li>Initialize the appropriate plugin with your implementation and call <code>.serve</code> on it.</li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#install-the-package" id="install-the-package" style="color: inherit; text-decoration: none;">
+					<h4>Install the package</h4>
+				</a>
+				<p>Add the dependency to your package.json under the dependencies:</p>
+				<pre><code class="language-json">&quot;dependencies&quot;: {
   &quot;ldk&quot;: &quot;git+https://github.com/open-olive/loop-development-kit-node.git&quot;
-}
-</code></pre>
-<p>Install using NPM</p>
-<pre class="prettyprint source lang-shell"><code>npm i
-</code></pre>
-<h2>Usage</h2>
-<p>Full documentation available on <a href="https://open-olive.github.io/loop-development-kit-node">here</a>.</p>
-<h3>Controllers</h3>
-<p>This LDK can be used to write controllers for Sidekick. More detail about controllers is available <a href="docs/controller.md">here</a>.</p>
-<ul>
-<li><a href="https://github.com/open-olive/sidekick-controller-examplenode">Basic Controller Example</a> - Recommend using as a starting point for new Controllers.</li>
-</ul>
-<h3>Sensors</h3>
-<p>This LDK can be used to write sensors for Sidekick. More detail about sensors is available <a href="docs/sensor.md">here</a>.</p>
-<ul>
-<li><a href="https://github.com/open-olive/sidekick-sensor-examplenode">Basic Sensor Example</a> - Recommend using as a starting point for new Sensors.</li>
-</ul></article>
-    </section>
+}</code></pre>
+				<p>Install using NPM</p>
+				<pre><code class="language-shell">npm i</code></pre>
+				<a href="#example-controller" id="example-controller" style="color: inherit; text-decoration: none;">
+					<h5>Example Controller</h5>
+				</a>
+				<p>Here&#39;s an example main script for a Controller plugin:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { ControllerPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+<span class="hljs-keyword">const</span> Controller = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./controller'</span>);
 
+<span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'example-loop'</span>);
+<span class="hljs-keyword">const</span> impl = <span class="hljs-keyword">new</span> Controller(logger);
+<span class="hljs-keyword">const</span> controllerPlugin = <span class="hljs-keyword">new</span> ControllerPlugin(impl);
+controllerPlugin.serve();</code></pre>
+				<a href="#example-sensor" id="example-sensor" style="color: inherit; text-decoration: none;">
+					<h5>Example Sensor</h5>
+				</a>
+				<p>Here&#39;s an example main script for a Sensor plugin:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { SensorPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+<span class="hljs-keyword">const</span> Sensor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./sensor'</span>);
 
-
-
-
-
+<span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'example-loop'</span>);
+<span class="hljs-keyword">const</span> impl = <span class="hljs-keyword">new</span> Sensor(logger);
+<span class="hljs-keyword">const</span> sensorPlugin = <span class="hljs-keyword">new</span> SensorPlugin(impl);
+sensorPlugin.serve();</code></pre>
+				<a href="#running-locally" id="running-locally" style="color: inherit; text-decoration: none;">
+					<h3>Running Locally</h3>
+				</a>
+				<a href="#local-plugin-command-recommended" id="local-plugin-command-recommended" style="color: inherit; text-decoration: none;">
+					<h4>Local Plugin Command (Recommended)</h4>
+				</a>
+				<p>Sidekick lets you add a local command as Local Plugins:</p>
+				<ol>
+					<li>Open Sidekick.</li>
+					<li>Open the Loop Library:<ul>
+							<li>Click the Hamburger icon.</li>
+							<li>Click Loop Library.</li>
+						</ul>
+					</li>
+					<li>Click the Install Local Plugin button:</li>
+					<li>Select whether it&#39;s a Controller or Sensor.</li>
+					<li>Select the working directory for the command.</li>
+					<li>Enter the command to be executed, including any arguments.</li>
+					<li>Click Install.</li>
+				</ol>
+				<p>The command will be installed as a plugin. If you need to change the command or its arguments you&#39;ll need remove it and then add the new commands.</p>
+				<a href="#packaged-command" id="packaged-command" style="color: inherit; text-decoration: none;">
+					<h4>Packaged Command</h4>
+				</a>
+				<p>Instructions to come! We&#39;re always working on improving the LDK developer experience and this section is empty while we&#39;re making some dramatic improvements to make your life easier.  </p>
+				<a href="#troubleshooting-and-debugging" id="troubleshooting-and-debugging" style="color: inherit; text-decoration: none;">
+					<h3>Troubleshooting and Debugging</h3>
+				</a>
+				<p>Sidekick logs are available in the following directories for your OS:</p>
+				<pre><code class="language-shell">~/Library/Logs/Sidekick # MacOS
+/var/log/Sidekick # Linux
+<span class="hljs-meta">%</span><span class="bash">AppData%/Logs <span class="hljs-comment"># Windows</span></span></code></pre>
+				<p><code>tail</code> the log file (usually <code>Sidekick-X.Y.Z.log</code>) to watch things happen!</p>
+				<a href="#concepts" id="concepts" style="color: inherit; text-decoration: none;">
+					<h2>Concepts</h2>
+				</a>
+				<a href="#plugins" id="plugins" style="color: inherit; text-decoration: none;">
+					<h2>Plugins</h2>
+				</a>
+				<p>The LDK is a plugin system for Sidekick. The LDK is built with <a href="https://github.com/hashicorp/go-plugin">go-plugin</a>, a HashiCorp plugin system used in several of their projects.</p>
+				<p>Plugins developed with this library are executed by Sidekick as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Sidekick process.</p>
+				<p>Communication between Sidekick and the plugin is first initialized over stdio and then performed using <a href="https://grpc.io/">GRPC</a>. On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.</p>
+				<blockquote>
+					<p>NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.</p>
+				</blockquote>
+				<a href="#controllers" id="controllers" style="color: inherit; text-decoration: none;">
+					<h3>Controllers</h3>
+				</a>
+				<p>This LDK can be used to write controllers for Sidekick. More detail about controllers is available on the <a href="pages/Concepts/controller.html">Controllers</a> page.</p>
+				<ul>
+					<li><a href="https://github.com/open-olive/sidekick-controller-examplenode">Basic Controller Example</a> - Recommend using as a starting point for new Controllers.</li>
+				</ul>
+				<a href="#sensors" id="sensors" style="color: inherit; text-decoration: none;">
+					<h3>Sensors</h3>
+				</a>
+				<p>This LDK can be used to write sensors for Sidekick. More detail about sensors is available on the <a href="pages/Concepts/sensor.html">Sensors</a> page.</p>
+				<ul>
+					<li><a href="https://github.com/open-olive/sidekick-sensor-examplenode">Basic Sensor Example</a> - Recommend using as a starting point for new Sensors.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Concepts</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Concepts/controller.html">Controllers</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Concepts/logging.html">Logging</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Concepts/storage.html">Storage</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Concepts/sensor.html">Sensors</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Concepts/terminology.html">Terminology</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/access.html" class="tsd-kind-icon">Access</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/category.html" class="tsd-kind-icon">Category</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/operatingsystem.html" class="tsd-kind-icon">Operating<wbr>System</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/controllerplugin.html" class="tsd-kind-icon">Controller<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/sensorplugin.html" class="tsd-kind-icon">Sensor<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/controller.html" class="tsd-kind-icon">Controller</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/controllerhost.html" class="tsd-kind-icon">Controller<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pluginevent.html" class="tsd-kind-icon">Plugin<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pluginhost.html" class="tsd-kind-icon">Plugin<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/sensor.html" class="tsd-kind-icon">Sensor</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/sensorhost.html" class="tsd-kind-icon">Sensor<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/whisper.html" class="tsd-kind-icon">Whisper</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#categories" class="tsd-kind-icon">categories</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#errmissingrequiredkey" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-access.html">access</a></li><li><a href="module-categories.html">categories</a></li><li><a href="module-controllerPlugin.html">controllerPlugin</a></li><li><a href="module-logging.html">logging</a></li><li><a href="module-operatingSystem.html">operatingSystem</a></li><li><a href="module-sensorGrpcHostClient.html">sensorGrpcHostClient</a></li><li><a href="module-sensorPlugin.html">sensorPlugin</a></li></ul><h3>Classes</h3><ul><li><a href="ControllerGrpcHostClient.html">ControllerGrpcHostClient</a></li><li><a href="module-controllerPlugin-ControllerPlugin.html">ControllerPlugin</a></li><li><a href="module-logging-Logger.html">Logger</a></li><li><a href="module-sensorGrpcHostClient-SensorGrpcHostClient.html">SensorGrpcHostClient</a></li><li><a href="module-sensorPlugin-SensorPlugin.html">SensorPlugin</a></li></ul><h3>Interfaces</h3><ul><li><a href="connInfo.html">connInfo</a></li><li><a href="Controller.html">Controller</a></li><li><a href="event.html">event</a></li><li><a href="Sensor.html">Sensor</a></li><li><a href="style.html">style</a></li><li><a href="Whisper.html">Whisper</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getConnInfo">getConnInfo</a></li><li><a href="global.html#startStream">startStream</a></li></ul>
-</nav>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
 </footer>
-
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/pages.js"></script>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

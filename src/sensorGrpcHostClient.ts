@@ -3,22 +3,26 @@
 import messages from './proto/ldk_pb';
 import services from './proto/ldk_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
+import { PluginEvent } from './pluginEvent';
+import { SensorHost } from './sensorHost';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
 /**
  * Class used by the sensor implementation to interact with the host process.
+ *
+ * @internal
  */
-class SensorGrpcHostClient {
+class SensorGrpcHostClient implements SensorHost {
   private _client: services.SensorHostClient | undefined;
 
   /**
    * Establish a connection to the host process.
    *
    * @async
-   * @param {ConnInfo.AsObject} connInfo - An object containing host process connection information.
-   * @returns {Promise.<void>} - Promise resolves when the connection is established.
+   * @param connInfo - An object containing host process connection information.
+   * @returns Promise resolves when the connection is established.
    */
   connect(connInfo: ConnInfo.AsObject): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -51,11 +55,9 @@ class SensorGrpcHostClient {
   /**
    * Send an event to the host process.
    *
-   * @async
-   * @param {event} event - An object containing host process connection information.
-   * @returns {void}
+   * @param event - An object containing host process connection information.
    */
-  emitEvent(event: event): Promise<messages.Empty> {
+  emitEvent(event: PluginEvent): Promise<void> {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitEventRequest();
 
@@ -63,12 +65,12 @@ class SensorGrpcHostClient {
         request.getDataMap().set(key, JSON.stringify(value));
       });
 
-      this.client.emitEvent(request, (err, response) => {
+      this.client.emitEvent(request, (err) => {
         if (err) {
           reject(err);
           return;
         }
-        resolve(response);
+        resolve();
       });
     });
   }
@@ -76,9 +78,7 @@ class SensorGrpcHostClient {
   /**
    * Delete a key from storage.
    *
-   * @async
-   * @param {string} key - The name of the key in storage.
-   * @returns {void}
+   * @param key - The name of the key in storage.
    */
   storageDelete(key: string): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -101,9 +101,6 @@ class SensorGrpcHostClient {
 
   /**
    * Delete all keys from storage.
-   *
-   * @async
-   * @returns {void}
    */
   storageDeleteAll(): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -121,9 +118,8 @@ class SensorGrpcHostClient {
   /**
    * Check if a key has a value defined in storage.
    *
-   * @async
-   * @param {string} key - The name of the key in storage.
-   * @returns {boolean} - Returns true if the key has a defined value.
+   * @param key - The name of the key in storage.
+   * @returns Resolves with true if the key has a defined value.
    */
   storageHasKey(key: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
@@ -168,9 +164,8 @@ class SensorGrpcHostClient {
   /**
    * Get the value of a key in storage.
    *
-   * @async
-   * @param {string} key - The name of the key in storage.
-   * @returns {string} - Returns the value of the key in storage.
+   * @param key - The name of the key in storage.
+   * @returns Returns the value of the key in storage.
    */
   storageRead(key: string): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -195,8 +190,7 @@ class SensorGrpcHostClient {
   /**
    * Get an object of key value pairs in storage.
    *
-   * @async
-   * @returns {object} - Returns the storage object. Each key in the object
+   * @returns Returns the storage object. Each key in the object
    * is a key in storage and the value of the key is the value in storage.
    */
   storageReadAll(): Promise<{ [index: string]: string }> {
@@ -223,10 +217,8 @@ class SensorGrpcHostClient {
   /**
    * Get the value of a key in storage.
    *
-   * @async
-   * @param {string} key - The name of the key in storage.
-   * @param {string} value - The value to assign to the key in storage.
-   * @returns {void}
+   * @param key - The name of the key in storage.
+   * @param value - The value to assign to the key in storage.
    */
   storageWrite(key: string, value: string): Promise<void> {
     return new Promise((resolve, reject) => {

@@ -19,9 +19,10 @@ class SensorPlugin {
   /**
    * Create a SensorPlugin.
    *
-   * @param {Sensor} impl - The implementation of the sensor.
-   * @example
-   * SensorPlugin(mySensor);
+   * @param impl - The implementation of the sensor.
+   * ```
+   * new SensorPlugin(mySensor);
+   * ```
    */
   constructor(impl: Sensor) {
     this.server = new services.grpc.Server();
@@ -36,9 +37,6 @@ class SensorPlugin {
 
   /**
    * Run the GRPC server and write connection information to stdout.
-   *
-   * @async
-   * @returns {void}
    */
   serve(): Promise<void> {
     return new Promise((resolve, reject) => {
