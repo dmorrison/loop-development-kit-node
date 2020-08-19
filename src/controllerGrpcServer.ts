@@ -8,7 +8,7 @@ import services, { IControllerServer } from './proto/ldk_grpc_pb';
 /**
  * Class used by the host process to interact with the controller implementation.
  *
- * @private
+ * @internal
  */
 class ControllerGrpcServer {
   private broker: BrokerGrpcServer;
@@ -16,11 +16,13 @@ class ControllerGrpcServer {
   /**
    * Create a ControllerGrpcServer.
    *
-   * @param {services.grpc.Server} server - The GRPC server instance.
-   * @param {Controller} impl - The controller implementation.
-   * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+   * @param server - The GRPC server instance.
+   * @param impl - The controller implementation.
+   * @param broker - The GRPC broker server instance.
    * @example
+   * ```
    * ControllerGrpcServer(server, myController, broker);
+   * ```
    */
   constructor(
     server: services.grpc.Server,

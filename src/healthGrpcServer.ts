@@ -5,7 +5,7 @@ import { HealthService } from './proto/health_grpc_pb';
 /**
  * Class used to implement the GRPC health service.
  *
- * @private
+ * @internal
  */
 class HealthGrpcServer {
   private _statusMap: { [key: string]: HealthCheckResponse.ServingStatus };
@@ -13,8 +13,9 @@ class HealthGrpcServer {
   /**
    * Create a HealthGrpcServer.
    *
-   * @example
-   * HealthGrpcServer();
+   * ```
+   * new HealthGrpcServer();
+   * ```
    */
   constructor() {
     this._statusMap = {
@@ -27,9 +28,8 @@ class HealthGrpcServer {
    * Called by the host to check the health status of the server.
    *
    * @async
-   * @param {grpc.ServerUnaryCall<HealthCheckRequest, HealthCheckResponse>} call - Called service
-   * @param {grpc.sendUnaryData<HealthCheckResponse>} callback - Callback method to invoke with message.
-   * @returns {void}
+   * @param call - Called service
+   * @param callback - Callback method to invoke with message.
    */
   check(
     call: grpc.ServerUnaryCall<HealthCheckRequest, HealthCheckResponse>,
@@ -47,9 +47,6 @@ class HealthGrpcServer {
   /**
    * Called by the host to establish a health event stream.
    * Currently unused.
-   *
-   * @async
-   * @returns {void}
    */
   watch(): void {
     // Nothing to do
