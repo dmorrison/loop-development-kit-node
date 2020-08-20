@@ -1,13 +1,13 @@
 import { mocked } from 'ts-jest/utils';
 import Services from './proto/ldk_grpc_pb';
-import ControllerGrpcServer from './controllerGrpcServer';
-import ControllerPlugin from './controllerPlugin';
+import SensorGRPCServer from './sensorGrpcServer';
+import SensorPlugin from './sensorPlugin';
 import { prepareLogging } from "./logging";
 
-const mockedGrpc = mocked(ControllerGrpcServer);
+const mockedGrpc = mocked(SensorGRPCServer);
 const mockedServices = mocked(Services.grpc.Server);
 
-jest.mock('./controllerGrpcServer');
+jest.mock('./sensorGrpcServer');
 jest.mock('./proto/ldk_grpc_pb');
 jest.mock('./logging');
 
@@ -16,12 +16,12 @@ beforeEach(() => {
   mockedServices.mockClear();
 });
 
-describe('ControllerPlugin', () => {
-  let plugin: ControllerPlugin;
+describe('SensorPlugin', () => {
+  let plugin: SensorPlugin;
   describe('constructor', () => {
     it('consumes the mocked module', () => {
-      plugin = new ControllerPlugin({} as any);
-      expect(ControllerGrpcServer).toHaveBeenCalledTimes(1);
+      plugin = new SensorPlugin({} as any);
+      expect(SensorGRPCServer).toHaveBeenCalledTimes(1);
       expect(Services.grpc.Server).toHaveBeenCalledTimes(1);
       const mockServer = mockedServices.mock.instances[0];
       // Called with BrokerService,HealthService,StdioService
@@ -30,7 +30,7 @@ describe('ControllerPlugin', () => {
   });
   describe('#serve', () => {
     it('calls server#start', async () => {
-      plugin = new ControllerPlugin({} as any);
+      plugin = new SensorPlugin({} as any);
       const mockServer = mockedServices.mock.instances[0];
       mocked(
         mockServer.bindAsync,
