@@ -1,26 +1,26 @@
 import { mocked } from 'ts-jest/utils';
 import Services from './proto/ldk_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
-import ControllerGrpcServer from './controllerGrpcServer';
-import { Controller } from './controller';
+import SensorGRPCServer from './sensorGrpcServer';
 import { ConnInfo } from './proto/broker_pb';
-import ControllerGrpcHostClient from './controllerGrpcHostClient';
+import SensorGrpcHostClient from './sensorGrpcHostClient';
 import { OnEventRequest, Source, Empty } from './proto/ldk_pb';
 import { categories } from './categories';
+import { Sensor } from './sensor';
 
 jest.mock('./proto/ldk_grpc_pb');
 jest.mock('./brokerGrpcServer');
-jest.mock('./controllerGrpcHostClient');
+jest.mock('./sensorGrpcHostClient');
 
 const mockedServices = mocked(Services.grpc.Server);
 const mockedBroker = mocked(BrokerGrpcServer);
-const mockedClient = mocked(ControllerGrpcHostClient);
+const mockedClient = mocked(SensorGrpcHostClient);
 
-describe('ControllerGrpcServer', () => {
-  let server: ControllerGrpcServer;
+describe('SensorGrpcServer', () => {
+  let server: SensorGRPCServer;
   let broker: BrokerGrpcServer;
   let grpcServer: Services.grpc.Server;
-  let impl: Controller;
+  let impl: Sensor;
   beforeEach(() => {
     grpcServer = new Services.grpc.Server();
     broker = new BrokerGrpcServer(grpcServer);
@@ -29,7 +29,7 @@ describe('ControllerGrpcServer', () => {
       stop: jest.fn(),
       onEvent: jest.fn(),
     };
-    server = new ControllerGrpcServer(grpcServer, impl, broker);
+    server = new SensorGRPCServer(grpcServer, impl, broker);
     mockedBroker.mockImplementation(() => {
       return {
         getConnInfo: (): Promise<ConnInfo.AsObject> => {
