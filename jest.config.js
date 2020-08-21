@@ -6,4 +6,5 @@ module.exports = {
     '!src/proto/**',
     '!**/node_modules/**',
   ],
+  testMatch: ['**/?(*.)+(spec|test).ts?(x)'],
 };
