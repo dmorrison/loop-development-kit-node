@@ -75,7 +75,7 @@ describe('SensorGrpcServer', () => {
     let request: OnEventRequest;
     let source: Partial<Source>;
     let dataMap: any;
-    beforeEach(function () {
+    beforeEach(() => {
       dataMap = {
         toObject: () => [
           ['key1', 'value1'],

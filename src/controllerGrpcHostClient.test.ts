@@ -9,6 +9,11 @@ jest.mock('./proto/ldk_grpc_pb');
 
 const hostClient = mocked(Services.ControllerHostClient);
 
+type CallbackHandlerFunc<TRequest = any, TResponse = any> = (
+  request: TRequest,
+  callback: (err: Error | null, response: TResponse) => void,
+) => void;
+
 describe('ControllerGrpcHostClient', () => {
   let subject: ControllerGrpcHostClient;
   let connInfo: ConnInfo.AsObject;
@@ -21,17 +26,13 @@ describe('ControllerGrpcHostClient', () => {
   let storageReadMock: jest.Mock;
   let storageReadAllMock: jest.Mock;
   let storageWriteMock: jest.Mock;
-  function createCallbackHandler(
-    response?: any,
-  ): (
-    request: any,
-    callback: (err: Error | null, response: any) => void,
-  ) => void {
+
+  function createCallbackHandler(response?: any): CallbackHandlerFunc {
     return (request, callback) => {
       callback(null, response);
     };
   }
-  beforeEach(function () {
+  beforeEach(() => {
     jest.resetAllMocks();
     subject = new ControllerGrpcHostClient();
     connInfo = {
@@ -60,7 +61,7 @@ describe('ControllerGrpcHostClient', () => {
     });
   });
   describe('#emitWhisper', () => {
-    describe('when initialized', function () {
+    describe('when initialized', () => {
       beforeEach(async () => {
         emitWhisperMock = jest.fn().mockImplementation(createCallbackHandler());
         await subject.connect(connInfo);

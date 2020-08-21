@@ -10,6 +10,11 @@ jest.mock('./proto/ldk_grpc_pb');
 
 const hostClient = mocked(Services.SensorHostClient);
 
+type CallbackHandlerFunc<TRequest = any, TResponse = any> = (
+  request: TRequest,
+  callback: (err: Error | null, response: TResponse) => void,
+) => void;
+
 describe('SensorGrpcHostClient', () => {
   let subject: SensorGrpcHostClient;
   let connInfo: ConnInfo.AsObject;
@@ -22,17 +27,12 @@ describe('SensorGrpcHostClient', () => {
   let storageReadMock: jest.Mock;
   let storageReadAllMock: jest.Mock;
   let storageWriteMock: jest.Mock;
-  function createCallbackHandler(
-    response?: any,
-  ): (
-    request: any,
-    callback: (err: Error | null, response: any) => void,
-  ) => void {
+  function createCallbackHandler(response?: any): CallbackHandlerFunc {
     return (request, callback) => {
       callback(null, response);
     };
   }
-  beforeEach(function () {
+  beforeEach(() => {
     jest.resetAllMocks();
     subject = new SensorGrpcHostClient();
     connInfo = {

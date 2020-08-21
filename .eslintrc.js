@@ -80,5 +80,14 @@ module.exports = {
       },
       files: ['**/*.js'],
     },
+    {
+      rules: {
+        // Explicit anys are fine in tests, especially when mocking.
+        '@typescript-eslint/no-explicit-any': ['off'],
+        // Test functions don't need documentation.
+        'jsdoc/require-jsdoc': ['off'],
+      },
+      files: ['**/*.test.ts']
+    }
   ],
 };
