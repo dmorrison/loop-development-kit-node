@@ -1,44 +1,19 @@
-import * as grpc from '@grpc/grpc-js';
-import { Deadline } from '@grpc/grpc-js';
 import { ConnInfo } from './proto/broker_pb';
 import messages from './proto/ldk_pb';
-import * as Messages from './proto/ldk_pb';
+import { CommonHostServer } from './commonHostServer';
+import { CommonHostClient } from './commonHostClient';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
-type Request<TRequestType = Messages.Empty, TResponseType = Messages.Empty> = (
-  request: TRequestType,
-  callback: (error: grpc.ServiceError | null, response: TResponseType) => void,
-) => void;
-
 /**
  * @internal
  */
-export interface CommonHostServer {
-  waitForReady(deadline: Deadline, callback: (error?: Error) => void): void;
-  storageDelete: Request<Messages.StorageDeleteRequest>;
-  storageDeleteAll: Request;
-  storageHasKey: Request<
-    Messages.StorageHasKeyRequest,
-    Messages.StorageHasKeyResponse
-  >;
-  storageKeys: Request<Messages.Empty, Messages.StorageKeysResponse>;
-  storageRead: Request<
-    Messages.StorageReadRequest,
-    Messages.StorageReadResponse
-  >;
-  storageReadAll: Request<Messages.Empty, Messages.StorageReadAllResponse>;
-  storageWrite: Request<Messages.StorageWriteRequest>;
-}
+export default abstract class GrpcHostClient<THost extends CommonHostServer>
+  implements CommonHostClient {
+  private _client: THost | undefined;
 
-/**
- * @internal
- */
-export default abstract class GrpcHostClient<TClient extends CommonHostServer> {
-  private _client: TClient | undefined;
-
-  protected abstract generateClient(address: string): TClient;
+  protected abstract generateClient(address: string): THost;
 
   /**
    * Establish a connection to the host process.
@@ -188,7 +163,7 @@ export default abstract class GrpcHostClient<TClient extends CommonHostServer> {
    * Get an object of key value pairs in storage.
    *
    * @async
-   * @returns {object} - Returns the storage object. Each key in the object
+   * @returns Returns the storage object. Each key in the object
    * is a key in storage and the value of the key is the value in storage.
    */
   storageReadAll(): Promise<{ [index: string]: string }> {
@@ -243,14 +218,14 @@ export default abstract class GrpcHostClient<TClient extends CommonHostServer> {
     });
   }
 
-  protected get client(): TClient {
+  protected get client(): THost {
     if (this._client === undefined) {
       throw new Error('Accessing client before connected');
     }
     return this._client;
   }
 
-  protected set client(client: TClient) {
+  protected set client(client: THost) {
     this._client = client;
   }
 }
