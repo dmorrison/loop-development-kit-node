@@ -9,7 +9,7 @@
   "scripts": {
     "doc": "rm -rf docs && mkdir -p docs && ./node_modules/.bin/typedoc --options typedoc.json",
     "build": "rm -rf dist && tsc",
-    "lint": "./node_modules/.bin/eslint --fix .",
+    "lint": "./node_modules/.bin/eslint . --ext .js,.ts",
     "prettier-all": "prettier --write '**/*.{js,ts}'",
     "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-ts && npm run protoc-fixes",
     "protoc-broker": "grpc_tools_node_protoc -I src/proto --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/broker.proto",

@@ -1,19 +1,20 @@
 import { mocked } from 'ts-jest/utils';
 import Services from './proto/ldk_grpc_pb';
 import Messages from './proto/ldk_pb';
-import ControllerGrpcHostClient from './controllerGrpcHostClient';
+import SensorGrpcHostClient from './sensorGrpcHostClient';
 import { ConnInfo } from './proto/broker_pb';
+import { PluginEvent } from './pluginEvent';
 
 jest.mock('./proto/ldk_pb');
 jest.mock('./proto/ldk_grpc_pb');
 
-const hostClient = mocked(Services.ControllerHostClient);
+const hostClient = mocked(Services.SensorHostClient);
 
-describe('ControllerGrpcHostClient', () => {
-  let subject: ControllerGrpcHostClient;
+describe('SensorGrpcHostClient', () => {
+  let subject: SensorGrpcHostClient;
   let connInfo: ConnInfo.AsObject;
   let waitForReadyMock: jest.Mock;
-  let emitWhisperMock: jest.Mock;
+  let emitEventMock: jest.Mock;
   let storageDeleteMock: jest.Mock;
   let storageDeleteAllMock: jest.Mock;
   let storageHasKeyMock: jest.Mock;
@@ -33,7 +34,7 @@ describe('ControllerGrpcHostClient', () => {
   }
   beforeEach(function () {
     jest.resetAllMocks();
-    subject = new ControllerGrpcHostClient();
+    subject = new SensorGrpcHostClient();
     connInfo = {
       address: 'a',
       serviceId: 1,
@@ -42,8 +43,8 @@ describe('ControllerGrpcHostClient', () => {
     waitForReadyMock = jest.fn().mockImplementation(createCallbackHandler());
     hostClient.mockImplementation(() => {
       return {
-        emitWhisper: emitWhisperMock,
         waitForReady: waitForReadyMock,
+        emitEvent: emitEventMock,
         storageDelete: storageDeleteMock,
         storageDeleteAll: storageDeleteAllMock,
         storageHasKey: storageHasKeyMock,
@@ -59,44 +60,32 @@ describe('ControllerGrpcHostClient', () => {
       await expect(subject.connect(connInfo)).resolves.toBe(undefined);
     });
   });
-  describe('#emitWhisper', () => {
-    describe('when initialized', function () {
-      beforeEach(async () => {
-        emitWhisperMock = jest.fn().mockImplementation(createCallbackHandler());
-        await subject.connect(connInfo);
-        await subject.emitWhisper({
-          markdown: 'abc',
-          icon: 'ok',
-          label: 'Hey',
-        });
-      });
-      it('should call the client with a whisper message', async () => {
-        const whisperRequest = mocked(Messages.EmitWhisperRequest).mock
-          .instances[0];
-        expect(emitWhisperMock).toHaveBeenCalledWith(
-          whisperRequest,
-          expect.anything(),
-        );
-      });
-      it('should set the style to default', () => {
-        const style = mocked(Messages.Style).mock.instances[0];
-        expect(style.setBackgroundcolor).toHaveBeenCalledWith('#fff');
-        expect(style.setPrimarycolor).toHaveBeenCalledWith('#666');
-        expect(style.setHighlightcolor).toHaveBeenCalledWith('#651fff');
-      });
-      it('should create the whisper properly', () => {
-        const whisper = mocked(Messages.Whisper).mock.instances[0];
-        expect(whisper.setMarkdown).toHaveBeenCalledWith('abc');
-        expect(whisper.setLabel).toHaveBeenCalledWith('Hey');
-        expect(whisper.setIcon).toHaveBeenCalledWith('ok');
-      });
+  describe('#emitEvent', () => {
+    const event: PluginEvent = {
+      data: {
+        a: 'b',
+        c: 'd',
+      },
+    };
+    let setDataMapMock: jest.Mock;
+    beforeEach(async () => {
+      const emitEventRequest = mocked(Messages.EmitEventRequest);
+      emitEventRequest.mockImplementation(
+        () =>
+          ({
+            getDataMap: () => ({
+              set: setDataMapMock,
+            }),
+          } as any),
+      );
+      setDataMapMock = jest.fn();
+      emitEventMock = jest.fn().mockImplementation(createCallbackHandler());
+      await subject.connect(connInfo);
+      await expect(subject.emitEvent(event)).resolves.toBe(undefined);
     });
-    describe('before connected', () => {
-      it('should throw an error', async () => {
-        await expect(
-          subject.emitWhisper({ markdown: 'a', label: 'a', icon: 'a' }),
-        ).rejects.toThrow('Accessing client before connected');
-      });
+    it('resolves successfully with a correctly configured request', () => {
+      expect(setDataMapMock).toHaveBeenCalledWith('a', '"b"');
+      expect(setDataMapMock).toHaveBeenCalledWith('c', '"d"');
     });
   });
   describe('#storageDelete', () => {
@@ -126,7 +115,7 @@ describe('ControllerGrpcHostClient', () => {
       await subject.connect(connInfo);
       await expect(subject.storageDeleteAll()).resolves.toBe(undefined);
     });
-    it('should call client.storageDelete and resolve successfully', async () => {
+    it('should call client.storageDeleteAll and resolve successfully', async () => {
       expect(storageDeleteAllMock).toHaveBeenCalledWith(
         expect.any(Messages.Empty),
         expect.any(Function),
@@ -144,7 +133,7 @@ describe('ControllerGrpcHostClient', () => {
         .mockImplementation(createCallbackHandler(mockResponse));
       await subject.connect(connInfo);
     });
-    it('should call client.storageDelete and resolve successfully', async () => {
+    it('should call client.storageHasKey and resolve successfully', async () => {
       await expect(subject.storageHasKey(storageKey)).resolves.toBe(true);
       expect(storageHasKeyMock).toHaveBeenCalledWith(
         expect.any(Messages.StorageHasKeyRequest),

@@ -1,5 +1,3 @@
-/** @module controllerGrpcHostClient */
-
 import { Whisper } from './whisper';
 import messages from './proto/ldk_pb';
 import * as services from './proto/ldk_grpc_pb';
@@ -181,7 +179,6 @@ class ControllerGrpcHostClient implements ControllerHost {
   /**
    * Get the value of a key in storage.
    *
-   * @async
    * @param key - The name of the key in storage.
    * @returns Promise resolving with the value of the key in storage.
    */
