@@ -1,15 +1,10 @@
-import ControllerGrpcHostClient from './controllerGrpcHostClient';
+import { PluginEvent } from './pluginEvent';
+import { ControllerHost } from './controllerHost';
 /**
- * @typedef Controller
- * @type {object}
- * @property {Function} start - Executed when the host starts the plugin.
- * The plugin should not do anything before this is called.
- * @param {ControllerGrpcHostClient} host
- * @property {Function} stop - Executed by the host to stop the plugin.
- * All plugin activity should stop when this is called.
- * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
- * @example
+ * Your Controllers must implement this interface.
+ *
+ * Here's an example implementation:
+ * ```
  * const { Logger } = require('ldk');
  * const { name } = require('./package');
  *
@@ -43,9 +38,25 @@ import ControllerGrpcHostClient from './controllerGrpcHostClient';
  *     });
  *   }
  * }
+ * ```
  */
 export interface Controller {
-    start(host: ControllerGrpcHostClient): void;
+    /**
+     * Executed when the host starts the plugin.
+     * The plugin should not do anything before this is called.
+     *
+     * @param host - The host controller. You should assign this as an instance property for use by the Controller.
+     */
+    start(host: ControllerHost): void;
+    /**
+     * Executed by the host to stop the plugin.
+     * All plugin activity should stop when this is called.
+     */
     stop(): void;
-    onEvent(event: event): void;
+    /**
+     * The host will send events to the plugin by calling this function.
+     *
+     * @param event
+     */
+    onEvent(event: PluginEvent): void;
 }

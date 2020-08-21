@@ -2,24 +2,34 @@
 /** @module logging */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.prepareLogging = exports.Logger = void 0;
-const { pid } = process;
-const logLevels = {
-    TRACE: 'TRACE',
-    DEBUG: 'DEBUG',
-    INFO: 'INFO',
-    WARN: 'WARN',
-    ERROR: 'ERROR',
-};
+/**
+ * @internal
+ */
+// eslint-disable-next-line prefer-destructuring
+const pid = process.pid;
+/**
+ * @internal
+ */
+var LogLevels;
+(function (LogLevels) {
+    LogLevels["TRACE"] = "TRACE";
+    LogLevels["DEBUG"] = "DEBUG";
+    LogLevels["INFO"] = "INFO";
+    LogLevels["WARN"] = "WARN";
+    LogLevels["ERROR"] = "ERROR";
+})(LogLevels || (LogLevels = {}));
 /** Logger is a supported way to get logs to Sidekick in the expected format. */
 class Logger {
     /**
      * Create a Logger.
      *
-     * @param {string} name - The name of the plugin.
-     * @param {object} fields - Additional fields to include with each log.
+     * @param name - The name of the plugin.
+     * @param fields - Additional fields to include with each log.
      * @example
+     * ```
      * const package = require('./package.json');
      * const logger = new Logger(package.name);
+     * ```
      */
     constructor(name, fields = {}) {
         if (!name) {
@@ -31,11 +41,13 @@ class Logger {
     /**
      * with creates a new logger that will always have the key/value pairs.
      *
-     * @param {...any} args - A list of alternating keys/values.
-     * @returns {Logger} - A new logger with the provided fields.
-     * @example
+     * @param args - A list of alternating keys/values.
+     * @returns - A new logger with the provided fields.
+     *
+     * ```
      * const logger2 = logger.with('persistentKey', 'persistentValue');
      * logger2.info('Yet another message', 'yetAnotherKey', 'yetAnotherValue');
+     *
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
      * //   "@pid": 1234,
@@ -45,7 +57,9 @@ class Logger {
      * //   "persistentKey": "persistentValue",
      * //   "yetAnotherKey": "yetAnotherValue"
      * // }
+     * ```
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     with(...args) {
         const fields = this._kvArgsWithFields(args);
         return new Logger(this._name, fields);
@@ -53,10 +67,10 @@ class Logger {
     /**
      * trace emits a message and key/value pairs at the TRACE level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.trace('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -65,17 +79,18 @@ class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
     trace(msg, ...args) {
-        this._write(logLevels.TRACE, msg, ...args);
+        this._write(LogLevels.TRACE, msg, ...args);
     }
     /**
      * debug emits a message and key/value pairs at the DEBUG level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.debug('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -84,17 +99,18 @@ class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
     debug(msg, ...args) {
-        this._write(logLevels.DEBUG, msg, ...args);
+        this._write(LogLevels.DEBUG, msg, ...args);
     }
     /**
      * info emits a message and key/value pairs at the INFO level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.info('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -103,17 +119,18 @@ class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
     info(msg, ...args) {
-        this._write(logLevels.INFO, msg, ...args);
+        this._write(LogLevels.INFO, msg, ...args);
     }
     /**
      * warn emits a message and key/value pairs at the WARN level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.warn('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -122,17 +139,18 @@ class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
     warn(msg, ...args) {
-        this._write(logLevels.WARN, msg, ...args);
+        this._write(LogLevels.WARN, msg, ...args);
     }
     /**
      * error emits a message and key/value pairs at the ERROR level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.error('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -141,25 +159,25 @@ class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
     error(msg, ...args) {
-        this._write(logLevels.ERROR, msg, ...args);
+        this._write(LogLevels.ERROR, msg, ...args);
     }
     /**
      * _write is the underlying implementation for writing a log message.
      *
      * @private
-     * @param {string} lvl - The level of the log.
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param lvl - The level of the log.
+     * @param msg - The message of the log.
+     * @param  args - A list of alternating keys/values.
      */
     _write(lvl, msg, ...args) {
         let level = lvl;
         if (!level) {
-            level = logLevels.DEBUG;
+            level = LogLevels.DEBUG;
         }
-        if (!Object.values(logLevels).includes(level)) {
+        if (!Object.values(LogLevels).includes(level)) {
             throw new Error(`Invalid log level: ${level}`);
         }
         const fields = this._kvArgsWithFields(args);
@@ -177,12 +195,13 @@ class Logger {
     /**
      * _kvArgsWithFields converts a list of alternating keys/values to an object.
      *
-     * @private
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {object} - An object created by combining the alternating keys/values.
+     * @param args - A list of alternating keys/values.
+     * @returns An object created by combining the alternating keys/values.
      * @example
+     * ```
      * _kvArgsWithFields(['key1', 'value1', 'key2', 'value2', 'value3'])
      * // returns { 'key1': 'value1', 'key2': 'value2', 'EXTRA_VALUE_AT_END': 'value3' }
+     * ```
      */
     _kvArgsWithFields(args = []) {
         const argsEven = args.slice(0);
@@ -202,8 +221,7 @@ class Logger {
     /**
      * _getTimestamp creates a timestamp in the supported format.
      *
-     * @private
-     * @returns {string} - A timestamp in a format compatible with the host process.
+     * @returns A timestamp in a format compatible with the host process.
      */
     _getTimestamp() {
         // toISOString() is close, but the seconds value needs to have 6 decimal places.
@@ -217,7 +235,7 @@ exports.Logger = Logger;
  * prepareLogging overwrites basic console methods so they produce output in an expected format.
  * Also pushes all stdout to stderr.
  *
- * @private
+ * @internal
  */
 const prepareLogging = () => {
     const consoleDebug = console.debug.bind(console);
@@ -226,6 +244,8 @@ const prepareLogging = () => {
     const consoleLog = console.log.bind(console);
     const consoleTrace = console.trace.bind(console);
     const consoleWarn = console.warn.bind(console);
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    // Using any b/c console functions accept any type.
     console.debug = (msg, ...args) => {
         consoleDebug(`[DEBUG] ${msg}`, ...args);
     };
@@ -245,5 +265,6 @@ const prepareLogging = () => {
         consoleWarn(`[WARN] ${msg}`, ...args);
     };
     process.stdout.write = (...args) => process.stderr.write(...args);
+    /* eslint-any @typescript-eslint/no-explicit-any */
 };
 exports.prepareLogging = prepareLogging;

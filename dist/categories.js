@@ -1,5 +1,4 @@
 "use strict";
-/** @module categories */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.categories = exports.Category = void 0;
 var Category;
@@ -10,6 +9,5 @@ var Category;
     Category["SIDEKICK"] = "Sidekick";
     Category["UNKNOWN"] = "Unknown";
 })(Category = exports.Category || (exports.Category = {}));
-/** @constant {string[]} */
 exports.categories = [Category.UNKNOWN, Category.INTELLIGENCE, Category.CONTROLLER, Category.SENSOR, Category.SIDEKICK];
 exports.default = Category;

@@ -1,4 +1,3 @@
-/** @module access */
 export declare enum Access {
     UNKNOWN = "unknown",
     USER = "user",
