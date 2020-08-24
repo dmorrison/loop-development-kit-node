@@ -25,7 +25,7 @@ declare class ControllerGrpcHostClient implements ControllerHost {
      */
     emitWhisper(whisper: Whisper): Promise<Error | string>;
     /**
-     * Send a Whisper to the host process.
+     * Update a Whisper that has already been sent to the host process.
      *
      * @async
      * @param whisper - An object defining the contents of the Whisper.

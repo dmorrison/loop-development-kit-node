@@ -97,7 +97,7 @@ class ControllerGrpcHostClient {
         });
     }
     /**
-     * Send a Whisper to the host process.
+     * Update a Whisper that has already been sent to the host process.
      *
      * @async
      * @param whisper - An object defining the contents of the Whisper.
@@ -125,7 +125,7 @@ class ControllerGrpcHostClient {
             whisperMsg.setStyle(style);
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
-            this.client.emitWhisper(request, (err) => {
+            this.client.updateWhisper(request, (err) => {
                 if (err) {
                     return reject(err);
                 }

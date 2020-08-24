@@ -124,7 +124,7 @@ class ControllerGrpcHostClient implements ControllerHost {
 
       request.setWhisper(whisperMsg);
 
-      this.client.emitWhisper(request, (err) => {
+      this.client.updateWhisper(request, (err) => {
         if (err) {
           return reject(err);
         }
