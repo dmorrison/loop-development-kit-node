@@ -103,7 +103,6 @@ class ControllerGrpcHostClient implements ControllerHost {
   updateWhisper(whisper: Whisper, id: string): Promise<Error | void> {
     return new Promise((resolve, reject) => {
       const request = new messages.UpdateWhisperRequest();
-      request.setId(id);
 
       const style = new messages.Style();
       if (whisper.style) {
@@ -123,6 +122,7 @@ class ControllerGrpcHostClient implements ControllerHost {
       whisperMsg.setIcon(whisper.icon);
 
       request.setWhisper(whisperMsg);
+      request.setId(id);
 
       this.client.updateWhisper(request, (err) => {
         if (err) {

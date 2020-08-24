@@ -107,7 +107,6 @@ class ControllerGrpcHostClient {
     updateWhisper(whisper, id) {
         return new Promise((resolve, reject) => {
             const request = new ldk_pb_1.default.UpdateWhisperRequest();
-            request.setId(id);
             const style = new ldk_pb_1.default.Style();
             if (whisper.style) {
                 style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
@@ -125,6 +124,7 @@ class ControllerGrpcHostClient {
             whisperMsg.setStyle(style);
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
+            request.setId(id);
             this.client.updateWhisper(request, (err) => {
                 if (err) {
                     return reject(err);

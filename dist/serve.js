@@ -8,6 +8,7 @@ const controllerPlugin_1 = __importDefault(require("./controllerPlugin"));
 const sensorPlugin_1 = __importDefault(require("./sensorPlugin"));
 /**
  * Takes a controller implementation and launches the plugin.
+ *
  * @param controller - The controller implementation.
  */
 function serveControllerPlugin(controller) {
@@ -17,6 +18,7 @@ function serveControllerPlugin(controller) {
 exports.serveControllerPlugin = serveControllerPlugin;
 /**
  * Takes a sensor implementation and launches the plugin.
+ *
  * @param sensor - The sensor implementation.
  */
 function serveSensorPlugin(sensor) {
