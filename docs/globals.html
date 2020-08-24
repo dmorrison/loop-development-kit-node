@@ -107,6 +107,7 @@
 								<li class="tsd-kind-variable"><a href="globals.html#categories" class="tsd-kind-icon">categories</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#errmissingrequiredkey" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#program" class="tsd-kind-icon">program</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -114,6 +115,12 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal"><a href="globals.html#commands" class="tsd-kind-icon">commands</a></li>
 							</ul>
 						</section>
 					</div>
@@ -127,7 +134,7 @@
 					<div class="tsd-signature tsd-kind-icon">Request&lt;TRequestType, TResponseType&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TRequestType</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponseType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2c04f23/src/commonHostServer.ts#L5">commonHostServer.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/commonHostServer.ts#L5">commonHostServer.ts:5</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -194,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">categories<span class="tsd-signature-symbol">:</span> <a href="enums/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [Category.UNKNOWN, Category.INTELLIGENCE, Category.CONTROLLER, Category.SENSOR, Category.SIDEKICK]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2c04f23/src/categories.ts#L9">categories.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/categories.ts#L9">categories.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;key is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2c04f23/src/grpcHostClient.ts#L6">grpcHostClient.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/grpcHostClient.ts#L6">grpcHostClient.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +221,17 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;value is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2c04f23/src/grpcHostClient.ts#L7">grpcHostClient.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/grpcHostClient.ts#L7">grpcHostClient.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="program" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> program</h3>
+					<div class="tsd-signature tsd-kind-icon">program<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Command</span><span class="tsd-signature-symbol"> = new Command()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/commands.ts#L11">commands.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2c04f23/src/serve.ts#L11">serve.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/serve.ts#L11">serve.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -262,7 +279,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2c04f23/src/serve.ts#L21">serve.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/serve.ts#L21">serve.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,6 +299,39 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="commands" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> commands</h3>
+					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/commands.ts#L4">commands.ts:4</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="commands.build" class="tsd-anchor"></a>
+						<h3>build</h3>
+						<div class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;./node_modules/.bin/pkg index.js -t node12-darwin-x64 --output build/plugin &amp;&amp; cp plugin.json build/plugin.json &amp;&amp; cp storage.json build/storage.json&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/commands.ts#L5">commands.ts:5</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="commands.deploy" class="tsd-anchor"></a>
+						<h3>deploy</h3>
+						<div class="tsd-signature tsd-kind-icon">deploy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;npm run build &amp;&amp; mkdir -p &quot;$HOME/Library/Application Support/SideKick/plugins/controllers/$npm_package_name&quot; &amp;&amp; cp build/* &quot;$HOME/Library/Application Support/SideKick/plugins/controllers/$npm_package_name/&quot;&quot;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58a33f4/src/commands.ts#L7">commands.ts:7</a></li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -370,11 +420,17 @@
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#program" class="tsd-kind-icon">program</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#commands" class="tsd-kind-icon">commands</a>
 					</li>
 				</ul>
 			</nav>
