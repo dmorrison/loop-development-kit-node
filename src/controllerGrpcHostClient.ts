@@ -127,11 +127,9 @@ class ControllerGrpcHostClient implements ControllerHost {
 
       request.setWhisper(whisperMsg);
       request.setId(id);
-      console.log('ldk id', JSON.stringify(request));
 
       this.client.updateWhisper(request, (err) => {
         if (err) {
-          console.log('updateWhisper reject');
           return reject(err);
         }
 
