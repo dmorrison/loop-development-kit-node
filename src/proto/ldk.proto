@@ -107,11 +107,11 @@ service ControllerHost {
     rpc EmitWhisper(EmitWhisperRequest) returns (EmitWhisperResponse);
     rpc StorageDelete(StorageDeleteRequest) returns (Empty);
     rpc StorageDeleteAll(Empty) returns (Empty);
-	rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
-	rpc StorageKeys(Empty) returns (StorageKeysResponse);
-	rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
-	rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
-	rpc StorageWrite(StorageWriteRequest) returns (Empty);
+    rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
+    rpc StorageKeys(Empty) returns (StorageKeysResponse);
+    rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
+    rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
+    rpc StorageWrite(StorageWriteRequest) returns (Empty);
     rpc UpdateWhisper(UpdateWhisperRequest) returns (Empty);
 }
 
