@@ -235,14 +235,14 @@ export namespace EmitWhisperResponse {
 }
 
 export class UpdateWhisperRequest extends jspb.Message { 
+    getId(): string;
+    setId(value: string): UpdateWhisperRequest;
+
 
     hasWhisper(): boolean;
     clearWhisper(): void;
     getWhisper(): Whisper | undefined;
     setWhisper(value?: Whisper): UpdateWhisperRequest;
-
-    getId(): string;
-    setId(value: string): UpdateWhisperRequest;
 
 
     serializeBinary(): Uint8Array;
@@ -257,8 +257,8 @@ export class UpdateWhisperRequest extends jspb.Message {
 
 export namespace UpdateWhisperRequest {
     export type AsObject = {
-        whisper?: Whisper.AsObject,
         id: string,
+        whisper?: Whisper.AsObject,
     }
 }
 

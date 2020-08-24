@@ -50,8 +50,8 @@ message EmitWhisperResponse {
 }
 
 message UpdateWhisperRequest {
-    Whisper whisper = 1;
-    string id = 2;
+    string id = 1;
+    Whisper whisper = 2;
 }
 
 message EmitEventRequest {

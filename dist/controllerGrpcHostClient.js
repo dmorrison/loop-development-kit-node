@@ -100,12 +100,15 @@ class ControllerGrpcHostClient {
      * Update a Whisper that has already been sent to the host process.
      *
      * @async
-     * @param whisper - An object defining the contents of the Whisper.
      * @param id - The id of an existing Whisper that should be updated.
+     * @param whisper - An object defining the contents of the Whisper.
      * @returns Promise resolving when the server responds to the command.
      */
-    updateWhisper(whisper, id) {
+    updateWhisper(id, whisper) {
         return new Promise((resolve, reject) => {
+            if (!id) {
+                return reject(new Error("missing required property id"));
+            }
             const request = new ldk_pb_1.default.UpdateWhisperRequest();
             const style = new ldk_pb_1.default.Style();
             if (whisper.style) {
@@ -125,8 +128,10 @@ class ControllerGrpcHostClient {
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
             request.setId(id);
+            console.log('ldk id', JSON.stringify(request));
             this.client.updateWhisper(request, (err) => {
                 if (err) {
+                    console.log('updateWhisper reject');
                     return reject(err);
                 }
                 return resolve();

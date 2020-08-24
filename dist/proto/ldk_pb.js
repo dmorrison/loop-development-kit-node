@@ -1580,8 +1580,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.proto.UpdateWhisperRequest.toObject = function (includeInstance, msg) {
         var f, obj = {
-            whisper: (f = msg.getWhisper()) && proto.proto.Whisper.toObject(includeInstance, f),
-            id: jspb.Message.getFieldWithDefault(msg, 2, "")
+            id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+            whisper: (f = msg.getWhisper()) && proto.proto.Whisper.toObject(includeInstance, f)
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -1614,13 +1614,13 @@ proto.proto.UpdateWhisperRequest.deserializeBinaryFromReader = function (msg, re
         var field = reader.getFieldNumber();
         switch (field) {
             case 1:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setId(value);
+                break;
+            case 2:
                 var value = new proto.proto.Whisper;
                 reader.readMessage(value, proto.proto.Whisper.deserializeBinaryFromReader);
                 msg.setWhisper(value);
-                break;
-            case 2:
-                var value = /** @type {string} */ (reader.readString());
-                msg.setId(value);
                 break;
             default:
                 reader.skipField();
@@ -1647,28 +1647,42 @@ proto.proto.UpdateWhisperRequest.prototype.serializeBinary = function () {
  */
 proto.proto.UpdateWhisperRequest.serializeBinaryToWriter = function (message, writer) {
     var f = undefined;
-    f = message.getWhisper();
-    if (f != null) {
-        writer.writeMessage(1, f, proto.proto.Whisper.serializeBinaryToWriter);
-    }
     f = message.getId();
     if (f.length > 0) {
-        writer.writeString(2, f);
+        writer.writeString(1, f);
+    }
+    f = message.getWhisper();
+    if (f != null) {
+        writer.writeMessage(2, f, proto.proto.Whisper.serializeBinaryToWriter);
     }
 };
 /**
- * optional Whisper whisper = 1;
+ * optional string id = 1;
+ * @return {string}
+ */
+proto.proto.UpdateWhisperRequest.prototype.getId = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.UpdateWhisperRequest} returns this
+ */
+proto.proto.UpdateWhisperRequest.prototype.setId = function (value) {
+    return jspb.Message.setProto3StringField(this, 1, value);
+};
+/**
+ * optional Whisper whisper = 2;
  * @return {?proto.proto.Whisper}
  */
 proto.proto.UpdateWhisperRequest.prototype.getWhisper = function () {
-    return /** @type{?proto.proto.Whisper} */ (jspb.Message.getWrapperField(this, proto.proto.Whisper, 1));
+    return /** @type{?proto.proto.Whisper} */ (jspb.Message.getWrapperField(this, proto.proto.Whisper, 2));
 };
 /**
  * @param {?proto.proto.Whisper|undefined} value
  * @return {!proto.proto.UpdateWhisperRequest} returns this
 */
 proto.proto.UpdateWhisperRequest.prototype.setWhisper = function (value) {
-    return jspb.Message.setWrapperField(this, 1, value);
+    return jspb.Message.setWrapperField(this, 2, value);
 };
 /**
  * Clears the message field making it undefined.
@@ -1682,21 +1696,7 @@ proto.proto.UpdateWhisperRequest.prototype.clearWhisper = function () {
  * @return {boolean}
  */
 proto.proto.UpdateWhisperRequest.prototype.hasWhisper = function () {
-    return jspb.Message.getField(this, 1) != null;
-};
-/**
- * optional string id = 2;
- * @return {string}
- */
-proto.proto.UpdateWhisperRequest.prototype.getId = function () {
-    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-/**
- * @param {string} value
- * @return {!proto.proto.UpdateWhisperRequest} returns this
- */
-proto.proto.UpdateWhisperRequest.prototype.setId = function (value) {
-    return jspb.Message.setProto3StringField(this, 2, value);
+    return jspb.Message.getField(this, 2) != null;
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**

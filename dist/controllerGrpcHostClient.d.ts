@@ -28,11 +28,11 @@ declare class ControllerGrpcHostClient implements ControllerHost {
      * Update a Whisper that has already been sent to the host process.
      *
      * @async
-     * @param whisper - An object defining the contents of the Whisper.
      * @param id - The id of an existing Whisper that should be updated.
+     * @param whisper - An object defining the contents of the Whisper.
      * @returns Promise resolving when the server responds to the command.
      */
-    updateWhisper(whisper: Whisper, id: string): Promise<Error | void>;
+    updateWhisper(id: string, whisper: Whisper): Promise<Error | void>;
     /**
      * Delete a key from storage.
      *

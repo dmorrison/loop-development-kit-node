@@ -96,12 +96,16 @@ class ControllerGrpcHostClient implements ControllerHost {
    * Update a Whisper that has already been sent to the host process.
    *
    * @async
-   * @param whisper - An object defining the contents of the Whisper.
    * @param id - The id of an existing Whisper that should be updated.
+   * @param whisper - An object defining the contents of the Whisper.
    * @returns Promise resolving when the server responds to the command.
    */
-  updateWhisper(whisper: Whisper, id: string): Promise<Error | void> {
+  updateWhisper(id: string, whisper: Whisper): Promise<Error | void> {
     return new Promise((resolve, reject) => {
+      if (!id) {
+        return reject(new Error("missing required property id"));
+     }
+
       const request = new messages.UpdateWhisperRequest();
 
       const style = new messages.Style();
@@ -123,9 +127,11 @@ class ControllerGrpcHostClient implements ControllerHost {
 
       request.setWhisper(whisperMsg);
       request.setId(id);
+      console.log('ldk id', JSON.stringify(request));
 
       this.client.updateWhisper(request, (err) => {
         if (err) {
+          console.log('updateWhisper reject');
           return reject(err);
         }
 
