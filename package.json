@@ -6,7 +6,7 @@
   "bin": "./dist/bin/build.js",
   "scripts": {
     "doc": "rm -rf docs && mkdir -p docs && ./node_modules/.bin/typedoc --options typedoc.json",
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc && git update-index --chmod=+x dist/bin/build.js",
     "lint": "./node_modules/.bin/eslint . --ext .js,.ts",
     "prettier-all": "prettier --write '**/*.{js,ts}'",
     "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-ts && npm run protoc-fixes",

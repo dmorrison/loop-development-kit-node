@@ -1,20 +1,17 @@
-import * as commander from 'commander';
 import * as childProcess from 'child_process';
+import program from './commands';
 
 jest.mock('child_process');
 
 describe('commands', () => {
-  let program: commander.Command;
   beforeEach(function () {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    program = require('./commands').default;
     // Stop Jest from exiting if it fails.
     program.exitOverride();
   });
   afterEach(function () {
     jest.resetAllMocks();
   });
-  describe('build', function () {
+  describe('build', () => {
     it('should child_process.exec the correct command', () => {
       program.parse(['command', 'build', 'build']);
       expect(childProcess.exec).toHaveBeenCalledWith(
