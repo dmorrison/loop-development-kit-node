@@ -15,22 +15,24 @@ class ControllerPlugin {
     /**
      * Create a ControllerPlugin.
      *
-     * @param {Controller} impl - The implementation of the controller.
-     * @example
-     * ControllerPlugin(myController);
+     * @param impl - The implementation of the controller.
+     * ```
+     * new ControllerPlugin(myController);
+     * ```
      */
     constructor(impl) {
         this.server = new ldk_grpc_pb_1.default.grpc.Server();
         this.broker = new brokerGrpcServer_1.default(this.server);
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         this.server.addService(healthGrpcServer_1.HealthService, new healthGrpcServer_1.HealthGrpcServer());
         this.server.addService(stdioGrpcServer_1.StdioService, new stdioGrpcServer_1.StdioGrpcServer());
+        /* eslint-enable @typescript-eslint/no-explicit-any */
         this.controller = new controllerGrpcServer_1.default(this.server, impl, this.broker);
     }
     /**
      * Run the GRPC server and write connection information to stdout.
      *
-     * @async
-     * @returns {void}
+     * @returns Promise resolving when the server starts.
      */
     serve() {
         return new Promise((resolve, reject) => {

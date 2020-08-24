@@ -19,17 +19,19 @@ const sensorGrpcHostClient_1 = __importDefault(require("./sensorGrpcHostClient")
 /**
  * Class used by the host process to interact with the sensor implementation.
  *
- * @private
+ * @internal
  */
 class SensorGRPCServer {
     /**
      * Create a SensorGRPCServer.
      *
-     * @param {object} server - The GRPC server instance.
-     * @param {Sensor} impl - The sensor implementation.
-     * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+     * @param server - The GRPC server instance.
+     * @param impl - The sensor implementation.
+     * @param broker - The GRPC broker server instance.
      * @example
-     * SensorGRPCServer(server, mySensor, broker);
+     * ```
+     * new SensorGRPCServer(server, mySensor, broker);
+     * ```
      */
     constructor(server, impl, broker) {
         this.broker = broker;
@@ -42,9 +44,7 @@ class SensorGRPCServer {
     /**
      * Called by the host to start the sensor implementation.
      *
-     * @async
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @returns {void}
+     * @param impl - The implementation of the sensor.
      */
     start(impl) {
         return (call, callback) => __awaiter(this, void 0, void 0, function* () {
@@ -63,9 +63,7 @@ class SensorGRPCServer {
     /**
      * Called by the host to stop the sensor implementation.
      *
-     * @async
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @returns {void}
+     * @param impl - The implementation of the sensor.
      */
     stop(impl) {
         return (call, callback) => __awaiter(this, void 0, void 0, function* () {
@@ -78,29 +76,31 @@ class SensorGRPCServer {
      * Called by the host to broadcast events to the sensor implementation.
      *
      * @async
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @returns {void}
+     * @param impl - The implementation of the sensor.
      */
     onEvent(impl) {
         return ({ request }, callback) => __awaiter(this, void 0, void 0, function* () {
-            const event = {
-                data: request
-                    .getDataMap()
-                    .toObject()
-                    .reduce((acc, [key, value]) => {
-                    acc[key] = value;
-                    return acc;
-                }, {}),
-                source: {
-                    id: request.getSource().getId(),
-                    category: categories_1.categories[request.getSource().getCategory()],
-                    name: request.getSource().getName(),
-                    author: request.getSource().getAuthor(),
-                    organization: request.getSource().getOrganization(),
-                    version: request.getSource().getVersion(),
-                },
-            };
-            yield impl.onEvent(event);
+            const source = request === null || request === void 0 ? void 0 : request.getSource();
+            if (request && source) {
+                const event = {
+                    data: request
+                        .getDataMap()
+                        .toObject()
+                        .reduce((acc, [key, value]) => {
+                        acc[key] = value;
+                        return acc;
+                    }, {}),
+                    source: {
+                        id: source.getId(),
+                        category: categories_1.categories[source.getCategory()],
+                        name: source.getName(),
+                        author: source.getAuthor(),
+                        organization: source.getOrganization(),
+                        version: source.getVersion(),
+                    },
+                };
+                yield impl.onEvent(event);
+            }
             const response = new ldk_pb_1.default.Empty();
             callback(null, response);
         });

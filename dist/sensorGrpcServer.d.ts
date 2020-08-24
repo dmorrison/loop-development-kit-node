@@ -1,48 +1,44 @@
 import BrokerGrpcServer from './brokerGrpcServer';
+import messages from './proto/ldk_pb';
 import services, { grpc } from './proto/ldk_grpc_pb';
 import { Sensor } from './sensor';
 /**
  * Class used by the host process to interact with the sensor implementation.
  *
- * @private
+ * @internal
  */
 declare class SensorGRPCServer {
     private broker;
     /**
      * Create a SensorGRPCServer.
      *
-     * @param {object} server - The GRPC server instance.
-     * @param {Sensor} impl - The sensor implementation.
-     * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+     * @param server - The GRPC server instance.
+     * @param impl - The sensor implementation.
+     * @param broker - The GRPC broker server instance.
      * @example
-     * SensorGRPCServer(server, mySensor, broker);
+     * ```
+     * new SensorGRPCServer(server, mySensor, broker);
+     * ```
      */
     constructor(server: services.grpc.Server, impl: Sensor, broker: BrokerGrpcServer);
     /**
      * Called by the host to start the sensor implementation.
      *
-     * @async
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @returns {void}
+     * @param impl - The implementation of the sensor.
      */
-    start(impl: Sensor): grpc.handleUnaryCall<any, any>;
+    start(impl: Sensor): grpc.handleUnaryCall<messages.StartRequest, messages.Empty>;
     /**
      * Called by the host to stop the sensor implementation.
      *
-     * @async
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @returns {void}
+     * @param impl - The implementation of the sensor.
      */
-    stop(impl: Sensor): (call: any, callback: any) => Promise<void>;
+    stop(impl: Sensor): grpc.handleUnaryCall<messages.Empty, messages.Empty>;
     /**
      * Called by the host to broadcast events to the sensor implementation.
      *
      * @async
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @returns {void}
+     * @param impl - The implementation of the sensor.
      */
-    onEvent(impl: Sensor): ({ request }: {
-        request: any;
-    }, callback: any) => Promise<void>;
+    onEvent(impl: Sensor): grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty>;
 }
 export default SensorGRPCServer;

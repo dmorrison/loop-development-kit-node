@@ -29,14 +29,15 @@ const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 /**
  * Class used by the controller implementation to interact with the host process.
+ *
+ * @internal
  */
 class ControllerGrpcHostClient {
     /**
      * Establish a connection to the host process.
      *
      * @async
-     * @param {connInfo} connInfo - An object containing host process connection information.
-     * @returns {void}
+     * @param connInfo - An object containing host process connection information.
      */
     connect(connInfo) {
         return new Promise((resolve, reject) => {
@@ -63,12 +64,50 @@ class ControllerGrpcHostClient {
      * Send a Whisper to the host process.
      *
      * @async
-     * @param {Whisper} whisper - An object defining the contents of the Whisper.
-     * @returns {void}
+     * @param whisper - An object defining the contents of the Whisper.
+     * @returns Promise resolving when the server responds to the command.
      */
     emitWhisper(whisper) {
         return new Promise((resolve, reject) => {
             const request = new ldk_pb_1.default.EmitWhisperRequest();
+            const style = new ldk_pb_1.default.Style();
+            if (whisper.style) {
+                style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
+                style.setPrimarycolor(whisper.style.primaryColor || '#666');
+                style.setHighlightcolor(whisper.style.highlightColor || '#651fff');
+            }
+            else {
+                style.setBackgroundcolor('#fff');
+                style.setPrimarycolor('#666');
+                style.setHighlightcolor('#651fff');
+            }
+            const whisperMsg = new ldk_pb_1.default.Whisper();
+            whisperMsg.setMarkdown(whisper.markdown);
+            whisperMsg.setLabel(whisper.label);
+            whisperMsg.setStyle(style);
+            whisperMsg.setIcon(whisper.icon);
+            request.setWhisper(whisperMsg);
+            this.client.emitWhisper(request, (err, response) => {
+                if (err) {
+                    return reject(err);
+                }
+                const id = response.getId();
+                return resolve(id);
+            });
+        });
+    }
+    /**
+     * Send a Whisper to the host process.
+     *
+     * @async
+     * @param whisper - An object defining the contents of the Whisper.
+     * @param id - The id of an existing Whisper that should be updated.
+     * @returns Promise resolving when the server responds to the command.
+     */
+    updateWhisper(whisper, id) {
+        return new Promise((resolve, reject) => {
+            const request = new ldk_pb_1.default.UpdateWhisperRequest();
+            request.setId(id);
             const style = new ldk_pb_1.default.Style();
             if (whisper.style) {
                 style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
@@ -98,8 +137,7 @@ class ControllerGrpcHostClient {
      * Delete a key from storage.
      *
      * @async
-     * @param {string} key - The name of the key in storage.
-     * @returns {void}
+     * @param key - The name of the key in storage.
      */
     storageDelete(key) {
         return new Promise((resolve, reject) => {
@@ -119,9 +157,6 @@ class ControllerGrpcHostClient {
     }
     /**
      * Delete all keys from storage.
-     *
-     * @async
-     * @returns {void}
      */
     storageDeleteAll() {
         return new Promise((resolve, reject) => {
@@ -138,8 +173,8 @@ class ControllerGrpcHostClient {
      * Check if a key has a value defined in storage.
      *
      * @async
-     * @param {string} key - The name of the key in storage.
-     * @returns {boolean} - Returns true if the key has a defined value.
+     * @param key - The name of the key in storage.
+     * @returns Returns true if the key has a defined value.
      */
     storageHasKey(key) {
         return new Promise((resolve, reject) => {
@@ -180,8 +215,8 @@ class ControllerGrpcHostClient {
      * Get the value of a key in storage.
      *
      * @async
-     * @param {string} key - The name of the key in storage.
-     * @returns {string} - Returns the value of the key in storage.
+     * @param key - The name of the key in storage.
+     * @returns Promise resolving with the value of the key in storage.
      */
     storageRead(key) {
         return new Promise((resolve, reject) => {
@@ -229,9 +264,8 @@ class ControllerGrpcHostClient {
      * Get the value of a key in storage.
      *
      * @async
-     * @param {string} key - The name of the key in storage.
-     * @param {string} value - The value to assign to the key in storage.
-     * @returns {void}
+     * @param key - The name of the key in storage.
+     * @param value - The value to assign to the key in storage.
      */
     storageWrite(key, value) {
         return new Promise((resolve, reject) => {
@@ -253,6 +287,15 @@ class ControllerGrpcHostClient {
                 return resolve();
             });
         });
+    }
+    get client() {
+        if (this._client === undefined) {
+            throw new Error('Accessing client before connected');
+        }
+        return this._client;
+    }
+    set client(client) {
+        this._client = client;
     }
 }
 exports.default = ControllerGrpcHostClient;

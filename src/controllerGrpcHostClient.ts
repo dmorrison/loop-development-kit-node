@@ -58,9 +58,52 @@ class ControllerGrpcHostClient implements ControllerHost {
    * @param whisper - An object defining the contents of the Whisper.
    * @returns Promise resolving when the server responds to the command.
    */
-  emitWhisper(whisper: Whisper): Promise<Error | void> {
+  emitWhisper(whisper: Whisper): Promise<Error | string> {
     return new Promise((resolve, reject) => {
       const request = new messages.EmitWhisperRequest();
+
+      const style = new messages.Style();
+      if (whisper.style) {
+        style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
+        style.setPrimarycolor(whisper.style.primaryColor || '#666');
+        style.setHighlightcolor(whisper.style.highlightColor || '#651fff');
+      } else {
+        style.setBackgroundcolor('#fff');
+        style.setPrimarycolor('#666');
+        style.setHighlightcolor('#651fff');
+      }
+
+      const whisperMsg = new messages.Whisper();
+      whisperMsg.setMarkdown(whisper.markdown);
+      whisperMsg.setLabel(whisper.label);
+      whisperMsg.setStyle(style);
+      whisperMsg.setIcon(whisper.icon);
+
+      request.setWhisper(whisperMsg);
+
+      this.client.emitWhisper(request, (err, response) => {
+        if (err) {
+          return reject(err);
+        }
+
+        const id = response.getId();
+        return resolve(id);
+      });
+    });
+  }
+
+  /**
+   * Update a Whisper that has already been sent to the host process.
+   *
+   * @async
+   * @param whisper - An object defining the contents of the Whisper.
+   * @param id - The id of an existing Whisper that should be updated.
+   * @returns Promise resolving when the server responds to the command.
+   */
+  updateWhisper(whisper: Whisper, id: string): Promise<Error | void> {
+    return new Promise((resolve, reject) => {
+      const request = new messages.UpdateWhisperRequest();
+      request.setId(id);
 
       const style = new messages.Style();
       if (whisper.style) {
@@ -85,6 +128,7 @@ class ControllerGrpcHostClient implements ControllerHost {
         if (err) {
           return reject(err);
         }
+
         return resolve();
       });
     });

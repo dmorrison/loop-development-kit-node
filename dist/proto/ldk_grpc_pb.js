@@ -20,6 +20,15 @@ function serialize_proto_EmitWhisperRequest(arg) {
 function deserialize_proto_EmitWhisperRequest(buffer_arg) {
     return ldk_pb.EmitWhisperRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
+function serialize_proto_EmitWhisperResponse(arg) {
+    if (!(arg instanceof ldk_pb.EmitWhisperResponse)) {
+        throw new Error('Expected argument of type proto.EmitWhisperResponse');
+    }
+    return Buffer.from(arg.serializeBinary());
+}
+function deserialize_proto_EmitWhisperResponse(buffer_arg) {
+    return ldk_pb.EmitWhisperResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
 function serialize_proto_Empty(arg) {
     if (!(arg instanceof ldk_pb.Empty)) {
         throw new Error('Expected argument of type proto.Empty');
@@ -119,6 +128,15 @@ function serialize_proto_StorageWriteRequest(arg) {
 function deserialize_proto_StorageWriteRequest(buffer_arg) {
     return ldk_pb.StorageWriteRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
+function serialize_proto_UpdateWhisperRequest(arg) {
+    if (!(arg instanceof ldk_pb.UpdateWhisperRequest)) {
+        throw new Error('Expected argument of type proto.UpdateWhisperRequest');
+    }
+    return Buffer.from(arg.serializeBinary());
+}
+function deserialize_proto_UpdateWhisperRequest(buffer_arg) {
+    return ldk_pb.UpdateWhisperRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
 var ControllerService = exports.ControllerService = {
     start: {
         path: '/proto.Controller/Start',
@@ -197,11 +215,11 @@ var ControllerHostService = exports.ControllerHostService = {
         requestStream: false,
         responseStream: false,
         requestType: ldk_pb.EmitWhisperRequest,
-        responseType: ldk_pb.Empty,
+        responseType: ldk_pb.EmitWhisperResponse,
         requestSerialize: serialize_proto_EmitWhisperRequest,
         requestDeserialize: deserialize_proto_EmitWhisperRequest,
-        responseSerialize: serialize_proto_Empty,
-        responseDeserialize: deserialize_proto_Empty,
+        responseSerialize: serialize_proto_EmitWhisperResponse,
+        responseDeserialize: deserialize_proto_EmitWhisperResponse,
     },
     storageDelete: {
         path: '/proto.ControllerHost/StorageDelete',
@@ -277,6 +295,17 @@ var ControllerHostService = exports.ControllerHostService = {
         responseType: ldk_pb.Empty,
         requestSerialize: serialize_proto_StorageWriteRequest,
         requestDeserialize: deserialize_proto_StorageWriteRequest,
+        responseSerialize: serialize_proto_Empty,
+        responseDeserialize: deserialize_proto_Empty,
+    },
+    updateWhisper: {
+        path: '/proto.ControllerHost/UpdateWhisper',
+        requestStream: false,
+        responseStream: false,
+        requestType: ldk_pb.UpdateWhisperRequest,
+        responseType: ldk_pb.Empty,
+        requestSerialize: serialize_proto_UpdateWhisperRequest,
+        requestDeserialize: deserialize_proto_UpdateWhisperRequest,
         responseSerialize: serialize_proto_Empty,
         responseDeserialize: deserialize_proto_Empty,
     },

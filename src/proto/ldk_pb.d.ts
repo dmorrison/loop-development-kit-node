@@ -213,6 +213,55 @@ export namespace EmitWhisperRequest {
     }
 }
 
+export class EmitWhisperResponse extends jspb.Message { 
+    getId(): string;
+    setId(value: string): EmitWhisperResponse;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): EmitWhisperResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: EmitWhisperResponse): EmitWhisperResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: EmitWhisperResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): EmitWhisperResponse;
+    static deserializeBinaryFromReader(message: EmitWhisperResponse, reader: jspb.BinaryReader): EmitWhisperResponse;
+}
+
+export namespace EmitWhisperResponse {
+    export type AsObject = {
+        id: string,
+    }
+}
+
+export class UpdateWhisperRequest extends jspb.Message { 
+
+    hasWhisper(): boolean;
+    clearWhisper(): void;
+    getWhisper(): Whisper | undefined;
+    setWhisper(value?: Whisper): UpdateWhisperRequest;
+
+    getId(): string;
+    setId(value: string): UpdateWhisperRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateWhisperRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateWhisperRequest): UpdateWhisperRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateWhisperRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateWhisperRequest;
+    static deserializeBinaryFromReader(message: UpdateWhisperRequest, reader: jspb.BinaryReader): UpdateWhisperRequest;
+}
+
+export namespace UpdateWhisperRequest {
+    export type AsObject = {
+        whisper?: Whisper.AsObject,
+        id: string,
+    }
+}
+
 export class EmitEventRequest extends jspb.Message { 
 
     getDataMap(): jspb.Map<string, string>;

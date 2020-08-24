@@ -1,4 +1,3 @@
-/** @module operatingSystem */
 export declare enum OperatingSystem {
     UNKNOWN = "unknown",
     WINDOWS = "win32",

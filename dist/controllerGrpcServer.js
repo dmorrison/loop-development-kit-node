@@ -19,17 +19,19 @@ const ldk_grpc_pb_1 = __importDefault(require("./proto/ldk_grpc_pb"));
 /**
  * Class used by the host process to interact with the controller implementation.
  *
- * @private
+ * @internal
  */
 class ControllerGrpcServer {
     /**
      * Create a ControllerGrpcServer.
      *
-     * @param {object} server - The GRPC server instance.
-     * @param {Controller} impl - The controller implementation.
-     * @param {BrokerGrpcServer} broker - The GRPC broker server instance.
+     * @param server - The GRPC server instance.
+     * @param impl - The controller implementation.
+     * @param broker - The GRPC broker server instance.
      * @example
+     * ```
      * ControllerGrpcServer(server, myController, broker);
+     * ```
      */
     constructor(server, impl, broker) {
         this.broker = broker;
@@ -83,24 +85,27 @@ class ControllerGrpcServer {
      */
     onEvent(impl) {
         return ({ request }, callback) => __awaiter(this, void 0, void 0, function* () {
-            const event = {
-                data: request
-                    .getDataMap()
-                    .toObject()
-                    .reduce((acc, [key, value]) => {
-                    acc[key] = value;
-                    return acc;
-                }, {}),
-                source: {
-                    id: request.getSource().getId(),
-                    category: categories_1.categories[request.getSource().getCategory()],
-                    name: request.getSource().getName(),
-                    author: request.getSource().getAuthor(),
-                    organization: request.getSource().getOrganization(),
-                    version: request.getSource().getVersion(),
-                },
-            };
-            yield impl.onEvent(event);
+            const source = request === null || request === void 0 ? void 0 : request.getSource();
+            if (request && source) {
+                const event = {
+                    data: request
+                        .getDataMap()
+                        .toObject()
+                        .reduce((acc, [key, value]) => {
+                        acc[key] = value;
+                        return acc;
+                    }, {}),
+                    source: {
+                        id: source.getId(),
+                        category: categories_1.categories[source.getCategory()],
+                        name: source.getName(),
+                        author: source.getAuthor(),
+                        organization: source.getOrganization(),
+                        version: source.getVersion(),
+                    },
+                };
+                yield impl.onEvent(event);
+            }
             const response = new ldk_pb_1.default.Empty();
             callback(null, response);
         });

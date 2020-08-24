@@ -1,80 +1,76 @@
 /** @module sensorGrpcHostClient */
 import { ConnInfo } from './proto/broker_pb';
+import { PluginEvent } from './pluginEvent';
+import { SensorHost } from './sensorHost';
 /**
  * Class used by the sensor implementation to interact with the host process.
+ *
+ * @internal
  */
-declare class SensorGrpcHostClient {
-    private client;
+declare class SensorGrpcHostClient implements SensorHost {
+    private _client;
     /**
      * Establish a connection to the host process.
      *
      * @async
-     * @param {ConnInfo.AsObject} connInfo - An object containing host process connection information.
-     * @returns {Promise.<void>} - Promise resolves when the connection is established.
+     * @param connInfo - An object containing host process connection information.
+     * @returns Promise resolves when the connection is established.
      */
     connect(connInfo: ConnInfo.AsObject): Promise<void>;
     /**
      * Send an event to the host process.
      *
-     * @async
-     * @param {event} event - An object containing host process connection information.
-     * @returns {void}
+     * @param event - An object containing host process connection information.
      */
-    emitEvent(event: any): Promise<unknown>;
+    emitEvent(event: PluginEvent): Promise<void>;
     /**
      * Delete a key from storage.
      *
-     * @async
-     * @param {string} key - The name of the key in storage.
-     * @returns {void}
+     * @param key - The name of the key in storage.
      */
-    storageDelete(key: any): Promise<unknown>;
+    storageDelete(key: string): Promise<void>;
     /**
      * Delete all keys from storage.
-     *
-     * @async
-     * @returns {void}
      */
-    storageDeleteAll(): Promise<unknown>;
+    storageDeleteAll(): Promise<void>;
     /**
      * Check if a key has a value defined in storage.
      *
-     * @async
-     * @param {string} key - The name of the key in storage.
-     * @returns {boolean} - Returns true if the key has a defined value.
+     * @param key - The name of the key in storage.
+     * @returns Resolves with true if the key has a defined value.
      */
-    storageHasKey(key: any): Promise<unknown>;
+    storageHasKey(key: string): Promise<boolean>;
     /**
      * Return a list of all keys.
      *
      * @async
      * @returns {string[]} - An array of the keys.
      */
-    storageKeys(): Promise<unknown>;
+    storageKeys(): Promise<string[]>;
     /**
      * Get the value of a key in storage.
      *
-     * @async
-     * @param {string} key - The name of the key in storage.
-     * @returns {string} - Returns the value of the key in storage.
+     * @param key - The name of the key in storage.
+     * @returns Returns the value of the key in storage.
      */
-    storageRead(key: any): Promise<unknown>;
+    storageRead(key: string): Promise<string>;
     /**
      * Get an object of key value pairs in storage.
      *
-     * @async
-     * @returns {object} - Returns the storage object. Each key in the object
+     * @returns Returns the storage object. Each key in the object
      * is a key in storage and the value of the key is the value in storage.
      */
-    storageReadAll(): Promise<unknown>;
+    storageReadAll(): Promise<{
+        [index: string]: string;
+    }>;
     /**
      * Get the value of a key in storage.
      *
-     * @async
-     * @param {string} key - The name of the key in storage.
-     * @param {string} value - The value to assign to the key in storage.
-     * @returns {void}
+     * @param key - The name of the key in storage.
+     * @param value - The value to assign to the key in storage.
      */
-    storageWrite(key: any, value: any): Promise<unknown>;
+    storageWrite(key: string, value: string): Promise<void>;
+    private get client();
+    private set client(value);
 }
 export default SensorGrpcHostClient;

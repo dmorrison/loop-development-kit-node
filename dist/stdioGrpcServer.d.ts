@@ -1,4 +1,7 @@
 import { GRPCStdioService } from './proto/stdio_grpc_pb';
+/**
+ * @internal
+ */
 declare class StdioGrpcServer {
     streamStdio(): void;
 }

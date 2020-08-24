@@ -15,22 +15,23 @@ class SensorPlugin {
     /**
      * Create a SensorPlugin.
      *
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @example
-     * SensorPlugin(mySensor);
+     * @param impl - The implementation of the sensor.
+     * ```
+     * new SensorPlugin(mySensor);
+     * ```
      */
     constructor(impl) {
         this.server = new ldk_grpc_pb_1.default.grpc.Server();
         this.broker = new brokerGrpcServer_1.default(this.server);
+        /* eslint-disable @typescript-eslint/no-explicit-any */
+        // services.grpc.Server expects UntypedServiceImplementation,
         this.server.addService(healthGrpcServer_1.HealthService, new healthGrpcServer_1.HealthGrpcServer());
         this.server.addService(stdioGrpcServer_1.StdioService, new stdioGrpcServer_1.StdioGrpcServer());
+        /* eslint-enable @typescript-eslint/no-explicit-any */
         this.sensor = new sensorGrpcServer_1.default(this.server, impl, this.broker);
     }
     /**
      * Run the GRPC server and write connection information to stdout.
-     *
-     * @async
-     * @returns {void}
      */
     serve() {
         return new Promise((resolve, reject) => {
