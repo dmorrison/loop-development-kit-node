@@ -1,5 +1,4 @@
 "use strict";
-/** @module access */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Access = void 0;
 // eslint-disable-next-line import/prefer-default-export

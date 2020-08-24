@@ -5,6 +5,7 @@ import SensorPlugin from './sensorPlugin';
 
 /**
  * Takes a controller implementation and launches the plugin.
+ *
  * @param controller - The controller implementation.
  */
 export function serveControllerPlugin(controller: Controller): void {
@@ -14,6 +15,7 @@ export function serveControllerPlugin(controller: Controller): void {
 
 /**
  * Takes a sensor implementation and launches the plugin.
+ *
  * @param sensor - The sensor implementation.
  */
 export function serveSensorPlugin(sensor: Sensor): void {

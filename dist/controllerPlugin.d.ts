@@ -7,17 +7,17 @@ declare class ControllerPlugin {
     /**
      * Create a ControllerPlugin.
      *
-     * @param {Controller} impl - The implementation of the controller.
-     * @example
-     * ControllerPlugin(myController);
+     * @param impl - The implementation of the controller.
+     * ```
+     * new ControllerPlugin(myController);
+     * ```
      */
     constructor(impl: Controller);
     /**
      * Run the GRPC server and write connection information to stdout.
      *
-     * @async
-     * @returns {void}
+     * @returns Promise resolving when the server starts.
      */
-    serve(): Promise<unknown>;
+    serve(): Promise<void>;
 }
 export default ControllerPlugin;

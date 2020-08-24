@@ -1,5 +1,4 @@
 "use strict";
-/** @module operatingSystem */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OperatingSystem = void 0;
 var OperatingSystem;

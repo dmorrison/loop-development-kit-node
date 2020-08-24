@@ -99,3 +99,9 @@ This LDK can be used to write controllers for Sidekick. More detail about contro
 This LDK can be used to write sensors for Sidekick. More detail about sensors is available on the {@page Sensors} page.
 
 * [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
+
+## LDK Development
+
+### Testing
+
+Tests are written with [`ts-jest`](https://kulshekhar.github.io/ts-jest/).

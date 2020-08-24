@@ -6,21 +6,25 @@ declare class Logger {
     /**
      * Create a Logger.
      *
-     * @param {string} name - The name of the plugin.
-     * @param {object} fields - Additional fields to include with each log.
+     * @param name - The name of the plugin.
+     * @param fields - Additional fields to include with each log.
      * @example
+     * ```
      * const package = require('./package.json');
      * const logger = new Logger(package.name);
+     * ```
      */
-    constructor(name: any, fields?: {});
+    constructor(name: string, fields?: {});
     /**
      * with creates a new logger that will always have the key/value pairs.
      *
-     * @param {...any} args - A list of alternating keys/values.
-     * @returns {Logger} - A new logger with the provided fields.
-     * @example
+     * @param args - A list of alternating keys/values.
+     * @returns - A new logger with the provided fields.
+     *
+     * ```
      * const logger2 = logger.with('persistentKey', 'persistentValue');
      * logger2.info('Yet another message', 'yetAnotherKey', 'yetAnotherValue');
+     *
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
      * //   "@pid": 1234,
@@ -30,15 +34,16 @@ declare class Logger {
      * //   "persistentKey": "persistentValue",
      * //   "yetAnotherKey": "yetAnotherValue"
      * // }
+     * ```
      */
     with(...args: any[]): Logger;
     /**
      * trace emits a message and key/value pairs at the TRACE level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.trace('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -47,15 +52,16 @@ declare class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
-    trace(msg: any, ...args: any[]): void;
+    trace(msg: string, ...args: string[]): void;
     /**
      * debug emits a message and key/value pairs at the DEBUG level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.debug('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -64,15 +70,16 @@ declare class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
-    debug(msg: any, ...args: any[]): void;
+    debug(msg: string, ...args: string[]): void;
     /**
      * info emits a message and key/value pairs at the INFO level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.info('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -81,15 +88,16 @@ declare class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
-    info(msg: any, ...args: any[]): void;
+    info(msg: string, ...args: string[]): void;
     /**
      * warn emits a message and key/value pairs at the WARN level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.warn('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -98,15 +106,16 @@ declare class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
-    warn(msg: any, ...args: any[]): void;
+    warn(msg: string, ...args: string[]): void;
     /**
      * error emits a message and key/value pairs at the ERROR level.
      *
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param msg - The message of the log.
+     * @param args - A list of alternating keys/values.
      * @example
+     * ```
      * logger.error('Some message');
      * // {
      * //   "@timestamp": "2020-07-30T14:58:21.057000Z",
@@ -115,42 +124,42 @@ declare class Logger {
      * //   "@module": "my-plugin-name",
      * //   "@message": "Some message"
      * // }
+     * ```
      */
-    error(msg: any, ...args: any[]): void;
+    error(msg: string, ...args: string[]): void;
     /**
      * _write is the underlying implementation for writing a log message.
      *
      * @private
-     * @param {string} lvl - The level of the log.
-     * @param {string} msg - The message of the log.
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {void}
+     * @param lvl - The level of the log.
+     * @param msg - The message of the log.
+     * @param  args - A list of alternating keys/values.
      */
-    _write(lvl: any, msg: any, ...args: any[]): void;
+    private _write;
     /**
      * _kvArgsWithFields converts a list of alternating keys/values to an object.
      *
-     * @private
-     * @param {...string} args - A list of alternating keys/values.
-     * @returns {object} - An object created by combining the alternating keys/values.
+     * @param args - A list of alternating keys/values.
+     * @returns An object created by combining the alternating keys/values.
      * @example
+     * ```
      * _kvArgsWithFields(['key1', 'value1', 'key2', 'value2', 'value3'])
      * // returns { 'key1': 'value1', 'key2': 'value2', 'EXTRA_VALUE_AT_END': 'value3' }
+     * ```
      */
-    _kvArgsWithFields(args?: any[]): any;
+    private _kvArgsWithFields;
     /**
      * _getTimestamp creates a timestamp in the supported format.
      *
-     * @private
-     * @returns {string} - A timestamp in a format compatible with the host process.
+     * @returns A timestamp in a format compatible with the host process.
      */
-    _getTimestamp(): string;
+    private _getTimestamp;
 }
 /**
  * prepareLogging overwrites basic console methods so they produce output in an expected format.
  * Also pushes all stdout to stderr.
  *
- * @private
+ * @internal
  */
 declare const prepareLogging: () => void;
 export { Logger, prepareLogging };

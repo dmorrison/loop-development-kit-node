@@ -51,9 +51,12 @@ module.exports = {
     ],
     'jsdoc/check-alignment': 1, // Recommended
     'jsdoc/check-param-names': 1, // Recommended
-    'jsdoc/check-tag-names': [1, {
-      definedTags: ["internal"]
-    }], // Recommended
+    'jsdoc/check-tag-names': [
+      1,
+      {
+        definedTags: ['internal'],
+      },
+    ], // Recommended
     'jsdoc/implements-on-classes': 1, // Recommended
     'jsdoc/newline-after-description': 1, // Recommended
     'jsdoc/require-jsdoc': 1, // Recommended
@@ -77,5 +80,14 @@ module.exports = {
       },
       files: ['**/*.js'],
     },
+    {
+      rules: {
+        // Explicit anys are fine in tests, especially when mocking.
+        '@typescript-eslint/no-explicit-any': ['off'],
+        // Test functions don't need documentation.
+        'jsdoc/require-jsdoc': ['off'],
+      },
+      files: ['**/*.test.ts']
+    }
   ],
 };

@@ -8,17 +8,15 @@ declare class SensorPlugin {
     /**
      * Create a SensorPlugin.
      *
-     * @param {Sensor} impl - The implementation of the sensor.
-     * @example
-     * SensorPlugin(mySensor);
+     * @param impl - The implementation of the sensor.
+     * ```
+     * new SensorPlugin(mySensor);
+     * ```
      */
     constructor(impl: Sensor);
     /**
      * Run the GRPC server and write connection information to stdout.
-     *
-     * @async
-     * @returns {void}
      */
-    serve(): Promise<unknown>;
+    serve(): Promise<void>;
 }
 export default SensorPlugin;

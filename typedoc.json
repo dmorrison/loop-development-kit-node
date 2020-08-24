@@ -5,7 +5,12 @@
   "excludePrivate": true,
   "mode": "file",
   "toc": [],
-  "exclude": ["src/proto/**/*"],
+  "exclude": [
+    "src/proto/**/*",
+    "coverage/**/*",
+    "jest.config.js",
+    "**/*.test.ts"
+  ],
   "inputFiles": ["src/index.ts", "docsExtra/*.md"],
   "stripInternal": true,
   "theme": "pages-plugin",

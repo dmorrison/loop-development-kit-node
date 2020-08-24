@@ -1,15 +1,9 @@
-import SensorGrpcHostClient from './sensorGrpcHostClient';
+import { PluginEvent } from './pluginEvent';
+import { SensorHost } from './sensorHost';
 /**
- * @typedef Sensor
- * @type {object}
- * @property {Function} start - Executed when the host starts the plugin.
- * The plugin should not do anything before this is called.
- * @param {SensorGrpcHostClient} host
- * @property {Function} stop - Executed by the host to stop the plugin.
- * All plugin activity should stop when this is called.
- * @property {Function} onEvent - The host will send events to the plugin by calling this function.
- * @param {event} event
- * @example
+ * The Sensor interface should be implemented by consumers.
+ *
+ * ```
  * const { Logger } = require('ldk');
  * const { name } = require('./package');
  *
@@ -32,6 +26,7 @@ import SensorGrpcHostClient from './sensorGrpcHostClient';
  *   }
  *
  *   stop() {
+ *     this.host = null;
  *     clearInterval(this.loop);
  *     this.logger.info('stopped');
  *   }
@@ -40,9 +35,24 @@ import SensorGrpcHostClient from './sensorGrpcHostClient';
  *     this.logger.info('ignored an event');
  *   }
  * }
+ * ```
+ *
  */
 export interface Sensor {
-    start(host: SensorGrpcHostClient): void;
+    /**
+     * Called when the plugin is started.
+     *
+     * @param host - The host object starting the plugin. You should store this so you can call it later.
+     */
+    start(host: SensorHost): void;
+    /**
+     * Stops the service. Once this is called the plugin should stop all work its doing, and the host object should be unassigned.
+     */
     stop(): void;
-    onEvent(event: event): void;
+    /**
+     * Called when the plugins is sent an event.
+     *
+     * @param event - The event object to consume.
+     */
+    onEvent(event: PluginEvent): void;
 }

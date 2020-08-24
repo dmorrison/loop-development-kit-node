@@ -27,3 +27,5 @@ yarn.lock*
 # Editor/IDE
 .idea
 packages/api/etc/
+# Jest Coverage
+coverage/
