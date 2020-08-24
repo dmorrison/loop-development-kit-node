@@ -42,6 +42,9 @@ export class Source extends jspb.Message {
     getVersion(): string;
     setVersion(value: string): Source;
 
+    getUploadid(): string;
+    setUploadid(value: string): Source;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Source.AsObject;
@@ -61,6 +64,7 @@ export namespace Source {
         author: string,
         organization: string,
         version: string,
+        uploadid: string,
     }
 
     export enum Category {
