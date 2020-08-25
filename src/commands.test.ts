@@ -4,11 +4,11 @@ import program from './commands';
 jest.mock('child_process');
 
 describe('commands', () => {
-  beforeEach(function () {
+  beforeEach(() => {
     // Stop Jest from exiting if it fails.
     program.exitOverride();
   });
-  afterEach(function () {
+  afterEach(() => {
     jest.resetAllMocks();
   });
   describe('build', () => {

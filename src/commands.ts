@@ -1,13 +1,6 @@
 import { Command } from 'commander';
 import { exec } from 'child_process';
 
-const commands = {
-  build:
-    './node_modules/.bin/pkg index.js -t node12-darwin-x64 --output build/plugin && cp plugin.json build/plugin.json && cp storage.json build/storage.json',
-  deploy:
-    'npm run build && mkdir -p "$HOME/Library/Application Support/SideKick/plugins/controllers/$npm_package_name" && cp build/* "$HOME/Library/Application Support/SideKick/plugins/controllers/$npm_package_name/"',
-};
-
 const program = new Command();
 program
   .command('build')
