@@ -479,7 +479,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
             name: jspb.Message.getFieldWithDefault(msg, 3, ""),
             author: jspb.Message.getFieldWithDefault(msg, 4, ""),
             organization: jspb.Message.getFieldWithDefault(msg, 5, ""),
-            version: jspb.Message.getFieldWithDefault(msg, 6, "")
+            version: jspb.Message.getFieldWithDefault(msg, 6, ""),
+            uploadid: jspb.Message.getFieldWithDefault(msg, 7, "")
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -535,6 +536,10 @@ proto.proto.Source.deserializeBinaryFromReader = function (msg, reader) {
                 var value = /** @type {string} */ (reader.readString());
                 msg.setVersion(value);
                 break;
+            case 7:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setUploadid(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -583,6 +588,10 @@ proto.proto.Source.serializeBinaryToWriter = function (message, writer) {
     f = message.getVersion();
     if (f.length > 0) {
         writer.writeString(6, f);
+    }
+    f = message.getUploadid();
+    if (f.length > 0) {
+        writer.writeString(7, f);
     }
 };
 /**
@@ -678,6 +687,20 @@ proto.proto.Source.prototype.getVersion = function () {
  */
 proto.proto.Source.prototype.setVersion = function (value) {
     return jspb.Message.setProto3StringField(this, 6, value);
+};
+/**
+ * optional string uploadId = 7;
+ * @return {string}
+ */
+proto.proto.Source.prototype.getUploadid = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.Source} returns this
+ */
+proto.proto.Source.prototype.setUploadid = function (value) {
+    return jspb.Message.setProto3StringField(this, 7, value);
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
