@@ -88,7 +88,7 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
       request.setWhisper(whisperMsg);
       request.setId(id);
 
-      this.client.updateWhisper(request, (err) => {
+      return this.client.updateWhisper(request, (err) => {
         if (err) {
           return reject(err);
         }
