@@ -1,6 +1,5 @@
 import { Whisper } from './whisper';
 import { PluginHost } from "./pluginHost";
 export interface ControllerHost extends PluginHost {
-    emitWhisper(whisper: Whisper): Promise<Error | string>;
-    updateWhisper(id: string, whisper: Whisper): Promise<Error | void>;
+    emitWhisper(whisper: Whisper): Promise<Error | void>;
 }
