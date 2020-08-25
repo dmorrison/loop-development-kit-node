@@ -108,12 +108,12 @@ export namespace ControllerHostService {
         export { responseStream_6 as responseStream };
         const requestType_6: typeof import("./ldk_pb.js").EmitWhisperRequest;
         export { requestType_6 as requestType };
-        const responseType_6: typeof import("./ldk_pb.js").Empty;
+        const responseType_6: typeof import("./ldk_pb.js").EmitWhisperResponse;
         export { responseType_6 as responseType };
         export { serialize_proto_EmitWhisperRequest as requestSerialize };
         export { deserialize_proto_EmitWhisperRequest as requestDeserialize };
-        export { serialize_proto_Empty as responseSerialize };
-        export { deserialize_proto_Empty as responseDeserialize };
+        export { serialize_proto_EmitWhisperResponse as responseSerialize };
+        export { deserialize_proto_EmitWhisperResponse as responseDeserialize };
     }
     export namespace storageDelete {
         const path_7: string;
@@ -227,36 +227,52 @@ export namespace ControllerHostService {
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-}
-export var ControllerHostClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export namespace SensorHostService {
-    export namespace emitEvent {
+    export namespace updateWhisper {
         const path_14: string;
         export { path_14 as path };
         const requestStream_14: boolean;
         export { requestStream_14 as requestStream };
         const responseStream_14: boolean;
         export { responseStream_14 as responseStream };
-        const requestType_14: typeof import("./ldk_pb.js").EmitEventRequest;
+        const requestType_14: typeof import("./ldk_pb.js").UpdateWhisperRequest;
         export { requestType_14 as requestType };
         const responseType_14: typeof import("./ldk_pb.js").Empty;
         export { responseType_14 as responseType };
-        export { serialize_proto_EmitEventRequest as requestSerialize };
-        export { deserialize_proto_EmitEventRequest as requestDeserialize };
+        export { serialize_proto_UpdateWhisperRequest as requestSerialize };
+        export { deserialize_proto_UpdateWhisperRequest as requestDeserialize };
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-    export namespace storageDelete_1 {
+}
+export var ControllerHostClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
+export namespace SensorHostService {
+    export namespace emitEvent {
         const path_15: string;
         export { path_15 as path };
         const requestStream_15: boolean;
         export { requestStream_15 as requestStream };
         const responseStream_15: boolean;
         export { responseStream_15 as responseStream };
-        const requestType_15: typeof import("./ldk_pb.js").StorageDeleteRequest;
+        const requestType_15: typeof import("./ldk_pb.js").EmitEventRequest;
         export { requestType_15 as requestType };
         const responseType_15: typeof import("./ldk_pb.js").Empty;
         export { responseType_15 as responseType };
+        export { serialize_proto_EmitEventRequest as requestSerialize };
+        export { deserialize_proto_EmitEventRequest as requestDeserialize };
+        export { serialize_proto_Empty as responseSerialize };
+        export { deserialize_proto_Empty as responseDeserialize };
+    }
+    export namespace storageDelete_1 {
+        const path_16: string;
+        export { path_16 as path };
+        const requestStream_16: boolean;
+        export { requestStream_16 as requestStream };
+        const responseStream_16: boolean;
+        export { responseStream_16 as responseStream };
+        const requestType_16: typeof import("./ldk_pb.js").StorageDeleteRequest;
+        export { requestType_16 as requestType };
+        const responseType_16: typeof import("./ldk_pb.js").Empty;
+        export { responseType_16 as responseType };
         export { serialize_proto_StorageDeleteRequest as requestSerialize };
         export { deserialize_proto_StorageDeleteRequest as requestDeserialize };
         export { serialize_proto_Empty as responseSerialize };
@@ -264,16 +280,16 @@ export namespace SensorHostService {
     }
     export { storageDelete_1 as storageDelete };
     export namespace storageDeleteAll_1 {
-        const path_16: string;
-        export { path_16 as path };
-        const requestStream_16: boolean;
-        export { requestStream_16 as requestStream };
-        const responseStream_16: boolean;
-        export { responseStream_16 as responseStream };
-        const requestType_16: typeof import("./ldk_pb.js").Empty;
-        export { requestType_16 as requestType };
-        const responseType_16: typeof import("./ldk_pb.js").Empty;
-        export { responseType_16 as responseType };
+        const path_17: string;
+        export { path_17 as path };
+        const requestStream_17: boolean;
+        export { requestStream_17 as requestStream };
+        const responseStream_17: boolean;
+        export { responseStream_17 as responseStream };
+        const requestType_17: typeof import("./ldk_pb.js").Empty;
+        export { requestType_17 as requestType };
+        const responseType_17: typeof import("./ldk_pb.js").Empty;
+        export { responseType_17 as responseType };
         export { serialize_proto_Empty as requestSerialize };
         export { deserialize_proto_Empty as requestDeserialize };
         export { serialize_proto_Empty as responseSerialize };
@@ -281,16 +297,16 @@ export namespace SensorHostService {
     }
     export { storageDeleteAll_1 as storageDeleteAll };
     export namespace storageHasKey_1 {
-        const path_17: string;
-        export { path_17 as path };
-        const requestStream_17: boolean;
-        export { requestStream_17 as requestStream };
-        const responseStream_17: boolean;
-        export { responseStream_17 as responseStream };
-        const requestType_17: typeof import("./ldk_pb.js").StorageHasKeyRequest;
-        export { requestType_17 as requestType };
-        const responseType_17: typeof import("./ldk_pb.js").StorageHasKeyResponse;
-        export { responseType_17 as responseType };
+        const path_18: string;
+        export { path_18 as path };
+        const requestStream_18: boolean;
+        export { requestStream_18 as requestStream };
+        const responseStream_18: boolean;
+        export { responseStream_18 as responseStream };
+        const requestType_18: typeof import("./ldk_pb.js").StorageHasKeyRequest;
+        export { requestType_18 as requestType };
+        const responseType_18: typeof import("./ldk_pb.js").StorageHasKeyResponse;
+        export { responseType_18 as responseType };
         export { serialize_proto_StorageHasKeyRequest as requestSerialize };
         export { deserialize_proto_StorageHasKeyRequest as requestDeserialize };
         export { serialize_proto_StorageHasKeyResponse as responseSerialize };
@@ -298,16 +314,16 @@ export namespace SensorHostService {
     }
     export { storageHasKey_1 as storageHasKey };
     export namespace storageKeys_1 {
-        const path_18: string;
-        export { path_18 as path };
-        const requestStream_18: boolean;
-        export { requestStream_18 as requestStream };
-        const responseStream_18: boolean;
-        export { responseStream_18 as responseStream };
-        const requestType_18: typeof import("./ldk_pb.js").Empty;
-        export { requestType_18 as requestType };
-        const responseType_18: typeof import("./ldk_pb.js").StorageKeysResponse;
-        export { responseType_18 as responseType };
+        const path_19: string;
+        export { path_19 as path };
+        const requestStream_19: boolean;
+        export { requestStream_19 as requestStream };
+        const responseStream_19: boolean;
+        export { responseStream_19 as responseStream };
+        const requestType_19: typeof import("./ldk_pb.js").Empty;
+        export { requestType_19 as requestType };
+        const responseType_19: typeof import("./ldk_pb.js").StorageKeysResponse;
+        export { responseType_19 as responseType };
         export { serialize_proto_Empty as requestSerialize };
         export { deserialize_proto_Empty as requestDeserialize };
         export { serialize_proto_StorageKeysResponse as responseSerialize };
@@ -315,16 +331,16 @@ export namespace SensorHostService {
     }
     export { storageKeys_1 as storageKeys };
     export namespace storageRead_1 {
-        const path_19: string;
-        export { path_19 as path };
-        const requestStream_19: boolean;
-        export { requestStream_19 as requestStream };
-        const responseStream_19: boolean;
-        export { responseStream_19 as responseStream };
-        const requestType_19: typeof import("./ldk_pb.js").StorageReadRequest;
-        export { requestType_19 as requestType };
-        const responseType_19: typeof import("./ldk_pb.js").StorageReadResponse;
-        export { responseType_19 as responseType };
+        const path_20: string;
+        export { path_20 as path };
+        const requestStream_20: boolean;
+        export { requestStream_20 as requestStream };
+        const responseStream_20: boolean;
+        export { responseStream_20 as responseStream };
+        const requestType_20: typeof import("./ldk_pb.js").StorageReadRequest;
+        export { requestType_20 as requestType };
+        const responseType_20: typeof import("./ldk_pb.js").StorageReadResponse;
+        export { responseType_20 as responseType };
         export { serialize_proto_StorageReadRequest as requestSerialize };
         export { deserialize_proto_StorageReadRequest as requestDeserialize };
         export { serialize_proto_StorageReadResponse as responseSerialize };
@@ -332,16 +348,16 @@ export namespace SensorHostService {
     }
     export { storageRead_1 as storageRead };
     export namespace storageReadAll_1 {
-        const path_20: string;
-        export { path_20 as path };
-        const requestStream_20: boolean;
-        export { requestStream_20 as requestStream };
-        const responseStream_20: boolean;
-        export { responseStream_20 as responseStream };
-        const requestType_20: typeof import("./ldk_pb.js").Empty;
-        export { requestType_20 as requestType };
-        const responseType_20: typeof import("./ldk_pb.js").StorageReadAllResponse;
-        export { responseType_20 as responseType };
+        const path_21: string;
+        export { path_21 as path };
+        const requestStream_21: boolean;
+        export { requestStream_21 as requestStream };
+        const responseStream_21: boolean;
+        export { responseStream_21 as responseStream };
+        const requestType_21: typeof import("./ldk_pb.js").Empty;
+        export { requestType_21 as requestType };
+        const responseType_21: typeof import("./ldk_pb.js").StorageReadAllResponse;
+        export { responseType_21 as responseType };
         export { serialize_proto_Empty as requestSerialize };
         export { deserialize_proto_Empty as requestDeserialize };
         export { serialize_proto_StorageReadAllResponse as responseSerialize };
@@ -349,16 +365,16 @@ export namespace SensorHostService {
     }
     export { storageReadAll_1 as storageReadAll };
     export namespace storageWrite_1 {
-        const path_21: string;
-        export { path_21 as path };
-        const requestStream_21: boolean;
-        export { requestStream_21 as requestStream };
-        const responseStream_21: boolean;
-        export { responseStream_21 as responseStream };
-        const requestType_21: typeof import("./ldk_pb.js").StorageWriteRequest;
-        export { requestType_21 as requestType };
-        const responseType_21: typeof import("./ldk_pb.js").Empty;
-        export { responseType_21 as responseType };
+        const path_22: string;
+        export { path_22 as path };
+        const requestStream_22: boolean;
+        export { requestStream_22 as requestStream };
+        const responseStream_22: boolean;
+        export { responseStream_22 as responseStream };
+        const requestType_22: typeof import("./ldk_pb.js").StorageWriteRequest;
+        export { requestType_22 as requestType };
+        const responseType_22: typeof import("./ldk_pb.js").Empty;
+        export { responseType_22 as responseType };
         export { serialize_proto_StorageWriteRequest as requestSerialize };
         export { deserialize_proto_StorageWriteRequest as requestDeserialize };
         export { serialize_proto_Empty as responseSerialize };
@@ -376,6 +392,8 @@ declare function serialize_proto_OnEventRequest(arg: any): Buffer;
 declare function deserialize_proto_OnEventRequest(buffer_arg: any): import("./ldk_pb.js").OnEventRequest;
 declare function serialize_proto_EmitWhisperRequest(arg: any): Buffer;
 declare function deserialize_proto_EmitWhisperRequest(buffer_arg: any): import("./ldk_pb.js").EmitWhisperRequest;
+declare function serialize_proto_EmitWhisperResponse(arg: any): Buffer;
+declare function deserialize_proto_EmitWhisperResponse(buffer_arg: any): import("./ldk_pb.js").EmitWhisperResponse;
 declare function serialize_proto_StorageDeleteRequest(arg: any): Buffer;
 declare function deserialize_proto_StorageDeleteRequest(buffer_arg: any): import("./ldk_pb.js").StorageDeleteRequest;
 declare function serialize_proto_StorageHasKeyRequest(arg: any): Buffer;
@@ -392,6 +410,8 @@ declare function serialize_proto_StorageReadAllResponse(arg: any): Buffer;
 declare function deserialize_proto_StorageReadAllResponse(buffer_arg: any): import("./ldk_pb.js").StorageReadAllResponse;
 declare function serialize_proto_StorageWriteRequest(arg: any): Buffer;
 declare function deserialize_proto_StorageWriteRequest(buffer_arg: any): import("./ldk_pb.js").StorageWriteRequest;
+declare function serialize_proto_UpdateWhisperRequest(arg: any): Buffer;
+declare function deserialize_proto_UpdateWhisperRequest(buffer_arg: any): import("./ldk_pb.js").UpdateWhisperRequest;
 declare function serialize_proto_EmitEventRequest(arg: any): Buffer;
 declare function deserialize_proto_EmitEventRequest(buffer_arg: any): import("./ldk_pb.js").EmitEventRequest;
 export {};
