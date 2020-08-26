@@ -1,5 +1,5 @@
-import {Whisper} from './whisper';
-import {PluginHost} from "./pluginHost";
+import { Whisper } from './whisper';
+import { PluginHost } from './pluginHost';
 
 export interface ControllerHost extends PluginHost {
   /**

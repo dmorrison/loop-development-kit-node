@@ -63,8 +63,8 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
   updateWhisper(id: string, whisper: Whisper): Promise<Error | void> {
     return new Promise((resolve, reject) => {
       if (!id) {
-        return reject(new Error("missing required property id"));
-     }
+        return reject(new Error('missing required property id'));
+      }
 
       const request = new messages.UpdateWhisperRequest();
 
@@ -99,10 +99,7 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
   }
 
   protected generateClient(address: string): ControllerHostClient {
-    return new ControllerHostClient(
-      address,
-      grpc.credentials.createInsecure(),
-    );
+    return new ControllerHostClient(address, grpc.credentials.createInsecure());
   }
 }
 

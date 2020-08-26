@@ -4,7 +4,7 @@ import BrokerGrpcServer from './brokerGrpcServer';
 import messages from './proto/ldk_pb';
 import { categories } from './categories';
 import { LoopPlugin } from './loopPlugin';
-import {CommonHostClient} from "./commonHostClient";
+import { CommonHostClient } from './commonHostClient';
 
 /**
  * @internal
@@ -93,6 +93,7 @@ export default abstract class GRPCServer<
             name: source.getName(),
             author: source.getAuthor(),
             organization: source.getOrganization(),
+            uploadId: source.getUploadid(),
             version: source.getVersion(),
           },
         };

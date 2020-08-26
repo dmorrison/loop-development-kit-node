@@ -66,7 +66,11 @@ describe('ControllerGrpcHostClient', () => {
   describe('#emitWhisper', () => {
     describe('when initialized', () => {
       beforeEach(async () => {
-        emitWhisperMock = jest.fn().mockImplementation(createCallbackHandler({getId: () => WHISPER_ID}));
+        emitWhisperMock = jest
+          .fn()
+          .mockImplementation(
+            createCallbackHandler({ getId: () => WHISPER_ID }),
+          );
         await subject.connect(connInfo);
         await subject.emitWhisper({
           markdown: 'abc',
@@ -111,7 +115,9 @@ describe('ControllerGrpcHostClient', () => {
   describe('#updatetWhisper', () => {
     describe('when initialized', () => {
       beforeEach(async () => {
-        updateWhisperMock = jest.fn().mockImplementation(createCallbackHandler());
+        updateWhisperMock = jest
+          .fn()
+          .mockImplementation(createCallbackHandler());
         await subject.connect(connInfo);
         await subject.updateWhisper(WHISPER_ID, {
           markdown: 'abc',
@@ -141,14 +147,22 @@ describe('ControllerGrpcHostClient', () => {
       });
       it('should resolve successfully', async () => {
         await expect(
-          subject.updateWhisper(WHISPER_ID, { markdown: 'a', label: 'a', icon: 'a' }),
+          subject.updateWhisper(WHISPER_ID, {
+            markdown: 'a',
+            label: 'a',
+            icon: 'a',
+          }),
         ).resolves;
       });
     });
     describe('before connected', () => {
       it('should throw an error', async () => {
         await expect(
-          subject.updateWhisper(WHISPER_ID, { markdown: 'a', label: 'a', icon: 'a' }),
+          subject.updateWhisper(WHISPER_ID, {
+            markdown: 'a',
+            label: 'a',
+            icon: 'a',
+          }),
         ).rejects.toThrow('Accessing client before connected');
       });
     });

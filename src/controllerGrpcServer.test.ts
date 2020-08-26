@@ -88,6 +88,7 @@ describe('ControllerGrpcServer', () => {
         getName: () => 'name',
         getAuthor: () => 'author',
         getOrganization: () => 'org',
+        getUploadid: () => '1234-4321',
         getVersion: () => '1.0.0',
       };
       request = {
@@ -111,6 +112,7 @@ describe('ControllerGrpcServer', () => {
             name: 'name',
             author: 'author',
             organization: 'org',
+            uploadId: '1234-4321',
             version: '1.0.0',
           }),
         }),
