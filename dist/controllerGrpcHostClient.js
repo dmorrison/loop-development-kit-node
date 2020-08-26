@@ -59,7 +59,7 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
     updateWhisper(id, whisper) {
         return new Promise((resolve, reject) => {
             if (!id) {
-                return reject(new Error("missing required property id"));
+                return reject(new Error('missing required property id'));
             }
             const request = new ldk_pb_1.default.UpdateWhisperRequest();
             const style = new ldk_pb_1.default.Style();
@@ -80,7 +80,7 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
             request.setId(id);
-            this.client.updateWhisper(request, (err) => {
+            return this.client.updateWhisper(request, (err) => {
                 if (err) {
                     return reject(err);
                 }
