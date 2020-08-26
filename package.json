@@ -3,12 +3,10 @@
   "version": "1.1.0",
   "description": "Loop Development Kit",
   "main": "dist/index.js",
-  "directories": {
-    "example": "examples"
-  },
+  "bin": "./dist/bin/build.js",
   "scripts": {
     "doc": "rm -rf docs && mkdir -p docs && ./node_modules/.bin/typedoc --options typedoc.json",
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc && git update-index --chmod=+x dist/bin/build.js",
     "lint": "./node_modules/.bin/eslint . --ext .js,.ts",
     "prettier-all": "prettier --write '**/*.{js,ts}'",
     "protoc": "npm run protoc-broker && npm run protoc-health && npm run protoc-ldk && npm run protoc-stdio && npm run protoc-ts && npm run protoc-fixes",
@@ -24,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run build && npm run doc && git add docs"
+      "pre-commit": "lint-staged && npm run build && npm run doc && git add docs && git add dist"
     }
   },
   "lint-staged": {
@@ -51,9 +49,9 @@
     "husky": "4.2.5",
     "jest": "26.4.0",
     "lint-staged": "10.2.11",
-    "pkg": "latest",
     "prettier": "2.0.5",
     "ts-jest": "26.2.0",
+    "ts-node": "9.0.0",
     "typedoc": "0.17.0-3",
     "typedoc-plugin-pages": "1.0.1",
     "typescript": "3.9.7"
@@ -61,6 +59,8 @@
   "dependencies": {
     "@grpc/grpc-js": "1.1.3",
     "@types/google-protobuf": "3.7.2",
-    "google-protobuf": "3.12.4"
+    "commander": "6.0.0",
+    "google-protobuf": "3.12.4",
+    "pkg": "latest"
   }
 }
