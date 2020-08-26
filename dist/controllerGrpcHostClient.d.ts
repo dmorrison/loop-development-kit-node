@@ -15,7 +15,16 @@ declare class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClie
      * @param whisper - An object defining the contents of the Whisper.
      * @returns Promise resolving when the server responds to the command.
      */
-    emitWhisper(whisper: Whisper): Promise<Error | void>;
+    emitWhisper(whisper: Whisper): Promise<Error | string>;
+    /**
+     * Update a Whisper that has already been sent to the host process.
+     *
+     * @async
+     * @param id - The id of an existing Whisper that should be updated.
+     * @param whisper - An object defining the contents of the Whisper.
+     * @returns Promise resolving when the server responds to the command.
+     */
+    updateWhisper(id: string, whisper: Whisper): Promise<Error | void>;
     protected generateClient(address: string): ControllerHostClient;
 }
 export default ControllerGrpcHostClient;

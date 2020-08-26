@@ -150,16 +150,17 @@ interface IControllerHostService extends grpc.ServiceDefinition<grpc.UntypedServ
     storageRead: IControllerHostService_IStorageRead;
     storageReadAll: IControllerHostService_IStorageReadAll;
     storageWrite: IControllerHostService_IStorageWrite;
+    updateWhisper: IControllerHostService_IUpdateWhisper;
 }
 
-interface IControllerHostService_IEmitWhisper extends grpc.MethodDefinition<ldk_pb.EmitWhisperRequest, ldk_pb.Empty> {
+interface IControllerHostService_IEmitWhisper extends grpc.MethodDefinition<ldk_pb.EmitWhisperRequest, ldk_pb.EmitWhisperResponse> {
     path: string; // "/proto.ControllerHost/EmitWhisper"
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<ldk_pb.EmitWhisperRequest>;
     requestDeserialize: grpc.deserialize<ldk_pb.EmitWhisperRequest>;
-    responseSerialize: grpc.serialize<ldk_pb.Empty>;
-    responseDeserialize: grpc.deserialize<ldk_pb.Empty>;
+    responseSerialize: grpc.serialize<ldk_pb.EmitWhisperResponse>;
+    responseDeserialize: grpc.deserialize<ldk_pb.EmitWhisperResponse>;
 }
 interface IControllerHostService_IStorageDelete extends grpc.MethodDefinition<ldk_pb.StorageDeleteRequest, ldk_pb.Empty> {
     path: string; // "/proto.ControllerHost/StorageDelete"
@@ -224,11 +225,20 @@ interface IControllerHostService_IStorageWrite extends grpc.MethodDefinition<ldk
     responseSerialize: grpc.serialize<ldk_pb.Empty>;
     responseDeserialize: grpc.deserialize<ldk_pb.Empty>;
 }
+interface IControllerHostService_IUpdateWhisper extends grpc.MethodDefinition<ldk_pb.UpdateWhisperRequest, ldk_pb.Empty> {
+    path: string; // "/proto.ControllerHost/UpdateWhisper"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<ldk_pb.UpdateWhisperRequest>;
+    requestDeserialize: grpc.deserialize<ldk_pb.UpdateWhisperRequest>;
+    responseSerialize: grpc.serialize<ldk_pb.Empty>;
+    responseDeserialize: grpc.deserialize<ldk_pb.Empty>;
+}
 
 export const ControllerHostService: IControllerHostService;
 
 export interface IControllerHostServer {
-    emitWhisper: grpc.handleUnaryCall<ldk_pb.EmitWhisperRequest, ldk_pb.Empty>;
+    emitWhisper: grpc.handleUnaryCall<ldk_pb.EmitWhisperRequest, ldk_pb.EmitWhisperResponse>;
     storageDelete: grpc.handleUnaryCall<ldk_pb.StorageDeleteRequest, ldk_pb.Empty>;
     storageDeleteAll: grpc.handleUnaryCall<ldk_pb.Empty, ldk_pb.Empty>;
     storageHasKey: grpc.handleUnaryCall<ldk_pb.StorageHasKeyRequest, ldk_pb.StorageHasKeyResponse>;
@@ -236,12 +246,13 @@ export interface IControllerHostServer {
     storageRead: grpc.handleUnaryCall<ldk_pb.StorageReadRequest, ldk_pb.StorageReadResponse>;
     storageReadAll: grpc.handleUnaryCall<ldk_pb.Empty, ldk_pb.StorageReadAllResponse>;
     storageWrite: grpc.handleUnaryCall<ldk_pb.StorageWriteRequest, ldk_pb.Empty>;
+    updateWhisper: grpc.handleUnaryCall<ldk_pb.UpdateWhisperRequest, ldk_pb.Empty>;
 }
 
 export interface IControllerHostClient {
-    emitWhisper(request: ldk_pb.EmitWhisperRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
-    emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
-    emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    emitWhisper(request: ldk_pb.EmitWhisperRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.EmitWhisperResponse) => void): grpc.ClientUnaryCall;
+    emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.EmitWhisperResponse) => void): grpc.ClientUnaryCall;
+    emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.EmitWhisperResponse) => void): grpc.ClientUnaryCall;
     storageDelete(request: ldk_pb.StorageDeleteRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     storageDelete(request: ldk_pb.StorageDeleteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     storageDelete(request: ldk_pb.StorageDeleteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
@@ -263,13 +274,16 @@ export interface IControllerHostClient {
     storageWrite(request: ldk_pb.StorageWriteRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     storageWrite(request: ldk_pb.StorageWriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     storageWrite(request: ldk_pb.StorageWriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    updateWhisper(request: ldk_pb.UpdateWhisperRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    updateWhisper(request: ldk_pb.UpdateWhisperRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    updateWhisper(request: ldk_pb.UpdateWhisperRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
 }
 
 export class ControllerHostClient extends grpc.Client implements IControllerHostClient {
     constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
-    public emitWhisper(request: ldk_pb.EmitWhisperRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
-    public emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
-    public emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    public emitWhisper(request: ldk_pb.EmitWhisperRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.EmitWhisperResponse) => void): grpc.ClientUnaryCall;
+    public emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.EmitWhisperResponse) => void): grpc.ClientUnaryCall;
+    public emitWhisper(request: ldk_pb.EmitWhisperRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.EmitWhisperResponse) => void): grpc.ClientUnaryCall;
     public storageDelete(request: ldk_pb.StorageDeleteRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     public storageDelete(request: ldk_pb.StorageDeleteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     public storageDelete(request: ldk_pb.StorageDeleteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
@@ -291,6 +305,9 @@ export class ControllerHostClient extends grpc.Client implements IControllerHost
     public storageWrite(request: ldk_pb.StorageWriteRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     public storageWrite(request: ldk_pb.StorageWriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
     public storageWrite(request: ldk_pb.StorageWriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    public updateWhisper(request: ldk_pb.UpdateWhisperRequest, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    public updateWhisper(request: ldk_pb.UpdateWhisperRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
+    public updateWhisper(request: ldk_pb.UpdateWhisperRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: ldk_pb.Empty) => void): grpc.ClientUnaryCall;
 }
 
 interface ISensorHostService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {

@@ -7,6 +7,7 @@ import { ConnInfo } from './proto/broker_pb';
 jest.mock('./proto/ldk_pb');
 jest.mock('./proto/ldk_grpc_pb');
 
+const WHISPER_ID = '1234-abcd';
 const hostClient = mocked(Services.ControllerHostClient);
 
 type CallbackHandlerFunc<TRequest = any, TResponse = any> = (
@@ -26,6 +27,7 @@ describe('ControllerGrpcHostClient', () => {
   let storageReadMock: jest.Mock;
   let storageReadAllMock: jest.Mock;
   let storageWriteMock: jest.Mock;
+  let updateWhisperMock: jest.Mock;
 
   function createCallbackHandler(response?: any): CallbackHandlerFunc {
     return (request, callback) => {
@@ -52,6 +54,7 @@ describe('ControllerGrpcHostClient', () => {
         storageRead: storageReadMock,
         storageReadAll: storageReadAllMock,
         storageWrite: storageWriteMock,
+        updateWhisper: updateWhisperMock,
       } as any;
     });
   });
@@ -63,7 +66,11 @@ describe('ControllerGrpcHostClient', () => {
   describe('#emitWhisper', () => {
     describe('when initialized', () => {
       beforeEach(async () => {
-        emitWhisperMock = jest.fn().mockImplementation(createCallbackHandler());
+        emitWhisperMock = jest
+          .fn()
+          .mockImplementation(
+            createCallbackHandler({ getId: () => WHISPER_ID }),
+          );
         await subject.connect(connInfo);
         await subject.emitWhisper({
           markdown: 'abc',
@@ -91,11 +98,71 @@ describe('ControllerGrpcHostClient', () => {
         expect(whisper.setLabel).toHaveBeenCalledWith('Hey');
         expect(whisper.setIcon).toHaveBeenCalledWith('ok');
       });
+      it('should return the ID from the whisper', async () => {
+        await expect(
+          subject.emitWhisper({ markdown: 'a', label: 'a', icon: 'a' }),
+        ).resolves.toBe(WHISPER_ID);
+      });
     });
     describe('before connected', () => {
       it('should throw an error', async () => {
         await expect(
           subject.emitWhisper({ markdown: 'a', label: 'a', icon: 'a' }),
+        ).rejects.toThrow('Accessing client before connected');
+      });
+    });
+  });
+  describe('#updatetWhisper', () => {
+    describe('when initialized', () => {
+      beforeEach(async () => {
+        updateWhisperMock = jest
+          .fn()
+          .mockImplementation(createCallbackHandler());
+        await subject.connect(connInfo);
+        await subject.updateWhisper(WHISPER_ID, {
+          markdown: 'abc',
+          icon: 'ok',
+          label: 'Hey',
+        });
+      });
+      it('should call the client with a whisper message', async () => {
+        const whisperRequest = mocked(Messages.UpdateWhisperRequest).mock
+          .instances[0];
+        expect(updateWhisperMock).toHaveBeenCalledWith(
+          whisperRequest,
+          expect.anything(),
+        );
+      });
+      it('should set the style to default', () => {
+        const style = mocked(Messages.Style).mock.instances[0];
+        expect(style.setBackgroundcolor).toHaveBeenCalledWith('#fff');
+        expect(style.setPrimarycolor).toHaveBeenCalledWith('#666');
+        expect(style.setHighlightcolor).toHaveBeenCalledWith('#651fff');
+      });
+      it('should create the whisper properly', () => {
+        const whisper = mocked(Messages.Whisper).mock.instances[0];
+        expect(whisper.setMarkdown).toHaveBeenCalledWith('abc');
+        expect(whisper.setLabel).toHaveBeenCalledWith('Hey');
+        expect(whisper.setIcon).toHaveBeenCalledWith('ok');
+      });
+      it('should resolve successfully', async () => {
+        await expect(
+          subject.updateWhisper(WHISPER_ID, {
+            markdown: 'a',
+            label: 'a',
+            icon: 'a',
+          }),
+        ).resolves;
+      });
+    });
+    describe('before connected', () => {
+      it('should throw an error', async () => {
+        await expect(
+          subject.updateWhisper(WHISPER_ID, {
+            markdown: 'a',
+            label: 'a',
+            icon: 'a',
+          }),
         ).rejects.toThrow('Accessing client before connected');
       });
     });

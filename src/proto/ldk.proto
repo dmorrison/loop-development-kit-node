@@ -17,6 +17,7 @@ message Source {
     string author = 4;
     string organization = 5;
     string version = 6;
+    string uploadId = 7;
 }
 
 message Style {
@@ -43,6 +44,15 @@ message OnEventRequest {
 
 message EmitWhisperRequest {
     Whisper whisper = 1;
+}
+
+message EmitWhisperResponse {
+    string id = 1;
+}
+
+message UpdateWhisperRequest {
+    string id = 1;
+    Whisper whisper = 2;
 }
 
 message EmitEventRequest {
@@ -95,14 +105,15 @@ service Sensor {
 }
 
 service ControllerHost {
-    rpc EmitWhisper(EmitWhisperRequest) returns (Empty);
+    rpc EmitWhisper(EmitWhisperRequest) returns (EmitWhisperResponse);
     rpc StorageDelete(StorageDeleteRequest) returns (Empty);
     rpc StorageDeleteAll(Empty) returns (Empty);
-	rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
-	rpc StorageKeys(Empty) returns (StorageKeysResponse);
-	rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
-	rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
-	rpc StorageWrite(StorageWriteRequest) returns (Empty);
+    rpc StorageHasKey(StorageHasKeyRequest) returns (StorageHasKeyResponse);
+    rpc StorageKeys(Empty) returns (StorageKeysResponse);
+    rpc StorageRead(StorageReadRequest) returns (StorageReadResponse);
+    rpc StorageReadAll(Empty) returns (StorageReadAllResponse);
+    rpc StorageWrite(StorageWriteRequest) returns (Empty);
+    rpc UpdateWhisper(UpdateWhisperRequest) returns (Empty);
 }
 
 service SensorHost {

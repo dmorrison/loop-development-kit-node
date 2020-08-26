@@ -79,6 +79,7 @@ class GRPCServer {
                         name: source.getName(),
                         author: source.getAuthor(),
                         organization: source.getOrganization(),
+                        uploadId: source.getUploadid(),
                         version: source.getVersion(),
                     },
                 };

@@ -42,6 +42,9 @@ export class Source extends jspb.Message {
     getVersion(): string;
     setVersion(value: string): Source;
 
+    getUploadid(): string;
+    setUploadid(value: string): Source;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Source.AsObject;
@@ -61,6 +64,7 @@ export namespace Source {
         author: string,
         organization: string,
         version: string,
+        uploadid: string,
     }
 
     export enum Category {
@@ -209,6 +213,55 @@ export class EmitWhisperRequest extends jspb.Message {
 
 export namespace EmitWhisperRequest {
     export type AsObject = {
+        whisper?: Whisper.AsObject,
+    }
+}
+
+export class EmitWhisperResponse extends jspb.Message { 
+    getId(): string;
+    setId(value: string): EmitWhisperResponse;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): EmitWhisperResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: EmitWhisperResponse): EmitWhisperResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: EmitWhisperResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): EmitWhisperResponse;
+    static deserializeBinaryFromReader(message: EmitWhisperResponse, reader: jspb.BinaryReader): EmitWhisperResponse;
+}
+
+export namespace EmitWhisperResponse {
+    export type AsObject = {
+        id: string,
+    }
+}
+
+export class UpdateWhisperRequest extends jspb.Message { 
+    getId(): string;
+    setId(value: string): UpdateWhisperRequest;
+
+
+    hasWhisper(): boolean;
+    clearWhisper(): void;
+    getWhisper(): Whisper | undefined;
+    setWhisper(value?: Whisper): UpdateWhisperRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UpdateWhisperRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: UpdateWhisperRequest): UpdateWhisperRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UpdateWhisperRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UpdateWhisperRequest;
+    static deserializeBinaryFromReader(message: UpdateWhisperRequest, reader: jspb.BinaryReader): UpdateWhisperRequest;
+}
+
+export namespace UpdateWhisperRequest {
+    export type AsObject = {
+        id: string,
         whisper?: Whisper.AsObject,
     }
 }

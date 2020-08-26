@@ -3,7 +3,7 @@ import services, { grpc } from './proto/ldk_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
 import messages from './proto/ldk_pb';
 import { LoopPlugin } from './loopPlugin';
-import { CommonHostClient } from "./commonHostClient";
+import { CommonHostClient } from './commonHostClient';
 /**
  * @internal
  */

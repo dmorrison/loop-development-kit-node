@@ -93,6 +93,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="controllerhost.html#storageread" class="tsd-kind-icon">storage<wbr>Read</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="controllerhost.html#storagereadall" class="tsd-kind-icon">storage<wbr>Read<wbr>All</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="controllerhost.html#storagewrite" class="tsd-kind-icon">storage<wbr>Write</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="controllerhost.html#updatewhisper" class="tsd-kind-icon">update<wbr>Whisper</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,22 +105,27 @@
 					<a name="emitwhisper" class="tsd-anchor"></a>
 					<h3>emit<wbr>Whisper</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">emit<wbr>Whisper<span class="tsd-signature-symbol">(</span>whisper<span class="tsd-signature-symbol">: </span><a href="whisper.html" class="tsd-signature-type">Whisper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">emit<wbr>Whisper<span class="tsd-signature-symbol">(</span>whisper<span class="tsd-signature-symbol">: </span><a href="whisper.html" class="tsd-signature-type">Whisper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/controllerHost.ts#L5">controllerHost.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/controllerHost.ts#L8">controllerHost.ts:8</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>whisper: <a href="whisper.html" class="tsd-signature-type">Whisper</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<ul>
+								<li>Promise resolving with the unique ID of the generated whisper.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -134,7 +140,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storagedelete">storageDelete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L6">pluginHost.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L6">pluginHost.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -164,7 +170,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storagedeleteall">storageDeleteAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L11">pluginHost.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L11">pluginHost.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,7 +191,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storagehaskey">storageHasKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L17">pluginHost.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L17">pluginHost.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,7 +221,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storagekeys">storageKeys</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L22">pluginHost.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L22">pluginHost.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -236,7 +242,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storageread">storageRead</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L30">pluginHost.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L30">pluginHost.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +275,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storagereadall">storageReadAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L37">pluginHost.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L37">pluginHost.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +299,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="pluginhost.html">PluginHost</a>.<a href="pluginhost.html#storagewrite">storageWrite</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/7c16854/src/pluginHost.ts#L46">pluginHost.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/pluginHost.ts#L46">pluginHost.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -318,6 +324,32 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Resolves when write is complete.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="updatewhisper" class="tsd-anchor"></a>
+					<h3>update<wbr>Whisper</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Whisper<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, whisper<span class="tsd-signature-symbol">: </span><a href="whisper.html" class="tsd-signature-type">Whisper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/4d18210/src/controllerHost.ts#L9">controllerHost.ts:9</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>whisper: <a href="whisper.html" class="tsd-signature-type">Whisper</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -401,6 +433,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="controllerhost.html#storagewrite" class="tsd-kind-icon">storage<wbr>Write</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="controllerhost.html#updatewhisper" class="tsd-kind-icon">update<wbr>Whisper</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -435,17 +470,11 @@
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
 					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#program" class="tsd-kind-icon">program</a>
-					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#commands" class="tsd-kind-icon">commands</a>
 					</li>
 				</ul>
 			</nav>
