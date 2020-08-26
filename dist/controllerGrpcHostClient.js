@@ -39,7 +39,48 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
             whisperMsg.setStyle(style);
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
-            this.client.emitWhisper(request, (err) => {
+            this.client.emitWhisper(request, (err, response) => {
+                if (err) {
+                    return reject(err);
+                }
+                const id = response.getId();
+                return resolve(id);
+            });
+        });
+    }
+    /**
+     * Update a Whisper that has already been sent to the host process.
+     *
+     * @async
+     * @param id - The id of an existing Whisper that should be updated.
+     * @param whisper - An object defining the contents of the Whisper.
+     * @returns Promise resolving when the server responds to the command.
+     */
+    updateWhisper(id, whisper) {
+        return new Promise((resolve, reject) => {
+            if (!id) {
+                return reject(new Error("missing required property id"));
+            }
+            const request = new ldk_pb_1.default.UpdateWhisperRequest();
+            const style = new ldk_pb_1.default.Style();
+            if (whisper.style) {
+                style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
+                style.setPrimarycolor(whisper.style.primaryColor || '#666');
+                style.setHighlightcolor(whisper.style.highlightColor || '#651fff');
+            }
+            else {
+                style.setBackgroundcolor('#fff');
+                style.setPrimarycolor('#666');
+                style.setHighlightcolor('#651fff');
+            }
+            const whisperMsg = new ldk_pb_1.default.Whisper();
+            whisperMsg.setMarkdown(whisper.markdown);
+            whisperMsg.setLabel(whisper.label);
+            whisperMsg.setStyle(style);
+            whisperMsg.setIcon(whisper.icon);
+            request.setWhisper(whisperMsg);
+            request.setId(id);
+            this.client.updateWhisper(request, (err) => {
                 if (err) {
                     return reject(err);
                 }
