@@ -548,7 +548,8 @@ proto.proto.Source.toObject = function(includeInstance, msg) {
     author: jspb.Message.getFieldWithDefault(msg, 4, ""),
     organization: jspb.Message.getFieldWithDefault(msg, 5, ""),
     version: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    uploadid: jspb.Message.getFieldWithDefault(msg, 7, "")
+    uploadid: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    icon: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -612,6 +613,10 @@ proto.proto.Source.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setUploadid(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIcon(value);
       break;
     default:
       reader.skipField();
@@ -688,6 +693,13 @@ proto.proto.Source.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getIcon();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -828,6 +840,24 @@ proto.proto.Source.prototype.getUploadid = function() {
  */
 proto.proto.Source.prototype.setUploadid = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string icon = 8;
+ * @return {string}
+ */
+proto.proto.Source.prototype.getIcon = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.proto.Source} returns this
+ */
+proto.proto.Source.prototype.setIcon = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

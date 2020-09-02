@@ -18,6 +18,7 @@ message Source {
     string organization = 5;
     string version = 6;
     string uploadId = 7;
+    string icon = 8;
 }
 
 message Style {

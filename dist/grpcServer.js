@@ -74,10 +74,11 @@ class GRPCServer {
                         return acc;
                     }, {}),
                     source: {
-                        id: source.getId(),
-                        category: categories_1.categories[source.getCategory()],
-                        name: source.getName(),
                         author: source.getAuthor(),
+                        category: categories_1.categories[source.getCategory()],
+                        icon: source.getIcon(),
+                        id: source.getId(),
+                        name: source.getName(),
                         organization: source.getOrganization(),
                         uploadId: source.getUploadid(),
                         version: source.getVersion(),
