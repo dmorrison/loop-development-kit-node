@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git@github.com:open-olive/loop-development-kit-node.git"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "keywords": [
     "olive",
     "sidekick",
