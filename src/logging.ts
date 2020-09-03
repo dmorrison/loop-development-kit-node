@@ -3,12 +3,12 @@
 /**
  * @internal
  */
-// eslint-disable-next-line prefer-destructuring
-const pid = process.pid;
+const { pid } = process;
 
 /**
  * @internal
  */
+// eslint-disable-next-line no-shadow
 enum LogLevels {
   TRACE = 'TRACE',
   DEBUG = 'DEBUG',

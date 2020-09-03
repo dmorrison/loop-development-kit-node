@@ -1,5 +1,5 @@
 export namespace HealthService {
-    export namespace check {
+    namespace check {
         export const path: string;
         export const requestStream: boolean;
         export const responseStream: boolean;
@@ -10,7 +10,7 @@ export namespace HealthService {
         export { serialize_proto_HealthCheckResponse as responseSerialize };
         export { deserialize_proto_HealthCheckResponse as responseDeserialize };
     }
-    export namespace watch {
+    namespace watch {
         const path_1: string;
         export { path_1 as path };
         const requestStream_1: boolean;

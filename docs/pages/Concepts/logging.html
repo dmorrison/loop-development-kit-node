@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Logging | Loop Development Kit for Node.js</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../../assets/css/main.css">
 	<link rel="stylesheet" href="../../assets/css/pages.css">
@@ -14,7 +14,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.js" data-base="../..">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.json" data-base="../..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -74,21 +74,21 @@
 				</a>
 				<p>To make it easier to integrate with Sidekick&#39;s logger, a <code>Logger</code> class is provided to you in this library.</p>
 				<p>Example usage:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ldk'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;ldk&#x27;</span>);
 
-<span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">'my-plugin-name'</span>);
+<span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">&#x27;my-plugin-name&#x27;</span>);
 
 <span class="hljs-comment">// ...</span>
 
-logger.info(<span class="hljs-string">'Some message'</span>);
-<span class="hljs-comment">// {"@timestamp":"2020-07-30T14:58:21.057000Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Some message"}</span>
+logger.info(<span class="hljs-string">&#x27;Some message&#x27;</span>);
+<span class="hljs-comment">// {&quot;@timestamp&quot;:&quot;2020-07-30T14:58:21.057000Z&quot;,&quot;@pid&quot;:1234,&quot;@level&quot;:&quot;INFO&quot;,&quot;@module&quot;:&quot;my-plugin-name&quot;,&quot;@message&quot;:&quot;Some message&quot;}</span>
 
-logger.info(<span class="hljs-string">'Another message'</span>, <span class="hljs-string">'someKey'</span>, <span class="hljs-string">'someValue'</span>, <span class="hljs-string">'anotherKey'</span>, <span class="hljs-string">'anotherValue'</span>);
-<span class="hljs-comment">// {"@timestamp":"2020-07-30T14:58:21.057000Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Another message","anotherKey":"anotherValue","someKey":"someValue"}</span>
+logger.info(<span class="hljs-string">&#x27;Another message&#x27;</span>, <span class="hljs-string">&#x27;someKey&#x27;</span>, <span class="hljs-string">&#x27;someValue&#x27;</span>, <span class="hljs-string">&#x27;anotherKey&#x27;</span>, <span class="hljs-string">&#x27;anotherValue&#x27;</span>);
+<span class="hljs-comment">// {&quot;@timestamp&quot;:&quot;2020-07-30T14:58:21.057000Z&quot;,&quot;@pid&quot;:1234,&quot;@level&quot;:&quot;INFO&quot;,&quot;@module&quot;:&quot;my-plugin-name&quot;,&quot;@message&quot;:&quot;Another message&quot;,&quot;anotherKey&quot;:&quot;anotherValue&quot;,&quot;someKey&quot;:&quot;someValue&quot;}</span>
 
-<span class="hljs-keyword">const</span> logger2 = logger.with(<span class="hljs-string">'persistentKey'</span>, <span class="hljs-string">'persistentValue'</span>);
-logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class="hljs-string">'yetAnotherKey'</span>, <span class="hljs-string">'yetAnotherValue'</span>);
-<span class="hljs-comment">// {"@timestamp":"2020-07-30T14:58:21.057000Z","@pid":1234,"@level":"INFO","@module":"my-plugin-name","@message":"Yet another message","persistentKey":"persistentValue","yetAnotherKey":"yetAnotherValue"}</span></code></pre>
+<span class="hljs-keyword">const</span> logger2 = logger.with(<span class="hljs-string">&#x27;persistentKey&#x27;</span>, <span class="hljs-string">&#x27;persistentValue&#x27;</span>);
+logger2.info(<span class="hljs-string">&#x27;Yet another message&#x27;</span>, <span class="hljs-string">&#x27;yetAnotherKey&#x27;</span>, <span class="hljs-string">&#x27;yetAnotherValue&#x27;</span>);
+<span class="hljs-comment">// {&quot;@timestamp&quot;:&quot;2020-07-30T14:58:21.057000Z&quot;,&quot;@pid&quot;:1234,&quot;@level&quot;:&quot;INFO&quot;,&quot;@module&quot;:&quot;my-plugin-name&quot;,&quot;@message&quot;:&quot;Yet another message&quot;,&quot;persistentKey&quot;:&quot;persistentValue&quot;,&quot;yetAnotherKey&quot;:&quot;yetAnotherValue&quot;}</span></code></pre>
 				<p>The logger is generally modeled off of <a href="https://github.com/hashicorp/go-hclog">hclog</a>.</p>
 				<p>So the <code>trace</code>/<code>debug</code>/<code>info</code>/<code>warn</code>/<code>error</code> methods expect a message as the first arg, with key/value pairs for the rest of the args.</p>
 			</div>
@@ -134,57 +134,12 @@ logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
@@ -193,8 +148,7 @@ logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="../../assets/js/pages.js"></script>
 <script src="../../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.js"><' + '/script>');</script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.json"><' + '/script>');</script>
 </body>
 </html>

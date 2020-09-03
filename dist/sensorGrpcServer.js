@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ldk_grpc_pb_1 = __importDefault(require("./proto/ldk_grpc_pb"));
+const ldk_grpc_pb_1 = require("./proto/ldk_grpc_pb");
 const sensorGrpcHostClient_1 = __importDefault(require("./sensorGrpcHostClient"));
 const grpcServer_1 = __importDefault(require("./grpcServer"));
 /**
@@ -24,7 +24,7 @@ class SensorGRPCServer extends grpcServer_1.default {
      * ```
      */
     constructor(server, impl, broker) {
-        super(server, broker, impl, ldk_grpc_pb_1.default.SensorService);
+        super(server, broker, impl, ldk_grpc_pb_1.SensorService);
     }
     createHost() {
         return new sensorGrpcHostClient_1.default();

@@ -1,9 +1,9 @@
-// eslint-disable-next-line import/prefer-default-export
+// eslint-disable-next-line no-shadow
 export enum Access {
-  UNKNOWN = 'unknown',
-  USER = 'user',
   ORGANIZATION = 'organization',
   PUBLIC = 'public',
+  UNKNOWN = 'unknown',
+  USER = 'user',
 }
 
 export default Access;

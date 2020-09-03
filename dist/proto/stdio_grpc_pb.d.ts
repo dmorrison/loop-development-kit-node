@@ -1,5 +1,5 @@
 export namespace GRPCStdioService {
-    export namespace streamStdio {
+    namespace streamStdio {
         export const path: string;
         export const requestStream: boolean;
         export const responseStream: boolean;
