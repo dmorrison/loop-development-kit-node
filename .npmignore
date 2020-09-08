@@ -1,3 +1,21 @@
+# Actual ignores
+.eslintignore
+.eslintrc.js
+.gitattributes
+.github
+.gitignore
+.npmignore
+.nvmrc
+.prettierignore
+.prettierrc
+docs
+docsExtra
+jest.config.js
+tsconfig.json
+typedoc.json
+
+## .gitignore stuff
+
 # npm & yarn
 node_modules/
 .npm
@@ -49,3 +67,4 @@ Thumbs.db:*
 .#*
 *.orig
 *.swp
+

@@ -11,24 +11,15 @@ Sidekick expects your library to start its Controller or Sensor GRPC server when
 - Create your `package.json` file.
 - Import the LDK.
 - Create your `main` script (usually `index.js` or `src/index.js`):
+    - Create an implementation object that satisfies the `Controller` or `Sensor` contracts/interfaces.
+    - Initialize the appropriate plugin with your implementation and call `.serve` on it.
 
-  - Create an implementation object that satisfies the [[Controller]] or [[Sensor]] contracts/interfaces.
-  - Initialize the appropriate plugin with your implementation and call `.serve` on it.
+#### Install the Package
 
-#### Install the package
-
-Add the dependency to your package.json under the dependencies:
-
-```json
-"dependencies": {
-  "ldk": "git+https://github.com/open-olive/loop-development-kit-node.git"
-}
-```
-
-Install using NPM
+Install this library as a dependency:
 
 ```shell
-npm i
+npm i @oliveai/ldk -P
 ```
 
 ##### Example Controller
@@ -58,17 +49,15 @@ serveSensorPlugin(impl);
 ```
 
 ### Running Locally
- 
+
 #### Local Plugin Command (Recommended)
 
 Sidekick lets you add a local command as Local Plugins:
 
 1. Open Sidekick.
 2. Open the Loop Library:
-
-- Click the Hamburger icon.
-- Click Loop Library.
-
+    1. Click the Hamburger icon.
+    2. Click Loop Library.
 3. Click the Install Local Plugin button:
 4. Select whether it's a Controller or Sensor.
 5. Select the working directory for the command.
@@ -87,11 +76,11 @@ Sidekick logs are available in the following directories for your OS:
 
 ```shell
 ~/Library/Logs/Sidekick # MacOS
-/var/log/Sidekick # Linux
-%AppData%/Logs # Windows
+/var/log/Sidekick       # Linux
+%AppData%/Logs          # Windows
 ```
 
-`tail` the log file (usually `Sidekick-X.Y.Z.log`) to watch things happen!
+`tail -f` the log file (usually `Sidekick-X.Y.Z.log`) to watch things happen!
 
 ## Deploying
 
@@ -105,7 +94,7 @@ Sidekick expects the following files when running a plugin:
 
 We've made the following commands available to you:
 
-```
+```shell
 ldk build # Builds your project. Expects that you have index.js as your entry point, plugin.json, storage.json files.
 ldk deploy # Deploys your project to the Application Support/Sidekick/plugins/controllers/YOUR_PACKAGE_NAME folder
 ```
@@ -134,7 +123,7 @@ Each command takes options. Run `ldk help <command>` for details.
 
 #### `storage.json`
 
-Each storage key you access must be specified in the `storage.json` file. 
+Each storage key you access must be specified in the `storage.json` file.
 
 ```json
 {
