@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Logger | Loop Development Kit for Node.js</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<link rel="stylesheet" href="../assets/css/pages.css">
@@ -14,7 +14,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -116,7 +116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L25">logging.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L25">logging.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -125,7 +125,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code><span class="hljs-keyword">const</span> <span class="hljs-keyword">package</span> = require(<span class="hljs-string">'./package.json'</span>);
+									<dd><pre><code><span class="hljs-keyword">const</span> <span class="hljs-keyword">package</span> = require(<span class="hljs-string">&#x27;./package.json&#x27;</span>);
 <span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-keyword">package</span>.name);</code></pre></dd>
 								</dl>
 							</div>
@@ -167,7 +167,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L112">logging.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L112">logging.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,13 +176,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code>logger.debug(<span class="hljs-string">'Some message'</span>);
+									<dd><pre><code>logger.debug(<span class="hljs-string">&#x27;Some message&#x27;</span>);
 <span class="hljs-regexp">//</span> {
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@timestamp"</span>: <span class="hljs-string">"2020-07-30T14:58:21.057000Z"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@pid"</span>: <span class="hljs-number">1234</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@level"</span>: <span class="hljs-string">"DEBUG"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@module"</span>: <span class="hljs-string">"my-plugin-name"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@message"</span>: <span class="hljs-string">"Some message"</span>
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@timestamp&quot;</span>: <span class="hljs-string">&quot;2020-07-30T14:58:21.057000Z&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@pid&quot;</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@level&quot;</span>: <span class="hljs-string">&quot;DEBUG&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@module&quot;</span>: <span class="hljs-string">&quot;my-plugin-name&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@message&quot;</span>: <span class="hljs-string">&quot;Some message&quot;</span>
 <span class="hljs-regexp">//</span> }</code></pre></dd>
 								</dl>
 							</div>
@@ -215,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L175">logging.ts:175</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L175">logging.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -224,13 +224,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code>logger.error(<span class="hljs-string">'Some message'</span>);
+									<dd><pre><code>logger.error(<span class="hljs-string">&#x27;Some message&#x27;</span>);
 <span class="hljs-regexp">//</span> {
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@timestamp"</span>: <span class="hljs-string">"2020-07-30T14:58:21.057000Z"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@pid"</span>: <span class="hljs-number">1234</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@level"</span>: <span class="hljs-string">"ERROR"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@module"</span>: <span class="hljs-string">"my-plugin-name"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@message"</span>: <span class="hljs-string">"Some message"</span>
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@timestamp&quot;</span>: <span class="hljs-string">&quot;2020-07-30T14:58:21.057000Z&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@pid&quot;</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@level&quot;</span>: <span class="hljs-string">&quot;ERROR&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@module&quot;</span>: <span class="hljs-string">&quot;my-plugin-name&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@message&quot;</span>: <span class="hljs-string">&quot;Some message&quot;</span>
 <span class="hljs-regexp">//</span> }</code></pre></dd>
 								</dl>
 							</div>
@@ -263,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L133">logging.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L133">logging.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,13 +272,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code>logger.info(<span class="hljs-string">'Some message'</span>);
+									<dd><pre><code>logger.info(<span class="hljs-string">&#x27;Some message&#x27;</span>);
 <span class="hljs-regexp">//</span> {
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@timestamp"</span>: <span class="hljs-string">"2020-07-30T14:58:21.057000Z"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@pid"</span>: <span class="hljs-number">1234</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@level"</span>: <span class="hljs-string">"INFO"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@module"</span>: <span class="hljs-string">"my-plugin-name"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@message"</span>: <span class="hljs-string">"Some message"</span>
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@timestamp&quot;</span>: <span class="hljs-string">&quot;2020-07-30T14:58:21.057000Z&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@pid&quot;</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@level&quot;</span>: <span class="hljs-string">&quot;INFO&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@module&quot;</span>: <span class="hljs-string">&quot;my-plugin-name&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@message&quot;</span>: <span class="hljs-string">&quot;Some message&quot;</span>
 <span class="hljs-regexp">//</span> }</code></pre></dd>
 								</dl>
 							</div>
@@ -311,7 +311,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L91">logging.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L91">logging.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,13 +320,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code>logger.trace(<span class="hljs-string">'Some message'</span>);
+									<dd><pre><code>logger.trace(<span class="hljs-string">&#x27;Some message&#x27;</span>);
 <span class="hljs-regexp">//</span> {
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@timestamp"</span>: <span class="hljs-string">"2020-07-30T14:58:21.057000Z"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@pid"</span>: <span class="hljs-number">1234</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@level"</span>: <span class="hljs-string">"TRACE"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@module"</span>: <span class="hljs-string">"my-plugin-name"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@message"</span>: <span class="hljs-string">"Some message"</span>
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@timestamp&quot;</span>: <span class="hljs-string">&quot;2020-07-30T14:58:21.057000Z&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@pid&quot;</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@level&quot;</span>: <span class="hljs-string">&quot;TRACE&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@module&quot;</span>: <span class="hljs-string">&quot;my-plugin-name&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@message&quot;</span>: <span class="hljs-string">&quot;Some message&quot;</span>
 <span class="hljs-regexp">//</span> }</code></pre></dd>
 								</dl>
 							</div>
@@ -359,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L154">logging.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L154">logging.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,13 +368,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code>logger.warn(<span class="hljs-string">'Some message'</span>);
+									<dd><pre><code>logger.warn(<span class="hljs-string">&#x27;Some message&#x27;</span>);
 <span class="hljs-regexp">//</span> {
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@timestamp"</span>: <span class="hljs-string">"2020-07-30T14:58:21.057000Z"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@pid"</span>: <span class="hljs-number">1234</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@level"</span>: <span class="hljs-string">"WARN"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@module"</span>: <span class="hljs-string">"my-plugin-name"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@message"</span>: <span class="hljs-string">"Some message"</span>
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@timestamp&quot;</span>: <span class="hljs-string">&quot;2020-07-30T14:58:21.057000Z&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@pid&quot;</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@level&quot;</span>: <span class="hljs-string">&quot;WARN&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@module&quot;</span>: <span class="hljs-string">&quot;my-plugin-name&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@message&quot;</span>: <span class="hljs-string">&quot;Some message&quot;</span>
 <span class="hljs-regexp">//</span> }</code></pre></dd>
 								</dl>
 							</div>
@@ -407,7 +407,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/9061c16/src/logging.ts#L69">logging.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/52d7210/src/logging.ts#L69">logging.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -428,17 +428,17 @@
 							<ul>
 								<li>A new logger with the provided fields.</li>
 							</ul>
-							<pre><code>const logger2 = logger.with(<span class="hljs-string">'persistentKey'</span>, <span class="hljs-string">'persistentValue'</span>);
-logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class="hljs-string">'yetAnotherKey'</span>, <span class="hljs-string">'yetAnotherValue'</span>);
+							<pre><code>const logger2 = logger.with(<span class="hljs-string">&#x27;persistentKey&#x27;</span>, <span class="hljs-string">&#x27;persistentValue&#x27;</span>);
+logger2.info(<span class="hljs-string">&#x27;Yet another message&#x27;</span>, <span class="hljs-string">&#x27;yetAnotherKey&#x27;</span>, <span class="hljs-string">&#x27;yetAnotherValue&#x27;</span>);
 
 <span class="hljs-regexp">//</span> {
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@timestamp"</span>: <span class="hljs-string">"2020-07-30T14:58:21.057000Z"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@pid"</span>: <span class="hljs-number">1234</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@level"</span>: <span class="hljs-string">"INFO"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@module"</span>: <span class="hljs-string">"my-plugin-name"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"@message"</span>: <span class="hljs-string">"Yet another message"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"persistentKey"</span>: <span class="hljs-string">"persistentValue"</span>,
-<span class="hljs-regexp">//</span>   <span class="hljs-string">"yetAnotherKey"</span>: <span class="hljs-string">"yetAnotherValue"</span>
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@timestamp&quot;</span>: <span class="hljs-string">&quot;2020-07-30T14:58:21.057000Z&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@pid&quot;</span>: <span class="hljs-number">1234</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@level&quot;</span>: <span class="hljs-string">&quot;INFO&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@module&quot;</span>: <span class="hljs-string">&quot;my-plugin-name&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;@message&quot;</span>: <span class="hljs-string">&quot;Yet another message&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;persistentKey&quot;</span>: <span class="hljs-string">&quot;persistentValue&quot;</span>,
+<span class="hljs-regexp">//</span>   <span class="hljs-string">&quot;yetAnotherKey&quot;</span>: <span class="hljs-string">&quot;yetAnotherValue&quot;</span>
 <span class="hljs-regexp">//</span> }</code></pre>
 						</li>
 					</ul>
@@ -555,6 +555,9 @@ logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class
 						<a href="../globals.html#errmissingrequiredvalue" class="tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="../globals.html#pid" class="tsd-kind-icon">pid</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="../globals.html#program" class="tsd-kind-icon">program</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -573,57 +576,12 @@ logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
@@ -632,8 +590,7 @@ logger2.info(<span class="hljs-string">'Yet another message'</span>, <span class
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="../assets/js/pages.js"></script>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.json"><' + '/script>');</script>
 </body>
 </html>

@@ -5,11 +5,11 @@ exports.prepareLogging = exports.Logger = void 0;
 /**
  * @internal
  */
-// eslint-disable-next-line prefer-destructuring
-const pid = process.pid;
+const { pid } = process;
 /**
  * @internal
  */
+// eslint-disable-next-line no-shadow
 var LogLevels;
 (function (LogLevels) {
     LogLevels["TRACE"] = "TRACE";

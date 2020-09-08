@@ -1,5 +1,5 @@
 export namespace GRPCBrokerService {
-    export namespace startStream {
+    namespace startStream {
         export const path: string;
         export const requestStream: boolean;
         export const responseStream: boolean;

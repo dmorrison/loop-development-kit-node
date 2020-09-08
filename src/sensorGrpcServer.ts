@@ -1,5 +1,5 @@
 import BrokerGrpcServer from './brokerGrpcServer';
-import services, { grpc } from './proto/ldk_grpc_pb';
+import { grpc, SensorService } from './proto/ldk_grpc_pb';
 import SensorGrpcHostClient from './sensorGrpcHostClient';
 import { Sensor } from './sensor';
 import GRPCServer from './grpcServer';
@@ -21,12 +21,8 @@ class SensorGRPCServer extends GRPCServer<SensorGrpcHostClient, Sensor> {
    * new SensorGRPCServer(server, mySensor, broker);
    * ```
    */
-  constructor(
-    server: services.grpc.Server,
-    impl: Sensor,
-    broker: BrokerGrpcServer,
-  ) {
-    super(server, broker, impl, services.SensorService);
+  constructor(server: grpc.Server, impl: Sensor, broker: BrokerGrpcServer) {
+    super(server, broker, impl, SensorService);
   }
 
   protected createHost(): SensorGrpcHostClient {

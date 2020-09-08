@@ -1,8 +1,8 @@
 export declare enum OperatingSystem {
-    UNKNOWN = "unknown",
-    WINDOWS = "win32",
-    MACOS = "darwin",
+    ANY = "any",
     LINUX = "linux",
-    ANY = "any"
+    MACOS = "darwin",
+    UNKNOWN = "unknown",
+    WINDOWS = "win32"
 }
 export default OperatingSystem;

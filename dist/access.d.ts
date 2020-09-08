@@ -1,7 +1,7 @@
 export declare enum Access {
-    UNKNOWN = "unknown",
-    USER = "user",
     ORGANIZATION = "organization",
-    PUBLIC = "public"
+    PUBLIC = "public",
+    UNKNOWN = "unknown",
+    USER = "user"
 }
 export default Access;

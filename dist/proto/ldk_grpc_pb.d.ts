@@ -1,5 +1,5 @@
 export namespace ControllerService {
-    export namespace start {
+    namespace start {
         export const path: string;
         export const requestStream: boolean;
         export const responseStream: boolean;
@@ -10,7 +10,7 @@ export namespace ControllerService {
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-    export namespace stop {
+    namespace stop {
         const path_1: string;
         export { path_1 as path };
         const requestStream_1: boolean;
@@ -26,7 +26,7 @@ export namespace ControllerService {
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-    export namespace onEvent {
+    namespace onEvent {
         const path_2: string;
         export { path_2 as path };
         const requestStream_2: boolean;
@@ -99,7 +99,7 @@ export namespace SensorService {
 }
 export var SensorClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
 export namespace ControllerHostService {
-    export namespace emitWhisper {
+    namespace emitWhisper {
         const path_6: string;
         export { path_6 as path };
         const requestStream_6: boolean;
@@ -115,7 +115,7 @@ export namespace ControllerHostService {
         export { serialize_proto_EmitWhisperResponse as responseSerialize };
         export { deserialize_proto_EmitWhisperResponse as responseDeserialize };
     }
-    export namespace storageDelete {
+    namespace storageDelete {
         const path_7: string;
         export { path_7 as path };
         const requestStream_7: boolean;
@@ -131,7 +131,7 @@ export namespace ControllerHostService {
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-    export namespace storageDeleteAll {
+    namespace storageDeleteAll {
         const path_8: string;
         export { path_8 as path };
         const requestStream_8: boolean;
@@ -147,7 +147,7 @@ export namespace ControllerHostService {
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-    export namespace storageHasKey {
+    namespace storageHasKey {
         const path_9: string;
         export { path_9 as path };
         const requestStream_9: boolean;
@@ -163,7 +163,7 @@ export namespace ControllerHostService {
         export { serialize_proto_StorageHasKeyResponse as responseSerialize };
         export { deserialize_proto_StorageHasKeyResponse as responseDeserialize };
     }
-    export namespace storageKeys {
+    namespace storageKeys {
         const path_10: string;
         export { path_10 as path };
         const requestStream_10: boolean;
@@ -179,7 +179,7 @@ export namespace ControllerHostService {
         export { serialize_proto_StorageKeysResponse as responseSerialize };
         export { deserialize_proto_StorageKeysResponse as responseDeserialize };
     }
-    export namespace storageRead {
+    namespace storageRead {
         const path_11: string;
         export { path_11 as path };
         const requestStream_11: boolean;
@@ -195,7 +195,7 @@ export namespace ControllerHostService {
         export { serialize_proto_StorageReadResponse as responseSerialize };
         export { deserialize_proto_StorageReadResponse as responseDeserialize };
     }
-    export namespace storageReadAll {
+    namespace storageReadAll {
         const path_12: string;
         export { path_12 as path };
         const requestStream_12: boolean;
@@ -211,7 +211,7 @@ export namespace ControllerHostService {
         export { serialize_proto_StorageReadAllResponse as responseSerialize };
         export { deserialize_proto_StorageReadAllResponse as responseDeserialize };
     }
-    export namespace storageWrite {
+    namespace storageWrite {
         const path_13: string;
         export { path_13 as path };
         const requestStream_13: boolean;
@@ -227,7 +227,7 @@ export namespace ControllerHostService {
         export { serialize_proto_Empty as responseSerialize };
         export { deserialize_proto_Empty as responseDeserialize };
     }
-    export namespace updateWhisper {
+    namespace updateWhisper {
         const path_14: string;
         export { path_14 as path };
         const requestStream_14: boolean;
