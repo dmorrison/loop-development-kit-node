@@ -6,7 +6,7 @@
   "copyright": "Copyright 2020 Olive",
   "repository": {
     "type": "git",
-    "url": "git@github.com:open-olive/loop-development-kit-node.git"
+    "url": "https://github.com/open-olive/loop-development-kit-node.git"
   },
   "license": "MIT",
   "keywords": [
