@@ -11,7 +11,7 @@ Sidekick expects your library to start its Controller or Sensor GRPC server when
 - Create your `package.json` file.
 - Import the LDK.
 - Create your `main` script (usually `index.js` or `src/index.js`):
-    - Create an implementation object that satisfies the `Controller` or `Sensor` contracts/interfaces.
+    - Create an implementation object that satisfies the [[Controller]] or [[Sensor]] contracts/interfaces.
     - Initialize the appropriate plugin with your implementation and call `.serve` on it.
 
 #### Install the Package
