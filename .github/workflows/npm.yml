@@ -16,16 +16,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to NPM
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org/'
       - run: npm set audit false
       - run: npm ci
       - run: npm run build --if-present
+      - run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
       - run: npm publish --access public
         env:
           # `secrets.NPM_TOKEN` references a GitHub Secret configured for this repo or organization,
           # and is used to authenticate for the NPM publish command.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
