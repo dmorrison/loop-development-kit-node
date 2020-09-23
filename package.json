@@ -18,6 +18,9 @@
     "ldk",
     "sdk"
   ],
+  "engines": {
+    "node": ">=10 <15"
+  },
   "main": "dist/index.js",
   "bin": "./dist/bin/build.js",
   "scripts": {
