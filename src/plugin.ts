@@ -4,7 +4,7 @@ import services from './proto/loop_grpc_pb';
 import { prepareLogging } from './logging';
 import { HealthGrpcServer, HealthService } from './healthGrpcServer';
 import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
-import GRPCServer from "./grpcServer";
+import GRPCServer from './grpcServer';
 
 /** Class used to setup the GRPC server and host the controller service. */
 class Plugin {

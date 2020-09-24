@@ -2,7 +2,7 @@ import { mocked } from 'ts-jest/utils';
 import Services from './proto/loop_grpc_pb';
 import GrpcServer from './grpcServer';
 import Plugin from './plugin';
-import { prepareLogging } from "./logging";
+import { prepareLogging } from './logging';
 
 const mockedGrpc = mocked(GrpcServer);
 const mockedServices = mocked(Services.grpc.Server);
@@ -32,11 +32,11 @@ describe('Plugin', () => {
     it('calls server#start', async () => {
       plugin = new Plugin({} as any);
       const mockServer = mockedServices.mock.instances[0];
-      mocked(
-        mockServer.bindAsync,
-      ).mockImplementation((port, credentials, callback) => {
-        callback(null, 123);
-      });
+      mocked(mockServer.bindAsync).mockImplementation(
+        (port, credentials, callback) => {
+          callback(null, 123);
+        },
+      );
       await plugin.serve();
       expect(mockServer.start).toHaveBeenCalledTimes(1);
       expect(prepareLogging).toHaveBeenCalled();

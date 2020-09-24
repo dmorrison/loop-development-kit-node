@@ -3,10 +3,7 @@ import * as grpc from '@grpc/grpc-js';
 import { Deadline } from '@grpc/grpc-js';
 import * as Messages from './proto/storage_pb';
 
-export type Request<
-  TRequestType = Empty,
-  TResponseType = Empty
-> = (
+export type Request<TRequestType = Empty, TResponseType = Empty> = (
   request: TRequestType,
   callback: (error: grpc.ServiceError | null, response: TResponseType) => void,
 ) => void;
@@ -24,12 +21,12 @@ export interface StorageHostServer {
   storageHasKey: Request<
     Messages.StorageHasKeyRequest,
     Messages.StorageHasKeyResponse
-    >;
+  >;
   storageKeys: Request<Empty, Messages.StorageKeysResponse>;
   storageRead: Request<
     Messages.StorageReadRequest,
     Messages.StorageReadResponse
-    >;
+  >;
   storageReadAll: Request<Empty, Messages.StorageReadAllResponse>;
   storageWrite: Request<Messages.StorageWriteRequest>;
 }

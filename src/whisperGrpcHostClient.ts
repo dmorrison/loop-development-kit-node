@@ -9,7 +9,8 @@ import GrpcHostClient from './grpcHostClient';
  *
  * @internal
  */
-class WhisperGrpcHostClient extends GrpcHostClient<WhisperClient>
+class WhisperGrpcHostClient
+  extends GrpcHostClient<WhisperClient>
   implements WhisperHost {
   /**
    * Send a Whisper to the host process.

@@ -1,5 +1,5 @@
 import { WhisperHost } from './whisperHost';
-import {HostServices} from "./hostServices";
+import { HostServices } from './hostServices';
 
 /**
  * Your Controllers must implement this interface.

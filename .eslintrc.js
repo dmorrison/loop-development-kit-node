@@ -87,7 +87,7 @@ module.exports = {
         // Test functions don't need documentation.
         'jsdoc/require-jsdoc': ['off'],
       },
-      files: ['**/*.test.ts']
-    }
+      files: ['**/*.test.ts'],
+    },
   ],
 };
