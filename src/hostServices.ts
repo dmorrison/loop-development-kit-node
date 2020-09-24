@@ -1,7 +1,7 @@
-import WhisperGrpcHostClient from "./whisperGrpcHostClient";
-import StorageGrpcHostClient from "./storageGrpcHostClient";
+import { WhisperHost } from './whisperHost';
+import { StorageHost } from './storageHost';
 
 export interface HostServices {
-  whisperClient: WhisperGrpcHostClient;
-  storageClient: StorageGrpcHostClient;
+  whisperClient: WhisperHost;
+  storageClient: StorageHost;
 }
