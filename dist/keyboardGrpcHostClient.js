@@ -12,16 +12,16 @@ const transformTextStream = (message) => {
     let modifiers = null;
     if (message.hasModifiers()) {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const mods = message.getModifiers();
+        const mods = message.getModifiers().toObject();
         modifiers = {
-            ctrlL: mods.getCtrll(),
-            ctrlR: mods.getCtrlr(),
-            altL: mods.getAltl(),
-            altR: mods.getAltr(),
-            shiftL: mods.getShiftl(),
-            shiftR: mods.getShiftr(),
-            metaL: mods.getMetal(),
-            metaR: mods.getMetar(),
+            ctrlL: mods.ctrll,
+            ctrlR: mods.ctrlr,
+            altL: mods.altl,
+            altR: mods.altr,
+            shiftL: mods.shiftl,
+            shiftR: mods.shiftr,
+            metaL: mods.metal,
+            metaR: mods.metar,
         };
     }
     return {
