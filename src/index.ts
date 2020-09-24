@@ -1,7 +1,7 @@
 import access from './access';
 import categories from './categories';
 import operatingSystem from './operatingSystem';
-import ControllerPlugin from './controllerPlugin';
+import Plugin from './plugin';
 import { Loop } from './loop';
 import { Logger } from './logging';
 import { serveControllerPlugin } from './serve';
@@ -11,7 +11,7 @@ export {
   categories,
   operatingSystem,
   Loop,
-  ControllerPlugin,
+  Plugin,
   Logger,
   serveControllerPlugin,
 };

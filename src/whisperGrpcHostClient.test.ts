@@ -4,8 +4,8 @@ import Messages from './proto/whisper_pb';
 import WhisperGrpcHostClient from './whisperGrpcHostClient';
 import { ConnInfo } from './proto/broker_pb';
 
-jest.mock('./proto/ldk_pb');
-jest.mock('./proto/ldk_grpc_pb');
+jest.mock('./proto/whisper_pb');
+jest.mock('./proto/whisper_grpc_pb');
 
 const WHISPER_ID = '1234-abcd';
 const hostClient = mocked(Services.WhisperClient);
@@ -38,8 +38,8 @@ describe('WhisperGrpcHostClient', () => {
     waitForReadyMock = jest.fn().mockImplementation(createCallbackHandler());
     hostClient.mockImplementation(() => {
       return {
-        emitWhisper: emitWhisperMock,
-        updateWhisper: updateWhisperMock,
+        whisperNew: emitWhisperMock,
+        whisperUpdate: updateWhisperMock,
         waitForReady: waitForReadyMock,
       } as any;
     });

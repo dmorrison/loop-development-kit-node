@@ -1,5 +1,5 @@
 import { Loop } from './loop';
-import ControllerPlugin from './controllerPlugin';
+import Plugin from './plugin';
 
 /**
  * Takes a controller implementation and launches the plugin.
@@ -7,6 +7,6 @@ import ControllerPlugin from './controllerPlugin';
  * @param controller - The controller implementation.
  */
 export function serveControllerPlugin(controller: Loop): void {
-  const plugin = new ControllerPlugin(controller);
+  const plugin = new Plugin(controller);
   plugin.serve();
 }

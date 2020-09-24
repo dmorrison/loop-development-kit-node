@@ -5,8 +5,8 @@ import Messages from './proto/storage_pb';
 import { ConnInfo } from './proto/broker_pb';
 import StorageGrpcHostClient from "./storageGrpcHostClient";
 
-jest.mock('./proto/ldk_pb');
-jest.mock('./proto/ldk_grpc_pb');
+jest.mock('./proto/storage_pb');
+jest.mock('./proto/storage_grpc_pb');
 
 const hostClient = mocked(Services.StorageClient);
 

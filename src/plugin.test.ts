@@ -1,14 +1,14 @@
 import { mocked } from 'ts-jest/utils';
 import Services from './proto/loop_grpc_pb';
 import GrpcServer from './grpcServer';
-import ControllerPlugin from './controllerPlugin';
+import Plugin from './plugin';
 import { prepareLogging } from "./logging";
 
 const mockedGrpc = mocked(GrpcServer);
 const mockedServices = mocked(Services.grpc.Server);
 
-jest.mock('./controllerGrpcServer');
-jest.mock('./proto/ldk_grpc_pb');
+jest.mock('./grpcServer');
+jest.mock('./proto/loop_grpc_pb');
 jest.mock('./logging');
 
 beforeEach(() => {
@@ -16,11 +16,11 @@ beforeEach(() => {
   mockedServices.mockClear();
 });
 
-describe('ControllerPlugin', () => {
-  let plugin: ControllerPlugin;
+describe('Plugin', () => {
+  let plugin: Plugin;
   describe('constructor', () => {
     it('consumes the mocked module', () => {
-      plugin = new ControllerPlugin({} as any);
+      plugin = new Plugin({} as any);
       expect(GrpcServer).toHaveBeenCalledTimes(1);
       expect(Services.grpc.Server).toHaveBeenCalledTimes(1);
       const mockServer = mockedServices.mock.instances[0];
@@ -30,7 +30,7 @@ describe('ControllerPlugin', () => {
   });
   describe('#serve', () => {
     it('calls server#start', async () => {
-      plugin = new ControllerPlugin({} as any);
+      plugin = new Plugin({} as any);
       const mockServer = mockedServices.mock.instances[0];
       mocked(
         mockServer.bindAsync,

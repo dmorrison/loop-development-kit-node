@@ -7,7 +7,7 @@ import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
 import GRPCServer from "./grpcServer";
 
 /** Class used to setup the GRPC server and host the controller service. */
-class ControllerPlugin {
+class Plugin {
   private server: services.grpc.Server;
 
   private broker: BrokerGrpcServer;
@@ -56,4 +56,4 @@ class ControllerPlugin {
   }
 }
 
-export default ControllerPlugin;
+export default Plugin;
