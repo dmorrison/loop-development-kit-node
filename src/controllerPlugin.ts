@@ -1,11 +1,10 @@
-/** @module controllerPlugin */
-import ControllerGrpcServer from './controllerGrpcServer';
 import BrokerGrpcServer from './brokerGrpcServer';
-import { Controller } from './controller';
-import services from './proto/ldk_grpc_pb';
+import { Loop } from './loop';
+import services from './proto/loop_grpc_pb';
 import { prepareLogging } from './logging';
 import { HealthGrpcServer, HealthService } from './healthGrpcServer';
 import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
+import GRPCServer from "./grpcServer";
 
 /** Class used to setup the GRPC server and host the controller service. */
 class ControllerPlugin {
@@ -13,7 +12,7 @@ class ControllerPlugin {
 
   private broker: BrokerGrpcServer;
 
-  private controller: ControllerGrpcServer;
+  private controller: GRPCServer;
 
   /**
    * Create a ControllerPlugin.
@@ -23,14 +22,14 @@ class ControllerPlugin {
    * new ControllerPlugin(myController);
    * ```
    */
-  constructor(impl: Controller) {
+  constructor(impl: Loop) {
     this.server = new services.grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
     /* eslint-disable @typescript-eslint/no-explicit-any */
     this.server.addService(HealthService, new HealthGrpcServer() as any);
     this.server.addService(StdioService, new StdioGrpcServer() as any);
     /* eslint-enable @typescript-eslint/no-explicit-any */
-    this.controller = new ControllerGrpcServer(this.server, impl, this.broker);
+    this.controller = new GRPCServer(this.server, this.broker, impl);
   }
 
   /**

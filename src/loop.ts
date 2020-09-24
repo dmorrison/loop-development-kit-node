@@ -1,4 +1,3 @@
-import { PluginEvent } from './pluginEvent';
 import { ControllerHost } from './controllerHost';
 
 /**
@@ -41,7 +40,7 @@ import { ControllerHost } from './controllerHost';
  * }
  * ```
  */
-export interface Controller {
+export interface Loop {
   /**
    * Executed when the host starts the plugin.
    * The plugin should not do anything before this is called.
@@ -54,11 +53,4 @@ export interface Controller {
    * All plugin activity should stop when this is called.
    */
   stop(): void;
-
-  /**
-   * The host will send events to the plugin by calling this function.
-   *
-   * @param event
-   */
-  onEvent(event: PluginEvent): void;
 }

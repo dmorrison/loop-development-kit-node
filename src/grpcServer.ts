@@ -1,31 +1,26 @@
-import { ServiceDefinition } from '@grpc/grpc-js';
-import services, { grpc } from './proto/ldk_grpc_pb';
+import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
+import services, { grpc } from './proto/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
-import messages from './proto/ldk_pb';
-import { categories } from './categories';
+import messages from './proto/loop_pb';
 import { LoopPlugin } from './loopPlugin';
-import { CommonHostClient } from './commonHostClient';
+import { Loop } from './loop';
+import WhisperGrpcHostClient from './whisperGrpcHostClient';
 
 /**
  * @internal
  */
-export default abstract class GRPCServer<
-  THostClient extends CommonHostClient,
-  TImplementation extends LoopPlugin<THostClient>
-> {
+export default class GRPCServer {
   protected broker: BrokerGrpcServer;
 
   constructor(
     server: services.grpc.Server,
     broker: BrokerGrpcServer,
-    impl: TImplementation,
-    definition: ServiceDefinition,
+    impl: Loop,
   ) {
     this.broker = broker;
-    server.addService(definition, {
-      start: this.start(impl),
-      stop: this.stop(impl),
-      onEvent: this.onEvent(impl),
+    server.addService(services.LoopService, {
+      loopStart: this.start(impl),
+      loopStop: this.stop(impl),
     });
   }
 
@@ -34,11 +29,10 @@ export default abstract class GRPCServer<
    *
    * @param impl - The implementation of the sensor.
    */
-  start(
-    impl: TImplementation,
-  ): grpc.handleUnaryCall<messages.StartRequest, messages.Empty> {
+  start(impl: Loop): grpc.handleUnaryCall<messages.LoopStartRequest, Empty> {
     return async (call, callback) => {
       const connInfo = await this.broker.getConnInfo();
+      // TODO: Replace with creating all hosts.
       const hostClient = this.createHost();
 
       await hostClient.connect(connInfo).catch((err) => {
@@ -46,7 +40,7 @@ export default abstract class GRPCServer<
       });
       await impl.start(hostClient);
 
-      const response = new messages.Empty();
+      const response = new Empty();
       callback(null, response);
     };
   }
@@ -56,61 +50,16 @@ export default abstract class GRPCServer<
    *
    * @param impl - The implementation of the sensor.
    */
-  stop(
-    impl: TImplementation,
-  ): grpc.handleUnaryCall<messages.Empty, messages.Empty> {
+  stop(impl: Loop): grpc.handleUnaryCall<Empty, Empty> {
     return async (call, callback) => {
       await impl.stop();
 
-      const response = new messages.Empty();
+      const response = new Empty();
       callback(null, response);
     };
   }
 
-  /**
-   * Called by the host to broadcast events to the sensor implementation.
-   *
-   * @async
-   * @param impl - The implementation of the sensor.
-   */
-  onEvent(
-    impl: TImplementation,
-  ): grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty> {
-    return async ({ request }, callback) => {
-      const source = request?.getSource();
-      if (request && source) {
-        const event = {
-          data: request
-            .getDataMap()
-            .toObject()
-            .reduce((acc: { [index: string]: string }, [key, value]) => {
-              acc[key] = value;
-              return acc;
-            }, {}),
-          source: {
-            author: source.getAuthor(),
-            category: categories[source.getCategory()],
-            icon: source.getIcon(),
-            id: source.getId(),
-            name: source.getName(),
-            organization: source.getOrganization(),
-            uploadId: source.getUploadid(),
-            version: source.getVersion(),
-          },
-        };
-        await impl.onEvent(event);
-      }
-
-      const response = new messages.Empty();
-      callback(null, response);
-    };
+  createHost(): WhisperGrpcHostClient {
+    throw new Error('Not Implemented');
   }
-
-  /**
-   * Implementations should return a new instance of THostClient.
-   *
-   * @protected
-   * @abstract
-   */
-  protected abstract createHost(): THostClient;
 }

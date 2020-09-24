@@ -1,10 +1,11 @@
+import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import * as grpc from '@grpc/grpc-js';
 import { Deadline } from '@grpc/grpc-js';
-import * as Messages from './proto/ldk_pb';
+import * as Messages from './proto/storage_pb';
 
 export type Request<
-  TRequestType = Messages.Empty,
-  TResponseType = Messages.Empty
+  TRequestType = Empty,
+  TResponseType = Empty
 > = (
   request: TRequestType,
   callback: (error: grpc.ServiceError | null, response: TResponseType) => void,
@@ -15,18 +16,20 @@ export type Request<
  */
 export interface CommonHostServer {
   waitForReady(deadline: Deadline, callback: (error?: Error) => void): void;
+}
 
+export interface StorageHostServer {
   storageDelete: Request<Messages.StorageDeleteRequest>;
   storageDeleteAll: Request;
   storageHasKey: Request<
     Messages.StorageHasKeyRequest,
     Messages.StorageHasKeyResponse
-  >;
-  storageKeys: Request<Messages.Empty, Messages.StorageKeysResponse>;
+    >;
+  storageKeys: Request<Empty, Messages.StorageKeysResponse>;
   storageRead: Request<
     Messages.StorageReadRequest,
     Messages.StorageReadResponse
-  >;
-  storageReadAll: Request<Messages.Empty, Messages.StorageReadAllResponse>;
+    >;
+  storageReadAll: Request<Empty, Messages.StorageReadAllResponse>;
   storageWrite: Request<Messages.StorageWriteRequest>;
 }

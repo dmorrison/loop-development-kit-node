@@ -1,4 +1,3 @@
-import { grpc } from './proto/ldk_grpc_pb';
 import services from './proto/broker_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
 
@@ -17,7 +16,7 @@ export default class BrokerGrpcServer {
    * @example
    * BrokerGrpcServer(server);
    */
-  constructor(server: grpc.Server) {
+  constructor(server: services.grpc.Server) {
     let connInfoCallback!: (connInf: ConnInfo.AsObject) => void;
     this.connInfoPromise = new Promise((resolve) => {
       connInfoCallback = (connInfo: ConnInfo.AsObject) => {
@@ -44,7 +43,7 @@ export default class BrokerGrpcServer {
    */
   startStream(
     connInfoCallback: (connInfo: ConnInfo.AsObject) => void,
-  ): grpc.handleBidiStreamingCall<ConnInfo, ConnInfo> {
+  ): services.grpc.handleBidiStreamingCall<ConnInfo, ConnInfo> {
     return (call) => {
       call.on('data', (msg: ConnInfo) => {
         const connInfo: ConnInfo.AsObject = {

@@ -2,21 +2,16 @@ import access from './access';
 import categories from './categories';
 import operatingSystem from './operatingSystem';
 import ControllerPlugin from './controllerPlugin';
-import SensorPlugin from './sensorPlugin';
-import { Controller } from './controller';
+import { Loop } from './loop';
 import { Logger } from './logging';
-import { Sensor } from './sensor';
-import { serveControllerPlugin, serveSensorPlugin } from './serve';
+import { serveControllerPlugin } from './serve';
 
 export {
   access,
   categories,
   operatingSystem,
-  Controller,
+  Loop,
   ControllerPlugin,
-  Sensor,
-  SensorPlugin,
   Logger,
   serveControllerPlugin,
-  serveSensorPlugin,
 };

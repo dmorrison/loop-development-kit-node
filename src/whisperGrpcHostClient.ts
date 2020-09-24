@@ -1,6 +1,6 @@
 import { Whisper } from './whisper';
-import messages from './proto/ldk_pb';
-import { ControllerHostClient, grpc } from './proto/ldk_grpc_pb';
+import messages from './proto/whisper_pb';
+import { WhisperClient, grpc } from './proto/whisper_grpc_pb';
 import { ControllerHost } from './controllerHost';
 import GrpcHostClient from './grpcHostClient';
 
@@ -9,7 +9,7 @@ import GrpcHostClient from './grpcHostClient';
  *
  * @internal
  */
-class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
+class WhisperGrpcHostClient extends GrpcHostClient<WhisperClient>
   implements ControllerHost {
   /**
    * Send a Whisper to the host process.
@@ -20,9 +20,9 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
    */
   emitWhisper(whisper: Whisper): Promise<Error | string> {
     return new Promise((resolve, reject) => {
-      const request = new messages.EmitWhisperRequest();
+      const request = new messages.WhisperNewRequest();
 
-      const style = new messages.Style();
+      const style = new messages.WhisperStyle();
       if (whisper.style) {
         style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
         style.setPrimarycolor(whisper.style.primaryColor || '#666');
@@ -33,7 +33,7 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
         style.setHighlightcolor('#651fff');
       }
 
-      const whisperMsg = new messages.Whisper();
+      const whisperMsg = new messages.WhisperMsg();
       whisperMsg.setMarkdown(whisper.markdown);
       whisperMsg.setLabel(whisper.label);
       whisperMsg.setStyle(style);
@@ -41,7 +41,7 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
 
       request.setWhisper(whisperMsg);
 
-      this.client.emitWhisper(request, (err, response) => {
+      this.client.whisperNew(request, (err, response) => {
         if (err) {
           return reject(err);
         }
@@ -66,9 +66,9 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
         return reject(new Error('missing required property id'));
       }
 
-      const request = new messages.UpdateWhisperRequest();
+      const request = new messages.WhisperUpdateRequest();
 
-      const style = new messages.Style();
+      const style = new messages.WhisperStyle();
       if (whisper.style) {
         style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
         style.setPrimarycolor(whisper.style.primaryColor || '#666');
@@ -79,7 +79,7 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
         style.setHighlightcolor('#651fff');
       }
 
-      const whisperMsg = new messages.Whisper();
+      const whisperMsg = new messages.WhisperMsg();
       whisperMsg.setMarkdown(whisper.markdown);
       whisperMsg.setLabel(whisper.label);
       whisperMsg.setStyle(style);
@@ -88,7 +88,7 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
       request.setWhisper(whisperMsg);
       request.setId(id);
 
-      return this.client.updateWhisper(request, (err) => {
+      return this.client.whisperUpdate(request, (err) => {
         if (err) {
           return reject(err);
         }
@@ -98,9 +98,9 @@ class ControllerGrpcHostClient extends GrpcHostClient<ControllerHostClient>
     });
   }
 
-  protected generateClient(address: string): ControllerHostClient {
-    return new ControllerHostClient(address, grpc.credentials.createInsecure());
+  protected generateClient(address: string): WhisperClient {
+    return new WhisperClient(address, grpc.credentials.createInsecure());
   }
 }
 
-export default ControllerGrpcHostClient;
+export default WhisperGrpcHostClient;
