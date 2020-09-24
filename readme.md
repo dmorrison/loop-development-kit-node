@@ -2,11 +2,18 @@
 
 ## Developing
 
+### Prerequisites
+
+You should have the following installed:
+
+- Node 10+
+- Olive Helps
+
 ### Setup
 
 #### Setting Up Your Plugin
 
-Sidekick expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:
+Olive Helps expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:
 
 - Create your `package.json` file.
 - Import the LDK.
@@ -27,7 +34,7 @@ npm i @oliveai/ldk -P
 Here's an example main script for a Controller plugin:
 
 ```javascript
-const { serveControllerPlugin, Logger } = require('ldk');
+const { serveControllerPlugin, Logger } = require('@oliveai/ldk');
 const Controller = require('./controller'); // Constructor that generates objects meeting the Controller interface.
 
 const logger = new Logger('example-loop');
@@ -40,7 +47,7 @@ serveControllerPlugin(impl);
 Here's an example main script for a Sensor plugin:
 
 ```javascript
-const { serveSensorPlugin, Logger } = require('ldk');
+const { serveSensorPlugin, Logger } = require('@oliveai/ldk');
 const Sensor = require('./sensor'); // Constructor that generates objects meeting the Sensor interface.
 
 const logger = new Logger('example-loop');
@@ -52,9 +59,9 @@ serveSensorPlugin(impl);
 
 #### Local Plugin Command (Recommended)
 
-Sidekick lets you add a local command as Local Plugins:
+Olive Helps lets you add a local command as Local Plugins:
 
-1. Open Sidekick.
+1. Open Olive Helps.
 2. Open the Loop Library:
     1. Click the Hamburger icon.
     2. Click Loop Library.
@@ -72,7 +79,7 @@ Instructions to come! We're always working on improving the LDK developer experi
 
 ### Troubleshooting and Debugging
 
-Sidekick logs are available in the following directories for your OS:
+Olive Helps logs are available in the following directories for your OS:
 
 ```shell
 ~/Library/Logs/Sidekick # MacOS
@@ -84,7 +91,7 @@ Sidekick logs are available in the following directories for your OS:
 
 ## Deploying
 
-Sidekick expects the following files when running a plugin:
+Olive Helps expects the following files when running a plugin:
 
 `plugin` - An executable that runs your plugin.
 `plugin.json` - Your plugin configuration file.
@@ -142,23 +149,23 @@ Each storage key you access must be specified in the `storage.json` file.
 
 ### Plugins
 
-The LDK is a plugin system for Sidekick. The LDK is built with [go-plugin](https://github.com/hashicorp/go-plugin), a HashiCorp plugin system used in several of their projects.
+The LDK is a plugin system for Olive Helps. The LDK is built with [go-plugin](https://github.com/hashicorp/go-plugin), a HashiCorp plugin system used in several of their projects.
 
-Plugins developed with this library are executed by Sidekick as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Sidekick process.
+Plugins developed with this library are executed by Olive Helps as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Olive Helps process.
 
-Communication between Sidekick and the plugin is first initialized over stdio and then performed using [GRPC](https://grpc.io/). On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.
+Communication between Olive Helps and the plugin is first initialized over stdio and then performed using [GRPC](https://grpc.io/). On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.
 
-> NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.
+> NOTE: Currently, communication from Olive Helps to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.
 
 ### Controllers
 
-This LDK can be used to write controllers for Sidekick. More detail about controllers is available on the {@page Controllers} page.
+This LDK can be used to write controllers for Olive Helps. More detail about controllers is available on the {@page Controllers} page.
 
 - [Basic Controller Example](https://github.com/open-olive/sidekick-controller-examplenode) - Recommend using as a starting point for new Controllers.
 
 ### Sensors
 
-This LDK can be used to write sensors for Sidekick. More detail about sensors is available on the {@page Sensors} page.
+This LDK can be used to write sensors for Olive Helps. More detail about sensors is available on the {@page Sensors} page.
 
 - [Basic Sensor Example](https://github.com/open-olive/sidekick-sensor-examplenode) - Recommend using as a starting point for new Sensors.
 

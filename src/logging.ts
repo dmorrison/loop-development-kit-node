@@ -17,7 +17,7 @@ enum LogLevels {
   ERROR = 'ERROR',
 }
 
-/** Logger is a supported way to get logs to Sidekick in the expected format. */
+/** Logger is a supported way to get logs to Olive Helps in the expected format. */
 class Logger {
   private _name: string;
 

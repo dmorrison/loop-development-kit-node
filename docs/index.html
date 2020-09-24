@@ -69,13 +69,21 @@
 				<a href="#developing" id="developing" style="color: inherit; text-decoration: none;">
 					<h2>Developing</h2>
 				</a>
+				<a href="#prerequisites" id="prerequisites" style="color: inherit; text-decoration: none;">
+					<h3>Prerequisites</h3>
+				</a>
+				<p>You should have the following installed:</p>
+				<ul>
+					<li>Node 10+</li>
+					<li>Olive Helps</li>
+				</ul>
 				<a href="#setup" id="setup" style="color: inherit; text-decoration: none;">
 					<h3>Setup</h3>
 				</a>
 				<a href="#setting-up-your-plugin" id="setting-up-your-plugin" style="color: inherit; text-decoration: none;">
 					<h4>Setting Up Your Plugin</h4>
 				</a>
-				<p>Sidekick expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:</p>
+				<p>Olive Helps expects your library to start its Controller or Sensor GRPC server when launched. The LDK takes care of most of that for you, what you need to do is:</p>
 				<ul>
 					<li>Create your <code>package.json</code> file.</li>
 					<li>Import the LDK.</li>
@@ -94,7 +102,7 @@
 					<h5>Example Controller</h5>
 				</a>
 				<p>Here&#39;s an example main script for a Controller plugin:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { serveControllerPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;ldk&#x27;</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { serveControllerPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@oliveai/ldk&#x27;</span>);
 <span class="hljs-keyword">const</span> Controller = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./controller&#x27;</span>); <span class="hljs-comment">// Constructor that generates objects meeting the Controller interface.</span>
 
 <span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">&#x27;example-loop&#x27;</span>);
@@ -104,7 +112,7 @@ serveControllerPlugin(impl);</code></pre>
 					<h5>Example Sensor</h5>
 				</a>
 				<p>Here&#39;s an example main script for a Sensor plugin:</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { serveSensorPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;ldk&#x27;</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> { serveSensorPlugin, Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@oliveai/ldk&#x27;</span>);
 <span class="hljs-keyword">const</span> Sensor = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./sensor&#x27;</span>); <span class="hljs-comment">// Constructor that generates objects meeting the Sensor interface.</span>
 
 <span class="hljs-keyword">const</span> logger = <span class="hljs-keyword">new</span> Logger(<span class="hljs-string">&#x27;example-loop&#x27;</span>);
@@ -116,9 +124,9 @@ serveSensorPlugin(impl);</code></pre>
 				<a href="#local-plugin-command-recommended" id="local-plugin-command-recommended" style="color: inherit; text-decoration: none;">
 					<h4>Local Plugin Command (Recommended)</h4>
 				</a>
-				<p>Sidekick lets you add a local command as Local Plugins:</p>
+				<p>Olive Helps lets you add a local command as Local Plugins:</p>
 				<ol>
-					<li>Open Sidekick.</li>
+					<li>Open Olive Helps.</li>
 					<li>Open the Loop Library:<ol>
 							<li>Click the Hamburger icon.</li>
 							<li>Click Loop Library.</li>
@@ -138,7 +146,7 @@ serveSensorPlugin(impl);</code></pre>
 				<a href="#troubleshooting-and-debugging" id="troubleshooting-and-debugging" style="color: inherit; text-decoration: none;">
 					<h3>Troubleshooting and Debugging</h3>
 				</a>
-				<p>Sidekick logs are available in the following directories for your OS:</p>
+				<p>Olive Helps logs are available in the following directories for your OS:</p>
 				<pre><code class="language-shell">~/Library/Logs/Sidekick # MacOS
 /var/log/Sidekick       # Linux
 <span class="hljs-meta">%</span><span class="bash">AppData%/Logs          <span class="hljs-comment"># Windows</span></span></code></pre>
@@ -146,7 +154,7 @@ serveSensorPlugin(impl);</code></pre>
 				<a href="#deploying" id="deploying" style="color: inherit; text-decoration: none;">
 					<h2>Deploying</h2>
 				</a>
-				<p>Sidekick expects the following files when running a plugin:</p>
+				<p>Olive Helps expects the following files when running a plugin:</p>
 				<p><code>plugin</code> - An executable that runs your plugin.
 					<code>plugin.json</code> - Your plugin configuration file.
 				<code>storage.json</code> - Your storage configuration file.</p>
@@ -196,23 +204,23 @@ ldk deploy # Deploys your project to the Application Support/Sidekick/plugins/co
 				<a href="#plugins" id="plugins" style="color: inherit; text-decoration: none;">
 					<h3>Plugins</h3>
 				</a>
-				<p>The LDK is a plugin system for Sidekick. The LDK is built with <a href="https://github.com/hashicorp/go-plugin">go-plugin</a>, a HashiCorp plugin system used in several of their projects.</p>
-				<p>Plugins developed with this library are executed by Sidekick as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Sidekick process.</p>
-				<p>Communication between Sidekick and the plugin is first initialized over stdio and then performed using <a href="https://grpc.io/">GRPC</a>. On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.</p>
+				<p>The LDK is a plugin system for Olive Helps. The LDK is built with <a href="https://github.com/hashicorp/go-plugin">go-plugin</a>, a HashiCorp plugin system used in several of their projects.</p>
+				<p>Plugins developed with this library are executed by Olive Helps as separate processes. This ensures that crashes or instability in the plugin will not destabilize the Olive Helps process.</p>
+				<p>Communication between Olive Helps and the plugin is first initialized over stdio and then performed using <a href="https://grpc.io/">GRPC</a>. On mac and linux the GRPC communication is sent over unix domain socket and on windows over local TCP socket.</p>
 				<blockquote>
-					<p>NOTE: Currently, communication from Sidekick to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.</p>
+					<p>NOTE: Currently, communication from Olive Helps to the plugin, takes place over local TCP socket on mac and linux. Communication from the plugin back to Sidekick still takes place over unix domain socket. This is due to a limitation of the GRPC libraries for NodeJS and will hopefully be fixed in the future.</p>
 				</blockquote>
 				<a href="#controllers" id="controllers" style="color: inherit; text-decoration: none;">
 					<h3>Controllers</h3>
 				</a>
-				<p>This LDK can be used to write controllers for Sidekick. More detail about controllers is available on the <a href="pages/Concepts/controller.html">Controllers</a> page.</p>
+				<p>This LDK can be used to write controllers for Olive Helps. More detail about controllers is available on the <a href="pages/Concepts/controller.html">Controllers</a> page.</p>
 				<ul>
 					<li><a href="https://github.com/open-olive/sidekick-controller-examplenode">Basic Controller Example</a> - Recommend using as a starting point for new Controllers.</li>
 				</ul>
 				<a href="#sensors" id="sensors" style="color: inherit; text-decoration: none;">
 					<h3>Sensors</h3>
 				</a>
-				<p>This LDK can be used to write sensors for Sidekick. More detail about sensors is available on the <a href="pages/Concepts/sensor.html">Sensors</a> page.</p>
+				<p>This LDK can be used to write sensors for Olive Helps. More detail about sensors is available on the <a href="pages/Concepts/sensor.html">Sensors</a> page.</p>
 				<ul>
 					<li><a href="https://github.com/open-olive/sidekick-sensor-examplenode">Basic Sensor Example</a> - Recommend using as a starting point for new Sensors.</li>
 				</ul>
