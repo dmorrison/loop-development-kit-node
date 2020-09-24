@@ -1,13 +1,15 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import GrpcHostClient from "./grpcHostClient";
-import { StorageClient, grpc } from "./proto/storage_grpc_pb";
-import messages from "./proto/storage_pb";
+import GrpcHostClient from './grpcHostClient';
+import { StorageClient, grpc } from './proto/storage_grpc_pb';
+import messages from './proto/storage_pb';
+import { StorageHost } from './storageHost';
 
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
-export default class StorageGrpcHostClient extends GrpcHostClient<StorageClient> {
-
+export default class StorageGrpcHostClient
+  extends GrpcHostClient<StorageClient>
+  implements StorageHost {
   /**
    * Delete a key from storage.
    *
@@ -184,5 +186,4 @@ export default class StorageGrpcHostClient extends GrpcHostClient<StorageClient>
   protected generateClient(address: string): StorageClient {
     return new StorageClient(address, grpc.credentials.createInsecure());
   }
-
 }

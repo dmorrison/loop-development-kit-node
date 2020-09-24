@@ -1,4 +1,4 @@
-import { ControllerHost } from './controllerHost';
+import { WhisperHost } from './whisperHost';
 import {HostServices} from "./hostServices";
 
 /**

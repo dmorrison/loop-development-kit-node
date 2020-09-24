@@ -1,5 +1,3 @@
-import { PluginEvent } from './pluginEvent';
-
 /**
  * Internal version of the plugin interface.
  *

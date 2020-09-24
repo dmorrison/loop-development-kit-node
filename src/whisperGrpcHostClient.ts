@@ -1,7 +1,7 @@
 import { Whisper } from './whisper';
 import messages from './proto/whisper_pb';
 import { WhisperClient, grpc } from './proto/whisper_grpc_pb';
-import { ControllerHost } from './controllerHost';
+import { WhisperHost } from './whisperHost';
 import GrpcHostClient from './grpcHostClient';
 
 /**
@@ -10,7 +10,7 @@ import GrpcHostClient from './grpcHostClient';
  * @internal
  */
 class WhisperGrpcHostClient extends GrpcHostClient<WhisperClient>
-  implements ControllerHost {
+  implements WhisperHost {
   /**
    * Send a Whisper to the host process.
    *
