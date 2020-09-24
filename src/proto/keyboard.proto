@@ -1,0 +1,57 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+import "google/protobuf/empty.proto";
+
+service Keyboard {
+    // register a hotkey and receive streamed messages when it is pressed
+    rpc KeyboardHotkeyStream (KeyboardHotkeyStreamRequest) returns (stream KeyboardHotkeyStreamResponse);
+
+    // stream each scancode as it is pressed
+    rpc KeyboardScancodeStream (google.protobuf.Empty) returns (stream KeyboardScancodeStreamResponse);
+
+    // stream chunks of text when the user finishes typing them
+    rpc KeyboardTextChunkStream (google.protobuf.Empty) returns (stream KeyboardTextChunkStreamResponse);
+
+    // stream text as it is typed
+    rpc KeyboardTextStream (google.protobuf.Empty) returns (stream KeyboardTextStreamResponse);
+}
+
+message KeyboardModifiers {
+    bool altL = 1;
+    bool altR = 2;
+    bool ctrlL = 3;
+    bool ctrlR = 4;
+    bool metaL = 5;
+    bool metaR = 6;
+    bool shiftL = 7;
+    bool shiftR = 8;
+}
+
+message KeyboardHotkey {
+    int32 scancode = 1;
+    KeyboardModifiers modifiers = 2;
+}
+
+message KeyboardHotkeyStreamRequest {
+    repeated KeyboardHotkey hotkeys = 1;
+}
+
+message KeyboardHotkeyStreamResponse {
+    bool pressed = 2;
+}
+
+message KeyboardScancodeStreamResponse {
+    int32 scancode = 1;
+    bool pressed = 2;
+}
+
+message KeyboardTextChunkStreamResponse {
+    string text = 1;
+}
+
+message KeyboardTextStreamResponse {
+    string text = 1;
+    KeyboardModifiers modifiers = 2;
+}
