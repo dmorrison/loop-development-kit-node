@@ -1,4 +1,4 @@
-import { grpc } from './proto/ldk_grpc_pb';
+import services from './proto/broker_grpc_pb';
 import { ConnInfo } from './proto/broker_pb';
 /**
  * Class used to interact with the broker GRPC service.
@@ -14,7 +14,7 @@ export default class BrokerGrpcServer {
      * @example
      * BrokerGrpcServer(server);
      */
-    constructor(server: grpc.Server);
+    constructor(server: services.grpc.Server);
     /**
      * This callback is called when connection info is received from the host process.
      *
@@ -27,7 +27,7 @@ export default class BrokerGrpcServer {
      * @param connInfoCallback
      * - The callback that handles receiving connection info.
      */
-    startStream(connInfoCallback: (connInfo: ConnInfo.AsObject) => void): grpc.handleBidiStreamingCall<ConnInfo, ConnInfo>;
+    startStream(connInfoCallback: (connInfo: ConnInfo.AsObject) => void): services.grpc.handleBidiStreamingCall<ConnInfo, ConnInfo>;
     /**
      * Returns a promise which resolves to the connection information for the host process.
      *

@@ -7,27 +7,14 @@ import {
   TransformingStreamer,
 } from './transformingStreamer';
 import { ReadableStream } from './readableStream';
-
-interface KeyboardModifiers {
-  altL: boolean;
-  altR: boolean;
-  ctrlL: boolean;
-  ctrlR: boolean;
-  metaL: boolean;
-  metaR: boolean;
-  shiftL: boolean;
-  shiftR: boolean;
-}
-
-interface TextStream {
-  text: string;
-  modifiers: KeyboardModifiers | null;
-}
-
-interface KeyboardHost {
-  textChunks(listener: (input: string) => void): ReadableStream<string>;
-  textStream(listener: (input: TextStream) => void): ReadableStream<TextStream>;
-}
+import {
+  HotKeyEvent,
+  HotKeyRequest,
+  KeyboardHost,
+  KeyboardModifiers,
+  ScanCodeEvent,
+  TextStream,
+} from './keyboardHost';
 
 const transformTextStream: StreamTransformer<
   messages.KeyboardTextStreamResponse,
@@ -54,18 +41,71 @@ const transformTextStream: StreamTransformer<
   };
 };
 
-class KeyboardGrpcHostClient
+const transformScanCodeStream: StreamTransformer<
+  messages.KeyboardScancodeStreamResponse,
+  ScanCodeEvent
+> = (message) => {
+  return {
+    scanCode: message.getScancode(),
+    direction: message.getPressed() ? 'down' : 'up',
+  };
+};
+
+/**
+ * @param keys
+ */
+function generateHotkeyStreamRequest(
+  keys: HotKeyRequest[],
+): messages.KeyboardHotkeyStreamRequest {
+  const keyMessages = keys.map((keyRequest) => {
+    const request = new messages.KeyboardHotkey();
+    const modifiers = new messages.KeyboardModifiers();
+    modifiers.setAltl(keyRequest.modifiers.altL ?? false);
+    modifiers.setAltr(keyRequest.modifiers.altR ?? false);
+    modifiers.setCtrll(keyRequest.modifiers.ctrlL ?? false);
+    modifiers.setCtrlr(keyRequest.modifiers.ctrlR ?? false);
+    modifiers.setShiftl(keyRequest.modifiers.shiftL ?? false);
+    modifiers.setShiftr(keyRequest.modifiers.shiftR ?? false);
+    modifiers.setMetal(keyRequest.modifiers.metaL ?? false);
+    modifiers.setMetar(keyRequest.modifiers.metaR ?? false);
+    request.setScancode(keyRequest.scanCode);
+    request.setModifiers(modifiers);
+    return request;
+  });
+  const message = new messages.KeyboardHotkeyStreamRequest();
+  message.setHotkeysList(keyMessages);
+  return message;
+}
+
+const transformHotKeyEvent: StreamTransformer<
+  messages.KeyboardHotkeyStreamResponse,
+  HotKeyEvent
+> = (message) => {
+  return {
+    direction: message.getPressed() ? 'down' : 'up',
+  };
+};
+
+export default class KeyboardGrpcHostClient
   extends GrpcHostClient<KeyboardClient>
   implements KeyboardHost {
+  hotKeyStream(
+    hotKeys: HotKeyRequest[],
+    listener: (input: HotKeyEvent) => void,
+  ): ReadableStream<HotKeyEvent> {
+    const message = generateHotkeyStreamRequest(hotKeys);
+    return new TransformingStreamer(
+      this.client.keyboardHotkeyStream(message),
+      transformHotKeyEvent,
+      listener,
+    );
+  }
+
   textChunks(): ReadableStream<string> {
     return new TransformingStreamer(
       this.client.keyboardTextChunkStream(new Empty()),
       (response) => response.getText(),
     );
-  }
-
-  protected generateClient(address: string): KeyboardClient {
-    return new KeyboardClient(address, grpc.credentials.createInsecure());
   }
 
   textStream(
@@ -76,5 +116,19 @@ class KeyboardGrpcHostClient
       transformTextStream,
       listener,
     );
+  }
+
+  scanCodeStream(
+    listener: (input: ScanCodeEvent) => void,
+  ): ReadableStream<ScanCodeEvent> {
+    return new TransformingStreamer(
+      this.client.keyboardScancodeStream(new Empty()),
+      transformScanCodeStream,
+      listener,
+    );
+  }
+
+  protected generateClient(address: string): KeyboardClient {
+    return new KeyboardClient(address, grpc.credentials.createInsecure());
   }
 }

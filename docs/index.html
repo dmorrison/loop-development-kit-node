@@ -88,7 +88,7 @@
 					<li>Create your <code>package.json</code> file.</li>
 					<li>Import the LDK.</li>
 					<li>Create your <code>main</code> script (usually <code>index.js</code> or <code>src/index.js</code>):<ul>
-							<li>Create an implementation object that satisfies the <a href="interfaces/controller.html">Controller</a> or <a href="interfaces/sensor.html">Sensor</a> contracts/interfaces.</li>
+							<li>Create an implementation object that satisfies the [[Controller]] or [[Sensor]] contracts/interfaces.</li>
 							<li>Initialize the appropriate plugin with your implementation and call <code>.serve</code> on it.</li>
 						</ul>
 					</li>
@@ -274,40 +274,70 @@ ldk deploy # Deploys your project to the Application Support/Sidekick/plugins/co
 						<a href="enums/operatingsystem.html" class="tsd-kind-icon">Operating<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/controllerplugin.html" class="tsd-kind-icon">Controller<wbr>Plugin</a>
+						<a href="classes/hostclientfacade.html" class="tsd-kind-icon">Host<wbr>Client<wbr>Facade</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/keyboardgrpchostclient.html" class="tsd-kind-icon">Keyboard<wbr>Grpc<wbr>Host<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/sensorplugin.html" class="tsd-kind-icon">Sensor<wbr>Plugin</a>
+						<a href="classes/plugin.html" class="tsd-kind-icon">Plugin</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/storagegrpchostclient.html" class="tsd-kind-icon">Storage<wbr>Grpc<wbr>Host<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/transformingstreamer.html" class="tsd-kind-icon">Transforming<wbr>Streamer</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/controller.html" class="tsd-kind-icon">Controller</a>
+						<a href="interfaces/hostservices.html" class="tsd-kind-icon">Host<wbr>Services</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/controllerhost.html" class="tsd-kind-icon">Controller<wbr>Host</a>
+						<a href="interfaces/hotkeyevent.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/pluginevent.html" class="tsd-kind-icon">Plugin<wbr>Event</a>
+						<a href="interfaces/hotkeyrequest.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Request</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/pluginhost.html" class="tsd-kind-icon">Plugin<wbr>Host</a>
+						<a href="interfaces/keyboardhost.html" class="tsd-kind-icon">Keyboard<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/sensor.html" class="tsd-kind-icon">Sensor</a>
+						<a href="interfaces/keyboardmodifiers.html" class="tsd-kind-icon">Keyboard<wbr>Modifiers</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/sensorhost.html" class="tsd-kind-icon">Sensor<wbr>Host</a>
+						<a href="interfaces/loop.html" class="tsd-kind-icon">Loop</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/readablestream.html" class="tsd-kind-icon">Readable<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/scancodeevent.html" class="tsd-kind-icon">Scan<wbr>Code<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/storagehost.html" class="tsd-kind-icon">Storage<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/storagehostserver.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/textstream.html" class="tsd-kind-icon">Text<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/whisper.html" class="tsd-kind-icon">Whisper</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/whisperhost.html" class="tsd-kind-icon">Whisper<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="globals.html#request" class="tsd-kind-icon">Request</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#streamtransformer" class="tsd-kind-icon">Stream<wbr>Transformer</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#categories" class="tsd-kind-icon">categories</a>
@@ -325,10 +355,19 @@ ldk deploy # Deploys your project to the Application Support/Sidekick/plugins/co
 						<a href="globals.html#program" class="tsd-kind-icon">program</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#generatehotkeystreamrequest" class="tsd-kind-icon">generate<wbr>Hotkey<wbr>Stream<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a>
+						<a href="globals.html#transformhotkeyevent" class="tsd-kind-icon">transform<wbr>Hot<wbr>Key<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#transformscancodestream" class="tsd-kind-icon">transform<wbr>Scan<wbr>Code<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#transformtextstream" class="tsd-kind-icon">transform<wbr>Text<wbr>Stream</a>
 					</li>
 				</ul>
 			</nav>
@@ -340,12 +379,19 @@ ldk deploy # Deploys your project to the Application Support/Sidekick/plugins/co
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 		</div>
 	</div>

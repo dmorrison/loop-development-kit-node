@@ -1,39 +1,21 @@
-import { ServiceDefinition } from '@grpc/grpc-js';
-import services, { grpc } from './proto/ldk_grpc_pb';
+import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
+import services, { grpc, ILoopServer } from './proto/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
-import messages from './proto/ldk_pb';
-import { LoopPlugin } from './loopPlugin';
-import { CommonHostClient } from './commonHostClient';
+import messages from './proto/loop_pb';
+import { Loop } from './loop';
 /**
  * @internal
  */
-export default abstract class GRPCServer<THostClient extends CommonHostClient, TImplementation extends LoopPlugin<THostClient>> {
+export default class GRPCServer implements ILoopServer {
     protected broker: BrokerGrpcServer;
-    constructor(server: services.grpc.Server, broker: BrokerGrpcServer, impl: TImplementation, definition: ServiceDefinition);
+    private loop;
+    constructor(server: services.grpc.Server, broker: BrokerGrpcServer, impl: Loop);
     /**
-     * Called by the host to start the sensor implementation.
-     *
-     * @param impl - The implementation of the sensor.
+     * Called by the host to start the Loop.
      */
-    start(impl: TImplementation): grpc.handleUnaryCall<messages.StartRequest, messages.Empty>;
+    loopStart(call: grpc.ServerUnaryCall<messages.LoopStartRequest, Empty>, callback: grpc.sendUnaryData<Empty>): Promise<void>;
     /**
-     * Called by the host to stop the sensor implementation.
-     *
-     * @param impl - The implementation of the sensor.
+     * Called by the host to stop the Loop.
      */
-    stop(impl: TImplementation): grpc.handleUnaryCall<messages.Empty, messages.Empty>;
-    /**
-     * Called by the host to broadcast events to the sensor implementation.
-     *
-     * @async
-     * @param impl - The implementation of the sensor.
-     */
-    onEvent(impl: TImplementation): grpc.handleUnaryCall<messages.OnEventRequest, messages.Empty>;
-    /**
-     * Implementations should return a new instance of THostClient.
-     *
-     * @protected
-     * @abstract
-     */
-    protected abstract createHost(): THostClient;
+    loopStop(call: grpc.ServerUnaryCall<Empty, Empty>, callback: grpc.sendUnaryData<Empty>): Promise<void>;
 }

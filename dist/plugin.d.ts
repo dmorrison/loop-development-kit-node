@@ -1,6 +1,6 @@
-import { Controller } from './controller';
+import { Loop } from './loop';
 /** Class used to setup the GRPC server and host the controller service. */
-declare class ControllerPlugin {
+declare class Plugin {
     private server;
     private broker;
     private controller;
@@ -12,7 +12,7 @@ declare class ControllerPlugin {
      * new ControllerPlugin(myController);
      * ```
      */
-    constructor(impl: Controller);
+    constructor(impl: Loop);
     /**
      * Run the GRPC server and write connection information to stdout.
      *
@@ -20,4 +20,4 @@ declare class ControllerPlugin {
      */
     serve(): Promise<void>;
 }
-export default ControllerPlugin;
+export default Plugin;

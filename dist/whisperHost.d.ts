@@ -1,6 +1,5 @@
 import { Whisper } from './whisper';
-import { PluginHost } from './pluginHost';
-export interface ControllerHost extends PluginHost {
+export interface WhisperHost {
     /**
      * @returns - Promise resolving with the unique ID of the generated whisper.
      */

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Category | Loop Development Kit for Node.js</title>
+	<title>Loop | Loop Development Kit for Node.js</title>
 	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,84 +55,135 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="category.html">Category</a>
+					<a href="loop.html">Loop</a>
 				</li>
 			</ul>
-			<h1>Enumeration Category</h1>
+			<h1>Interface Loop</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Your Controllers must implement this interface.</p>
+					</div>
+					<p>Here&#39;s an example implementation:</p>
+					<pre><code><span class="hljs-keyword">const</span> { Logger } = require(<span class="hljs-string">&#x27;ldk&#x27;</span>);
+<span class="hljs-keyword">const</span> { name } = require(<span class="hljs-string">&#x27;./package&#x27;</span>);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Controller</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">this</span>.logger = new Logger(name);
+  }
+
+  start(host) {
+    <span class="hljs-keyword">this</span>.host = host;
+    <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">&#x27;started&#x27;</span>);
+  }
+
+  stop() {
+    <span class="hljs-keyword">this</span>.host = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">&#x27;stopped&#x27;</span>);
+  }
+
+  onEvent(event) {
+    <span class="hljs-comment">// ignore any non-text events</span>
+    <span class="hljs-keyword">if</span> (!event.<span class="hljs-keyword">data</span>.text) {
+      <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">&#x27;ignored an event&#x27;</span>);
+      <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-keyword">this</span>.logger.debug(<span class="hljs-string">&#x27;Got a text event!&#x27;</span>);
+    <span class="hljs-keyword">this</span>.host.emitWhisper({
+      icon: <span class="hljs-string">&#x27;bathtub&#x27;</span>,
+      label: <span class="hljs-string">&#x27;Example&#x27;</span>,
+      markdown: event.<span class="hljs-keyword">data</span>.text,
+    });
+  }
+}</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Loop</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="category.html#controller" class="tsd-kind-icon">CONTROLLER</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="category.html#intelligence" class="tsd-kind-icon">INTELLIGENCE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="category.html#sensor" class="tsd-kind-icon">SENSOR</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="category.html#sidekick" class="tsd-kind-icon">SIDEKICK</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="category.html#unknown" class="tsd-kind-icon">UNKNOWN</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="loop.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="loop.html#stop" class="tsd-kind-icon">stop</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="controller" class="tsd-anchor"></a>
-					<h3>CONTROLLER</h3>
-					<div class="tsd-signature tsd-kind-icon">CONTROLLER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Controller&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/categories.ts#L3">categories.ts:3</a></li>
-						</ul>
-					</aside>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="start" class="tsd-anchor"></a>
+					<h3>start</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>host<span class="tsd-signature-symbol">: </span><a href="hostservices.html" class="tsd-signature-type">HostServices</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/loop.ts#L51">loop.ts:51</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executed when the host starts the plugin.
+									The plugin should not do anything before this is called.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>host: <a href="hostservices.html" class="tsd-signature-type">HostServices</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The host controller. You should assign this as an instance property for use by the Controller.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="intelligence" class="tsd-anchor"></a>
-					<h3>INTELLIGENCE</h3>
-					<div class="tsd-signature tsd-kind-icon">INTELLIGENCE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Intelligence&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/categories.ts#L4">categories.ts:4</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="sensor" class="tsd-anchor"></a>
-					<h3>SENSOR</h3>
-					<div class="tsd-signature tsd-kind-icon">SENSOR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Sensor&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/categories.ts#L5">categories.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="sidekick" class="tsd-anchor"></a>
-					<h3>SIDEKICK</h3>
-					<div class="tsd-signature tsd-kind-icon">SIDEKICK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Sidekick&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/categories.ts#L6">categories.ts:6</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="unknown" class="tsd-anchor"></a>
-					<h3>UNKNOWN</h3>
-					<div class="tsd-signature tsd-kind-icon">UNKNOWN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Unknown&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/categories.ts#L7">categories.ts:7</a></li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="stop" class="tsd-anchor"></a>
+					<h3>stop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/loop.ts#L56">loop.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executed by the host to stop the plugin.
+									All plugin activity should stop when this is called.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -165,34 +216,13 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="access.html" class="tsd-kind-icon">Access</a>
+						<a href="../enums/access.html" class="tsd-kind-icon">Access</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="category.html" class="tsd-kind-icon">Category</a>
-						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="category.html#controller" class="tsd-kind-icon">CONTROLLER</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="category.html#intelligence" class="tsd-kind-icon">INTELLIGENCE</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="category.html#sensor" class="tsd-kind-icon">SENSOR</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="category.html#sidekick" class="tsd-kind-icon">SIDEKICK</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="category.html#unknown" class="tsd-kind-icon">UNKNOWN</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-enum">
-						<a href="operatingsystem.html" class="tsd-kind-icon">Operating<wbr>System</a>
+						<a href="../enums/category.html" class="tsd-kind-icon">Category</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/operatingsystem.html" class="tsd-kind-icon">Operating<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/hostclientfacade.html" class="tsd-kind-icon">Host<wbr>Client<wbr>Facade</a>
@@ -213,46 +243,58 @@
 						<a href="../classes/transformingstreamer.html" class="tsd-kind-icon">Transforming<wbr>Streamer</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/hostservices.html" class="tsd-kind-icon">Host<wbr>Services</a>
+						<a href="hostservices.html" class="tsd-kind-icon">Host<wbr>Services</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/hotkeyevent.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Event</a>
+						<a href="hotkeyevent.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/hotkeyrequest.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Request</a>
+						<a href="hotkeyrequest.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Request</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/keyboardhost.html" class="tsd-kind-icon">Keyboard<wbr>Host</a>
+						<a href="keyboardhost.html" class="tsd-kind-icon">Keyboard<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/keyboardmodifiers.html" class="tsd-kind-icon">Keyboard<wbr>Modifiers</a>
+						<a href="keyboardmodifiers.html" class="tsd-kind-icon">Keyboard<wbr>Modifiers</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/loop.html" class="tsd-kind-icon">Loop</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="loop.html" class="tsd-kind-icon">Loop</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="loop.html#start" class="tsd-kind-icon">start</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="loop.html#stop" class="tsd-kind-icon">stop</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/readablestream.html" class="tsd-kind-icon">Readable<wbr>Stream</a>
+						<a href="readablestream.html" class="tsd-kind-icon">Readable<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/scancodeevent.html" class="tsd-kind-icon">Scan<wbr>Code<wbr>Event</a>
+						<a href="scancodeevent.html" class="tsd-kind-icon">Scan<wbr>Code<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/storagehost.html" class="tsd-kind-icon">Storage<wbr>Host</a>
+						<a href="storagehost.html" class="tsd-kind-icon">Storage<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/storagehostserver.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Server</a>
+						<a href="storagehostserver.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Server</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/textstream.html" class="tsd-kind-icon">Text<wbr>Stream</a>
+						<a href="textstream.html" class="tsd-kind-icon">Text<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/whisper.html" class="tsd-kind-icon">Whisper</a>
+						<a href="whisper.html" class="tsd-kind-icon">Whisper</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/whisperhost.html" class="tsd-kind-icon">Whisper<wbr>Host</a>
+						<a href="whisperhost.html" class="tsd-kind-icon">Whisper<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
+						<a href="whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="../globals.html#request" class="tsd-kind-icon">Request</a>

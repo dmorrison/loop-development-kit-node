@@ -1,4 +1,3 @@
-import { PluginEvent } from './pluginEvent';
 /**
  * Internal version of the plugin interface.
  *
@@ -17,10 +16,4 @@ export interface LoopPlugin<THost> {
      * All plugin activity should stop when this is called.
      */
     stop(): void;
-    /**
-     * The host will send events to the plugin by calling this function.
-     *
-     * @param event
-     */
-    onEvent(event: PluginEvent): void;
 }

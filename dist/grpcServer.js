@@ -12,81 +12,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ldk_pb_1 = __importDefault(require("./proto/ldk_pb"));
-const categories_1 = require("./categories");
+const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
+const loop_grpc_pb_1 = __importDefault(require("./proto/loop_grpc_pb"));
+const hostClientFacade_1 = __importDefault(require("./hostClientFacade"));
 /**
  * @internal
  */
 class GRPCServer {
-    constructor(server, broker, impl, definition) {
+    constructor(server, broker, impl) {
         this.broker = broker;
-        server.addService(definition, {
-            start: this.start(impl),
-            stop: this.stop(impl),
-            onEvent: this.onEvent(impl),
-        });
+        this.loop = impl;
+        server.addService(loop_grpc_pb_1.default.LoopService, this);
     }
     /**
-     * Called by the host to start the sensor implementation.
-     *
-     * @param impl - The implementation of the sensor.
+     * Called by the host to start the Loop.
      */
-    start(impl) {
-        return (call, callback) => __awaiter(this, void 0, void 0, function* () {
+    loopStart(call, callback) {
+        return __awaiter(this, void 0, void 0, function* () {
             const connInfo = yield this.broker.getConnInfo();
-            const hostClient = this.createHost();
+            // TODO: Replace with creating all hosts.
+            const hostClient = new hostClientFacade_1.default();
             yield hostClient.connect(connInfo).catch((err) => {
                 throw err;
             });
-            yield impl.start(hostClient);
-            const response = new ldk_pb_1.default.Empty();
+            yield this.loop.start(hostClient);
+            const response = new empty_pb_1.Empty();
             callback(null, response);
         });
     }
     /**
-     * Called by the host to stop the sensor implementation.
-     *
-     * @param impl - The implementation of the sensor.
+     * Called by the host to stop the Loop.
      */
-    stop(impl) {
-        return (call, callback) => __awaiter(this, void 0, void 0, function* () {
-            yield impl.stop();
-            const response = new ldk_pb_1.default.Empty();
-            callback(null, response);
-        });
-    }
-    /**
-     * Called by the host to broadcast events to the sensor implementation.
-     *
-     * @async
-     * @param impl - The implementation of the sensor.
-     */
-    onEvent(impl) {
-        return ({ request }, callback) => __awaiter(this, void 0, void 0, function* () {
-            const source = request === null || request === void 0 ? void 0 : request.getSource();
-            if (request && source) {
-                const event = {
-                    data: request
-                        .getDataMap()
-                        .toObject()
-                        .reduce((acc, [key, value]) => {
-                        acc[key] = value;
-                        return acc;
-                    }, {}),
-                    source: {
-                        author: source.getAuthor(),
-                        category: categories_1.categories[source.getCategory()],
-                        icon: source.getIcon(),
-                        id: source.getId(),
-                        name: source.getName(),
-                        organization: source.getOrganization(),
-                        uploadId: source.getUploadid(),
-                        version: source.getVersion(),
-                    },
-                };
-                yield impl.onEvent(event);
-            }
-            const response = new ldk_pb_1.default.Empty();
+    loopStop(call, callback) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.loop.stop();
+            const response = new empty_pb_1.Empty();
             callback(null, response);
         });
     }

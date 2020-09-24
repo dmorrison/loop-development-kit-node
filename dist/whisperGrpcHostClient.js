@@ -3,15 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ldk_pb_1 = __importDefault(require("./proto/ldk_pb"));
-const ldk_grpc_pb_1 = require("./proto/ldk_grpc_pb");
+const whisper_pb_1 = __importDefault(require("./proto/whisper_pb"));
+const whisper_grpc_pb_1 = require("./proto/whisper_grpc_pb");
 const grpcHostClient_1 = __importDefault(require("./grpcHostClient"));
 /**
  * Class used by the controller implementation to interact with the host process.
  *
  * @internal
  */
-class ControllerGrpcHostClient extends grpcHostClient_1.default {
+class WhisperGrpcHostClient extends grpcHostClient_1.default {
     /**
      * Send a Whisper to the host process.
      *
@@ -21,8 +21,8 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
      */
     emitWhisper(whisper) {
         return new Promise((resolve, reject) => {
-            const request = new ldk_pb_1.default.EmitWhisperRequest();
-            const style = new ldk_pb_1.default.Style();
+            const request = new whisper_pb_1.default.WhisperNewRequest();
+            const style = new whisper_pb_1.default.WhisperStyle();
             if (whisper.style) {
                 style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
                 style.setPrimarycolor(whisper.style.primaryColor || '#666');
@@ -33,13 +33,13 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
                 style.setPrimarycolor('#666');
                 style.setHighlightcolor('#651fff');
             }
-            const whisperMsg = new ldk_pb_1.default.Whisper();
+            const whisperMsg = new whisper_pb_1.default.WhisperMsg();
             whisperMsg.setMarkdown(whisper.markdown);
             whisperMsg.setLabel(whisper.label);
             whisperMsg.setStyle(style);
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
-            this.client.emitWhisper(request, (err, response) => {
+            this.client.whisperNew(request, (err, response) => {
                 if (err) {
                     return reject(err);
                 }
@@ -61,8 +61,8 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
             if (!id) {
                 return reject(new Error('missing required property id'));
             }
-            const request = new ldk_pb_1.default.UpdateWhisperRequest();
-            const style = new ldk_pb_1.default.Style();
+            const request = new whisper_pb_1.default.WhisperUpdateRequest();
+            const style = new whisper_pb_1.default.WhisperStyle();
             if (whisper.style) {
                 style.setBackgroundcolor(whisper.style.backgroundColor || '#fff');
                 style.setPrimarycolor(whisper.style.primaryColor || '#666');
@@ -73,14 +73,14 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
                 style.setPrimarycolor('#666');
                 style.setHighlightcolor('#651fff');
             }
-            const whisperMsg = new ldk_pb_1.default.Whisper();
+            const whisperMsg = new whisper_pb_1.default.WhisperMsg();
             whisperMsg.setMarkdown(whisper.markdown);
             whisperMsg.setLabel(whisper.label);
             whisperMsg.setStyle(style);
             whisperMsg.setIcon(whisper.icon);
             request.setWhisper(whisperMsg);
             request.setId(id);
-            return this.client.updateWhisper(request, (err) => {
+            return this.client.whisperUpdate(request, (err) => {
                 if (err) {
                     return reject(err);
                 }
@@ -89,7 +89,7 @@ class ControllerGrpcHostClient extends grpcHostClient_1.default {
         });
     }
     generateClient(address) {
-        return new ldk_grpc_pb_1.ControllerHostClient(address, ldk_grpc_pb_1.grpc.credentials.createInsecure());
+        return new whisper_grpc_pb_1.WhisperClient(address, whisper_grpc_pb_1.grpc.credentials.createInsecure());
     }
 }
-exports.default = ControllerGrpcHostClient;
+exports.default = WhisperGrpcHostClient;

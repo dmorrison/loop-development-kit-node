@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sensor | Loop Development Kit for Node.js</title>
+	<title>ReadableStream | Loop Development Kit for Node.js</title>
 	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,60 +55,36 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="sensor.html">Sensor</a>
+					<a href="readablestream.html">ReadableStream</a>
 				</li>
 			</ul>
-			<h1>Interface Sensor</h1>
+			<h1>Interface ReadableStream&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>The Sensor interface should be implemented by consumers.</p>
-					</div>
-					<pre><code><span class="hljs-keyword">const</span> { Logger } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;ldk&#x27;</span>);
-<span class="hljs-keyword">const</span> { name } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./package&#x27;</span>);
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sensor</span> </span>{
-  <span class="hljs-keyword">constructor</span>() {
-    <span class="hljs-built_in">this</span>.logger = <span class="hljs-keyword">new</span> Logger(name);
-  }
-
-  start(host) {
-    <span class="hljs-built_in">this</span>.host = host;
-
-    <span class="hljs-built_in">this</span>.loop = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {
-      <span class="hljs-built_in">this</span>.host.emitEvent({
-        <span class="hljs-attr">data</span>: {
-          <span class="hljs-attr">text</span>: <span class="hljs-string">`Event from example Node sensor: <span class="hljs-subst">${<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()}</span>`</span>,
-        },
-      });
-    }, <span class="hljs-number">1000</span>);
-    <span class="hljs-built_in">this</span>.logger.info(<span class="hljs-string">&#x27;started&#x27;</span>);
-  }
-
-  stop() {
-    <span class="hljs-built_in">this</span>.host = <span class="hljs-literal">null</span>;
-    <span class="hljs-built_in">clearInterval</span>(<span class="hljs-built_in">this</span>.loop);
-    <span class="hljs-built_in">this</span>.logger.info(<span class="hljs-string">&#x27;stopped&#x27;</span>);
-  }
-
-  onEvent() {
-    <span class="hljs-built_in">this</span>.logger.info(<span class="hljs-string">&#x27;ignored an event&#x27;</span>);
-  }
-}</code></pre>
-				</div>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Sensor</span>
+						<span class="target">ReadableStream</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/transformingstreamer.html" class="tsd-signature-type">TransformingStreamer</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -118,9 +94,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="sensor.html#onevent" class="tsd-kind-icon">on<wbr>Event</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="sensor.html#start" class="tsd-kind-icon">start</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="sensor.html#stop" class="tsd-kind-icon">stop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="readablestream.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="readablestream.html#stop" class="tsd-kind-icon">stop</a></li>
 							</ul>
 						</section>
 					</div>
@@ -129,61 +104,40 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="onevent" class="tsd-anchor"></a>
-					<h3>on<wbr>Event</h3>
+					<a name="setlistener" class="tsd-anchor"></a>
+					<h3>set<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="pluginevent.html" class="tsd-signature-type">PluginEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Listener<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/6f031e7/src/sensor.ts#L60">sensor.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/readableStream.ts#L4">readableStream.ts:4</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Called when the plugins is sent an event.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="pluginevent.html" class="tsd-signature-type">PluginEvent</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The event object to consume.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="start" class="tsd-anchor"></a>
-					<h3>start</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>host<span class="tsd-signature-symbol">: </span><a href="sensorhost.html" class="tsd-signature-type">SensorHost</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/6f031e7/src/sensor.ts#L48">sensor.ts:48</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Called when the plugin is started.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>host: <a href="sensorhost.html" class="tsd-signature-type">SensorHost</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The host object starting the plugin. You should store this so you can call it later.</p>
-									</div>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>input: <span class="tsd-signature-type">T</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -200,14 +154,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/6f031e7/src/sensor.ts#L53">sensor.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/readableStream.ts#L2">readableStream.ts:2</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Stops the service. Once this is called the plugin should stop all work its doing, and the host object should be unassigned.</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -252,55 +201,82 @@
 						<a href="../enums/operatingsystem.html" class="tsd-kind-icon">Operating<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/controllerplugin.html" class="tsd-kind-icon">Controller<wbr>Plugin</a>
+						<a href="../classes/hostclientfacade.html" class="tsd-kind-icon">Host<wbr>Client<wbr>Facade</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/keyboardgrpchostclient.html" class="tsd-kind-icon">Keyboard<wbr>Grpc<wbr>Host<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/logger.html" class="tsd-kind-icon">Logger</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/sensorplugin.html" class="tsd-kind-icon">Sensor<wbr>Plugin</a>
+						<a href="../classes/plugin.html" class="tsd-kind-icon">Plugin</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/storagegrpchostclient.html" class="tsd-kind-icon">Storage<wbr>Grpc<wbr>Host<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/transformingstreamer.html" class="tsd-kind-icon">Transforming<wbr>Streamer</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="controller.html" class="tsd-kind-icon">Controller</a>
+						<a href="hostservices.html" class="tsd-kind-icon">Host<wbr>Services</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="controllerhost.html" class="tsd-kind-icon">Controller<wbr>Host</a>
+						<a href="hotkeyevent.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="pluginevent.html" class="tsd-kind-icon">Plugin<wbr>Event</a>
+						<a href="hotkeyrequest.html" class="tsd-kind-icon">Hot<wbr>Key<wbr>Request</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="pluginhost.html" class="tsd-kind-icon">Plugin<wbr>Host</a>
+						<a href="keyboardhost.html" class="tsd-kind-icon">Keyboard<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="keyboardmodifiers.html" class="tsd-kind-icon">Keyboard<wbr>Modifiers</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="loop.html" class="tsd-kind-icon">Loop</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="sensor.html" class="tsd-kind-icon">Sensor</a>
+					<li class="current tsd-kind-interface tsd-has-type-parameter">
+						<a href="readablestream.html" class="tsd-kind-icon">Readable<wbr>Stream</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="sensor.html#onevent" class="tsd-kind-icon">on<wbr>Event</a>
+								<a href="readablestream.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="sensor.html#start" class="tsd-kind-icon">start</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="sensor.html#stop" class="tsd-kind-icon">stop</a>
+								<a href="readablestream.html#stop" class="tsd-kind-icon">stop</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="sensorhost.html" class="tsd-kind-icon">Sensor<wbr>Host</a>
+						<a href="scancodeevent.html" class="tsd-kind-icon">Scan<wbr>Code<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="storagehost.html" class="tsd-kind-icon">Storage<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="storagehostserver.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="textstream.html" class="tsd-kind-icon">Text<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="whisper.html" class="tsd-kind-icon">Whisper</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="whisperhost.html" class="tsd-kind-icon">Whisper<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="whisperstyle.html" class="tsd-kind-icon">Whisper<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="../globals.html#request" class="tsd-kind-icon">Request</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="../globals.html#streamtransformer" class="tsd-kind-icon">Stream<wbr>Transformer</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#categories" class="tsd-kind-icon">categories</a>
@@ -318,10 +294,19 @@
 						<a href="../globals.html#program" class="tsd-kind-icon">program</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="../globals.html#generatehotkeystreamrequest" class="tsd-kind-icon">generate<wbr>Hotkey<wbr>Stream<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="../globals.html#servecontrollerplugin" class="tsd-kind-icon">serve<wbr>Controller<wbr>Plugin</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#servesensorplugin" class="tsd-kind-icon">serve<wbr>Sensor<wbr>Plugin</a>
+						<a href="../globals.html#transformhotkeyevent" class="tsd-kind-icon">transform<wbr>Hot<wbr>Key<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#transformscancodestream" class="tsd-kind-icon">transform<wbr>Scan<wbr>Code<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#transformtextstream" class="tsd-kind-icon">transform<wbr>Text<wbr>Stream</a>
 					</li>
 				</ul>
 			</nav>
@@ -333,12 +318,19 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-export interface PluginHost {
+export interface StorageHost {
     /**
      * @param key - Key of the item to delete from storage.
      * @returns Promise that resolves when the deletion completes.

@@ -1,5 +1,4 @@
-import { PluginEvent } from './pluginEvent';
-import { ControllerHost } from './controllerHost';
+import { HostServices } from './hostServices';
 /**
  * Your Controllers must implement this interface.
  *
@@ -40,23 +39,17 @@ import { ControllerHost } from './controllerHost';
  * }
  * ```
  */
-export interface Controller {
+export interface Loop {
     /**
      * Executed when the host starts the plugin.
      * The plugin should not do anything before this is called.
      *
      * @param host - The host controller. You should assign this as an instance property for use by the Controller.
      */
-    start(host: ControllerHost): void;
+    start(host: HostServices): void;
     /**
      * Executed by the host to stop the plugin.
      * All plugin activity should stop when this is called.
      */
     stop(): void;
-    /**
-     * The host will send events to the plugin by calling this function.
-     *
-     * @param event
-     */
-    onEvent(event: PluginEvent): void;
 }

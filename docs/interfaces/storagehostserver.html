@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Whisper | Loop Development Kit for Node.js</title>
+	<title>StorageHostServer | Loop Development Kit for Node.js</title>
 	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,38 +55,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="whisper.html">Whisper</a>
+					<a href="storagehostserver.html">StorageHostServer</a>
 				</li>
 			</ul>
-			<h1>Interface Whisper</h1>
+			<h1>Interface StorageHostServer</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><pre><code>{
-  <span class="hljs-attribute">markdown</span>: <span class="hljs-string">&#x27;# Markdown\nThis is markdown&#x27;</span>,
-  <span class="hljs-attribute">label</span>: <span class="hljs-string">&#x27;Whisper!&#x27;</span>,
-  <span class="hljs-attribute">icon</span>: <span class="hljs-string">&#x27;bathtub&#x27;</span>,
-  <span class="hljs-attribute">style</span>: {
-    <span class="hljs-attribute">backgroundColor</span>: <span class="hljs-string">&#x27;#fff&#x27;</span>,
-    <span class="hljs-attribute">highlightColor</span>: <span class="hljs-string">&#x27;#651fff&#x27;</span>,
-    <span class="hljs-attribute">primaryColor</span>: <span class="hljs-string">&#x27;#666&#x27;</span>,
-  },
-}</code></pre></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Whisper</span>
+						<span class="target">StorageHostServer</span>
 					</li>
 				</ul>
 			</section>
@@ -97,10 +80,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="whisper.html#icon" class="tsd-kind-icon">icon</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="whisper.html#label" class="tsd-kind-icon">label</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="whisper.html#markdown" class="tsd-kind-icon">markdown</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="whisper.html#style" class="tsd-kind-icon">style</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storagedelete" class="tsd-kind-icon">storage<wbr>Delete</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storagedeleteall" class="tsd-kind-icon">storage<wbr>Delete<wbr>All</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storagehaskey" class="tsd-kind-icon">storage<wbr>Has<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storagekeys" class="tsd-kind-icon">storage<wbr>Keys</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storageread" class="tsd-kind-icon">storage<wbr>Read</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storagereadall" class="tsd-kind-icon">storage<wbr>Read<wbr>All</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storagehostserver.html#storagewrite" class="tsd-kind-icon">storage<wbr>Write</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,64 +95,74 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="icon" class="tsd-anchor"></a>
-					<h3>icon</h3>
-					<div class="tsd-signature tsd-kind-icon">icon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="storagedelete" class="tsd-anchor"></a>
+					<h3>storage<wbr>Delete</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Delete<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageDeleteRequest</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/whisper.ts#L27">whisper.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L19">commonHostServer.ts:19</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The icon displayed at the top of the Whisper card.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="label" class="tsd-anchor"></a>
-					<h3>label</h3>
-					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="storagedeleteall" class="tsd-anchor"></a>
+					<h3>storage<wbr>Delete<wbr>All</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Delete<wbr>All<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/whisper.ts#L31">whisper.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L20">commonHostServer.ts:20</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The title displayed at the top of the Whisper card.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="markdown" class="tsd-anchor"></a>
-					<h3>markdown</h3>
-					<div class="tsd-signature tsd-kind-icon">markdown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="storagehaskey" class="tsd-anchor"></a>
+					<h3>storage<wbr>Has<wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Has<wbr>Key<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageHasKeyRequest</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">StorageHasKeyResponse</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/whisper.ts#L23">whisper.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L21">commonHostServer.ts:21</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The content of the Whisper in markdown.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="style" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> style</h3>
-					<div class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">:</span> <a href="whisperstyle.html" class="tsd-signature-type">WhisperStyle</a></div>
+					<a name="storagekeys" class="tsd-anchor"></a>
+					<h3>storage<wbr>Keys</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Keys<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Empty</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">StorageKeysResponse</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/whisper.ts#L35">whisper.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L25">commonHostServer.ts:25</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>An object for specifying the styling of the Whisper card.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="storageread" class="tsd-anchor"></a>
+					<h3>storage<wbr>Read</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Read<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageReadRequest</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">StorageReadResponse</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L26">commonHostServer.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="storagereadall" class="tsd-anchor"></a>
+					<h3>storage<wbr>Read<wbr>All</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Read<wbr>All<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Empty</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">StorageReadAllResponse</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L30">commonHostServer.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="storagewrite" class="tsd-anchor"></a>
+					<h3>storage<wbr>Write</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Write<span class="tsd-signature-symbol">:</span> <a href="../globals.html#request" class="tsd-signature-type">Request</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageWriteRequest</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/58683e6/src/commonHostServer.ts#L31">commonHostServer.ts:31</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -252,33 +248,42 @@
 					<li class=" tsd-kind-interface">
 						<a href="storagehost.html" class="tsd-kind-icon">Storage<wbr>Host</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="storagehostserver.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Server</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="textstream.html" class="tsd-kind-icon">Text<wbr>Stream</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="whisper.html" class="tsd-kind-icon">Whisper</a>
+						<a href="storagehostserver.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Server</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="whisper.html#icon" class="tsd-kind-icon">icon</a>
+								<a href="storagehostserver.html#storagedelete" class="tsd-kind-icon">storage<wbr>Delete</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="whisper.html#label" class="tsd-kind-icon">label</a>
+								<a href="storagehostserver.html#storagedeleteall" class="tsd-kind-icon">storage<wbr>Delete<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="whisper.html#markdown" class="tsd-kind-icon">markdown</a>
+								<a href="storagehostserver.html#storagehaskey" class="tsd-kind-icon">storage<wbr>Has<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="whisper.html#style" class="tsd-kind-icon">style</a>
+								<a href="storagehostserver.html#storagekeys" class="tsd-kind-icon">storage<wbr>Keys</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storagehostserver.html#storageread" class="tsd-kind-icon">storage<wbr>Read</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storagehostserver.html#storagereadall" class="tsd-kind-icon">storage<wbr>Read<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storagehostserver.html#storagewrite" class="tsd-kind-icon">storage<wbr>Write</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="textstream.html" class="tsd-kind-icon">Text<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="whisper.html" class="tsd-kind-icon">Whisper</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="whisperhost.html" class="tsd-kind-icon">Whisper<wbr>Host</a>
 					</li>
