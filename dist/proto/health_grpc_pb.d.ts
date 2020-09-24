@@ -28,6 +28,7 @@ export namespace HealthService {
     }
 }
 export var HealthClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
+export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_HealthCheckRequest(arg: any): Buffer;
 declare function deserialize_proto_HealthCheckRequest(buffer_arg: any): import("./health_pb.js").HealthCheckRequest;
 declare function serialize_proto_HealthCheckResponse(arg: any): Buffer;

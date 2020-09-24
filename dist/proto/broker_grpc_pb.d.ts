@@ -12,6 +12,7 @@ export namespace GRPCBrokerService {
     }
 }
 export var GRPCBrokerClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
+export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_plugin_ConnInfo(arg: any): Buffer;
 declare function deserialize_plugin_ConnInfo(buffer_arg: any): import("./broker_pb.js").ConnInfo;
 export {};

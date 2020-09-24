@@ -51,3 +51,5 @@ streamStdio: {
 };
 
 exports.GRPCStdioClient = grpc.makeGenericClientConstructor(GRPCStdioService);
+
+exports.grpc = grpc;

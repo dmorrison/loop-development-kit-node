@@ -54,3 +54,5 @@ export class HealthClient extends grpc.Client implements IHealthClient {
     public watch(request: health_pb.HealthCheckRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<health_pb.HealthCheckResponse>;
     public watch(request: health_pb.HealthCheckRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<health_pb.HealthCheckResponse>;
 }
+
+export { grpc }

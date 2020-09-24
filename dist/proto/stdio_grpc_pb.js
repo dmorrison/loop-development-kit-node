@@ -43,3 +43,4 @@ var GRPCStdioService = exports.GRPCStdioService = {
     },
 };
 exports.GRPCStdioClient = grpc.makeGenericClientConstructor(GRPCStdioService);
+exports.grpc = grpc;

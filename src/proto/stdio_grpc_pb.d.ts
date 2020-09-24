@@ -38,3 +38,5 @@ export class GRPCStdioClient extends grpc.Client implements IGRPCStdioClient {
     public streamStdio(request: google_protobuf_empty_pb.Empty, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<stdio_pb.StdioData>;
     public streamStdio(request: google_protobuf_empty_pb.Empty, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<stdio_pb.StdioData>;
 }
+
+export { grpc }

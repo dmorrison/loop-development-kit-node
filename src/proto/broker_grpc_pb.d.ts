@@ -38,3 +38,5 @@ export class GRPCBrokerClient extends grpc.Client implements IGRPCBrokerClient {
     public startStream(options?: Partial<grpc.CallOptions>): grpc.ClientDuplexStream<broker_pb.ConnInfo, broker_pb.ConnInfo>;
     public startStream(metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientDuplexStream<broker_pb.ConnInfo, broker_pb.ConnInfo>;
 }
+
+export { grpc }

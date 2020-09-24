@@ -45,3 +45,4 @@ var HealthService = exports.HealthService = {
     },
 };
 exports.HealthClient = grpc.makeGenericClientConstructor(HealthService);
+exports.grpc = grpc;

@@ -31,3 +31,5 @@ var GRPCBrokerService = exports.GRPCBrokerService = {
 };
 
 exports.GRPCBrokerClient = grpc.makeGenericClientConstructor(GRPCBrokerService);
+
+exports.grpc = grpc;
