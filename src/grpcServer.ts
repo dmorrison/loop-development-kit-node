@@ -1,16 +1,17 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import services, { grpc } from './proto/loop_grpc_pb';
+import services, { grpc, ILoopServer } from './proto/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
 import messages from './proto/loop_pb';
-import { LoopPlugin } from './loopPlugin';
 import { Loop } from './loop';
-import WhisperGrpcHostClient from './whisperGrpcHostClient';
+import HostClientFacade from './hostClientFacade';
 
 /**
  * @internal
  */
-export default class GRPCServer {
+export default class GRPCServer implements ILoopServer {
   protected broker: BrokerGrpcServer;
+
+  private loop: Loop;
 
   constructor(
     server: services.grpc.Server,
@@ -18,48 +19,40 @@ export default class GRPCServer {
     impl: Loop,
   ) {
     this.broker = broker;
-    server.addService(services.LoopService, {
-      loopStart: this.start(impl),
-      loopStop: this.stop(impl),
+    this.loop = impl;
+    server.addService(services.LoopService, this as any);
+  }
+
+  /**
+   * Called by the host to start the Loop.
+   */
+  async loopStart(
+    call: grpc.ServerUnaryCall<messages.LoopStartRequest, Empty>,
+    callback: grpc.sendUnaryData<Empty>,
+  ): Promise<void> {
+    const connInfo = await this.broker.getConnInfo();
+    // TODO: Replace with creating all hosts.
+    const hostClient = new HostClientFacade();
+
+    await hostClient.connect(connInfo).catch((err) => {
+      throw err;
     });
+    await this.loop.start(hostClient);
+
+    const response = new Empty();
+    callback(null, response);
   }
 
   /**
-   * Called by the host to start the sensor implementation.
-   *
-   * @param impl - The implementation of the sensor.
+   * Called by the host to stop the Loop.
    */
-  start(impl: Loop): grpc.handleUnaryCall<messages.LoopStartRequest, Empty> {
-    return async (call, callback) => {
-      const connInfo = await this.broker.getConnInfo();
-      // TODO: Replace with creating all hosts.
-      const hostClient = this.createHost();
+  async loopStop(
+    call: grpc.ServerUnaryCall<Empty, Empty>,
+    callback: grpc.sendUnaryData<Empty>,
+  ): Promise<void> {
+    await this.loop.stop();
 
-      await hostClient.connect(connInfo).catch((err) => {
-        throw err;
-      });
-      await impl.start(hostClient);
-
-      const response = new Empty();
-      callback(null, response);
-    };
-  }
-
-  /**
-   * Called by the host to stop the sensor implementation.
-   *
-   * @param impl - The implementation of the sensor.
-   */
-  stop(impl: Loop): grpc.handleUnaryCall<Empty, Empty> {
-    return async (call, callback) => {
-      await impl.stop();
-
-      const response = new Empty();
-      callback(null, response);
-    };
-  }
-
-  createHost(): WhisperGrpcHostClient {
-    throw new Error('Not Implemented');
+    const response = new Empty();
+    callback(null, response);
   }
 }

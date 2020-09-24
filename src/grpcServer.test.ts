@@ -52,18 +52,16 @@ describe('GrpcServer', () => {
   });
   describe('#start', () => {
     it.skip('should call the implementation start and callback', async () => {
-      const startFunc = server.start(impl);
       const callbackFunc = jest.fn();
-      await startFunc({} as any, callbackFunc);
+      await server.loopStart({} as any, callbackFunc);
       expect(impl.start).toHaveBeenCalled();
       expect(callbackFunc).toHaveBeenCalled();
     });
   });
   describe('#stop', () => {
     it('should call the implementation stop and callback', async () => {
-      const stopFunc = server.stop(impl);
       const callbackFunc = jest.fn();
-      await stopFunc({} as any, callbackFunc);
+      await server.loopStop({} as any, callbackFunc);
       expect(impl.stop).toHaveBeenCalled();
       expect(callbackFunc).toHaveBeenCalled();
     });
