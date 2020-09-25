@@ -68,15 +68,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Your Controllers must implement this interface.</p>
+						<p>Your Loops must implement this interface.</p>
 					</div>
 					<p>Here&#39;s an example implementation:</p>
 					<pre><code><span class="hljs-keyword">const</span> { Logger } = require(<span class="hljs-string">&#x27;ldk&#x27;</span>);
-<span class="hljs-keyword">const</span> { name } = require(<span class="hljs-string">&#x27;./package&#x27;</span>);
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Controller</span> </span>{
   <span class="hljs-keyword">constructor</span>() {
-    <span class="hljs-keyword">this</span>.logger = new Logger(name);
+    <span class="hljs-keyword">this</span>.logger = new Logger(<span class="hljs-string">&#x27;my-loop&#x27;</span>);
   }
 
   start(host) {
@@ -87,21 +86,6 @@
   stop() {
     <span class="hljs-keyword">this</span>.host = <span class="hljs-literal">null</span>;
     <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">&#x27;stopped&#x27;</span>);
-  }
-
-  onEvent(event) {
-    <span class="hljs-comment">// ignore any non-text events</span>
-    <span class="hljs-keyword">if</span> (!event.<span class="hljs-keyword">data</span>.text) {
-      <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">&#x27;ignored an event&#x27;</span>);
-      <span class="hljs-keyword">return</span>;
-    }
-
-    <span class="hljs-keyword">this</span>.logger.debug(<span class="hljs-string">&#x27;Got a text event!&#x27;</span>);
-    <span class="hljs-keyword">this</span>.host.emitWhisper({
-      icon: <span class="hljs-string">&#x27;bathtub&#x27;</span>,
-      label: <span class="hljs-string">&#x27;Example&#x27;</span>,
-      markdown: event.<span class="hljs-keyword">data</span>.text,
-    });
   }
 }</code></pre>
 				</div>
@@ -140,7 +124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/778ff7b/src/loop.ts#L51">loop.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d544ff6/src/loop.ts#L34">loop.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -172,7 +156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/778ff7b/src/loop.ts#L56">loop.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d544ff6/src/loop.ts#L39">loop.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

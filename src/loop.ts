@@ -1,17 +1,15 @@
-import { WhisperHost } from './whisperHost';
 import { HostServices } from './hostServices';
 
 /**
- * Your Controllers must implement this interface.
+ * Your Loops must implement this interface.
  *
  * Here's an example implementation:
  * ```
  * const { Logger } = require('ldk');
- * const { name } = require('./package');
  *
  * class Controller {
  *   constructor() {
- *     this.logger = new Logger(name);
+ *     this.logger = new Logger('my-loop');
  *   }
  *
  *   start(host) {
@@ -22,21 +20,6 @@ import { HostServices } from './hostServices';
  *   stop() {
  *     this.host = null;
  *     this.logger.info('stopped');
- *   }
- *
- *   onEvent(event) {
- *     // ignore any non-text events
- *     if (!event.data.text) {
- *       this.logger.info('ignored an event');
- *       return;
- *     }
- *
- *     this.logger.debug('Got a text event!');
- *     this.host.emitWhisper({
- *       icon: 'bathtub',
- *       label: 'Example',
- *       markdown: event.data.text,
- *     });
  *   }
  * }
  * ```
