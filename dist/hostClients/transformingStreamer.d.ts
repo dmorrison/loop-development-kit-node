@@ -1,4 +1,4 @@
-import { grpc } from './proto/keyboard_grpc_pb';
+import { grpc } from '../proto/keyboard_grpc_pb';
 import { ReadableStream } from './readableStream';
 export declare type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
 export declare class TransformingStreamer<TInput, TOutput> implements ReadableStream<TOutput> {

@@ -1,4 +1,4 @@
-import { ConnInfo } from './proto/broker_pb';
+import { ConnInfo } from '../proto/broker_pb';
 
 /**
  * @internal

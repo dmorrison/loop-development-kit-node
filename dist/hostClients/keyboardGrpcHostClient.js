@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const keyboard_grpc_pb_1 = require("./proto/keyboard_grpc_pb");
-const keyboard_pb_1 = __importDefault(require("./proto/keyboard_pb"));
+const keyboard_grpc_pb_1 = require("../proto/keyboard_grpc_pb");
+const keyboard_pb_1 = __importDefault(require("../proto/keyboard_pb"));
 const grpcHostClient_1 = __importDefault(require("./grpcHostClient"));
 const transformingStreamer_1 = require("./transformingStreamer");
 const transformTextStream = (message) => {
@@ -36,7 +36,7 @@ const transformScanCodeStream = (message) => {
     };
 };
 /**
- * @param keys
+ * @param keys - The hotkeys being watched.
  */
 function generateHotkeyStreamRequest(keys) {
     const keyMessages = keys.map((keyRequest) => {

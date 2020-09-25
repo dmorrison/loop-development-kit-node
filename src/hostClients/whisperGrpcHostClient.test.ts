@@ -1,8 +1,8 @@
 import { mocked } from 'ts-jest/utils';
-import Services from './proto/whisper_grpc_pb';
-import Messages from './proto/whisper_pb';
+import Services from '../proto/whisper_grpc_pb';
+import Messages from '../proto/whisper_pb';
 import WhisperGrpcHostClient from './whisperGrpcHostClient';
-import { ConnInfo } from './proto/broker_pb';
+import { ConnInfo } from '../proto/broker_pb';
 
 jest.mock('./proto/whisper_pb');
 jest.mock('./proto/whisper_grpc_pb');

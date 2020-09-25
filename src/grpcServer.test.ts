@@ -3,7 +3,7 @@ import Services from './proto/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
 import { ConnInfo } from './proto/broker_pb';
-import WhisperGrpcHostClient from './whisperGrpcHostClient';
+import WhisperGrpcHostClient from './hostClients/whisperGrpcHostClient';
 import GRPCServer from './grpcServer';
 
 jest.mock('./proto/loop_grpc_pb');

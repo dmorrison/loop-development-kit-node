@@ -1,4 +1,4 @@
-import { grpc } from './proto/keyboard_grpc_pb';
+import { grpc } from '../proto/keyboard_grpc_pb';
 import { ReadableStream } from './readableStream';
 
 export type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
@@ -22,7 +22,7 @@ export class TransformingStreamer<TInput, TOutput>
     this.stream.addListener('data', this.streamWatcher);
   }
 
-  setListener(callback: (input: TOutput) => void) {
+  setListener(callback: (input: TOutput) => void): void {
     this.listener = callback;
   }
 

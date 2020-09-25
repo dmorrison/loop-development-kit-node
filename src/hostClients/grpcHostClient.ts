@@ -1,5 +1,5 @@
-import { ConnInfo } from './proto/broker_pb';
-import { CommonHostServer } from './commonHostServer';
+import { ConnInfo } from '../proto/broker_pb';
+import { CommonHostServer } from '../commonHostServer';
 import { CommonHostClient } from './commonHostClient';
 
 /**

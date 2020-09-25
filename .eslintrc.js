@@ -39,6 +39,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-console': ['off', { allow: ['warn', 'error'] }],
     'unicode-bom': 'off',
+    'import/prefer-default-export': 'off', // Default exports are bad.
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-unresolved': [

@@ -20,11 +20,16 @@ export default class GRPCServer implements ILoopServer {
   ) {
     this.broker = broker;
     this.loop = impl;
+    // Disabling any b/c the untyped server requires an indexed type.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     server.addService(services.LoopService, this as any);
   }
 
   /**
    * Called by the host to start the Loop.
+   *
+   * @param call - The GRPC call initiating the loop.
+   * @param callback - The callback to respond to once the loop started.
    */
   async loopStart(
     call: grpc.ServerUnaryCall<messages.LoopStartRequest, Empty>,
@@ -45,6 +50,9 @@ export default class GRPCServer implements ILoopServer {
 
   /**
    * Called by the host to stop the Loop.
+   *
+   * @param call - The GRPC call stopping the loop.
+   * @param callback - The callback to respond to once the loop stopped.
    */
   async loopStop(
     call: grpc.ServerUnaryCall<Empty, Empty>,

@@ -12,10 +12,16 @@ export default class GRPCServer implements ILoopServer {
     constructor(server: services.grpc.Server, broker: BrokerGrpcServer, impl: Loop);
     /**
      * Called by the host to start the Loop.
+     *
+     * @param call - The GRPC call initiating the loop.
+     * @param callback - The callback to respond to once the loop started.
      */
     loopStart(call: grpc.ServerUnaryCall<messages.LoopStartRequest, Empty>, callback: grpc.sendUnaryData<Empty>): Promise<void>;
     /**
      * Called by the host to stop the Loop.
+     *
+     * @param call - The GRPC call stopping the loop.
+     * @param callback - The callback to respond to once the loop stopped.
      */
     loopStop(call: grpc.ServerUnaryCall<Empty, Empty>, callback: grpc.sendUnaryData<Empty>): Promise<void>;
 }

@@ -1,6 +1,6 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import { grpc, KeyboardClient } from './proto/keyboard_grpc_pb';
-import messages from './proto/keyboard_pb';
+import { grpc, KeyboardClient } from '../proto/keyboard_grpc_pb';
+import messages from '../proto/keyboard_pb';
 import GrpcHostClient from './grpcHostClient';
 import {
   StreamTransformer,
@@ -52,7 +52,7 @@ const transformScanCodeStream: StreamTransformer<
 };
 
 /**
- * @param keys
+ * @param keys - The hotkeys being watched.
  */
 function generateHotkeyStreamRequest(
   keys: HotKeyRequest[],

@@ -1,5 +1,5 @@
 import GrpcHostClient from './grpcHostClient';
-import { StorageClient } from './proto/storage_grpc_pb';
+import { StorageClient } from '../proto/storage_grpc_pb';
 import { StorageHost } from './storageHost';
 export default class StorageGrpcHostClient extends GrpcHostClient<StorageClient> implements StorageHost {
     /**

@@ -1,8 +1,8 @@
 import { ConnInfo } from './proto/broker_pb';
 import { HostServices } from './hostServices';
-import WhisperGrpcHostClient from './whisperGrpcHostClient';
-import StorageGrpcHostClient from './storageGrpcHostClient';
-import KeyboardGrpcHostClient from './keyboardGrpcHostClient';
+import WhisperGrpcHostClient from './hostClients/whisperGrpcHostClient';
+import StorageGrpcHostClient from './hostClients/storageGrpcHostClient';
+import KeyboardGrpcHostClient from './hostClients/keyboardGrpcHostClient';
 
 export default class HostClientFacade implements HostServices {
   public whisperClient: WhisperGrpcHostClient = new WhisperGrpcHostClient();

@@ -1,6 +1,6 @@
-import { WhisperHost } from './whisperHost';
-import { StorageHost } from './storageHost';
-import { KeyboardHost } from './keyboardHost';
+import { WhisperHost } from './hostClients/whisperHost';
+import { StorageHost } from './hostClients/storageHost';
+import { KeyboardHost } from './hostClients/keyboardHost';
 export interface HostServices {
     whisperClient: WhisperHost;
     storageClient: StorageHost;

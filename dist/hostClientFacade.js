@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const whisperGrpcHostClient_1 = __importDefault(require("./whisperGrpcHostClient"));
-const storageGrpcHostClient_1 = __importDefault(require("./storageGrpcHostClient"));
-const keyboardGrpcHostClient_1 = __importDefault(require("./keyboardGrpcHostClient"));
+const whisperGrpcHostClient_1 = __importDefault(require("./hostClients/whisperGrpcHostClient"));
+const storageGrpcHostClient_1 = __importDefault(require("./hostClients/storageGrpcHostClient"));
+const keyboardGrpcHostClient_1 = __importDefault(require("./hostClients/keyboardGrpcHostClient"));
 class HostClientFacade {
     constructor() {
         this.whisperClient = new whisperGrpcHostClient_1.default();

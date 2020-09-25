@@ -22,10 +22,15 @@ class GRPCServer {
     constructor(server, broker, impl) {
         this.broker = broker;
         this.loop = impl;
+        // Disabling any b/c the untyped server requires an indexed type.
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         server.addService(loop_grpc_pb_1.default.LoopService, this);
     }
     /**
      * Called by the host to start the Loop.
+     *
+     * @param call - The GRPC call initiating the loop.
+     * @param callback - The callback to respond to once the loop started.
      */
     loopStart(call, callback) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -42,6 +47,9 @@ class GRPCServer {
     }
     /**
      * Called by the host to stop the Loop.
+     *
+     * @param call - The GRPC call stopping the loop.
+     * @param callback - The callback to respond to once the loop stopped.
      */
     loopStop(call, callback) {
         return __awaiter(this, void 0, void 0, function* () {
