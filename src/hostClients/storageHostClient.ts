@@ -1,5 +1,5 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import HostClient from './hostClient';
+import HostClient, { GRPCClientConstructor } from './hostClient';
 import { StorageClient, grpc } from '../proto/storage_grpc_pb';
 import messages from '../proto/storage_pb';
 import { StorageHost } from './storageHost';
@@ -183,7 +183,7 @@ export default class StorageHostClient
     });
   }
 
-  protected generateClient(address: string): StorageClient {
-    return new StorageClient(address, grpc.credentials.createInsecure());
+  protected generateClient(): GRPCClientConstructor<StorageClient> {
+    return StorageClient;
   }
 }

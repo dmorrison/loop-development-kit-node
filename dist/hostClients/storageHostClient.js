@@ -164,8 +164,8 @@ class StorageHostClient extends hostClient_1.default {
             });
         });
     }
-    generateClient(address) {
-        return new storage_grpc_pb_1.StorageClient(address, storage_grpc_pb_1.grpc.credentials.createInsecure());
+    generateClient() {
+        return storage_grpc_pb_1.StorageClient;
     }
 }
 exports.default = StorageHostClient;

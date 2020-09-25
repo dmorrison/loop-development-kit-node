@@ -2,7 +2,7 @@ import { Whisper } from './whisper';
 import messages from '../proto/whisper_pb';
 import { WhisperClient, grpc } from '../proto/whisper_grpc_pb';
 import { WhisperHost } from './whisperHost';
-import HostClient from './hostClient';
+import HostClient, { GRPCClientConstructor } from './hostClient';
 
 /**
  * Class used by the controller implementation to interact with the host process.
@@ -99,8 +99,8 @@ class WhisperHostClient
     });
   }
 
-  protected generateClient(address: string): WhisperClient {
-    return new WhisperClient(address, grpc.credentials.createInsecure());
+  protected generateClient(): GRPCClientConstructor<WhisperClient> {
+    return WhisperClient;
   }
 }
 

@@ -78,8 +78,8 @@ class KeyboardSensorClient extends hostClient_1.default {
     scanCodeStream(listener) {
         return new transformingStream_1.TransformingStream(this.client.keyboardScancodeStream(new empty_pb_1.Empty()), transformScanCodeStream, listener);
     }
-    generateClient(address) {
-        return new keyboard_grpc_pb_1.KeyboardClient(address, keyboard_grpc_pb_1.grpc.credentials.createInsecure());
+    generateClient() {
+        return keyboard_grpc_pb_1.KeyboardClient;
     }
 }
 exports.default = KeyboardSensorClient;

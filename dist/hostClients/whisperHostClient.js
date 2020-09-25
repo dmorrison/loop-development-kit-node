@@ -88,8 +88,8 @@ class WhisperHostClient extends hostClient_1.default {
             });
         });
     }
-    generateClient(address) {
-        return new whisper_grpc_pb_1.WhisperClient(address, whisper_grpc_pb_1.grpc.credentials.createInsecure());
+    generateClient() {
+        return whisper_grpc_pb_1.WhisperClient;
     }
 }
 exports.default = WhisperHostClient;

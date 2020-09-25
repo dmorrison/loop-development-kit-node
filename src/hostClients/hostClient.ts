@@ -1,6 +1,16 @@
 import { ConnInfo } from '../proto/broker_pb';
 import { CommonHostServer } from '../commonHostServer';
 import { CommonHostClient } from './commonHostClient';
+import { grpc } from '../proto/broker_grpc_pb';
+
+export interface GRPCClientConstructor<T> {
+  new (
+    address: string,
+    credentials: grpc.ChannelCredentials,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    options?: object,
+  ): T;
+}
 
 /**
  * HostClient classes are responsible for connecting to, and making requests to client services (storage, sending whispers, sensors).
@@ -13,7 +23,7 @@ export default abstract class HostClient<THost extends CommonHostServer>
   implements CommonHostClient {
   private _client: THost | undefined;
 
-  protected abstract generateClient(address: string): THost;
+  protected abstract generateClient(): GRPCClientConstructor<THost>;
 
   /**
    * Establish a connection to the host process.
@@ -29,8 +39,11 @@ export default abstract class HostClient<THost extends CommonHostServer>
       } else {
         address = connInfo.address;
       }
-
-      this.client = this.generateClient(address);
+      const ClientConstructor = this.generateClient();
+      this.client = new ClientConstructor(
+        address,
+        grpc.credentials.createInsecure(),
+      );
 
       // set a 5 second deadline
       const deadline = new Date();

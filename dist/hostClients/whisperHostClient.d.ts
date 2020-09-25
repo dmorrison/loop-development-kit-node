@@ -1,7 +1,7 @@
 import { Whisper } from './whisper';
 import { WhisperClient } from '../proto/whisper_grpc_pb';
 import { WhisperHost } from './whisperHost';
-import HostClient from './hostClient';
+import HostClient, { GRPCClientConstructor } from './hostClient';
 /**
  * Class used by the controller implementation to interact with the host process.
  *
@@ -25,6 +25,6 @@ declare class WhisperHostClient extends HostClient<WhisperClient> implements Whi
      * @returns Promise resolving when the server responds to the command.
      */
     updateWhisper(id: string, whisper: Whisper): Promise<Error | void>;
-    protected generateClient(address: string): WhisperClient;
+    protected generateClient(): GRPCClientConstructor<WhisperClient>;
 }
 export default WhisperHostClient;

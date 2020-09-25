@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { grpc, KeyboardClient } from '../proto/keyboard_grpc_pb';
 import messages from '../proto/keyboard_pb';
-import HostClient from './hostClient';
+import HostClient, { GRPCClientConstructor } from './hostClient';
 import { StreamTransformer, TransformingStream } from './transformingStream';
 import { ReadableStream } from './readableStream';
 import {
@@ -12,6 +12,7 @@ import {
   ScanCodeEvent,
   TextStream,
 } from './keyboardHost';
+import Constructable = jest.Constructable;
 
 const transformTextStream: StreamTransformer<
   messages.KeyboardTextStreamResponse,
@@ -125,7 +126,7 @@ export default class KeyboardSensorClient
     );
   }
 
-  protected generateClient(address: string): KeyboardClient {
-    return new KeyboardClient(address, grpc.credentials.createInsecure());
+  protected generateClient(): GRPCClientConstructor<KeyboardClient> {
+    return KeyboardClient;
   }
 }

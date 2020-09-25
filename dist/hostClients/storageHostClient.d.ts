@@ -1,4 +1,4 @@
-import HostClient from './hostClient';
+import HostClient, { GRPCClientConstructor } from './hostClient';
 import { StorageClient } from '../proto/storage_grpc_pb';
 import { StorageHost } from './storageHost';
 export default class StorageHostClient extends HostClient<StorageClient> implements StorageHost {
@@ -53,5 +53,5 @@ export default class StorageHostClient extends HostClient<StorageClient> impleme
      * @param value - The value to assign to the key in storage.
      */
     storageWrite(key: string, value: string): Promise<void>;
-    protected generateClient(address: string): StorageClient;
+    protected generateClient(): GRPCClientConstructor<StorageClient>;
 }

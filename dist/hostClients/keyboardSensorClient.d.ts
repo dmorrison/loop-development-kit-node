@@ -1,5 +1,5 @@
 import { KeyboardClient } from '../proto/keyboard_grpc_pb';
-import HostClient from './hostClient';
+import HostClient, { GRPCClientConstructor } from './hostClient';
 import { ReadableStream } from './readableStream';
 import { HotKeyEvent, HotKeyRequest, KeyboardHost, ScanCodeEvent, TextStream } from './keyboardHost';
 export default class KeyboardSensorClient extends HostClient<KeyboardClient> implements KeyboardHost {
@@ -7,5 +7,5 @@ export default class KeyboardSensorClient extends HostClient<KeyboardClient> imp
     textChunks(): ReadableStream<string>;
     textStream(listener: (input: TextStream) => void): ReadableStream<TextStream>;
     scanCodeStream(listener: (input: ScanCodeEvent) => void): ReadableStream<ScanCodeEvent>;
-    protected generateClient(address: string): KeyboardClient;
+    protected generateClient(): GRPCClientConstructor<KeyboardClient>;
 }
