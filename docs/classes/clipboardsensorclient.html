@@ -82,6 +82,7 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><span class="tsd-signature-type">CommonHostClient</span></li>
+					<li><a href="../interfaces/clipboardhost.html" class="tsd-signature-type">ClipboardHost</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -99,6 +100,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="clipboardsensorclient.html#connect" class="tsd-kind-icon">connect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="clipboardsensorclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="clipboardsensorclient.html#queryclipboard" class="tsd-kind-icon">query<wbr>Clipboard</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="clipboardsensorclient.html#streamclipboard" class="tsd-kind-icon">stream<wbr>Clipboard</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="clipboardsensorclient.html#writeclipboard" class="tsd-kind-icon">write<wbr>Clipboard</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,7 +122,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from HostClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/e9a0416/src/hostClients/hostClient.ts#L61">hostClients/hostClient.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/hostClient.ts#L61">hostClients/hostClient.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClipboardClient</span></h4>
@@ -127,7 +131,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from HostClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/e9a0416/src/hostClients/hostClient.ts#L68">hostClients/hostClient.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/hostClient.ts#L68">hostClients/hostClient.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +158,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from HostClient.connect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/e9a0416/src/hostClients/hostClient.ts#L34">hostClients/hostClient.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/hostClient.ts#L34">hostClients/hostClient.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -190,10 +194,93 @@
 							<aside class="tsd-sources">
 								<p>Overrides HostClient.generateClient</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/e9a0416/src/hostClients/clipboardSensorClient.ts#L5">hostClients/clipboardSensorClient.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/clipboardSensorClient.ts#L19">hostClients/clipboardSensorClient.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ClipboardClient</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="queryclipboard" class="tsd-anchor"></a>
+					<h3>query<wbr>Clipboard</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">query<wbr>Clipboard<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/clipboardhost.html">ClipboardHost</a>.<a href="../interfaces/clipboardhost.html#queryclipboard">queryClipboard</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/clipboardSensorClient.ts#L23">hostClients/clipboardSensorClient.ts:23</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="streamclipboard" class="tsd-anchor"></a>
+					<h3>stream<wbr>Clipboard</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Clipboard<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/clipboardSensorClient.ts#L27">hostClients/clipboardSensorClient.ts:27</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>text: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="writeclipboard" class="tsd-anchor"></a>
+					<h3>write<wbr>Clipboard</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">write<wbr>Clipboard<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/clipboardhost.html">ClipboardHost</a>.<a href="../interfaces/clipboardhost.html#writeclipboard">writeClipboard</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/f529364/src/hostClients/clipboardSensorClient.ts#L35">hostClients/clipboardSensorClient.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>text: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -250,6 +337,15 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
 								<a href="clipboardsensorclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="clipboardsensorclient.html#queryclipboard" class="tsd-kind-icon">query<wbr>Clipboard</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="clipboardsensorclient.html#streamclipboard" class="tsd-kind-icon">stream<wbr>Clipboard</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="clipboardsensorclient.html#writeclipboard" class="tsd-kind-icon">write<wbr>Clipboard</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -271,6 +367,9 @@
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="transformingstream.html" class="tsd-kind-icon">Transforming<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/clipboardhost.html" class="tsd-kind-icon">Clipboard<wbr>Host</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="../interfaces/grpcclientconstructor.html" class="tsd-kind-icon">GRPCClient<wbr>Constructor</a>
@@ -340,6 +439,9 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#program" class="tsd-kind-icon">program</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#clipboardtransformer" class="tsd-kind-icon">clipboard<wbr>Transformer</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#generatehotkeystreamrequest" class="tsd-kind-icon">generate<wbr>Hotkey<wbr>Stream<wbr>Request</a>
