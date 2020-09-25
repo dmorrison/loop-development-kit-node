@@ -1,7 +1,7 @@
-import { ConnInfo } from '../proto/broker_pb';
+import { ConnInfo } from '../grpc/broker_pb';
 import { CommonHostServer } from '../commonHostServer';
 import { CommonHostClient } from './commonHostClient';
-import { grpc } from '../proto/broker_grpc_pb';
+import { grpc } from '../grpc/broker_grpc_pb';
 
 export interface GRPCClientConstructor<T> {
   new (

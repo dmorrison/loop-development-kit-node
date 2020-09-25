@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import HostClient, { GRPCClientConstructor } from './hostClient';
-import { StorageClient, grpc } from '../proto/storage_grpc_pb';
-import messages from '../proto/storage_pb';
+import { StorageClient, grpc } from '../grpc/storage_grpc_pb';
+import messages from '../grpc/storage_pb';
 import { StorageHost } from './storageHost';
 
 const errMissingRequiredKey = new Error('key is required');

@@ -1,6 +1,6 @@
 import * as grpc from '@grpc/grpc-js';
-import { HealthCheckResponse, HealthCheckRequest } from './proto/health_pb';
-import { HealthService } from './proto/health_grpc_pb';
+import { HealthCheckResponse, HealthCheckRequest } from './grpc/health_pb';
+import { HealthService } from './grpc/health_grpc_pb';
 
 /**
  * Class used to implement the GRPC health service.

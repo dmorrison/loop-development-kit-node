@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const whisper_pb_1 = __importDefault(require("../proto/whisper_pb"));
-const whisper_grpc_pb_1 = require("../proto/whisper_grpc_pb");
+const whisper_pb_1 = __importDefault(require("../grpc/whisper_pb"));
+const whisper_grpc_pb_1 = require("../grpc/whisper_grpc_pb");
 const hostClient_1 = __importDefault(require("./hostClient"));
 /**
  * Class used by the controller implementation to interact with the host process.

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HealthService = exports.HealthCheckResponse = exports.HealthGrpcServer = void 0;
-const health_pb_1 = require("./proto/health_pb");
+const health_pb_1 = require("./grpc/health_pb");
 Object.defineProperty(exports, "HealthCheckResponse", { enumerable: true, get: function () { return health_pb_1.HealthCheckResponse; } });
-const health_grpc_pb_1 = require("./proto/health_grpc_pb");
+const health_grpc_pb_1 = require("./grpc/health_grpc_pb");
 Object.defineProperty(exports, "HealthService", { enumerable: true, get: function () { return health_grpc_pb_1.HealthService; } });
 /**
  * Class used to implement the GRPC health service.

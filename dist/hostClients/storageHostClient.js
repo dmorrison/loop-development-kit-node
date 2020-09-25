@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const hostClient_1 = __importDefault(require("./hostClient"));
-const storage_grpc_pb_1 = require("../proto/storage_grpc_pb");
-const storage_pb_1 = __importDefault(require("../proto/storage_pb"));
+const storage_grpc_pb_1 = require("../grpc/storage_grpc_pb");
+const storage_pb_1 = __importDefault(require("../grpc/storage_pb"));
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 class StorageHostClient extends hostClient_1.default {

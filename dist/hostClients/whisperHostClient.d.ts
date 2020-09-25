@@ -1,5 +1,5 @@
 import { Whisper } from './whisper';
-import { WhisperClient } from '../proto/whisper_grpc_pb';
+import { WhisperClient } from '../grpc/whisper_grpc_pb';
 import { WhisperHost } from './whisperHost';
 import HostClient, { GRPCClientConstructor } from './hostClient';
 /**

@@ -1,4 +1,4 @@
-import { grpc } from '../proto/keyboard_grpc_pb';
+import { grpc } from '../grpc/keyboard_grpc_pb';
 import { ReadableStream } from './readableStream';
 
 export type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;

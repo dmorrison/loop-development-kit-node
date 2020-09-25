@@ -1,8 +1,8 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { mocked } from 'ts-jest/utils';
-import Services from '../proto/storage_grpc_pb';
-import Messages from '../proto/storage_pb';
-import { ConnInfo } from '../proto/broker_pb';
+import Services from '../grpc/storage_grpc_pb';
+import Messages from '../grpc/storage_pb';
+import { ConnInfo } from '../grpc/broker_pb';
 import StorageHostClient from './storageHostClient';
 
 jest.mock('../proto/storage_pb');

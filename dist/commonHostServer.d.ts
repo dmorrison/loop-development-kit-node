@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import * as grpc from '@grpc/grpc-js';
 import { Deadline } from '@grpc/grpc-js';
-import * as Messages from './proto/storage_pb';
+import * as Messages from './grpc/storage_pb';
 export declare type Request<TRequestType = Empty, TResponseType = Empty> = (request: TRequestType, callback: (error: grpc.ServiceError | null, response: TResponseType) => void) => void;
 /**
  * @internal

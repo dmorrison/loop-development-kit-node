@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const broker_grpc_pb_1 = __importDefault(require("./proto/broker_grpc_pb"));
+const broker_grpc_pb_1 = __importDefault(require("./grpc/broker_grpc_pb"));
 /**
  * Class used to interact with the broker GRPC service.
  *

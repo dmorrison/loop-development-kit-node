@@ -29,9 +29,9 @@
     "lint": "./node_modules/.bin/eslint . --ext .js,.ts",
     "prettier-all": "prettier --write '**/*.{js,ts}'",
     "protoc": "npm run protoc:gen && npm run protoc:ts && npm run protoc:fixes",
-    "protoc:gen": "grpc_tools_node_protoc -I src/proto --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/proto/*.proto",
+    "protoc:gen": "grpc_tools_node_protoc -I src/grpc --js_out=import_style=commonjs,binary:src/proto --grpc_out=src/proto --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` src/grpc/*.proto",
     "protoc:fixes": "ts-node scripts/protoFixes.ts",
-    "protoc:ts": "grpc_tools_node_protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --ts_out=src/proto -I src/proto/ src/proto/*.proto",
+    "protoc:ts": "grpc_tools_node_protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --ts_out=src/proto -I src/grpc/ src/grpc/*.proto",
     "test": "jest",
     "test-coverage": "jest --collectCoverage",
     "test-watch": "jest --watchAll"

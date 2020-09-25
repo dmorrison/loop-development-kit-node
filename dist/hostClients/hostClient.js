@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const broker_grpc_pb_1 = require("../proto/broker_grpc_pb");
+const broker_grpc_pb_1 = require("../grpc/broker_grpc_pb");
 /**
  * HostClient classes are responsible for connecting to, and making requests to client services (storage, sending whispers, sensors).
  *

@@ -1,4 +1,4 @@
 dist
 docs
 docsExtra
-src/proto
+src/grpc

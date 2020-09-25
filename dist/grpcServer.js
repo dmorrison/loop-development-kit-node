@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const loop_grpc_pb_1 = __importDefault(require("./proto/loop_grpc_pb"));
+const loop_grpc_pb_1 = __importDefault(require("./grpc/loop_grpc_pb"));
 const hostClientFacade_1 = __importDefault(require("./hostClientFacade"));
 /**
  * @internal

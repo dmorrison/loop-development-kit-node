@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const brokerGrpcServer_1 = __importDefault(require("./brokerGrpcServer"));
-const loop_grpc_pb_1 = __importDefault(require("./proto/loop_grpc_pb"));
+const loop_grpc_pb_1 = __importDefault(require("./grpc/loop_grpc_pb"));
 const logging_1 = require("./logging");
 const healthGrpcServer_1 = require("./healthGrpcServer");
 const stdioGrpcServer_1 = require("./stdioGrpcServer");

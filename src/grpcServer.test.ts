@@ -1,8 +1,8 @@
 import { mocked } from 'ts-jest/utils';
-import Services from './proto/loop_grpc_pb';
+import Services from './grpc/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
-import { ConnInfo } from './proto/broker_pb';
+import { ConnInfo } from './grpc/broker_pb';
 import WhisperHostClient from './hostClients/whisperHostClient';
 import GRPCServer from './grpcServer';
 

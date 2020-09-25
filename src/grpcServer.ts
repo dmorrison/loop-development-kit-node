@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import services, { grpc, ILoopServer } from './proto/loop_grpc_pb';
+import services, { grpc, ILoopServer } from './grpc/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
-import messages from './proto/loop_pb';
+import messages from './grpc/loop_pb';
 import { Loop } from './loop';
 import HostClientFacade from './hostClientFacade';
 

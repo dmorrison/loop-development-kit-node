@@ -1,4 +1,4 @@
-import { KeyboardClient } from '../proto/keyboard_grpc_pb';
+import { KeyboardClient } from '../grpc/keyboard_grpc_pb';
 import HostClient, { GRPCClientConstructor } from './hostClient';
 import { ReadableStream } from './readableStream';
 import { HotKeyEvent, HotKeyRequest, KeyboardHost, ScanCodeEvent, TextStream } from './keyboardHost';

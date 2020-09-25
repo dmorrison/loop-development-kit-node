@@ -1,4 +1,4 @@
-import { GRPCStdioService } from './proto/stdio_grpc_pb';
+import { GRPCStdioService } from './grpc/stdio_grpc_pb';
 
 /**
  * @internal

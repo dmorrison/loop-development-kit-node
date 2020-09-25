@@ -1,5 +1,5 @@
 import { mocked } from 'ts-jest/utils';
-import Services from './proto/loop_grpc_pb';
+import Services from './grpc/loop_grpc_pb';
 import GrpcServer from './grpcServer';
 import Plugin from './plugin';
 import { prepareLogging } from './logging';

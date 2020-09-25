@@ -1,5 +1,5 @@
-import services from './proto/broker_grpc_pb';
-import { ConnInfo } from './proto/broker_pb';
+import services from './grpc/broker_grpc_pb';
+import { ConnInfo } from './grpc/broker_pb';
 /**
  * Class used to interact with the broker GRPC service.
  *

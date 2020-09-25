@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import HostClient, { GRPCClientConstructor } from './hostClient';
-import { ClipboardClient } from '../proto/clipboard_grpc_pb';
-import messages from '../proto/clipboard_pb';
+import { ClipboardClient } from '../grpc/clipboard_grpc_pb';
+import messages from '../grpc/clipboard_pb';
 import { ClipboardHost } from './clipboardHost';
 import { StreamTransformer, TransformingStream } from './transformingStream';
 import { ReadableStream } from './readableStream';

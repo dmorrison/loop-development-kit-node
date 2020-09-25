@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const keyboard_grpc_pb_1 = require("../proto/keyboard_grpc_pb");
-const keyboard_pb_1 = __importDefault(require("../proto/keyboard_pb"));
+const keyboard_grpc_pb_1 = require("../grpc/keyboard_grpc_pb");
+const keyboard_pb_1 = __importDefault(require("../grpc/keyboard_pb"));
 const hostClient_1 = __importDefault(require("./hostClient"));
 const transformingStream_1 = require("./transformingStream");
 const transformTextStream = (message) => {
