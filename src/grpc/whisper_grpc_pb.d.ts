@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as whisper_pb from "./whisper_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
@@ -49,7 +50,7 @@ export interface IWhisperClient {
 }
 
 export class WhisperClient extends grpc.Client implements IWhisperClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public whisperNew(request: whisper_pb.WhisperNewRequest, callback: (error: grpc.ServiceError | null, response: whisper_pb.WhisperNewResponse) => void): grpc.ClientUnaryCall;
     public whisperNew(request: whisper_pb.WhisperNewRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: whisper_pb.WhisperNewResponse) => void): grpc.ClientUnaryCall;
     public whisperNew(request: whisper_pb.WhisperNewRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: whisper_pb.WhisperNewResponse) => void): grpc.ClientUnaryCall;
@@ -57,5 +58,3 @@ export class WhisperClient extends grpc.Client implements IWhisperClient {
     public whisperUpdate(request: whisper_pb.WhisperUpdateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
     public whisperUpdate(request: whisper_pb.WhisperUpdateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
 }
-
-export { grpc }

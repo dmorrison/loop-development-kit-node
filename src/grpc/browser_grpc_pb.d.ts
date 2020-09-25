@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as browser_pb from "./browser_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
@@ -75,7 +76,7 @@ export interface IBrowserClient {
 }
 
 export class BrowserClient extends grpc.Client implements IBrowserClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public browserActiveURL(request: google_protobuf_empty_pb.Empty, callback: (error: grpc.ServiceError | null, response: browser_pb.BrowserActiveURLResponse) => void): grpc.ClientUnaryCall;
     public browserActiveURL(request: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: browser_pb.BrowserActiveURLResponse) => void): grpc.ClientUnaryCall;
     public browserActiveURL(request: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: browser_pb.BrowserActiveURLResponse) => void): grpc.ClientUnaryCall;
@@ -87,5 +88,3 @@ export class BrowserClient extends grpc.Client implements IBrowserClient {
     public browserSelectedTextStream(request: google_protobuf_empty_pb.Empty, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<browser_pb.BrowserSelectedTextStreamResponse>;
     public browserSelectedTextStream(request: google_protobuf_empty_pb.Empty, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<browser_pb.BrowserSelectedTextStreamResponse>;
 }
-
-export { grpc }

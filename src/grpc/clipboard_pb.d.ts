@@ -32,6 +32,9 @@ export class ClipboardReadStreamResponse extends jspb.Message {
     getText(): string;
     setText(value: string): ClipboardReadStreamResponse;
 
+    getError(): string;
+    setError(value: string): ClipboardReadStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ClipboardReadStreamResponse.AsObject;
@@ -46,6 +49,7 @@ export class ClipboardReadStreamResponse extends jspb.Message {
 export namespace ClipboardReadStreamResponse {
     export type AsObject = {
         text: string,
+        error: string,
     }
 }
 

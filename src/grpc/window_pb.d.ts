@@ -83,6 +83,9 @@ export class WindowActiveWindowStreamResponse extends jspb.Message {
     getWindow(): WindowInfo | undefined;
     setWindow(value?: WindowInfo): WindowActiveWindowStreamResponse;
 
+    getError(): string;
+    setError(value: string): WindowActiveWindowStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): WindowActiveWindowStreamResponse.AsObject;
@@ -97,57 +100,62 @@ export class WindowActiveWindowStreamResponse extends jspb.Message {
 export namespace WindowActiveWindowStreamResponse {
     export type AsObject = {
         window?: WindowInfo.AsObject,
+        error: string,
     }
 }
 
-export class WindowWindowsResponse extends jspb.Message { 
+export class WindowStateResponse extends jspb.Message { 
     clearWindowList(): void;
     getWindowList(): Array<WindowInfo>;
-    setWindowList(value: Array<WindowInfo>): WindowWindowsResponse;
+    setWindowList(value: Array<WindowInfo>): WindowStateResponse;
     addWindow(value?: WindowInfo, index?: number): WindowInfo;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WindowWindowsResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: WindowWindowsResponse): WindowWindowsResponse.AsObject;
+    toObject(includeInstance?: boolean): WindowStateResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: WindowStateResponse): WindowStateResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WindowWindowsResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WindowWindowsResponse;
-    static deserializeBinaryFromReader(message: WindowWindowsResponse, reader: jspb.BinaryReader): WindowWindowsResponse;
+    static serializeBinaryToWriter(message: WindowStateResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WindowStateResponse;
+    static deserializeBinaryFromReader(message: WindowStateResponse, reader: jspb.BinaryReader): WindowStateResponse;
 }
 
-export namespace WindowWindowsResponse {
+export namespace WindowStateResponse {
     export type AsObject = {
         windowList: Array<WindowInfo.AsObject>,
     }
 }
 
-export class WindowWindowsStreamResponse extends jspb.Message { 
+export class WindowStateStreamResponse extends jspb.Message { 
 
     hasWindow(): boolean;
     clearWindow(): void;
     getWindow(): WindowInfo | undefined;
-    setWindow(value?: WindowInfo): WindowWindowsStreamResponse;
+    setWindow(value?: WindowInfo): WindowStateStreamResponse;
 
     getAction(): WindowAction;
-    setAction(value: WindowAction): WindowWindowsStreamResponse;
+    setAction(value: WindowAction): WindowStateStreamResponse;
+
+    getError(): string;
+    setError(value: string): WindowStateStreamResponse;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): WindowWindowsStreamResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: WindowWindowsStreamResponse): WindowWindowsStreamResponse.AsObject;
+    toObject(includeInstance?: boolean): WindowStateStreamResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: WindowStateStreamResponse): WindowStateStreamResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: WindowWindowsStreamResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): WindowWindowsStreamResponse;
-    static deserializeBinaryFromReader(message: WindowWindowsStreamResponse, reader: jspb.BinaryReader): WindowWindowsStreamResponse;
+    static serializeBinaryToWriter(message: WindowStateStreamResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): WindowStateStreamResponse;
+    static deserializeBinaryFromReader(message: WindowStateStreamResponse, reader: jspb.BinaryReader): WindowStateStreamResponse;
 }
 
-export namespace WindowWindowsStreamResponse {
+export namespace WindowStateStreamResponse {
     export type AsObject = {
         window?: WindowInfo.AsObject,
         action: WindowAction,
+        error: string,
     }
 }
 

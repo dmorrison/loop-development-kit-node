@@ -68,7 +68,9 @@ proto.proto.LoopStartRequest.prototype.toObject = function(opt_includeInstance) 
  */
 proto.proto.LoopStartRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    host: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    hostwhisper: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    hoststorage: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    hostclipboard: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -107,7 +109,15 @@ proto.proto.LoopStartRequest.deserializeBinaryFromReader = function(msg, reader)
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setHost(value);
+      msg.setHostwhisper(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setHoststorage(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setHostclipboard(value);
       break;
     default:
       reader.skipField();
@@ -138,10 +148,24 @@ proto.proto.LoopStartRequest.prototype.serializeBinary = function() {
  */
 proto.proto.LoopStartRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getHost();
+  f = message.getHostwhisper();
   if (f !== 0) {
     writer.writeUint32(
       1,
+      f
+    );
+  }
+  f = message.getHoststorage();
+  if (f !== 0) {
+    writer.writeUint32(
+      2,
+      f
+    );
+  }
+  f = message.getHostclipboard();
+  if (f !== 0) {
+    writer.writeUint32(
+      3,
       f
     );
   }
@@ -149,10 +173,10 @@ proto.proto.LoopStartRequest.serializeBinaryToWriter = function(message, writer)
 
 
 /**
- * optional uint32 host = 1;
+ * optional uint32 hostWhisper = 1;
  * @return {number}
  */
-proto.proto.LoopStartRequest.prototype.getHost = function() {
+proto.proto.LoopStartRequest.prototype.getHostwhisper = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
@@ -161,8 +185,44 @@ proto.proto.LoopStartRequest.prototype.getHost = function() {
  * @param {number} value
  * @return {!proto.proto.LoopStartRequest} returns this
  */
-proto.proto.LoopStartRequest.prototype.setHost = function(value) {
+proto.proto.LoopStartRequest.prototype.setHostwhisper = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
+};
+
+
+/**
+ * optional uint32 hostStorage = 2;
+ * @return {number}
+ */
+proto.proto.LoopStartRequest.prototype.getHoststorage = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.proto.LoopStartRequest} returns this
+ */
+proto.proto.LoopStartRequest.prototype.setHoststorage = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional uint32 hostClipboard = 3;
+ * @return {number}
+ */
+proto.proto.LoopStartRequest.prototype.getHostclipboard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.proto.LoopStartRequest} returns this
+ */
+proto.proto.LoopStartRequest.prototype.setHostclipboard = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 

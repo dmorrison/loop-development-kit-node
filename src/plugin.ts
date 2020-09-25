@@ -1,6 +1,6 @@
+import grpc from '@grpc/grpc-js';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
-import services from './grpc/loop_grpc_pb';
 import { prepareLogging } from './logging';
 import { HealthGrpcServer, HealthService } from './healthGrpcServer';
 import { StdioGrpcServer, StdioService } from './stdioGrpcServer';
@@ -8,7 +8,7 @@ import GRPCServer from './grpcServer';
 
 /** Class used to setup the GRPC server and host the controller service. */
 class Plugin {
-  private server: services.grpc.Server;
+  private server: grpc.Server;
 
   private broker: BrokerGrpcServer;
 
@@ -23,7 +23,7 @@ class Plugin {
    * ```
    */
   constructor(impl: Loop) {
-    this.server = new services.grpc.Server();
+    this.server = new grpc.Server();
     this.broker = new BrokerGrpcServer(this.server);
     /* eslint-disable @typescript-eslint/no-explicit-any */
     this.server.addService(HealthService, new HealthGrpcServer() as any);
@@ -41,7 +41,7 @@ class Plugin {
     return new Promise((resolve, reject) => {
       this.server.bindAsync(
         '127.0.0.1:0',
-        services.grpc.ServerCredentials.createInsecure(),
+        grpc.ServerCredentials.createInsecure(),
         (err, port) => {
           if (err) {
             reject(err);

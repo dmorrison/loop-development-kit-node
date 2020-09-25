@@ -12,8 +12,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
-goog.object.extend(proto, google_protobuf_empty_pb);
 goog.exportSymbol('proto.proto.HoverReadRequest', null, global);
 goog.exportSymbol('proto.proto.HoverReadResponse', null, global);
 goog.exportSymbol('proto.proto.HoverReadStreamRequest', null, global);
@@ -584,7 +582,8 @@ proto.proto.HoverReadStreamResponse.prototype.toObject = function(opt_includeIns
  */
 proto.proto.HoverReadStreamResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    text: jspb.Message.getFieldWithDefault(msg, 1, "")
+    text: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    error: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -625,6 +624,10 @@ proto.proto.HoverReadStreamResponse.deserializeBinaryFromReader = function(msg, 
       var value = /** @type {string} */ (reader.readString());
       msg.setText(value);
       break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setError(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -661,6 +664,13 @@ proto.proto.HoverReadStreamResponse.serializeBinaryToWriter = function(message, 
       f
     );
   }
+  f = message.getError();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
+      f
+    );
+  }
 };
 
 
@@ -679,6 +689,24 @@ proto.proto.HoverReadStreamResponse.prototype.getText = function() {
  */
 proto.proto.HoverReadStreamResponse.prototype.setText = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.HoverReadStreamResponse.prototype.getError = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.proto.HoverReadStreamResponse} returns this
+ */
+proto.proto.HoverReadStreamResponse.prototype.setError = function(value) {
+  return jspb.Message.setProto3StringField(this, 15, value);
 };
 
 

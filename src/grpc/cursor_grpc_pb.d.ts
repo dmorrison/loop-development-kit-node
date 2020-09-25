@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as cursor_pb from "./cursor_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
@@ -48,12 +49,10 @@ export interface ICursorClient {
 }
 
 export class CursorClient extends grpc.Client implements ICursorClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public cursorPosition(request: google_protobuf_empty_pb.Empty, callback: (error: grpc.ServiceError | null, response: cursor_pb.CursorPositionResponse) => void): grpc.ClientUnaryCall;
     public cursorPosition(request: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: cursor_pb.CursorPositionResponse) => void): grpc.ClientUnaryCall;
     public cursorPosition(request: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: cursor_pb.CursorPositionResponse) => void): grpc.ClientUnaryCall;
     public cursorPositionStream(request: google_protobuf_empty_pb.Empty, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<cursor_pb.CursorPositionStreamResponse>;
     public cursorPositionStream(request: google_protobuf_empty_pb.Empty, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<cursor_pb.CursorPositionStreamResponse>;
 }
-
-export { grpc }

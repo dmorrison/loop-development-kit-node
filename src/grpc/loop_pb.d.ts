@@ -8,8 +8,14 @@ import * as jspb from "google-protobuf";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
 export class LoopStartRequest extends jspb.Message { 
-    getHost(): number;
-    setHost(value: number): LoopStartRequest;
+    getHostwhisper(): number;
+    setHostwhisper(value: number): LoopStartRequest;
+
+    getHoststorage(): number;
+    setHoststorage(value: number): LoopStartRequest;
+
+    getHostclipboard(): number;
+    setHostclipboard(value: number): LoopStartRequest;
 
 
     serializeBinary(): Uint8Array;
@@ -24,6 +30,8 @@ export class LoopStartRequest extends jspb.Message {
 
 export namespace LoopStartRequest {
     export type AsObject = {
-        host: number,
+        hostwhisper: number,
+        hoststorage: number,
+        hostclipboard: number,
     }
 }

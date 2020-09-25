@@ -56,5 +56,3 @@ loopStop: {
 };
 
 exports.LoopClient = grpc.makeGenericClientConstructor(LoopService);
-
-exports.grpc = grpc;

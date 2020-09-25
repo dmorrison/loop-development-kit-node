@@ -1,6 +1,6 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import HostClient, { GRPCClientConstructor } from './hostClient';
-import { StorageClient, grpc } from '../grpc/storage_grpc_pb';
+import { StorageClient } from '../grpc/storage_grpc_pb';
 import messages from '../grpc/storage_pb';
 import { StorageHost } from './storageHost';
 

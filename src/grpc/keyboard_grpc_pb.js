@@ -16,6 +16,17 @@ function deserialize_google_protobuf_Empty(buffer_arg) {
   return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_proto_KeyboardCharacterStreamResponse(arg) {
+  if (!(arg instanceof keyboard_pb.KeyboardCharacterStreamResponse)) {
+    throw new Error('Expected argument of type proto.KeyboardCharacterStreamResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_proto_KeyboardCharacterStreamResponse(buffer_arg) {
+  return keyboard_pb.KeyboardCharacterStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_proto_KeyboardHotkeyStreamRequest(arg) {
   if (!(arg instanceof keyboard_pb.KeyboardHotkeyStreamRequest)) {
     throw new Error('Expected argument of type proto.KeyboardHotkeyStreamRequest');
@@ -47,17 +58,6 @@ function serialize_proto_KeyboardScancodeStreamResponse(arg) {
 
 function deserialize_proto_KeyboardScancodeStreamResponse(buffer_arg) {
   return keyboard_pb.KeyboardScancodeStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_proto_KeyboardTextChunkStreamResponse(arg) {
-  if (!(arg instanceof keyboard_pb.KeyboardTextChunkStreamResponse)) {
-    throw new Error('Expected argument of type proto.KeyboardTextChunkStreamResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_proto_KeyboardTextChunkStreamResponse(buffer_arg) {
-  return keyboard_pb.KeyboardTextChunkStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_proto_KeyboardTextStreamResponse(arg) {
@@ -98,18 +98,6 @@ keyboardScancodeStream: {
     responseDeserialize: deserialize_proto_KeyboardScancodeStreamResponse,
   },
   // stream chunks of text when the user finishes typing them
-keyboardTextChunkStream: {
-    path: '/proto.Keyboard/KeyboardTextChunkStream',
-    requestStream: false,
-    responseStream: true,
-    requestType: google_protobuf_empty_pb.Empty,
-    responseType: keyboard_pb.KeyboardTextChunkStreamResponse,
-    requestSerialize: serialize_google_protobuf_Empty,
-    requestDeserialize: deserialize_google_protobuf_Empty,
-    responseSerialize: serialize_proto_KeyboardTextChunkStreamResponse,
-    responseDeserialize: deserialize_proto_KeyboardTextChunkStreamResponse,
-  },
-  // stream text as it is typed
 keyboardTextStream: {
     path: '/proto.Keyboard/KeyboardTextStream',
     requestStream: false,
@@ -121,8 +109,18 @@ keyboardTextStream: {
     responseSerialize: serialize_proto_KeyboardTextStreamResponse,
     responseDeserialize: deserialize_proto_KeyboardTextStreamResponse,
   },
+  // stream text as it is typed
+keyboardCharacterStream: {
+    path: '/proto.Keyboard/KeyboardCharacterStream',
+    requestStream: false,
+    responseStream: true,
+    requestType: google_protobuf_empty_pb.Empty,
+    responseType: keyboard_pb.KeyboardCharacterStreamResponse,
+    requestSerialize: serialize_google_protobuf_Empty,
+    requestDeserialize: deserialize_google_protobuf_Empty,
+    responseSerialize: serialize_proto_KeyboardCharacterStreamResponse,
+    responseDeserialize: deserialize_proto_KeyboardCharacterStreamResponse,
+  },
 };
 
 exports.KeyboardClient = grpc.makeGenericClientConstructor(KeyboardService);
-
-exports.grpc = grpc;

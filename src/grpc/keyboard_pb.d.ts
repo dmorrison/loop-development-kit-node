@@ -7,64 +7,12 @@
 import * as jspb from "google-protobuf";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
-export class KeyboardModifiers extends jspb.Message { 
-    getAltl(): boolean;
-    setAltl(value: boolean): KeyboardModifiers;
-
-    getAltr(): boolean;
-    setAltr(value: boolean): KeyboardModifiers;
-
-    getCtrll(): boolean;
-    setCtrll(value: boolean): KeyboardModifiers;
-
-    getCtrlr(): boolean;
-    setCtrlr(value: boolean): KeyboardModifiers;
-
-    getMetal(): boolean;
-    setMetal(value: boolean): KeyboardModifiers;
-
-    getMetar(): boolean;
-    setMetar(value: boolean): KeyboardModifiers;
-
-    getShiftl(): boolean;
-    setShiftl(value: boolean): KeyboardModifiers;
-
-    getShiftr(): boolean;
-    setShiftr(value: boolean): KeyboardModifiers;
-
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KeyboardModifiers.AsObject;
-    static toObject(includeInstance: boolean, msg: KeyboardModifiers): KeyboardModifiers.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KeyboardModifiers, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KeyboardModifiers;
-    static deserializeBinaryFromReader(message: KeyboardModifiers, reader: jspb.BinaryReader): KeyboardModifiers;
-}
-
-export namespace KeyboardModifiers {
-    export type AsObject = {
-        altl: boolean,
-        altr: boolean,
-        ctrll: boolean,
-        ctrlr: boolean,
-        metal: boolean,
-        metar: boolean,
-        shiftl: boolean,
-        shiftr: boolean,
-    }
-}
-
 export class KeyboardHotkey extends jspb.Message { 
     getScancode(): number;
     setScancode(value: number): KeyboardHotkey;
 
-
-    hasModifiers(): boolean;
-    clearModifiers(): void;
-    getModifiers(): KeyboardModifiers | undefined;
-    setModifiers(value?: KeyboardModifiers): KeyboardHotkey;
+    getModifiers(): number;
+    setModifiers(value: number): KeyboardHotkey;
 
 
     serializeBinary(): Uint8Array;
@@ -80,7 +28,7 @@ export class KeyboardHotkey extends jspb.Message {
 export namespace KeyboardHotkey {
     export type AsObject = {
         scancode: number,
-        modifiers?: KeyboardModifiers.AsObject,
+        modifiers: number,
     }
 }
 
@@ -111,6 +59,9 @@ export class KeyboardHotkeyStreamResponse extends jspb.Message {
     getPressed(): boolean;
     setPressed(value: boolean): KeyboardHotkeyStreamResponse;
 
+    getError(): string;
+    setError(value: string): KeyboardHotkeyStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): KeyboardHotkeyStreamResponse.AsObject;
@@ -125,6 +76,7 @@ export class KeyboardHotkeyStreamResponse extends jspb.Message {
 export namespace KeyboardHotkeyStreamResponse {
     export type AsObject = {
         pressed: boolean,
+        error: string,
     }
 }
 
@@ -134,6 +86,9 @@ export class KeyboardScancodeStreamResponse extends jspb.Message {
 
     getPressed(): boolean;
     setPressed(value: boolean): KeyboardScancodeStreamResponse;
+
+    getError(): string;
+    setError(value: string): KeyboardScancodeStreamResponse;
 
 
     serializeBinary(): Uint8Array;
@@ -150,27 +105,7 @@ export namespace KeyboardScancodeStreamResponse {
     export type AsObject = {
         scancode: number,
         pressed: boolean,
-    }
-}
-
-export class KeyboardTextChunkStreamResponse extends jspb.Message { 
-    getText(): string;
-    setText(value: string): KeyboardTextChunkStreamResponse;
-
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): KeyboardTextChunkStreamResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: KeyboardTextChunkStreamResponse): KeyboardTextChunkStreamResponse.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: KeyboardTextChunkStreamResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): KeyboardTextChunkStreamResponse;
-    static deserializeBinaryFromReader(message: KeyboardTextChunkStreamResponse, reader: jspb.BinaryReader): KeyboardTextChunkStreamResponse;
-}
-
-export namespace KeyboardTextChunkStreamResponse {
-    export type AsObject = {
-        text: string,
+        error: string,
     }
 }
 
@@ -178,11 +113,8 @@ export class KeyboardTextStreamResponse extends jspb.Message {
     getText(): string;
     setText(value: string): KeyboardTextStreamResponse;
 
-
-    hasModifiers(): boolean;
-    clearModifiers(): void;
-    getModifiers(): KeyboardModifiers | undefined;
-    setModifiers(value?: KeyboardModifiers): KeyboardTextStreamResponse;
+    getError(): string;
+    setError(value: string): KeyboardTextStreamResponse;
 
 
     serializeBinary(): Uint8Array;
@@ -198,6 +130,31 @@ export class KeyboardTextStreamResponse extends jspb.Message {
 export namespace KeyboardTextStreamResponse {
     export type AsObject = {
         text: string,
-        modifiers?: KeyboardModifiers.AsObject,
+        error: string,
+    }
+}
+
+export class KeyboardCharacterStreamResponse extends jspb.Message { 
+    getText(): string;
+    setText(value: string): KeyboardCharacterStreamResponse;
+
+    getError(): string;
+    setError(value: string): KeyboardCharacterStreamResponse;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): KeyboardCharacterStreamResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: KeyboardCharacterStreamResponse): KeyboardCharacterStreamResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: KeyboardCharacterStreamResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): KeyboardCharacterStreamResponse;
+    static deserializeBinaryFromReader(message: KeyboardCharacterStreamResponse, reader: jspb.BinaryReader): KeyboardCharacterStreamResponse;
+}
+
+export namespace KeyboardCharacterStreamResponse {
+    export type AsObject = {
+        text: string,
+        error: string,
     }
 }

@@ -32,6 +32,9 @@ export class BrowserActiveURLStreamResponse extends jspb.Message {
     getUrl(): string;
     setUrl(value: string): BrowserActiveURLStreamResponse;
 
+    getError(): string;
+    setError(value: string): BrowserActiveURLStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): BrowserActiveURLStreamResponse.AsObject;
@@ -46,6 +49,7 @@ export class BrowserActiveURLStreamResponse extends jspb.Message {
 export namespace BrowserActiveURLStreamResponse {
     export type AsObject = {
         url: string,
+        error: string,
     }
 }
 
@@ -88,6 +92,9 @@ export class BrowserSelectedTextStreamResponse extends jspb.Message {
     getTabtitle(): string;
     setTabtitle(value: string): BrowserSelectedTextStreamResponse;
 
+    getError(): string;
+    setError(value: string): BrowserSelectedTextStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): BrowserSelectedTextStreamResponse.AsObject;
@@ -104,5 +111,6 @@ export namespace BrowserSelectedTextStreamResponse {
         text: string,
         url: string,
         tabtitle: string,
+        error: string,
     }
 }

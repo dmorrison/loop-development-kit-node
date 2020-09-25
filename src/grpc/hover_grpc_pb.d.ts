@@ -5,8 +5,8 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as hover_pb from "./hover_pb";
-import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
 interface IHoverService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
     hoverRead: IHoverService_IHoverRead;
@@ -48,12 +48,10 @@ export interface IHoverClient {
 }
 
 export class HoverClient extends grpc.Client implements IHoverClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public hoverRead(request: hover_pb.HoverReadRequest, callback: (error: grpc.ServiceError | null, response: hover_pb.HoverReadResponse) => void): grpc.ClientUnaryCall;
     public hoverRead(request: hover_pb.HoverReadRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: hover_pb.HoverReadResponse) => void): grpc.ClientUnaryCall;
     public hoverRead(request: hover_pb.HoverReadRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: hover_pb.HoverReadResponse) => void): grpc.ClientUnaryCall;
     public hoverReadStream(request: hover_pb.HoverReadStreamRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<hover_pb.HoverReadStreamResponse>;
     public hoverReadStream(request: hover_pb.HoverReadStreamRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<hover_pb.HoverReadStreamResponse>;
 }
-
-export { grpc }

@@ -1,5 +1,5 @@
 import { mocked } from 'ts-jest/utils';
-import Services from './grpc/loop_grpc_pb';
+import Services from '@grpc/grpc-js';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
 import { ConnInfo } from './grpc/broker_pb';
@@ -10,17 +10,17 @@ jest.mock('./proto/loop_grpc_pb');
 jest.mock('./brokerGrpcServer');
 jest.mock('./hostClients/whisperHostClient');
 
-const mockedServices = mocked(Services.grpc.Server);
+const mockedServices = mocked(Services.Server);
 const mockedBroker = mocked(BrokerGrpcServer);
 const mockedClient = mocked(WhisperHostClient);
 
 describe('GrpcServer', () => {
   let server: GRPCServer;
   let broker: BrokerGrpcServer;
-  let grpcServer: Services.grpc.Server;
+  let grpcServer: Services.Server;
   let impl: Loop;
   beforeEach(() => {
-    grpcServer = new Services.grpc.Server();
+    grpcServer = new Services.Server();
     broker = new BrokerGrpcServer(grpcServer);
     impl = {
       start: jest.fn(),

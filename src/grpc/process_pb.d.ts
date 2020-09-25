@@ -36,51 +36,58 @@ export namespace ProcessInfo {
     }
 }
 
-export class ProcessDiffStreamResponse extends jspb.Message { 
-    getProcess(): string;
-    setProcess(value: string): ProcessDiffStreamResponse;
+export class ProcessStateStreamResponse extends jspb.Message { 
+
+    hasProcess(): boolean;
+    clearProcess(): void;
+    getProcess(): ProcessInfo | undefined;
+    setProcess(value?: ProcessInfo): ProcessStateStreamResponse;
 
     getAction(): ProcessAction;
-    setAction(value: ProcessAction): ProcessDiffStreamResponse;
+    setAction(value: ProcessAction): ProcessStateStreamResponse;
+
+    getError(): string;
+    setError(value: string): ProcessStateStreamResponse;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ProcessDiffStreamResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: ProcessDiffStreamResponse): ProcessDiffStreamResponse.AsObject;
+    toObject(includeInstance?: boolean): ProcessStateStreamResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ProcessStateStreamResponse): ProcessStateStreamResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ProcessDiffStreamResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ProcessDiffStreamResponse;
-    static deserializeBinaryFromReader(message: ProcessDiffStreamResponse, reader: jspb.BinaryReader): ProcessDiffStreamResponse;
+    static serializeBinaryToWriter(message: ProcessStateStreamResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ProcessStateStreamResponse;
+    static deserializeBinaryFromReader(message: ProcessStateStreamResponse, reader: jspb.BinaryReader): ProcessStateStreamResponse;
 }
 
-export namespace ProcessDiffStreamResponse {
+export namespace ProcessStateStreamResponse {
     export type AsObject = {
-        process: string,
+        process?: ProcessInfo.AsObject,
         action: ProcessAction,
+        error: string,
     }
 }
 
-export class ProcessListResponse extends jspb.Message { 
+export class ProcessStateResponse extends jspb.Message { 
     clearProcessesList(): void;
-    getProcessesList(): Array<string>;
-    setProcessesList(value: Array<string>): ProcessListResponse;
-    addProcesses(value: string, index?: number): string;
+    getProcessesList(): Array<ProcessInfo>;
+    setProcessesList(value: Array<ProcessInfo>): ProcessStateResponse;
+    addProcesses(value?: ProcessInfo, index?: number): ProcessInfo;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): ProcessListResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: ProcessListResponse): ProcessListResponse.AsObject;
+    toObject(includeInstance?: boolean): ProcessStateResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: ProcessStateResponse): ProcessStateResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: ProcessListResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): ProcessListResponse;
-    static deserializeBinaryFromReader(message: ProcessListResponse, reader: jspb.BinaryReader): ProcessListResponse;
+    static serializeBinaryToWriter(message: ProcessStateResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ProcessStateResponse;
+    static deserializeBinaryFromReader(message: ProcessStateResponse, reader: jspb.BinaryReader): ProcessStateResponse;
 }
 
-export namespace ProcessListResponse {
+export namespace ProcessStateResponse {
     export type AsObject = {
-        processesList: Array<string>,
+        processesList: Array<ProcessInfo.AsObject>,
     }
 }
 

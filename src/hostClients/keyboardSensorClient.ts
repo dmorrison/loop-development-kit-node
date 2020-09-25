@@ -1,5 +1,5 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import { grpc, KeyboardClient } from '../grpc/keyboard_grpc_pb';
+import { KeyboardClient } from '../grpc/keyboard_grpc_pb';
 import messages from '../grpc/keyboard_pb';
 import HostClient, { GRPCClientConstructor } from './hostClient';
 import { StreamTransformer, TransformingStream } from './transformingStream';
@@ -12,7 +12,6 @@ import {
   ScanCodeEvent,
   TextStream,
 } from './keyboardHost';
-import Constructable = jest.Constructable;
 
 const transformTextStream: StreamTransformer<
   messages.KeyboardTextStreamResponse,

@@ -282,7 +282,8 @@ proto.proto.CursorPositionStreamResponse.toObject = function(includeInstance, ms
   var f, obj = {
     x: jspb.Message.getFieldWithDefault(msg, 1, 0),
     y: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    screen: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    screen: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    error: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -331,6 +332,10 @@ proto.proto.CursorPositionStreamResponse.deserializeBinaryFromReader = function(
       var value = /** @type {number} */ (reader.readUint32());
       msg.setScreen(value);
       break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setError(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -378,6 +383,13 @@ proto.proto.CursorPositionStreamResponse.serializeBinaryToWriter = function(mess
   if (f !== 0) {
     writer.writeUint32(
       3,
+      f
+    );
+  }
+  f = message.getError();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
       f
     );
   }
@@ -435,6 +447,24 @@ proto.proto.CursorPositionStreamResponse.prototype.getScreen = function() {
  */
 proto.proto.CursorPositionStreamResponse.prototype.setScreen = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.CursorPositionStreamResponse.prototype.getError = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.proto.CursorPositionStreamResponse} returns this
+ */
+proto.proto.CursorPositionStreamResponse.prototype.setError = function(value) {
+  return jspb.Message.setProto3StringField(this, 15, value);
 };
 
 

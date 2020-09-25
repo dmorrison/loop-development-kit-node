@@ -78,5 +78,3 @@ whisperUpdate: {
 };
 
 exports.WhisperClient = grpc.makeGenericClientConstructor(WhisperService);
-
-exports.grpc = grpc;

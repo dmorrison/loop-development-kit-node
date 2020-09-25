@@ -67,5 +67,3 @@ cursorPositionStream: {
 };
 
 exports.CursorClient = grpc.makeGenericClientConstructor(CursorService);
-
-exports.grpc = grpc;

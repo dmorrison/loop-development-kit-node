@@ -113,5 +113,3 @@ browserSelectedTextStream: {
 };
 
 exports.BrowserClient = grpc.makeGenericClientConstructor(BrowserService);
-
-exports.grpc = grpc;

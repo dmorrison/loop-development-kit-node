@@ -90,5 +90,3 @@ clipboardWrite: {
 };
 
 exports.ClipboardClient = grpc.makeGenericClientConstructor(ClipboardService);
-
-exports.grpc = grpc;

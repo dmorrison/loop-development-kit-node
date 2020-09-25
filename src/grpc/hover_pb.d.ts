@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
 export class HoverReadRequest extends jspb.Message { 
     getXfromcenter(): number;
@@ -82,6 +81,9 @@ export class HoverReadStreamResponse extends jspb.Message {
     getText(): string;
     setText(value: string): HoverReadStreamResponse;
 
+    getError(): string;
+    setError(value: string): HoverReadStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): HoverReadStreamResponse.AsObject;
@@ -96,5 +98,6 @@ export class HoverReadStreamResponse extends jspb.Message {
 export namespace HoverReadStreamResponse {
     export type AsObject = {
         text: string,
+        error: string,
     }
 }

@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as clipboard_pb from "./clipboard_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
@@ -62,7 +63,7 @@ export interface IClipboardClient {
 }
 
 export class ClipboardClient extends grpc.Client implements IClipboardClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public clipboardRead(request: google_protobuf_empty_pb.Empty, callback: (error: grpc.ServiceError | null, response: clipboard_pb.ClipboardReadResponse) => void): grpc.ClientUnaryCall;
     public clipboardRead(request: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: clipboard_pb.ClipboardReadResponse) => void): grpc.ClientUnaryCall;
     public clipboardRead(request: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: clipboard_pb.ClipboardReadResponse) => void): grpc.ClientUnaryCall;
@@ -72,5 +73,3 @@ export class ClipboardClient extends grpc.Client implements IClipboardClient {
     public clipboardWrite(request: clipboard_pb.ClipboardWriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
     public clipboardWrite(request: clipboard_pb.ClipboardWriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
 }
-
-export { grpc }

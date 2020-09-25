@@ -3,7 +3,6 @@
 'use strict';
 var grpc = require('@grpc/grpc-js');
 var hover_pb = require('./hover_pb.js');
-var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 
 function serialize_proto_HoverReadRequest(arg) {
   if (!(arg instanceof hover_pb.HoverReadRequest)) {
@@ -78,5 +77,3 @@ hoverReadStream: {
 };
 
 exports.HoverClient = grpc.makeGenericClientConstructor(HoverService);
-
-exports.grpc = grpc;

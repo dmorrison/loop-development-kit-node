@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
+import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as storage_pb from "./storage_pb";
 import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 
@@ -119,7 +120,7 @@ export interface IStorageClient {
 }
 
 export class StorageClient extends grpc.Client implements IStorageClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public storageHasKey(request: storage_pb.StorageHasKeyRequest, callback: (error: grpc.ServiceError | null, response: storage_pb.StorageHasKeyResponse) => void): grpc.ClientUnaryCall;
     public storageHasKey(request: storage_pb.StorageHasKeyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: storage_pb.StorageHasKeyResponse) => void): grpc.ClientUnaryCall;
     public storageHasKey(request: storage_pb.StorageHasKeyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: storage_pb.StorageHasKeyResponse) => void): grpc.ClientUnaryCall;
@@ -142,5 +143,3 @@ export class StorageClient extends grpc.Client implements IStorageClient {
     public storageWrite(request: storage_pb.StorageWriteRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
     public storageWrite(request: storage_pb.StorageWriteRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: google_protobuf_empty_pb.Empty) => void): grpc.ClientUnaryCall;
 }
-
-export { grpc }

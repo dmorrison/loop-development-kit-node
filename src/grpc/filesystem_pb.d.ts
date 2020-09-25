@@ -122,6 +122,9 @@ export class FilesystemDirStreamResponse extends jspb.Message {
     getAction(): FileAction;
     setAction(value: FileAction): FilesystemDirStreamResponse;
 
+    getError(): string;
+    setError(value: string): FilesystemDirStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): FilesystemDirStreamResponse.AsObject;
@@ -137,6 +140,7 @@ export namespace FilesystemDirStreamResponse {
     export type AsObject = {
         files?: FileInfo.AsObject,
         action: FileAction,
+        error: string,
     }
 }
 
@@ -216,6 +220,9 @@ export class FilesystemFileStreamResponse extends jspb.Message {
     getAction(): FileAction;
     setAction(value: FileAction): FilesystemFileStreamResponse;
 
+    getError(): string;
+    setError(value: string): FilesystemFileStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): FilesystemFileStreamResponse.AsObject;
@@ -231,6 +238,7 @@ export namespace FilesystemFileStreamResponse {
     export type AsObject = {
         file?: FileInfo.AsObject,
         action: FileAction,
+        error: string,
     }
 }
 

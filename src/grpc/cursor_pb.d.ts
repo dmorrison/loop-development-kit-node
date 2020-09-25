@@ -46,6 +46,9 @@ export class CursorPositionStreamResponse extends jspb.Message {
     getScreen(): number;
     setScreen(value: number): CursorPositionStreamResponse;
 
+    getError(): string;
+    setError(value: string): CursorPositionStreamResponse;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CursorPositionStreamResponse.AsObject;
@@ -62,5 +65,6 @@ export namespace CursorPositionStreamResponse {
         x: number,
         y: number,
         screen: number,
+        error: string,
     }
 }

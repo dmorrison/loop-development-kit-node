@@ -193,5 +193,3 @@ storageWrite: {
 };
 
 exports.StorageClient = grpc.makeGenericClientConstructor(StorageService);
-
-exports.grpc = grpc;
