@@ -1,0 +1,39 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+import "google/protobuf/empty.proto";
+
+service Whisper {
+    // Send a new whisper
+    rpc WhisperNew(WhisperNewRequest) returns (WhisperNewResponse);
+
+    // Update an existing whisper
+    rpc WhisperUpdate(WhisperUpdateRequest) returns (google.protobuf.Empty);
+}
+
+message WhisperStyle {
+    string backgroundColor = 1;
+    string primaryColor = 2;
+    string highlightColor = 3;
+}
+
+message WhisperMsg {
+    string label = 1;
+    string markdown = 2;
+    string icon = 3;
+    WhisperStyle style = 4;
+}
+
+message WhisperNewRequest {
+    WhisperMsg whisper = 1;
+}
+
+message WhisperNewResponse {
+    string id = 1;
+}
+
+message WhisperUpdateRequest {
+    string id = 1;
+    WhisperMsg whisper = 2;
+}
