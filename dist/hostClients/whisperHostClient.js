@@ -5,13 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const whisper_pb_1 = __importDefault(require("../proto/whisper_pb"));
 const whisper_grpc_pb_1 = require("../proto/whisper_grpc_pb");
-const grpcHostClient_1 = __importDefault(require("./grpcHostClient"));
+const hostClient_1 = __importDefault(require("./hostClient"));
 /**
  * Class used by the controller implementation to interact with the host process.
  *
  * @internal
  */
-class WhisperGrpcHostClient extends grpcHostClient_1.default {
+class WhisperHostClient extends hostClient_1.default {
     /**
      * Send a Whisper to the host process.
      *
@@ -92,4 +92,4 @@ class WhisperGrpcHostClient extends grpcHostClient_1.default {
         return new whisper_grpc_pb_1.WhisperClient(address, whisper_grpc_pb_1.grpc.credentials.createInsecure());
     }
 }
-exports.default = WhisperGrpcHostClient;
+exports.default = WhisperHostClient;

@@ -1,9 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
+ * HostClient classes are responsible for connecting to, and making requests to client services (storage, sending whispers, sensors).
+ *
+ * They handle the abstraction of the services provided by Helps and hide the implementation details of how the LDK communicates with Helps.
+ *
  * @internal
  */
-class GrpcHostClient {
+class HostClient {
     /**
      * Establish a connection to the host process.
      *
@@ -41,4 +45,4 @@ class GrpcHostClient {
         this._client = client;
     }
 }
-exports.default = GrpcHostClient;
+exports.default = HostClient;

@@ -1,11 +1,8 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { grpc, KeyboardClient } from '../proto/keyboard_grpc_pb';
 import messages from '../proto/keyboard_pb';
-import GrpcHostClient from './grpcHostClient';
-import {
-  StreamTransformer,
-  TransformingStreamer,
-} from './transformingStreamer';
+import HostClient from './hostClient';
+import { StreamTransformer, TransformingStream } from './transformingStream';
 import { ReadableStream } from './readableStream';
 import {
   HotKeyEvent,
@@ -86,15 +83,15 @@ const transformHotKeyEvent: StreamTransformer<
   };
 };
 
-export default class KeyboardGrpcHostClient
-  extends GrpcHostClient<KeyboardClient>
+export default class KeyboardSensorClient
+  extends HostClient<KeyboardClient>
   implements KeyboardHost {
   hotKeyStream(
     hotKeys: HotKeyRequest[],
     listener: (input: HotKeyEvent) => void,
   ): ReadableStream<HotKeyEvent> {
     const message = generateHotkeyStreamRequest(hotKeys);
-    return new TransformingStreamer(
+    return new TransformingStream(
       this.client.keyboardHotkeyStream(message),
       transformHotKeyEvent,
       listener,
@@ -102,7 +99,7 @@ export default class KeyboardGrpcHostClient
   }
 
   textChunks(): ReadableStream<string> {
-    return new TransformingStreamer(
+    return new TransformingStream(
       this.client.keyboardTextChunkStream(new Empty()),
       (response) => response.getText(),
     );
@@ -111,7 +108,7 @@ export default class KeyboardGrpcHostClient
   textStream(
     listener: (input: TextStream) => void,
   ): ReadableStream<TextStream> {
-    return new TransformingStreamer(
+    return new TransformingStream(
       this.client.keyboardTextStream(new Empty()),
       transformTextStream,
       listener,
@@ -121,7 +118,7 @@ export default class KeyboardGrpcHostClient
   scanCodeStream(
     listener: (input: ScanCodeEvent) => void,
   ): ReadableStream<ScanCodeEvent> {
-    return new TransformingStreamer(
+    return new TransformingStream(
       this.client.keyboardScancodeStream(new Empty()),
       transformScanCodeStream,
       listener,

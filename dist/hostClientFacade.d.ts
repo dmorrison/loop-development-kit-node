@@ -1,11 +1,11 @@
 import { ConnInfo } from './proto/broker_pb';
 import { HostServices } from './hostServices';
-import WhisperGrpcHostClient from './hostClients/whisperGrpcHostClient';
-import StorageGrpcHostClient from './hostClients/storageGrpcHostClient';
-import KeyboardGrpcHostClient from './hostClients/keyboardGrpcHostClient';
+import WhisperHostClient from './hostClients/whisperHostClient';
+import StorageHostClient from './hostClients/storageHostClient';
+import KeyboardSensorClient from './hostClients/keyboardSensorClient';
 export default class HostClientFacade implements HostServices {
-    whisperClient: WhisperGrpcHostClient;
-    storageClient: StorageGrpcHostClient;
-    keyboardClient: KeyboardGrpcHostClient;
+    whisperClient: WhisperHostClient;
+    storageClient: StorageHostClient;
+    keyboardClient: KeyboardSensorClient;
     connect(connInfo: ConnInfo.AsObject): Promise<void[]>;
 }

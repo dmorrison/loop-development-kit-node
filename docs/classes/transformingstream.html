@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TransformingStreamer | Loop Development Kit for Node.js</title>
+	<title>TransformingStream | Loop Development Kit for Node.js</title>
 	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,16 +55,25 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="transformingstreamer.html">TransformingStreamer</a>
+					<a href="transformingstream.html">TransformingStream</a>
 				</li>
 			</ul>
-			<h1>Class TransformingStreamer&lt;TInput, TOutput&gt;</h1>
+			<h1>Class TransformingStream&lt;TInput, TOutput&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The TransformingStream is a wrapper class that abstracts the grpc.ClientReadableStream interface away from the
+						user and transforms the input from the grpc format to Node objects.</p>
+					</div>
+					<p>This is used when the Library sensor is providing a stream of events, instead of a one-time response.</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
@@ -80,7 +89,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">TransformingStreamer</span>
+						<span class="target">TransformingStream</span>
 					</li>
 				</ul>
 			</section>
@@ -97,15 +106,15 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="transformingstreamer.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="transformingstream.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformingstreamer.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformingstreamer.html#stop" class="tsd-kind-icon">stop</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformingstreamer.html#streamwatcher" class="tsd-kind-icon">stream<wbr>Watcher</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformingstream.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformingstream.html#stop" class="tsd-kind-icon">stop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformingstream.html#streamwatcher" class="tsd-kind-icon">stream<wbr>Watcher</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,28 +126,45 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Transforming<wbr>Streamer<span class="tsd-signature-symbol">(</span>stream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">&gt;</span>, transformer<span class="tsd-signature-symbol">: </span><a href="../globals.html#streamtransformer" class="tsd-signature-type">StreamTransformer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span>, listener<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformingstreamer.html" class="tsd-signature-type">TransformingStreamer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Transforming<wbr>Stream<span class="tsd-signature-symbol">(</span>stream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">&gt;</span>, transformer<span class="tsd-signature-symbol">: </span><a href="../globals.html#streamtransformer" class="tsd-signature-type">StreamTransformer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span>, listener<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformingstream.html" class="tsd-signature-type">TransformingStream</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/transformingStreamer.ts#L12">hostClients/transformingStreamer.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/transformingStream.ts#L18">hostClients/transformingStream.ts:18</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>stream: <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the stream object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>transformer: <a href="../globals.html#streamtransformer" class="tsd-signature-type">StreamTransformer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a transformer function that converts the grpc input to the desired output.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> listener: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the listener function provided by the consumer that is called whenever events are outputted.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="transformingstreamer.html" class="tsd-signature-type">TransformingStreamer</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="transformingstream.html" class="tsd-signature-type">TransformingStream</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -155,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/transformingStreamer.ts#L25">hostClients/transformingStreamer.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/transformingStream.ts#L36">hostClients/transformingStream.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -197,7 +223,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/readablestream.html">ReadableStream</a>.<a href="../interfaces/readablestream.html#stop">stop</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/transformingStreamer.ts#L35">hostClients/transformingStreamer.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/transformingStream.ts#L46">hostClients/transformingStream.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -214,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/transformingStreamer.ts#L29">hostClients/transformingStreamer.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/transformingStream.ts#L40">hostClients/transformingStream.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -270,7 +296,7 @@
 						<a href="hostclientfacade.html" class="tsd-kind-icon">Host<wbr>Client<wbr>Facade</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="keyboardgrpchostclient.html" class="tsd-kind-icon">Keyboard<wbr>Grpc<wbr>Host<wbr>Client</a>
+						<a href="keyboardsensorclient.html" class="tsd-kind-icon">Keyboard<wbr>Sensor<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="logger.html" class="tsd-kind-icon">Logger</a>
@@ -279,24 +305,24 @@
 						<a href="plugin.html" class="tsd-kind-icon">Plugin</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="storagegrpchostclient.html" class="tsd-kind-icon">Storage<wbr>Grpc<wbr>Host<wbr>Client</a>
+						<a href="storagehostclient.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Client</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-has-type-parameter">
-						<a href="transformingstreamer.html" class="tsd-kind-icon">Transforming<wbr>Streamer</a>
+						<a href="transformingstream.html" class="tsd-kind-icon">Transforming<wbr>Stream</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="transformingstreamer.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="transformingstream.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="transformingstreamer.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a>
+								<a href="transformingstream.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="transformingstreamer.html#stop" class="tsd-kind-icon">stop</a>
+								<a href="transformingstream.html#stop" class="tsd-kind-icon">stop</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="transformingstreamer.html#streamwatcher" class="tsd-kind-icon">stream<wbr>Watcher</a>
+								<a href="transformingstream.html#streamwatcher" class="tsd-kind-icon">stream<wbr>Watcher</a>
 							</li>
 						</ul>
 					</li>

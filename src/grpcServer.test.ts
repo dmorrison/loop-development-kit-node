@@ -3,16 +3,16 @@ import Services from './proto/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
 import { ConnInfo } from './proto/broker_pb';
-import WhisperGrpcHostClient from './hostClients/whisperGrpcHostClient';
+import WhisperHostClient from './hostClients/whisperHostClient';
 import GRPCServer from './grpcServer';
 
 jest.mock('./proto/loop_grpc_pb');
 jest.mock('./brokerGrpcServer');
-jest.mock('./whisperGrpcHostClient');
+jest.mock('./hostClients/whisperHostClient');
 
 const mockedServices = mocked(Services.grpc.Server);
 const mockedBroker = mocked(BrokerGrpcServer);
-const mockedClient = mocked(WhisperGrpcHostClient);
+const mockedClient = mocked(WhisperHostClient);
 
 describe('GrpcServer', () => {
   let server: GRPCServer;

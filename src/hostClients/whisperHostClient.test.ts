@@ -1,11 +1,11 @@
 import { mocked } from 'ts-jest/utils';
 import Services from '../proto/whisper_grpc_pb';
 import Messages from '../proto/whisper_pb';
-import WhisperGrpcHostClient from './whisperGrpcHostClient';
+import WhisperHostClient from './whisperHostClient';
 import { ConnInfo } from '../proto/broker_pb';
 
-jest.mock('./proto/whisper_pb');
-jest.mock('./proto/whisper_grpc_pb');
+jest.mock('../proto/whisper_pb');
+jest.mock('../proto/whisper_grpc_pb');
 
 const WHISPER_ID = '1234-abcd';
 const hostClient = mocked(Services.WhisperClient);
@@ -15,8 +15,8 @@ type CallbackHandlerFunc<TRequest = any, TResponse = any> = (
   callback: (err: Error | null, response: TResponse) => void,
 ) => void;
 
-describe('WhisperGrpcHostClient', () => {
-  let subject: WhisperGrpcHostClient;
+describe('WhisperHostClient', () => {
+  let subject: WhisperHostClient;
   let connInfo: ConnInfo.AsObject;
   let waitForReadyMock: jest.Mock;
   let emitWhisperMock: jest.Mock;
@@ -29,7 +29,7 @@ describe('WhisperGrpcHostClient', () => {
   }
   beforeEach(() => {
     jest.resetAllMocks();
-    subject = new WhisperGrpcHostClient();
+    subject = new WhisperHostClient();
     connInfo = {
       address: 'a',
       serviceId: 1,

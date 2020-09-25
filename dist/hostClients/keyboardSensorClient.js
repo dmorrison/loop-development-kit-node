@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const keyboard_grpc_pb_1 = require("../proto/keyboard_grpc_pb");
 const keyboard_pb_1 = __importDefault(require("../proto/keyboard_pb"));
-const grpcHostClient_1 = __importDefault(require("./grpcHostClient"));
-const transformingStreamer_1 = require("./transformingStreamer");
+const hostClient_1 = __importDefault(require("./hostClient"));
+const transformingStream_1 = require("./transformingStream");
 const transformTextStream = (message) => {
     let modifiers = null;
     if (message.hasModifiers()) {
@@ -64,22 +64,22 @@ const transformHotKeyEvent = (message) => {
         direction: message.getPressed() ? 'down' : 'up',
     };
 };
-class KeyboardGrpcHostClient extends grpcHostClient_1.default {
+class KeyboardSensorClient extends hostClient_1.default {
     hotKeyStream(hotKeys, listener) {
         const message = generateHotkeyStreamRequest(hotKeys);
-        return new transformingStreamer_1.TransformingStreamer(this.client.keyboardHotkeyStream(message), transformHotKeyEvent, listener);
+        return new transformingStream_1.TransformingStream(this.client.keyboardHotkeyStream(message), transformHotKeyEvent, listener);
     }
     textChunks() {
-        return new transformingStreamer_1.TransformingStreamer(this.client.keyboardTextChunkStream(new empty_pb_1.Empty()), (response) => response.getText());
+        return new transformingStream_1.TransformingStream(this.client.keyboardTextChunkStream(new empty_pb_1.Empty()), (response) => response.getText());
     }
     textStream(listener) {
-        return new transformingStreamer_1.TransformingStreamer(this.client.keyboardTextStream(new empty_pb_1.Empty()), transformTextStream, listener);
+        return new transformingStream_1.TransformingStream(this.client.keyboardTextStream(new empty_pb_1.Empty()), transformTextStream, listener);
     }
     scanCodeStream(listener) {
-        return new transformingStreamer_1.TransformingStreamer(this.client.keyboardScancodeStream(new empty_pb_1.Empty()), transformScanCodeStream, listener);
+        return new transformingStream_1.TransformingStream(this.client.keyboardScancodeStream(new empty_pb_1.Empty()), transformScanCodeStream, listener);
     }
     generateClient(address) {
         return new keyboard_grpc_pb_1.KeyboardClient(address, keyboard_grpc_pb_1.grpc.credentials.createInsecure());
     }
 }
-exports.default = KeyboardGrpcHostClient;
+exports.default = KeyboardSensorClient;

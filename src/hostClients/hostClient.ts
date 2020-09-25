@@ -3,9 +3,13 @@ import { CommonHostServer } from '../commonHostServer';
 import { CommonHostClient } from './commonHostClient';
 
 /**
+ * HostClient classes are responsible for connecting to, and making requests to client services (storage, sending whispers, sensors).
+ *
+ * They handle the abstraction of the services provided by Helps and hide the implementation details of how the LDK communicates with Helps.
+ *
  * @internal
  */
-export default abstract class GrpcHostClient<THost extends CommonHostServer>
+export default abstract class HostClient<THost extends CommonHostServer>
   implements CommonHostClient {
   private _client: THost | undefined;
 

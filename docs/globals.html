@@ -78,11 +78,11 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/hostclientfacade.html" class="tsd-kind-icon">Host<wbr>Client<wbr>Facade</a></li>
-								<li class="tsd-kind-class"><a href="classes/keyboardgrpchostclient.html" class="tsd-kind-icon">Keyboard<wbr>Grpc<wbr>Host<wbr>Client</a></li>
+								<li class="tsd-kind-class"><a href="classes/keyboardsensorclient.html" class="tsd-kind-icon">Keyboard<wbr>Sensor<wbr>Client</a></li>
 								<li class="tsd-kind-class"><a href="classes/logger.html" class="tsd-kind-icon">Logger</a></li>
 								<li class="tsd-kind-class"><a href="classes/plugin.html" class="tsd-kind-icon">Plugin</a></li>
-								<li class="tsd-kind-class"><a href="classes/storagegrpchostclient.html" class="tsd-kind-icon">Storage<wbr>Grpc<wbr>Host<wbr>Client</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/transformingstreamer.html" class="tsd-kind-icon">Transforming<wbr>Streamer</a></li>
+								<li class="tsd-kind-class"><a href="classes/storagehostclient.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Client</a></li>
+								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/transformingstream.html" class="tsd-kind-icon">Transforming<wbr>Stream</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -142,7 +142,7 @@
 					<div class="tsd-signature tsd-kind-icon">Request&lt;TRequestType, TResponseType&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TRequestType</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponseType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/commonHostServer.ts#L6">commonHostServer.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/commonHostServer.ts#L6">commonHostServer.ts:6</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -206,7 +206,7 @@
 					<div class="tsd-signature tsd-kind-icon">Stream<wbr>Transformer&lt;TInput, TOutput&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/transformingStreamer.ts#L4">hostClients/transformingStreamer.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/transformingStream.ts#L4">hostClients/transformingStream.ts:4</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -249,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">categories<span class="tsd-signature-symbol">:</span> <a href="enums/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [Category.UNKNOWN,Category.INTELLIGENCE,Category.CONTROLLER,Category.SENSOR,Category.SIDEKICK,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/categories.ts#L10">categories.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/categories.ts#L10">categories.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +259,7 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;key is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/storageGrpcHostClient.ts#L7">hostClients/storageGrpcHostClient.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/storageHostClient.ts#L7">hostClients/storageHostClient.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;value is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/storageGrpcHostClient.ts#L8">hostClients/storageGrpcHostClient.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/storageHostClient.ts#L8">hostClients/storageHostClient.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -279,7 +279,7 @@
 					<div class="tsd-signature tsd-kind-icon">pid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/logging.ts#L6">logging.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/logging.ts#L6">logging.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -289,7 +289,7 @@
 					<div class="tsd-signature tsd-kind-icon">program<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Command</span><span class="tsd-signature-symbol"> = new Command()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/commands.ts#L4">commands.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/commands.ts#L4">commands.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -306,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/keyboardGrpcHostClient.ts#L57">hostClients/keyboardGrpcHostClient.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/keyboardSensorClient.ts#L54">hostClients/keyboardSensorClient.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,7 +334,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/serve.ts#L9">serve.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/serve.ts#L9">serve.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/keyboardGrpcHostClient.ts#L83">hostClients/keyboardGrpcHostClient.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/keyboardSensorClient.ts#L80">hostClients/keyboardSensorClient.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -393,7 +393,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/keyboardGrpcHostClient.ts#L47">hostClients/keyboardGrpcHostClient.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/keyboardSensorClient.ts#L44">hostClients/keyboardSensorClient.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -424,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/df643c7/src/hostClients/keyboardGrpcHostClient.ts#L22">hostClients/keyboardGrpcHostClient.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/2ca70e6/src/hostClients/keyboardSensorClient.ts#L19">hostClients/keyboardSensorClient.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -491,7 +491,7 @@
 						<a href="classes/hostclientfacade.html" class="tsd-kind-icon">Host<wbr>Client<wbr>Facade</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/keyboardgrpchostclient.html" class="tsd-kind-icon">Keyboard<wbr>Grpc<wbr>Host<wbr>Client</a>
+						<a href="classes/keyboardsensorclient.html" class="tsd-kind-icon">Keyboard<wbr>Sensor<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
@@ -500,10 +500,10 @@
 						<a href="classes/plugin.html" class="tsd-kind-icon">Plugin</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/storagegrpchostclient.html" class="tsd-kind-icon">Storage<wbr>Grpc<wbr>Host<wbr>Client</a>
+						<a href="classes/storagehostclient.html" class="tsd-kind-icon">Storage<wbr>Host<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/transformingstreamer.html" class="tsd-kind-icon">Transforming<wbr>Streamer</a>
+						<a href="classes/transformingstream.html" class="tsd-kind-icon">Transforming<wbr>Stream</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/hostservices.html" class="tsd-kind-icon">Host<wbr>Services</a>

@@ -1,7 +1,7 @@
-import GrpcHostClient from './grpcHostClient';
+import HostClient from './hostClient';
 import { StorageClient } from '../proto/storage_grpc_pb';
 import { StorageHost } from './storageHost';
-export default class StorageGrpcHostClient extends GrpcHostClient<StorageClient> implements StorageHost {
+export default class StorageHostClient extends HostClient<StorageClient> implements StorageHost {
     /**
      * Delete a key from storage.
      *
