@@ -75,6 +75,7 @@
 								<li class="tsd-kind-enum"><a href="enums/filesystemstreamaction.html" class="tsd-kind-icon">File<wbr>System<wbr>Stream<wbr>Action</a></li>
 								<li class="tsd-kind-enum"><a href="enums/operatingsystem.html" class="tsd-kind-icon">Operating<wbr>System</a></li>
 								<li class="tsd-kind-enum"><a href="enums/processaction.html" class="tsd-kind-icon">Process<wbr>Action</a></li>
+								<li class="tsd-kind-enum"><a href="enums/processstreamaction.html" class="tsd-kind-icon">Process<wbr>Stream<wbr>Action</a></li>
 								<li class="tsd-kind-enum"><a href="enums/windowaction.html" class="tsd-kind-icon">Window<wbr>Action</a></li>
 							</ul>
 						</section>
@@ -133,6 +134,7 @@
 								<li class="tsd-kind-class"><a href="classes/plugin.html" class="tsd-kind-icon">Plugin</a></li>
 								<li class="tsd-kind-class"><a href="classes/processclient.html" class="tsd-kind-icon">Process<wbr>Client</a></li>
 								<li class="tsd-kind-class"><a href="classes/processinfo.html" class="tsd-kind-icon">Process<wbr>Info</a></li>
+								<li class="tsd-kind-class"><a href="classes/processsensorclient.html" class="tsd-kind-icon">Process<wbr>Sensor<wbr>Client</a></li>
 								<li class="tsd-kind-class"><a href="classes/processstateresponse.html" class="tsd-kind-icon">Process<wbr>State<wbr>Response</a></li>
 								<li class="tsd-kind-class"><a href="classes/processstatestreamresponse.html" class="tsd-kind-icon">Process<wbr>State<wbr>Stream<wbr>Response</a></li>
 								<li class="tsd-kind-class"><a href="classes/stdiodata.html" class="tsd-kind-icon">Stdio<wbr>Data</a></li>
@@ -265,6 +267,10 @@
 								<li class="tsd-kind-interface"><a href="interfaces/keyboardhost.html" class="tsd-kind-icon">Keyboard<wbr>Host</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/keyboardmodifiers.html" class="tsd-kind-icon">Keyboard<wbr>Modifiers</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/loop.html" class="tsd-kind-icon">Loop</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/processhost.html" class="tsd-kind-icon">Process<wbr>Host</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/processinforesponse.html" class="tsd-kind-icon">Process<wbr>Info<wbr>Response</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/processlistresponse.html" class="tsd-kind-icon">Process<wbr>List<wbr>Response</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/processstreamresponse.html" class="tsd-kind-icon">Process<wbr>Stream<wbr>Response</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/scancodeevent.html" class="tsd-kind-icon">Scan<wbr>Code<wbr>Event</a></li>
 								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/stoppablestream.html" class="tsd-kind-icon">Stoppable<wbr>Stream</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/storagehost.html" class="tsd-kind-icon">Storage<wbr>Host</a></li>
@@ -385,6 +391,8 @@
 								<li class="tsd-kind-function"><a href="globals.html#generatemodifierflag" class="tsd-kind-icon">generate<wbr>Modifier<wbr>Flag</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#parsefileaction" class="tsd-kind-icon">parse<wbr>File<wbr>Action</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#parsefileinfo" class="tsd-kind-icon">parse<wbr>File<wbr>Info</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#parseprocessaction" class="tsd-kind-icon">parse<wbr>Process<wbr>Action</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#parseprocessinfo" class="tsd-kind-icon">parse<wbr>Process<wbr>Info</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#serialize_google_protobuf_empty" class="tsd-kind-icon">serialize_<wbr>google_<wbr>protobuf_<wbr><wbr>Empty</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#serialize_plugin_conninfo" class="tsd-kind-icon">serialize_<wbr>plugin_<wbr><wbr>Conn<wbr>Info</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#serialize_plugin_stdiodata" class="tsd-kind-icon">serialize_<wbr>plugin_<wbr><wbr>Stdio<wbr>Data</a></li>
@@ -452,7 +460,7 @@
 					<div class="tsd-signature tsd-kind-icon">Message<wbr>With<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>getError<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/transformingStream.ts#L8">src/hostClients/transformingStream.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/transformingStream.ts#L8">src/hostClients/transformingStream.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -467,7 +475,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/transformingStream.ts#L9">src/hostClients/transformingStream.ts:9</a></li>
+												<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/transformingStream.ts#L9">src/hostClients/transformingStream.ts:9</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -483,7 +491,7 @@
 					<div class="tsd-signature tsd-kind-icon">Request&lt;TRequestType, TResponseType&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TRequestType</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponseType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/commonHostServer.ts#L6">src/commonHostServer.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/commonHostServer.ts#L6">src/commonHostServer.ts:6</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -547,7 +555,7 @@
 					<div class="tsd-signature tsd-kind-icon">Stream<wbr>Listener&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, input<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">T</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/stoppableStream.ts#L1">src/hostClients/stoppableStream.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/stoppableStream.ts#L1">src/hostClients/stoppableStream.ts:1</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -587,7 +595,7 @@
 					<div class="tsd-signature tsd-kind-icon">Stream<wbr>Transformer&lt;TInput, TOutput&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TInput</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/transformingStream.ts#L4">src/hostClients/transformingStream.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/transformingStream.ts#L4">src/hostClients/transformingStream.ts:4</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -630,8 +638,8 @@
 					<div class="tsd-signature tsd-kind-icon">Browser<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>browserActiveURL<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>browserActiveURLStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>browserSelectedText<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>browserSelectedTextStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.BrowserService &#x3D; {// get the active URLbrowserActiveURL: {path: &#x27;/proto.Browser/BrowserActiveURL&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: browser_pb.BrowserActiveURLResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_BrowserActiveURLResponse,responseDeserialize: deserialize_proto_BrowserActiveURLResponse,},// stream active URL every time it changesbrowserActiveURLStream: {path: &#x27;/proto.Browser/BrowserActiveURLStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: browser_pb.BrowserActiveURLStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_BrowserActiveURLStreamResponse,responseDeserialize: deserialize_proto_BrowserActiveURLStreamResponse,},// get currently selected textbrowserSelectedText: {path: &#x27;/proto.Browser/BrowserSelectedText&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: browser_pb.BrowserSelectedTextResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_BrowserSelectedTextResponse,responseDeserialize: deserialize_proto_BrowserSelectedTextResponse,},// stream selected text every time it changesbrowserSelectedTextStream: {path: &#x27;/proto.Browser/BrowserSelectedTextStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: browser_pb.BrowserSelectedTextStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_BrowserSelectedTextStreamResponse,responseDeserialize: deserialize_proto_BrowserSelectedTextStreamResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.d.ts#L56">src/grpc/browser_grpc_pb.d.ts:56</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L64">src/grpc/browser_grpc_pb.js:64</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.d.ts#L56">src/grpc/browser_grpc_pb.d.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L64">src/grpc/browser_grpc_pb.js:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -774,8 +782,8 @@
 					<div class="tsd-signature tsd-kind-icon">Clipboard<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>clipboardRead<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>clipboardReadStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>clipboardWrite<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.ClipboardService &#x3D; {// get the contents of the clipboardclipboardRead: {path: &#x27;/proto.Clipboard/ClipboardRead&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: clipboard_pb.ClipboardReadResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_ClipboardReadResponse,responseDeserialize: deserialize_proto_ClipboardReadResponse,},// get the contents of the clipboard every time they changeclipboardReadStream: {path: &#x27;/proto.Clipboard/ClipboardReadStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: clipboard_pb.ClipboardReadStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_ClipboardReadStreamResponse,responseDeserialize: deserialize_proto_ClipboardReadStreamResponse,},// write to the clipboardclipboardWrite: {path: &#x27;/proto.Clipboard/ClipboardWrite&#x27;,requestStream: false,responseStream: false,requestType: clipboard_pb.ClipboardWriteRequest,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_proto_ClipboardWriteRequest,requestDeserialize: deserialize_proto_ClipboardWriteRequest,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.d.ts#L46">src/grpc/clipboard_grpc_pb.d.ts:46</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L53">src/grpc/clipboard_grpc_pb.js:53</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.d.ts#L46">src/grpc/clipboard_grpc_pb.d.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L53">src/grpc/clipboard_grpc_pb.js:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -886,8 +894,8 @@
 					<div class="tsd-signature tsd-kind-icon">Cursor<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>cursorPosition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>cursorPositionStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.CursorService &#x3D; {// get the current position of the cursorcursorPosition: {path: &#x27;/proto.Cursor/CursorPosition&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: cursor_pb.CursorPositionResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_CursorPositionResponse,responseDeserialize: deserialize_proto_CursorPositionResponse,},// get the position of the cursor every time it changescursorPositionStream: {path: &#x27;/proto.Cursor/CursorPositionStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: cursor_pb.CursorPositionStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_CursorPositionStreamResponse,responseDeserialize: deserialize_proto_CursorPositionStreamResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.d.ts#L36">src/grpc/cursor_grpc_pb.d.ts:36</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L42">src/grpc/cursor_grpc_pb.js:42</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.d.ts#L36">src/grpc/cursor_grpc_pb.d.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L42">src/grpc/cursor_grpc_pb.js:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -966,8 +974,8 @@
 					<div class="tsd-signature tsd-kind-icon">Filesystem<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>filesystemDir<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>filesystemDirStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>filesystemFile<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>filesystemFileStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.FilesystemService &#x3D; {// list the contents of a directoryfilesystemDir: {path: &#x27;/proto.Filesystem/FilesystemDir&#x27;,requestStream: false,responseStream: false,requestType: filesystem_pb.FilesystemDirRequest,responseType: filesystem_pb.FilesystemDirResponse,requestSerialize: serialize_proto_FilesystemDirRequest,requestDeserialize: deserialize_proto_FilesystemDirRequest,responseSerialize: serialize_proto_FilesystemDirResponse,responseDeserialize: deserialize_proto_FilesystemDirResponse,},// stream any updates to the contents of a directoryfilesystemDirStream: {path: &#x27;/proto.Filesystem/FilesystemDirStream&#x27;,requestStream: false,responseStream: true,requestType: filesystem_pb.FilesystemDirStreamRequest,responseType: filesystem_pb.FilesystemDirStreamResponse,requestSerialize: serialize_proto_FilesystemDirStreamRequest,requestDeserialize: deserialize_proto_FilesystemDirStreamRequest,responseSerialize: serialize_proto_FilesystemDirStreamResponse,responseDeserialize: deserialize_proto_FilesystemDirStreamResponse,},// get information about a filefilesystemFile: {path: &#x27;/proto.Filesystem/FilesystemFile&#x27;,requestStream: false,responseStream: false,requestType: filesystem_pb.FilesystemFileRequest,responseType: filesystem_pb.FilesystemFileResponse,requestSerialize: serialize_proto_FilesystemFileRequest,requestDeserialize: deserialize_proto_FilesystemFileRequest,responseSerialize: serialize_proto_FilesystemFileResponse,responseDeserialize: deserialize_proto_FilesystemFileResponse,},// stream any updates to a filefilesystemFileStream: {path: &#x27;/proto.Filesystem/FilesystemFileStream&#x27;,requestStream: false,responseStream: true,requestType: filesystem_pb.FilesystemFileStreamRequest,responseType: filesystem_pb.FilesystemFileStreamResponse,requestSerialize: serialize_proto_FilesystemFileStreamRequest,requestDeserialize: deserialize_proto_FilesystemFileStreamRequest,responseSerialize: serialize_proto_FilesystemFileStreamResponse,responseDeserialize: deserialize_proto_FilesystemFileStreamResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.d.ts#L56">src/grpc/filesystem_grpc_pb.d.ts:56</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L97">src/grpc/filesystem_grpc_pb.js:97</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.d.ts#L56">src/grpc/filesystem_grpc_pb.d.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L97">src/grpc/filesystem_grpc_pb.js:97</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1110,8 +1118,8 @@
 					<div class="tsd-signature tsd-kind-icon">GRPCBroker<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>startStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.GRPCBrokerService &#x3D; {startStream: {path: &#x27;/plugin.GRPCBroker/StartStream&#x27;,requestStream: true,responseStream: true,requestType: broker_pb.ConnInfo,responseType: broker_pb.ConnInfo,requestSerialize: serialize_plugin_ConnInfo,requestDeserialize: deserialize_plugin_ConnInfo,responseSerialize: serialize_plugin_ConnInfo,responseDeserialize: deserialize_plugin_ConnInfo,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_grpc_pb.d.ts#L24">src/grpc/broker_grpc_pb.d.ts:24</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_grpc_pb.js#L19">src/grpc/broker_grpc_pb.js:19</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_grpc_pb.d.ts#L24">src/grpc/broker_grpc_pb.d.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_grpc_pb.js#L19">src/grpc/broker_grpc_pb.js:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1158,8 +1166,8 @@
 					<div class="tsd-signature tsd-kind-icon">GRPCStdio<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>streamStdio<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.GRPCStdioService &#x3D; {// StreamStdio returns a stream that contains all the stdout/stderr.// This RPC endpoint must only be called ONCE. Once stdio data is consumed// it is not sent again.//// Callers should connect early to prevent blocking on the plugin process.streamStdio: {path: &#x27;/plugin.GRPCStdio/StreamStdio&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: stdio_pb.StdioData,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_plugin_StdioData,responseDeserialize: deserialize_plugin_StdioData,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.d.ts#L25">src/grpc/stdio_grpc_pb.d.ts:25</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.js#L34">src/grpc/stdio_grpc_pb.js:34</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.d.ts#L25">src/grpc/stdio_grpc_pb.d.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.js#L34">src/grpc/stdio_grpc_pb.js:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1206,8 +1214,8 @@
 					<div class="tsd-signature tsd-kind-icon">Health<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>check<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>watch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.HealthService &#x3D; {check: {path: &#x27;/proto.Health/Check&#x27;,requestStream: false,responseStream: false,requestType: health_pb.HealthCheckRequest,responseType: health_pb.HealthCheckResponse,requestSerialize: serialize_proto_HealthCheckRequest,requestDeserialize: deserialize_proto_HealthCheckRequest,responseSerialize: serialize_proto_HealthCheckResponse,responseDeserialize: deserialize_proto_HealthCheckResponse,},watch: {path: &#x27;/proto.Health/Watch&#x27;,requestStream: false,responseStream: true,requestType: health_pb.HealthCheckRequest,responseType: health_pb.HealthCheckResponse,requestSerialize: serialize_proto_HealthCheckRequest,requestDeserialize: deserialize_proto_HealthCheckRequest,responseSerialize: serialize_proto_HealthCheckResponse,responseDeserialize: deserialize_proto_HealthCheckResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.d.ts#L34">src/grpc/health_grpc_pb.d.ts:34</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L30">src/grpc/health_grpc_pb.js:30</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.d.ts#L34">src/grpc/health_grpc_pb.d.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L30">src/grpc/health_grpc_pb.js:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1286,8 +1294,8 @@
 					<div class="tsd-signature tsd-kind-icon">Hover<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>hoverRead<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>hoverReadStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.HoverService &#x3D; {// read the text under the cursorhoverRead: {path: &#x27;/proto.Hover/HoverRead&#x27;,requestStream: false,responseStream: false,requestType: hover_pb.HoverReadRequest,responseType: hover_pb.HoverReadResponse,requestSerialize: serialize_proto_HoverReadRequest,requestDeserialize: deserialize_proto_HoverReadRequest,responseSerialize: serialize_proto_HoverReadResponse,responseDeserialize: deserialize_proto_HoverReadResponse,},// stream the text under the cursor as it changeshoverReadStream: {path: &#x27;/proto.Hover/HoverReadStream&#x27;,requestStream: false,responseStream: true,requestType: hover_pb.HoverReadStreamRequest,responseType: hover_pb.HoverReadStreamResponse,requestSerialize: serialize_proto_HoverReadStreamRequest,requestDeserialize: deserialize_proto_HoverReadStreamRequest,responseSerialize: serialize_proto_HoverReadStreamResponse,responseDeserialize: deserialize_proto_HoverReadStreamResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.d.ts#L35">src/grpc/hover_grpc_pb.d.ts:35</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L52">src/grpc/hover_grpc_pb.js:52</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.d.ts#L35">src/grpc/hover_grpc_pb.d.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L52">src/grpc/hover_grpc_pb.js:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1366,8 +1374,8 @@
 					<div class="tsd-signature tsd-kind-icon">Keyboard<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>keyboardCharacterStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>keyboardHotkeyStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>keyboardScancodeStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>keyboardTextStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.KeyboardService &#x3D; {// register a hotkey and receive streamed messages when it is pressedkeyboardHotkeyStream: {path: &#x27;/proto.Keyboard/KeyboardHotkeyStream&#x27;,requestStream: false,responseStream: true,requestType: keyboard_pb.KeyboardHotkeyStreamRequest,responseType: keyboard_pb.KeyboardHotkeyStreamResponse,requestSerialize: serialize_proto_KeyboardHotkeyStreamRequest,requestDeserialize: deserialize_proto_KeyboardHotkeyStreamRequest,responseSerialize: serialize_proto_KeyboardHotkeyStreamResponse,responseDeserialize: deserialize_proto_KeyboardHotkeyStreamResponse,},// stream each scancode as it is pressedkeyboardScancodeStream: {path: &#x27;/proto.Keyboard/KeyboardScancodeStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: keyboard_pb.KeyboardScancodeStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_KeyboardScancodeStreamResponse,responseDeserialize: deserialize_proto_KeyboardScancodeStreamResponse,},// stream chunks of text when the user finishes typing themkeyboardTextStream: {path: &#x27;/proto.Keyboard/KeyboardTextStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: keyboard_pb.KeyboardTextStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_KeyboardTextStreamResponse,responseDeserialize: deserialize_proto_KeyboardTextStreamResponse,},// stream text as it is typedkeyboardCharacterStream: {path: &#x27;/proto.Keyboard/KeyboardCharacterStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: keyboard_pb.KeyboardCharacterStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_KeyboardCharacterStreamResponse,responseDeserialize: deserialize_proto_KeyboardCharacterStreamResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.d.ts#L56">src/grpc/keyboard_grpc_pb.d.ts:56</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L75">src/grpc/keyboard_grpc_pb.js:75</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.d.ts#L56">src/grpc/keyboard_grpc_pb.d.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L75">src/grpc/keyboard_grpc_pb.js:75</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1510,8 +1518,8 @@
 					<div class="tsd-signature tsd-kind-icon">Loop<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>loopStart<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>loopStop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.LoopService &#x3D; {// start the looploopStart: {path: &#x27;/proto.Loop/LoopStart&#x27;,requestStream: false,responseStream: false,requestType: loop_pb.LoopStartRequest,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_proto_LoopStartRequest,requestDeserialize: deserialize_proto_LoopStartRequest,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},// stop the looploopStop: {path: &#x27;/proto.Loop/LoopStop&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.d.ts#L36">src/grpc/loop_grpc_pb.d.ts:36</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.js#L31">src/grpc/loop_grpc_pb.js:31</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.d.ts#L36">src/grpc/loop_grpc_pb.d.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.js#L31">src/grpc/loop_grpc_pb.js:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1590,8 +1598,8 @@
 					<div class="tsd-signature tsd-kind-icon">Process<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>processState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>processStateStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.ProcessService &#x3D; {// stream updates to processes as they happenprocessStateStream: {path: &#x27;/proto.Process/ProcessStateStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: process_pb.ProcessStateStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_ProcessStateStreamResponse,responseDeserialize: deserialize_proto_ProcessStateStreamResponse,},// get a list of all processesprocessState: {path: &#x27;/proto.Process/ProcessState&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: process_pb.ProcessStateResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_ProcessStateResponse,responseDeserialize: deserialize_proto_ProcessStateResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.d.ts#L36">src/grpc/process_grpc_pb.d.ts:36</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L42">src/grpc/process_grpc_pb.js:42</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.d.ts#L36">src/grpc/process_grpc_pb.d.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L42">src/grpc/process_grpc_pb.js:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1670,8 +1678,8 @@
 					<div class="tsd-signature tsd-kind-icon">Storage<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>storageDelete<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>storageDeleteAll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>storageHasKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>storageKeys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>storageRead<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>storageReadAll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>storageWrite<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.StorageService &#x3D; {// Check in storage to determine if a key has a valuestorageHasKey: {path: &#x27;/proto.Storage/StorageHasKey&#x27;,requestStream: false,responseStream: false,requestType: storage_pb.StorageHasKeyRequest,responseType: storage_pb.StorageHasKeyResponse,requestSerialize: serialize_proto_StorageHasKeyRequest,requestDeserialize: deserialize_proto_StorageHasKeyRequest,responseSerialize: serialize_proto_StorageHasKeyResponse,responseDeserialize: deserialize_proto_StorageHasKeyResponse,},// Get a list of storage keysstorageKeys: {path: &#x27;/proto.Storage/StorageKeys&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: storage_pb.StorageKeysResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_StorageKeysResponse,responseDeserialize: deserialize_proto_StorageKeysResponse,},// Read the value of a specific storage keystorageRead: {path: &#x27;/proto.Storage/StorageRead&#x27;,requestStream: false,responseStream: false,requestType: storage_pb.StorageReadRequest,responseType: storage_pb.StorageReadResponse,requestSerialize: serialize_proto_StorageReadRequest,requestDeserialize: deserialize_proto_StorageReadRequest,responseSerialize: serialize_proto_StorageReadResponse,responseDeserialize: deserialize_proto_StorageReadResponse,},// Get all storage keys and valuesstorageReadAll: {path: &#x27;/proto.Storage/StorageReadAll&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: storage_pb.StorageReadAllResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_StorageReadAllResponse,responseDeserialize: deserialize_proto_StorageReadAllResponse,},// Delete the value of a specific keystorageDelete: {path: &#x27;/proto.Storage/StorageDelete&#x27;,requestStream: false,responseStream: false,requestType: storage_pb.StorageDeleteRequest,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_proto_StorageDeleteRequest,requestDeserialize: deserialize_proto_StorageDeleteRequest,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},// Delete the values of all keysstorageDeleteAll: {path: &#x27;/proto.Storage/StorageDeleteAll&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},// Write the value of a key to storagestorageWrite: {path: &#x27;/proto.Storage/StorageWrite&#x27;,requestStream: false,responseStream: false,requestType: storage_pb.StorageWriteRequest,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_proto_StorageWriteRequest,requestDeserialize: deserialize_proto_StorageWriteRequest,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.d.ts#L86">src/grpc/storage_grpc_pb.d.ts:86</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L108">src/grpc/storage_grpc_pb.js:108</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.d.ts#L86">src/grpc/storage_grpc_pb.d.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L108">src/grpc/storage_grpc_pb.js:108</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1910,8 +1918,8 @@
 					<div class="tsd-signature tsd-kind-icon">Whisper<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>whisperNew<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>whisperUpdate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.WhisperService &#x3D; {// Send a new whisperwhisperNew: {path: &#x27;/proto.Whisper/WhisperNew&#x27;,requestStream: false,responseStream: false,requestType: whisper_pb.WhisperNewRequest,responseType: whisper_pb.WhisperNewResponse,requestSerialize: serialize_proto_WhisperNewRequest,requestDeserialize: deserialize_proto_WhisperNewRequest,responseSerialize: serialize_proto_WhisperNewResponse,responseDeserialize: deserialize_proto_WhisperNewResponse,},// Update an existing whisperwhisperUpdate: {path: &#x27;/proto.Whisper/WhisperUpdate&#x27;,requestStream: false,responseStream: false,requestType: whisper_pb.WhisperUpdateRequest,responseType: google_protobuf_empty_pb.Empty,requestSerialize: serialize_proto_WhisperUpdateRequest,requestDeserialize: deserialize_proto_WhisperUpdateRequest,responseSerialize: serialize_google_protobuf_Empty,responseDeserialize: deserialize_google_protobuf_Empty,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.d.ts#L36">src/grpc/whisper_grpc_pb.d.ts:36</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L53">src/grpc/whisper_grpc_pb.js:53</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.d.ts#L36">src/grpc/whisper_grpc_pb.d.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L53">src/grpc/whisper_grpc_pb.js:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -1990,8 +1998,8 @@
 					<div class="tsd-signature tsd-kind-icon">Window<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>windowActiveWindow<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>windowActiveWindowStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>windowState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">; </span>windowStateStream<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = exports.WindowService &#x3D; {// get information about currently focused windowwindowActiveWindow: {path: &#x27;/proto.Window/WindowActiveWindow&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: window_pb.WindowActiveWindowResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_WindowActiveWindowResponse,responseDeserialize: deserialize_proto_WindowActiveWindowResponse,},// stream information about currently focused window as it changeswindowActiveWindowStream: {path: &#x27;/proto.Window/WindowActiveWindowStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: window_pb.WindowActiveWindowStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_WindowActiveWindowStreamResponse,responseDeserialize: deserialize_proto_WindowActiveWindowStreamResponse,},// get information about all windowswindowState: {path: &#x27;/proto.Window/WindowState&#x27;,requestStream: false,responseStream: false,requestType: google_protobuf_empty_pb.Empty,responseType: window_pb.WindowStateResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_WindowStateResponse,responseDeserialize: deserialize_proto_WindowStateResponse,},// get information about windows as they changewindowStateStream: {path: &#x27;/proto.Window/WindowStateStream&#x27;,requestStream: false,responseStream: true,requestType: google_protobuf_empty_pb.Empty,responseType: window_pb.WindowStateStreamResponse,requestSerialize: serialize_google_protobuf_Empty,requestDeserialize: deserialize_google_protobuf_Empty,responseSerialize: serialize_proto_WindowStateStreamResponse,responseDeserialize: deserialize_proto_WindowStateStreamResponse,},}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.d.ts#L56">src/grpc/window_grpc_pb.d.ts:56</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L64">src/grpc/window_grpc_pb.js:64</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.d.ts#L56">src/grpc/window_grpc_pb.d.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L64">src/grpc/window_grpc_pb.js:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -2134,7 +2142,7 @@
 					<div class="tsd-signature tsd-kind-icon">broker_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/broker_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./broker_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_grpc_pb.js#L5">src/grpc/broker_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_grpc_pb.js#L5">src/grpc/broker_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2144,7 +2152,7 @@
 					<div class="tsd-signature tsd-kind-icon">browser_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/browser_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./browser_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L5">src/grpc/browser_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L5">src/grpc/browser_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2154,7 +2162,7 @@
 					<div class="tsd-signature tsd-kind-icon">categories<span class="tsd-signature-symbol">:</span> <a href="enums/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [Category.UNKNOWN,Category.INTELLIGENCE,Category.CONTROLLER,Category.SENSOR,Category.SIDEKICK,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/categories.ts#L10">src/categories.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/categories.ts#L10">src/categories.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2164,7 +2172,7 @@
 					<div class="tsd-signature tsd-kind-icon">clipboard_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/clipboard_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./clipboard_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L5">src/grpc/clipboard_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L5">src/grpc/clipboard_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2174,7 +2182,7 @@
 					<div class="tsd-signature tsd-kind-icon">cursor_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/cursor_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./cursor_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L5">src/grpc/cursor_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L5">src/grpc/cursor_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2184,7 +2192,7 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;key is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/storageHostClient.ts#L7">src/hostClients/storageHostClient.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/storageHostClient.ts#L7">src/hostClients/storageHostClient.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2194,7 +2202,7 @@
 					<div class="tsd-signature tsd-kind-icon">err<wbr>Missing<wbr>Required<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> = new Error(&#x27;value is required&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/storageHostClient.ts#L8">src/hostClients/storageHostClient.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/storageHostClient.ts#L8">src/hostClients/storageHostClient.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2204,7 +2212,7 @@
 					<div class="tsd-signature tsd-kind-icon">filesystem_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/filesystem_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./filesystem_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L5">src/grpc/filesystem_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L5">src/grpc/filesystem_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2214,20 +2222,20 @@
 					<div class="tsd-signature tsd-kind-icon">global<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = Function(&#x27;return this&#x27;)()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_pb.js#L13">src/grpc/broker_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_pb.js#L13">src/grpc/browser_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_pb.js#L13">src/grpc/clipboard_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_pb.js#L13">src/grpc/cursor_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_pb.js#L13">src/grpc/filesystem_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_pb.js#L13">src/grpc/health_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_pb.js#L13">src/grpc/hover_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_pb.js#L13">src/grpc/keyboard_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_pb.js#L13">src/grpc/loop_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_pb.js#L13">src/grpc/process_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_pb.js#L13">src/grpc/stdio_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_pb.js#L13">src/grpc/storage_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_pb.js#L13">src/grpc/whisper_pb.js:13</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_pb.js#L13">src/grpc/window_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_pb.js#L13">src/grpc/broker_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_pb.js#L13">src/grpc/browser_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_pb.js#L13">src/grpc/clipboard_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_pb.js#L13">src/grpc/cursor_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_pb.js#L13">src/grpc/filesystem_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_pb.js#L13">src/grpc/health_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_pb.js#L13">src/grpc/hover_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_pb.js#L13">src/grpc/keyboard_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_pb.js#L13">src/grpc/loop_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_pb.js#L13">src/grpc/process_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_pb.js#L13">src/grpc/stdio_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_pb.js#L13">src/grpc/storage_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_pb.js#L13">src/grpc/whisper_pb.js:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_pb.js#L13">src/grpc/window_pb.js:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2237,20 +2245,20 @@
 					<div class="tsd-signature tsd-kind-icon">goog<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/node_modules/@types/google-protobuf/index&quot;</span><span class="tsd-signature-symbol"> = jspb</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_pb.js#L12">src/grpc/broker_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_pb.js#L12">src/grpc/browser_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_pb.js#L12">src/grpc/clipboard_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_pb.js#L12">src/grpc/cursor_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_pb.js#L12">src/grpc/filesystem_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_pb.js#L12">src/grpc/health_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_pb.js#L12">src/grpc/hover_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_pb.js#L12">src/grpc/keyboard_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_pb.js#L12">src/grpc/loop_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_pb.js#L12">src/grpc/process_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_pb.js#L12">src/grpc/stdio_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_pb.js#L12">src/grpc/storage_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_pb.js#L12">src/grpc/whisper_pb.js:12</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_pb.js#L12">src/grpc/window_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_pb.js#L12">src/grpc/broker_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_pb.js#L12">src/grpc/browser_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_pb.js#L12">src/grpc/clipboard_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_pb.js#L12">src/grpc/cursor_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_pb.js#L12">src/grpc/filesystem_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_pb.js#L12">src/grpc/health_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_pb.js#L12">src/grpc/hover_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_pb.js#L12">src/grpc/keyboard_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_pb.js#L12">src/grpc/loop_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_pb.js#L12">src/grpc/process_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_pb.js#L12">src/grpc/stdio_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_pb.js#L12">src/grpc/storage_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_pb.js#L12">src/grpc/whisper_pb.js:12</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_pb.js#L12">src/grpc/window_pb.js:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2260,26 +2268,26 @@
 					<div class="tsd-signature tsd-kind-icon">google_<wbr>protobuf_<wbr>empty_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/node_modules/@types/google-protobuf/google/protobuf/empty_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;google-protobuf/google/protobuf/empty_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L6">src/grpc/browser_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_pb.js#L15">src/grpc/browser_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L6">src/grpc/clipboard_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_pb.js#L15">src/grpc/clipboard_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L6">src/grpc/cursor_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_pb.js#L15">src/grpc/cursor_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L6">src/grpc/keyboard_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_pb.js#L15">src/grpc/keyboard_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.js#L6">src/grpc/loop_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_pb.js#L15">src/grpc/loop_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L6">src/grpc/process_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_pb.js#L15">src/grpc/process_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.js#L6">src/grpc/stdio_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_pb.js#L15">src/grpc/stdio_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L6">src/grpc/storage_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_pb.js#L15">src/grpc/storage_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L6">src/grpc/whisper_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_pb.js#L15">src/grpc/whisper_pb.js:15</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L6">src/grpc/window_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_pb.js#L15">src/grpc/window_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L6">src/grpc/browser_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_pb.js#L15">src/grpc/browser_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L6">src/grpc/clipboard_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_pb.js#L15">src/grpc/clipboard_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L6">src/grpc/cursor_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_pb.js#L15">src/grpc/cursor_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L6">src/grpc/keyboard_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_pb.js#L15">src/grpc/keyboard_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.js#L6">src/grpc/loop_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_pb.js#L15">src/grpc/loop_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L6">src/grpc/process_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_pb.js#L15">src/grpc/process_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.js#L6">src/grpc/stdio_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_pb.js#L15">src/grpc/stdio_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L6">src/grpc/storage_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_pb.js#L15">src/grpc/storage_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L6">src/grpc/whisper_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_pb.js#L15">src/grpc/whisper_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L6">src/grpc/window_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_pb.js#L15">src/grpc/window_pb.js:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2289,8 +2297,8 @@
 					<div class="tsd-signature tsd-kind-icon">google_<wbr>protobuf_<wbr>timestamp_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/node_modules/@types/google-protobuf/google/protobuf/timestamp_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;google-protobuf/google/protobuf/timestamp_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L6">src/grpc/filesystem_grpc_pb.js:6</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_pb.js#L15">src/grpc/filesystem_pb.js:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L6">src/grpc/filesystem_grpc_pb.js:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_pb.js#L15">src/grpc/filesystem_pb.js:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2300,20 +2308,20 @@
 					<div class="tsd-signature tsd-kind-icon">grpc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/node_modules/@grpc/grpc-js/build/src/index&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;@grpc/grpc-js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_grpc_pb.js#L4">src/grpc/broker_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L4">src/grpc/browser_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L4">src/grpc/clipboard_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L4">src/grpc/cursor_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L4">src/grpc/filesystem_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L4">src/grpc/health_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L4">src/grpc/hover_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L4">src/grpc/keyboard_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.js#L4">src/grpc/loop_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L4">src/grpc/process_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.js#L4">src/grpc/stdio_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L4">src/grpc/storage_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L4">src/grpc/whisper_grpc_pb.js:4</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L4">src/grpc/window_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_grpc_pb.js#L4">src/grpc/broker_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L4">src/grpc/browser_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L4">src/grpc/clipboard_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L4">src/grpc/cursor_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L4">src/grpc/filesystem_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L4">src/grpc/health_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L4">src/grpc/hover_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L4">src/grpc/keyboard_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.js#L4">src/grpc/loop_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L4">src/grpc/process_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.js#L4">src/grpc/stdio_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L4">src/grpc/storage_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L4">src/grpc/whisper_grpc_pb.js:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L4">src/grpc/window_grpc_pb.js:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2323,7 +2331,7 @@
 					<div class="tsd-signature tsd-kind-icon">health_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/health_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./health_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L5">src/grpc/health_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L5">src/grpc/health_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2333,7 +2341,7 @@
 					<div class="tsd-signature tsd-kind-icon">hover_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/hover_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./hover_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L5">src/grpc/hover_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L5">src/grpc/hover_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2343,20 +2351,20 @@
 					<div class="tsd-signature tsd-kind-icon">jspb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/node_modules/@types/google-protobuf/index&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;google-protobuf&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_pb.js#L11">src/grpc/broker_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_pb.js#L11">src/grpc/browser_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_pb.js#L11">src/grpc/clipboard_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_pb.js#L11">src/grpc/cursor_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_pb.js#L11">src/grpc/filesystem_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_pb.js#L11">src/grpc/health_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_pb.js#L11">src/grpc/hover_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_pb.js#L11">src/grpc/keyboard_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_pb.js#L11">src/grpc/loop_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_pb.js#L11">src/grpc/process_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_pb.js#L11">src/grpc/stdio_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_pb.js#L11">src/grpc/storage_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_pb.js#L11">src/grpc/whisper_pb.js:11</a></li>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_pb.js#L11">src/grpc/window_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_pb.js#L11">src/grpc/broker_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_pb.js#L11">src/grpc/browser_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_pb.js#L11">src/grpc/clipboard_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_pb.js#L11">src/grpc/cursor_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_pb.js#L11">src/grpc/filesystem_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_pb.js#L11">src/grpc/health_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_pb.js#L11">src/grpc/hover_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_pb.js#L11">src/grpc/keyboard_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_pb.js#L11">src/grpc/loop_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_pb.js#L11">src/grpc/process_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_pb.js#L11">src/grpc/stdio_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_pb.js#L11">src/grpc/storage_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_pb.js#L11">src/grpc/whisper_pb.js:11</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_pb.js#L11">src/grpc/window_pb.js:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2482,7 +2490,7 @@
 					<div class="tsd-signature tsd-kind-icon">keyboard_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/keyboard_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./keyboard_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L5">src/grpc/keyboard_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L5">src/grpc/keyboard_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2492,7 +2500,7 @@
 					<div class="tsd-signature tsd-kind-icon">loop_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/loop_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./loop_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.js#L5">src/grpc/loop_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.js#L5">src/grpc/loop_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2502,7 +2510,7 @@
 					<div class="tsd-signature tsd-kind-icon">pid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/logging.ts#L6">src/logging.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/logging.ts#L6">src/logging.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2512,7 +2520,7 @@
 					<div class="tsd-signature tsd-kind-icon">process_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/process_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./process_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L5">src/grpc/process_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L5">src/grpc/process_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2522,7 +2530,7 @@
 					<div class="tsd-signature tsd-kind-icon">program<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Command</span><span class="tsd-signature-symbol"> = new Command()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/commands.ts#L4">src/commands.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/commands.ts#L4">src/commands.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2532,7 +2540,7 @@
 					<div class="tsd-signature tsd-kind-icon">stdio_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/stdio_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./stdio_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.js#L5">src/grpc/stdio_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.js#L5">src/grpc/stdio_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2542,7 +2550,7 @@
 					<div class="tsd-signature tsd-kind-icon">storage_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/storage_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./storage_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L5">src/grpc/storage_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L5">src/grpc/storage_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2552,7 +2560,7 @@
 					<div class="tsd-signature tsd-kind-icon">whisper_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/whisper_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./whisper_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L5">src/grpc/whisper_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L5">src/grpc/whisper_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2562,7 +2570,7 @@
 					<div class="tsd-signature tsd-kind-icon">window_<wbr>pb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;/Users/richardseviora/Projects/GitHub/loop-development-kit-node/src/grpc/window_pb&quot;</span><span class="tsd-signature-symbol"> = require(&#x27;./window_pb.js&#x27;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L5">src/grpc/window_grpc_pb.js:5</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L5">src/grpc/window_grpc_pb.js:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2579,7 +2587,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/clipboardSensorClient.ts#L12">src/hostClients/clipboardSensorClient.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/clipboardSensorClient.ts#L12">src/hostClients/clipboardSensorClient.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2602,7 +2610,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/cursorHostClient.ts#L12">src/hostClients/cursorHostClient.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/cursorHostClient.ts#L12">src/hostClients/cursorHostClient.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2636,7 +2644,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L15">src/grpc/browser_grpc_pb.js:15</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L15">src/grpc/browser_grpc_pb.js:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2659,7 +2667,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_grpc_pb.js#L14">src/grpc/broker_grpc_pb.js:14</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_grpc_pb.js#L14">src/grpc/broker_grpc_pb.js:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2682,7 +2690,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.js#L26">src/grpc/stdio_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.js#L26">src/grpc/stdio_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2705,7 +2713,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L26">src/grpc/browser_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L26">src/grpc/browser_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2728,7 +2736,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L37">src/grpc/browser_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L37">src/grpc/browser_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2751,7 +2759,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L48">src/grpc/browser_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L48">src/grpc/browser_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2774,7 +2782,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L59">src/grpc/browser_grpc_pb.js:59</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L59">src/grpc/browser_grpc_pb.js:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2797,7 +2805,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L26">src/grpc/clipboard_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L26">src/grpc/clipboard_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2820,7 +2828,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L37">src/grpc/clipboard_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L37">src/grpc/clipboard_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2843,7 +2851,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L48">src/grpc/clipboard_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L48">src/grpc/clipboard_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2866,7 +2874,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L26">src/grpc/cursor_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L26">src/grpc/cursor_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2889,7 +2897,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L37">src/grpc/cursor_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L37">src/grpc/cursor_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2912,7 +2920,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L15">src/grpc/filesystem_grpc_pb.js:15</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L15">src/grpc/filesystem_grpc_pb.js:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2935,7 +2943,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L26">src/grpc/filesystem_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L26">src/grpc/filesystem_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2958,7 +2966,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L37">src/grpc/filesystem_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L37">src/grpc/filesystem_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2981,7 +2989,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L48">src/grpc/filesystem_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L48">src/grpc/filesystem_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3004,7 +3012,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L59">src/grpc/filesystem_grpc_pb.js:59</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L59">src/grpc/filesystem_grpc_pb.js:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3027,7 +3035,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L70">src/grpc/filesystem_grpc_pb.js:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L70">src/grpc/filesystem_grpc_pb.js:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3050,7 +3058,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L81">src/grpc/filesystem_grpc_pb.js:81</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L81">src/grpc/filesystem_grpc_pb.js:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3073,7 +3081,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L92">src/grpc/filesystem_grpc_pb.js:92</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L92">src/grpc/filesystem_grpc_pb.js:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3096,7 +3104,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L14">src/grpc/health_grpc_pb.js:14</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L14">src/grpc/health_grpc_pb.js:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3119,7 +3127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L25">src/grpc/health_grpc_pb.js:25</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L25">src/grpc/health_grpc_pb.js:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3142,7 +3150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L14">src/grpc/hover_grpc_pb.js:14</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L14">src/grpc/hover_grpc_pb.js:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3165,7 +3173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L25">src/grpc/hover_grpc_pb.js:25</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L25">src/grpc/hover_grpc_pb.js:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3188,7 +3196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L36">src/grpc/hover_grpc_pb.js:36</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L36">src/grpc/hover_grpc_pb.js:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3211,7 +3219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L47">src/grpc/hover_grpc_pb.js:47</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L47">src/grpc/hover_grpc_pb.js:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3234,7 +3242,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L26">src/grpc/keyboard_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L26">src/grpc/keyboard_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3257,7 +3265,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L37">src/grpc/keyboard_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L37">src/grpc/keyboard_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3280,7 +3288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L48">src/grpc/keyboard_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L48">src/grpc/keyboard_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3303,7 +3311,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L59">src/grpc/keyboard_grpc_pb.js:59</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L59">src/grpc/keyboard_grpc_pb.js:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3326,7 +3334,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L70">src/grpc/keyboard_grpc_pb.js:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L70">src/grpc/keyboard_grpc_pb.js:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3349,7 +3357,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.js#L26">src/grpc/loop_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.js#L26">src/grpc/loop_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3372,7 +3380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L26">src/grpc/process_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L26">src/grpc/process_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3395,7 +3403,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L37">src/grpc/process_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L37">src/grpc/process_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3418,7 +3426,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L26">src/grpc/storage_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L26">src/grpc/storage_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3441,7 +3449,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L37">src/grpc/storage_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L37">src/grpc/storage_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3464,7 +3472,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L48">src/grpc/storage_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L48">src/grpc/storage_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3487,7 +3495,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L59">src/grpc/storage_grpc_pb.js:59</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L59">src/grpc/storage_grpc_pb.js:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3510,7 +3518,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L70">src/grpc/storage_grpc_pb.js:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L70">src/grpc/storage_grpc_pb.js:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3533,7 +3541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L81">src/grpc/storage_grpc_pb.js:81</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L81">src/grpc/storage_grpc_pb.js:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3556,7 +3564,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L92">src/grpc/storage_grpc_pb.js:92</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L92">src/grpc/storage_grpc_pb.js:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3579,7 +3587,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L103">src/grpc/storage_grpc_pb.js:103</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L103">src/grpc/storage_grpc_pb.js:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3602,7 +3610,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L26">src/grpc/whisper_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L26">src/grpc/whisper_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3625,7 +3633,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L37">src/grpc/whisper_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L37">src/grpc/whisper_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3648,7 +3656,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L48">src/grpc/whisper_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L48">src/grpc/whisper_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3671,7 +3679,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L26">src/grpc/window_grpc_pb.js:26</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L26">src/grpc/window_grpc_pb.js:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3694,7 +3702,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L37">src/grpc/window_grpc_pb.js:37</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L37">src/grpc/window_grpc_pb.js:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3717,7 +3725,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L48">src/grpc/window_grpc_pb.js:48</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L48">src/grpc/window_grpc_pb.js:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3740,7 +3748,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L59">src/grpc/window_grpc_pb.js:59</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L59">src/grpc/window_grpc_pb.js:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3763,7 +3771,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/keyboardSensorClient.ts#L53">src/hostClients/keyboardSensorClient.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/keyboardSensorClient.ts#L53">src/hostClients/keyboardSensorClient.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3791,7 +3799,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/keyboardSensorClient.ts#L16">src/hostClients/keyboardSensorClient.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/keyboardSensorClient.ts#L16">src/hostClients/keyboardSensorClient.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3814,7 +3822,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/fileSystemHostClient.ts#L21">src/hostClients/fileSystemHostClient.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/fileSystemHostClient.ts#L21">src/hostClients/fileSystemHostClient.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3841,7 +3849,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/fileSystemHostClient.ts#L42">src/hostClients/fileSystemHostClient.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/fileSystemHostClient.ts#L42">src/hostClients/fileSystemHostClient.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3859,6 +3867,60 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parseprocessaction" class="tsd-anchor"></a>
+					<h3>parse<wbr>Process<wbr>Action</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Process<wbr>Action<span class="tsd-signature-symbol">(</span>action<span class="tsd-signature-symbol">: </span><a href="enums/processaction.html" class="tsd-signature-type">ProcessAction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="enums/processstreamaction.html" class="tsd-signature-type">ProcessStreamAction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/processSensorClient.ts#L25">src/hostClients/processSensorClient.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>action: <a href="enums/processaction.html" class="tsd-signature-type">ProcessAction</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="enums/processstreamaction.html" class="tsd-signature-type">ProcessStreamAction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="parseprocessinfo" class="tsd-anchor"></a>
+					<h3>parse<wbr>Process<wbr>Info</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Process<wbr>Info<span class="tsd-signature-symbol">(</span>info<span class="tsd-signature-symbol">: </span><a href="classes/processinfo.html" class="tsd-signature-type">ProcessInfo</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/processinforesponse.html" class="tsd-signature-type">ProcessInfoResponse</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/processSensorClient.ts#L18">src/hostClients/processSensorClient.ts:18</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>info: <a href="classes/processinfo.html" class="tsd-signature-type">ProcessInfo</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/processinforesponse.html" class="tsd-signature-type">ProcessInfoResponse</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="serialize_google_protobuf_empty" class="tsd-anchor"></a>
 					<h3>serialize_<wbr>google_<wbr>protobuf_<wbr><wbr>Empty</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -3868,7 +3930,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L8">src/grpc/browser_grpc_pb.js:8</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L8">src/grpc/browser_grpc_pb.js:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3891,7 +3953,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/broker_grpc_pb.js#L7">src/grpc/broker_grpc_pb.js:7</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/broker_grpc_pb.js#L7">src/grpc/broker_grpc_pb.js:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3914,7 +3976,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/stdio_grpc_pb.js#L19">src/grpc/stdio_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/stdio_grpc_pb.js#L19">src/grpc/stdio_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3937,7 +3999,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L19">src/grpc/browser_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L19">src/grpc/browser_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3960,7 +4022,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L30">src/grpc/browser_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L30">src/grpc/browser_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3983,7 +4045,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L41">src/grpc/browser_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L41">src/grpc/browser_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4006,7 +4068,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/browser_grpc_pb.js#L52">src/grpc/browser_grpc_pb.js:52</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/browser_grpc_pb.js#L52">src/grpc/browser_grpc_pb.js:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4029,7 +4091,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L19">src/grpc/clipboard_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L19">src/grpc/clipboard_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4052,7 +4114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L30">src/grpc/clipboard_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L30">src/grpc/clipboard_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4075,7 +4137,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/clipboard_grpc_pb.js#L41">src/grpc/clipboard_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/clipboard_grpc_pb.js#L41">src/grpc/clipboard_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4098,7 +4160,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L19">src/grpc/cursor_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L19">src/grpc/cursor_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4121,7 +4183,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/cursor_grpc_pb.js#L30">src/grpc/cursor_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/cursor_grpc_pb.js#L30">src/grpc/cursor_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4144,7 +4206,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L8">src/grpc/filesystem_grpc_pb.js:8</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L8">src/grpc/filesystem_grpc_pb.js:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4167,7 +4229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L19">src/grpc/filesystem_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L19">src/grpc/filesystem_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4190,7 +4252,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L30">src/grpc/filesystem_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L30">src/grpc/filesystem_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4213,7 +4275,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L41">src/grpc/filesystem_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L41">src/grpc/filesystem_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4236,7 +4298,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L52">src/grpc/filesystem_grpc_pb.js:52</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L52">src/grpc/filesystem_grpc_pb.js:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4259,7 +4321,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L63">src/grpc/filesystem_grpc_pb.js:63</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L63">src/grpc/filesystem_grpc_pb.js:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4282,7 +4344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L74">src/grpc/filesystem_grpc_pb.js:74</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L74">src/grpc/filesystem_grpc_pb.js:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4305,7 +4367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/filesystem_grpc_pb.js#L85">src/grpc/filesystem_grpc_pb.js:85</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/filesystem_grpc_pb.js#L85">src/grpc/filesystem_grpc_pb.js:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4328,7 +4390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L7">src/grpc/health_grpc_pb.js:7</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L7">src/grpc/health_grpc_pb.js:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4351,7 +4413,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/health_grpc_pb.js#L18">src/grpc/health_grpc_pb.js:18</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/health_grpc_pb.js#L18">src/grpc/health_grpc_pb.js:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4374,7 +4436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L7">src/grpc/hover_grpc_pb.js:7</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L7">src/grpc/hover_grpc_pb.js:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4397,7 +4459,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L18">src/grpc/hover_grpc_pb.js:18</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L18">src/grpc/hover_grpc_pb.js:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4420,7 +4482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L29">src/grpc/hover_grpc_pb.js:29</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L29">src/grpc/hover_grpc_pb.js:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4443,7 +4505,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/hover_grpc_pb.js#L40">src/grpc/hover_grpc_pb.js:40</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/hover_grpc_pb.js#L40">src/grpc/hover_grpc_pb.js:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4466,7 +4528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L19">src/grpc/keyboard_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L19">src/grpc/keyboard_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4489,7 +4551,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L30">src/grpc/keyboard_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L30">src/grpc/keyboard_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4512,7 +4574,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L41">src/grpc/keyboard_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L41">src/grpc/keyboard_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4535,7 +4597,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L52">src/grpc/keyboard_grpc_pb.js:52</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L52">src/grpc/keyboard_grpc_pb.js:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4558,7 +4620,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/keyboard_grpc_pb.js#L63">src/grpc/keyboard_grpc_pb.js:63</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/keyboard_grpc_pb.js#L63">src/grpc/keyboard_grpc_pb.js:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4581,7 +4643,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/loop_grpc_pb.js#L19">src/grpc/loop_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/loop_grpc_pb.js#L19">src/grpc/loop_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4604,7 +4666,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L19">src/grpc/process_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L19">src/grpc/process_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4627,7 +4689,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/process_grpc_pb.js#L30">src/grpc/process_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/process_grpc_pb.js#L30">src/grpc/process_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4650,7 +4712,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L19">src/grpc/storage_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L19">src/grpc/storage_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4673,7 +4735,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L30">src/grpc/storage_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L30">src/grpc/storage_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4696,7 +4758,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L41">src/grpc/storage_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L41">src/grpc/storage_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4719,7 +4781,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L52">src/grpc/storage_grpc_pb.js:52</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L52">src/grpc/storage_grpc_pb.js:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4742,7 +4804,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L63">src/grpc/storage_grpc_pb.js:63</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L63">src/grpc/storage_grpc_pb.js:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4765,7 +4827,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L74">src/grpc/storage_grpc_pb.js:74</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L74">src/grpc/storage_grpc_pb.js:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4788,7 +4850,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L85">src/grpc/storage_grpc_pb.js:85</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L85">src/grpc/storage_grpc_pb.js:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4811,7 +4873,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/storage_grpc_pb.js#L96">src/grpc/storage_grpc_pb.js:96</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/storage_grpc_pb.js#L96">src/grpc/storage_grpc_pb.js:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4834,7 +4896,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L19">src/grpc/whisper_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L19">src/grpc/whisper_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4857,7 +4919,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L30">src/grpc/whisper_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L30">src/grpc/whisper_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4880,7 +4942,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/whisper_grpc_pb.js#L41">src/grpc/whisper_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/whisper_grpc_pb.js#L41">src/grpc/whisper_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4903,7 +4965,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L19">src/grpc/window_grpc_pb.js:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L19">src/grpc/window_grpc_pb.js:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4926,7 +4988,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L30">src/grpc/window_grpc_pb.js:30</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L30">src/grpc/window_grpc_pb.js:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4949,7 +5011,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L41">src/grpc/window_grpc_pb.js:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L41">src/grpc/window_grpc_pb.js:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4972,7 +5034,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/grpc/window_grpc_pb.js#L52">src/grpc/window_grpc_pb.js:52</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/grpc/window_grpc_pb.js#L52">src/grpc/window_grpc_pb.js:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4995,7 +5057,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/serve.ts#L9">src/serve.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/serve.ts#L9">src/serve.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5026,7 +5088,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/keyboardSensorClient.ts#L70">src/hostClients/keyboardSensorClient.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/keyboardSensorClient.ts#L70">src/hostClients/keyboardSensorClient.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5054,7 +5116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/keyboardSensorClient.ts#L43">src/hostClients/keyboardSensorClient.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/keyboardSensorClient.ts#L43">src/hostClients/keyboardSensorClient.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5085,7 +5147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/keyboardSensorClient.ts#L34">src/hostClients/keyboardSensorClient.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/keyboardSensorClient.ts#L34">src/hostClients/keyboardSensorClient.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5113,7 +5175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/d9fc5e8/src/hostClients/hoverSensorClient.ts#L12">src/hostClients/hoverSensorClient.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/08bf751/src/hostClients/hoverSensorClient.ts#L12">src/hostClients/hoverSensorClient.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5189,6 +5251,9 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/processaction.html" class="tsd-kind-icon">Process<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/processstreamaction.html" class="tsd-kind-icon">Process<wbr>Stream<wbr>Action</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/windowaction.html" class="tsd-kind-icon">Window<wbr>Action</a>
@@ -5348,6 +5413,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/processinfo.html" class="tsd-kind-icon">Process<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/processsensorclient.html" class="tsd-kind-icon">Process<wbr>Sensor<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/processstateresponse.html" class="tsd-kind-icon">Process<wbr>State<wbr>Response</a>
@@ -5731,6 +5799,18 @@
 						<a href="interfaces/loop.html" class="tsd-kind-icon">Loop</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/processhost.html" class="tsd-kind-icon">Process<wbr>Host</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/processinforesponse.html" class="tsd-kind-icon">Process<wbr>Info<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/processlistresponse.html" class="tsd-kind-icon">Process<wbr>List<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/processstreamresponse.html" class="tsd-kind-icon">Process<wbr>Stream<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/scancodeevent.html" class="tsd-kind-icon">Scan<wbr>Code<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
@@ -6044,6 +6124,12 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#parsefileinfo" class="tsd-kind-icon">parse<wbr>File<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parseprocessaction" class="tsd-kind-icon">parse<wbr>Process<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parseprocessinfo" class="tsd-kind-icon">parse<wbr>Process<wbr>Info</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#serialize_google_protobuf_empty" class="tsd-kind-icon">serialize_<wbr>google_<wbr>protobuf_<wbr><wbr>Empty</a>

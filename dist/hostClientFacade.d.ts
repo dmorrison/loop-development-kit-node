@@ -7,6 +7,7 @@ import { ClipboardSensorClient } from './hostClients/clipboardSensorClient';
 import { CursorHostClient } from './hostClients/cursorHostClient';
 import { HoverSensorClient } from './hostClients/hoverSensorClient';
 import { FileSystemHostClient } from './hostClients/fileSystemHostClient';
+import { ProcessSensorClient } from './hostClients/processSensorClient';
 export default class HostClientFacade implements HostServices {
     whisperClient: WhisperHostClient;
     storageClient: StorageHostClient;
@@ -15,5 +16,6 @@ export default class HostClientFacade implements HostServices {
     cursorClient: CursorHostClient;
     hoverClient: HoverSensorClient;
     fileSystemClient: FileSystemHostClient;
+    processClient: ProcessSensorClient;
     connect(connInfo: ConnInfo.AsObject): Promise<void[]>;
 }
