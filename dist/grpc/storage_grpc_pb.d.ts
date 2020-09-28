@@ -108,7 +108,6 @@ export namespace StorageService {
     }
 }
 export var StorageClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_StorageHasKeyRequest(arg: any): Buffer;
 declare function deserialize_proto_StorageHasKeyRequest(buffer_arg: any): import("./storage_pb.js").StorageHasKeyRequest;
 declare function serialize_proto_StorageHasKeyResponse(arg: any): Buffer;

@@ -1,4 +1,4 @@
-import { grpc } from '../grpc/keyboard_grpc_pb';
+import grpc from '@grpc/grpc-js';
 import { ReadableStream } from './readableStream';
 export declare type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
 /**

@@ -1,5 +1,6 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import services, { grpc, ILoopServer } from './grpc/loop_grpc_pb';
+import grpc from '@grpc/grpc-js';
+import { ILoopServer } from './grpc/loop_grpc_pb';
 import BrokerGrpcServer from './brokerGrpcServer';
 import messages from './grpc/loop_pb';
 import { Loop } from './loop';
@@ -9,7 +10,7 @@ import { Loop } from './loop';
 export default class GRPCServer implements ILoopServer {
     protected broker: BrokerGrpcServer;
     private loop;
-    constructor(server: services.grpc.Server, broker: BrokerGrpcServer, impl: Loop);
+    constructor(server: grpc.Server, broker: BrokerGrpcServer, impl: Loop);
     /**
      * Called by the host to start the Loop.
      *

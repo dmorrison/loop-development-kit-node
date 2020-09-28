@@ -48,4 +48,3 @@ var LoopService = exports.LoopService = {
     },
 };
 exports.LoopClient = grpc.makeGenericClientConstructor(LoopService);
-exports.grpc = grpc;

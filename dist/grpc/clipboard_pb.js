@@ -213,7 +213,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.proto.ClipboardReadStreamResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            text: jspb.Message.getFieldWithDefault(msg, 1, "")
+            text: jspb.Message.getFieldWithDefault(msg, 2, ""),
+            error: jspb.Message.getFieldWithDefault(msg, 15, "")
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -245,9 +246,13 @@ proto.proto.ClipboardReadStreamResponse.deserializeBinaryFromReader = function (
         }
         var field = reader.getFieldNumber();
         switch (field) {
-            case 1:
+            case 2:
                 var value = /** @type {string} */ (reader.readString());
                 msg.setText(value);
+                break;
+            case 15:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setError(value);
                 break;
             default:
                 reader.skipField();
@@ -276,22 +281,40 @@ proto.proto.ClipboardReadStreamResponse.serializeBinaryToWriter = function (mess
     var f = undefined;
     f = message.getText();
     if (f.length > 0) {
-        writer.writeString(1, f);
+        writer.writeString(2, f);
+    }
+    f = message.getError();
+    if (f.length > 0) {
+        writer.writeString(15, f);
     }
 };
 /**
- * optional string text = 1;
+ * optional string text = 2;
  * @return {string}
  */
 proto.proto.ClipboardReadStreamResponse.prototype.getText = function () {
-    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 /**
  * @param {string} value
  * @return {!proto.proto.ClipboardReadStreamResponse} returns this
  */
 proto.proto.ClipboardReadStreamResponse.prototype.setText = function (value) {
-    return jspb.Message.setProto3StringField(this, 1, value);
+    return jspb.Message.setProto3StringField(this, 2, value);
+};
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.ClipboardReadStreamResponse.prototype.getError = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.ClipboardReadStreamResponse} returns this
+ */
+proto.proto.ClipboardReadStreamResponse.prototype.setError = function (value) {
+    return jspb.Message.setProto3StringField(this, 15, value);
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**

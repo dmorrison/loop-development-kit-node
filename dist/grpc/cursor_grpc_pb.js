@@ -57,4 +57,3 @@ var CursorService = exports.CursorService = {
     },
 };
 exports.CursorClient = grpc.makeGenericClientConstructor(CursorService);
-exports.grpc = grpc;

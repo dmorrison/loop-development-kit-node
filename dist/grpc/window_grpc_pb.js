@@ -30,23 +30,23 @@ function serialize_proto_WindowActiveWindowStreamResponse(arg) {
 function deserialize_proto_WindowActiveWindowStreamResponse(buffer_arg) {
     return window_pb.WindowActiveWindowStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
-function serialize_proto_WindowWindowsResponse(arg) {
-    if (!(arg instanceof window_pb.WindowWindowsResponse)) {
-        throw new Error('Expected argument of type proto.WindowWindowsResponse');
+function serialize_proto_WindowStateResponse(arg) {
+    if (!(arg instanceof window_pb.WindowStateResponse)) {
+        throw new Error('Expected argument of type proto.WindowStateResponse');
     }
     return Buffer.from(arg.serializeBinary());
 }
-function deserialize_proto_WindowWindowsResponse(buffer_arg) {
-    return window_pb.WindowWindowsResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_proto_WindowStateResponse(buffer_arg) {
+    return window_pb.WindowStateResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
-function serialize_proto_WindowWindowsStreamResponse(arg) {
-    if (!(arg instanceof window_pb.WindowWindowsStreamResponse)) {
-        throw new Error('Expected argument of type proto.WindowWindowsStreamResponse');
+function serialize_proto_WindowStateStreamResponse(arg) {
+    if (!(arg instanceof window_pb.WindowStateStreamResponse)) {
+        throw new Error('Expected argument of type proto.WindowStateStreamResponse');
     }
     return Buffer.from(arg.serializeBinary());
 }
-function deserialize_proto_WindowWindowsStreamResponse(buffer_arg) {
-    return window_pb.WindowWindowsStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_proto_WindowStateStreamResponse(buffer_arg) {
+    return window_pb.WindowStateStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 var WindowService = exports.WindowService = {
     // get information about currently focused window
@@ -74,29 +74,28 @@ var WindowService = exports.WindowService = {
         responseDeserialize: deserialize_proto_WindowActiveWindowStreamResponse,
     },
     // get information about all windows
-    windowWindows: {
-        path: '/proto.Window/WindowWindows',
+    windowState: {
+        path: '/proto.Window/WindowState',
         requestStream: false,
         responseStream: false,
         requestType: google_protobuf_empty_pb.Empty,
-        responseType: window_pb.WindowWindowsResponse,
+        responseType: window_pb.WindowStateResponse,
         requestSerialize: serialize_google_protobuf_Empty,
         requestDeserialize: deserialize_google_protobuf_Empty,
-        responseSerialize: serialize_proto_WindowWindowsResponse,
-        responseDeserialize: deserialize_proto_WindowWindowsResponse,
+        responseSerialize: serialize_proto_WindowStateResponse,
+        responseDeserialize: deserialize_proto_WindowStateResponse,
     },
     // get information about windows as they change
-    windowWindowsStream: {
-        path: '/proto.Window/WindowWindowsStream',
+    windowStateStream: {
+        path: '/proto.Window/WindowStateStream',
         requestStream: false,
         responseStream: true,
         requestType: google_protobuf_empty_pb.Empty,
-        responseType: window_pb.WindowWindowsStreamResponse,
+        responseType: window_pb.WindowStateStreamResponse,
         requestSerialize: serialize_google_protobuf_Empty,
         requestDeserialize: deserialize_google_protobuf_Empty,
-        responseSerialize: serialize_proto_WindowWindowsStreamResponse,
-        responseDeserialize: deserialize_proto_WindowWindowsStreamResponse,
+        responseSerialize: serialize_proto_WindowStateStreamResponse,
+        responseDeserialize: deserialize_proto_WindowStateStreamResponse,
     },
 };
 exports.WindowClient = grpc.makeGenericClientConstructor(WindowService);
-exports.grpc = grpc;

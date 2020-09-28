@@ -171,4 +171,3 @@ var StorageService = exports.StorageService = {
     },
 };
 exports.StorageClient = grpc.makeGenericClientConstructor(StorageService);
-exports.grpc = grpc;

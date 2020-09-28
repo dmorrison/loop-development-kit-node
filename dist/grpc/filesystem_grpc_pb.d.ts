@@ -60,7 +60,6 @@ export namespace FilesystemService {
     }
 }
 export var FilesystemClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_FilesystemDirRequest(arg: any): Buffer;
 declare function deserialize_proto_FilesystemDirRequest(buffer_arg: any): import("./filesystem_pb.js").FilesystemDirRequest;
 declare function serialize_proto_FilesystemDirResponse(arg: any): Buffer;

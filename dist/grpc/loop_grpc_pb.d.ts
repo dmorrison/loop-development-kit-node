@@ -28,7 +28,6 @@ export namespace LoopService {
     }
 }
 export var LoopClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_LoopStartRequest(arg: any): Buffer;
 declare function deserialize_proto_LoopStartRequest(buffer_arg: any): import("./loop_pb.js").LoopStartRequest;
 declare function serialize_google_protobuf_Empty(arg: any): Buffer;

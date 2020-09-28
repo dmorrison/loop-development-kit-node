@@ -797,7 +797,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
     proto.proto.FilesystemDirStreamResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
             files: (f = msg.getFiles()) && proto.proto.FileInfo.toObject(includeInstance, f),
-            action: jspb.Message.getFieldWithDefault(msg, 2, 0)
+            action: jspb.Message.getFieldWithDefault(msg, 2, 0),
+            error: jspb.Message.getFieldWithDefault(msg, 15, "")
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -838,6 +839,10 @@ proto.proto.FilesystemDirStreamResponse.deserializeBinaryFromReader = function (
                 var value = /** @type {!proto.proto.FileAction} */ (reader.readEnum());
                 msg.setAction(value);
                 break;
+            case 15:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setError(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -870,6 +875,10 @@ proto.proto.FilesystemDirStreamResponse.serializeBinaryToWriter = function (mess
     f = message.getAction();
     if (f !== 0.0) {
         writer.writeEnum(2, f);
+    }
+    f = message.getError();
+    if (f.length > 0) {
+        writer.writeString(15, f);
     }
 };
 /**
@@ -913,6 +922,20 @@ proto.proto.FilesystemDirStreamResponse.prototype.getAction = function () {
  */
 proto.proto.FilesystemDirStreamResponse.prototype.setAction = function (value) {
     return jspb.Message.setProto3EnumField(this, 2, value);
+};
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.FilesystemDirStreamResponse.prototype.getError = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.FilesystemDirStreamResponse} returns this
+ */
+proto.proto.FilesystemDirStreamResponse.prototype.setError = function (value) {
+    return jspb.Message.setProto3StringField(this, 15, value);
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
@@ -1278,7 +1301,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
     proto.proto.FilesystemFileStreamResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
             file: (f = msg.getFile()) && proto.proto.FileInfo.toObject(includeInstance, f),
-            action: jspb.Message.getFieldWithDefault(msg, 2, 0)
+            action: jspb.Message.getFieldWithDefault(msg, 2, 0),
+            error: jspb.Message.getFieldWithDefault(msg, 15, "")
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -1319,6 +1343,10 @@ proto.proto.FilesystemFileStreamResponse.deserializeBinaryFromReader = function 
                 var value = /** @type {!proto.proto.FileAction} */ (reader.readEnum());
                 msg.setAction(value);
                 break;
+            case 15:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setError(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -1351,6 +1379,10 @@ proto.proto.FilesystemFileStreamResponse.serializeBinaryToWriter = function (mes
     f = message.getAction();
     if (f !== 0.0) {
         writer.writeEnum(2, f);
+    }
+    f = message.getError();
+    if (f.length > 0) {
+        writer.writeString(15, f);
     }
 };
 /**
@@ -1394,6 +1426,20 @@ proto.proto.FilesystemFileStreamResponse.prototype.getAction = function () {
  */
 proto.proto.FilesystemFileStreamResponse.prototype.setAction = function (value) {
     return jspb.Message.setProto3EnumField(this, 2, value);
+};
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.FilesystemFileStreamResponse.prototype.getError = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.FilesystemFileStreamResponse} returns this
+ */
+proto.proto.FilesystemFileStreamResponse.prototype.setError = function (value) {
+    return jspb.Message.setProto3StringField(this, 15, value);
 };
 /**
  * @enum {number}

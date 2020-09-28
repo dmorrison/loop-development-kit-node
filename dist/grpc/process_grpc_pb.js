@@ -12,49 +12,48 @@ function serialize_google_protobuf_Empty(arg) {
 function deserialize_google_protobuf_Empty(buffer_arg) {
     return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
 }
-function serialize_proto_ProcessDiffStreamResponse(arg) {
-    if (!(arg instanceof process_pb.ProcessDiffStreamResponse)) {
-        throw new Error('Expected argument of type proto.ProcessDiffStreamResponse');
+function serialize_proto_ProcessStateResponse(arg) {
+    if (!(arg instanceof process_pb.ProcessStateResponse)) {
+        throw new Error('Expected argument of type proto.ProcessStateResponse');
     }
     return Buffer.from(arg.serializeBinary());
 }
-function deserialize_proto_ProcessDiffStreamResponse(buffer_arg) {
-    return process_pb.ProcessDiffStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_proto_ProcessStateResponse(buffer_arg) {
+    return process_pb.ProcessStateResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
-function serialize_proto_ProcessListResponse(arg) {
-    if (!(arg instanceof process_pb.ProcessListResponse)) {
-        throw new Error('Expected argument of type proto.ProcessListResponse');
+function serialize_proto_ProcessStateStreamResponse(arg) {
+    if (!(arg instanceof process_pb.ProcessStateStreamResponse)) {
+        throw new Error('Expected argument of type proto.ProcessStateStreamResponse');
     }
     return Buffer.from(arg.serializeBinary());
 }
-function deserialize_proto_ProcessListResponse(buffer_arg) {
-    return process_pb.ProcessListResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_proto_ProcessStateStreamResponse(buffer_arg) {
+    return process_pb.ProcessStateStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 var ProcessService = exports.ProcessService = {
     // stream updates to processes as they happen
-    processDiffStream: {
-        path: '/proto.Process/ProcessDiffStream',
+    processStateStream: {
+        path: '/proto.Process/ProcessStateStream',
         requestStream: false,
         responseStream: true,
         requestType: google_protobuf_empty_pb.Empty,
-        responseType: process_pb.ProcessDiffStreamResponse,
+        responseType: process_pb.ProcessStateStreamResponse,
         requestSerialize: serialize_google_protobuf_Empty,
         requestDeserialize: deserialize_google_protobuf_Empty,
-        responseSerialize: serialize_proto_ProcessDiffStreamResponse,
-        responseDeserialize: deserialize_proto_ProcessDiffStreamResponse,
+        responseSerialize: serialize_proto_ProcessStateStreamResponse,
+        responseDeserialize: deserialize_proto_ProcessStateStreamResponse,
     },
     // get a list of all processes
-    processList: {
-        path: '/proto.Process/ProcessList',
+    processState: {
+        path: '/proto.Process/ProcessState',
         requestStream: false,
         responseStream: false,
         requestType: google_protobuf_empty_pb.Empty,
-        responseType: process_pb.ProcessListResponse,
+        responseType: process_pb.ProcessStateResponse,
         requestSerialize: serialize_google_protobuf_Empty,
         requestDeserialize: deserialize_google_protobuf_Empty,
-        responseSerialize: serialize_proto_ProcessListResponse,
-        responseDeserialize: deserialize_proto_ProcessListResponse,
+        responseSerialize: serialize_proto_ProcessStateResponse,
+        responseDeserialize: deserialize_proto_ProcessStateResponse,
     },
 };
 exports.ProcessClient = grpc.makeGenericClientConstructor(ProcessService);
-exports.grpc = grpc;

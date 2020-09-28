@@ -28,7 +28,6 @@ export namespace CursorService {
     }
 }
 export var CursorClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_google_protobuf_Empty(arg: any): Buffer;
 declare function deserialize_google_protobuf_Empty(buffer_arg: any): import("google-protobuf/google/protobuf/empty_pb").Empty;
 declare function serialize_proto_CursorPositionResponse(arg: any): Buffer;

@@ -235,7 +235,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
      */
     proto.proto.BrowserActiveURLStreamResponse.toObject = function (includeInstance, msg) {
         var f, obj = {
-            url: jspb.Message.getFieldWithDefault(msg, 1, "")
+            url: jspb.Message.getFieldWithDefault(msg, 1, ""),
+            error: jspb.Message.getFieldWithDefault(msg, 15, "")
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -271,6 +272,10 @@ proto.proto.BrowserActiveURLStreamResponse.deserializeBinaryFromReader = functio
                 var value = /** @type {string} */ (reader.readString());
                 msg.setUrl(value);
                 break;
+            case 15:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setError(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -300,6 +305,10 @@ proto.proto.BrowserActiveURLStreamResponse.serializeBinaryToWriter = function (m
     if (f.length > 0) {
         writer.writeString(1, f);
     }
+    f = message.getError();
+    if (f.length > 0) {
+        writer.writeString(15, f);
+    }
 };
 /**
  * optional string url = 1;
@@ -314,6 +323,20 @@ proto.proto.BrowserActiveURLStreamResponse.prototype.getUrl = function () {
  */
 proto.proto.BrowserActiveURLStreamResponse.prototype.setUrl = function (value) {
     return jspb.Message.setProto3StringField(this, 1, value);
+};
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.BrowserActiveURLStreamResponse.prototype.getError = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.BrowserActiveURLStreamResponse} returns this
+ */
+proto.proto.BrowserActiveURLStreamResponse.prototype.setError = function (value) {
+    return jspb.Message.setProto3StringField(this, 15, value);
 };
 if (jspb.Message.GENERATE_TO_OBJECT) {
     /**
@@ -497,7 +520,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
         var f, obj = {
             text: jspb.Message.getFieldWithDefault(msg, 1, ""),
             url: jspb.Message.getFieldWithDefault(msg, 2, ""),
-            tabtitle: jspb.Message.getFieldWithDefault(msg, 3, "")
+            tabtitle: jspb.Message.getFieldWithDefault(msg, 3, ""),
+            error: jspb.Message.getFieldWithDefault(msg, 15, "")
         };
         if (includeInstance) {
             obj.$jspbMessageInstance = msg;
@@ -541,6 +565,10 @@ proto.proto.BrowserSelectedTextStreamResponse.deserializeBinaryFromReader = func
                 var value = /** @type {string} */ (reader.readString());
                 msg.setTabtitle(value);
                 break;
+            case 15:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setError(value);
+                break;
             default:
                 reader.skipField();
                 break;
@@ -577,6 +605,10 @@ proto.proto.BrowserSelectedTextStreamResponse.serializeBinaryToWriter = function
     f = message.getTabtitle();
     if (f.length > 0) {
         writer.writeString(3, f);
+    }
+    f = message.getError();
+    if (f.length > 0) {
+        writer.writeString(15, f);
     }
 };
 /**
@@ -620,5 +652,19 @@ proto.proto.BrowserSelectedTextStreamResponse.prototype.getTabtitle = function (
  */
 proto.proto.BrowserSelectedTextStreamResponse.prototype.setTabtitle = function (value) {
     return jspb.Message.setProto3StringField(this, 3, value);
+};
+/**
+ * optional string error = 15;
+ * @return {string}
+ */
+proto.proto.BrowserSelectedTextStreamResponse.prototype.getError = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+/**
+ * @param {string} value
+ * @return {!proto.proto.BrowserSelectedTextStreamResponse} returns this
+ */
+proto.proto.BrowserSelectedTextStreamResponse.prototype.setError = function (value) {
+    return jspb.Message.setProto3StringField(this, 15, value);
 };
 goog.object.extend(exports, proto.proto);

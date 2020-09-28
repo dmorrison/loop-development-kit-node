@@ -26,7 +26,7 @@ export namespace KeyboardService {
         export { serialize_proto_KeyboardScancodeStreamResponse as responseSerialize };
         export { deserialize_proto_KeyboardScancodeStreamResponse as responseDeserialize };
     }
-    namespace keyboardTextChunkStream {
+    namespace keyboardTextStream {
         const path_2: string;
         export { path_2 as path };
         const requestStream_2: boolean;
@@ -35,14 +35,14 @@ export namespace KeyboardService {
         export { responseStream_2 as responseStream };
         const requestType_2: typeof import("google-protobuf/google/protobuf/empty_pb").Empty;
         export { requestType_2 as requestType };
-        const responseType_2: typeof import("./keyboard_pb.js").KeyboardTextChunkStreamResponse;
+        const responseType_2: typeof import("./keyboard_pb.js").KeyboardTextStreamResponse;
         export { responseType_2 as responseType };
         export { serialize_google_protobuf_Empty as requestSerialize };
         export { deserialize_google_protobuf_Empty as requestDeserialize };
-        export { serialize_proto_KeyboardTextChunkStreamResponse as responseSerialize };
-        export { deserialize_proto_KeyboardTextChunkStreamResponse as responseDeserialize };
+        export { serialize_proto_KeyboardTextStreamResponse as responseSerialize };
+        export { deserialize_proto_KeyboardTextStreamResponse as responseDeserialize };
     }
-    namespace keyboardTextStream {
+    namespace keyboardCharacterStream {
         const path_3: string;
         export { path_3 as path };
         const requestStream_3: boolean;
@@ -51,16 +51,15 @@ export namespace KeyboardService {
         export { responseStream_3 as responseStream };
         const requestType_3: typeof import("google-protobuf/google/protobuf/empty_pb").Empty;
         export { requestType_3 as requestType };
-        const responseType_3: typeof import("./keyboard_pb.js").KeyboardTextStreamResponse;
+        const responseType_3: typeof import("./keyboard_pb.js").KeyboardCharacterStreamResponse;
         export { responseType_3 as responseType };
         export { serialize_google_protobuf_Empty as requestSerialize };
         export { deserialize_google_protobuf_Empty as requestDeserialize };
-        export { serialize_proto_KeyboardTextStreamResponse as responseSerialize };
-        export { deserialize_proto_KeyboardTextStreamResponse as responseDeserialize };
+        export { serialize_proto_KeyboardCharacterStreamResponse as responseSerialize };
+        export { deserialize_proto_KeyboardCharacterStreamResponse as responseDeserialize };
     }
 }
 export var KeyboardClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_KeyboardHotkeyStreamRequest(arg: any): Buffer;
 declare function deserialize_proto_KeyboardHotkeyStreamRequest(buffer_arg: any): import("./keyboard_pb.js").KeyboardHotkeyStreamRequest;
 declare function serialize_proto_KeyboardHotkeyStreamResponse(arg: any): Buffer;
@@ -69,8 +68,8 @@ declare function serialize_google_protobuf_Empty(arg: any): Buffer;
 declare function deserialize_google_protobuf_Empty(buffer_arg: any): import("google-protobuf/google/protobuf/empty_pb").Empty;
 declare function serialize_proto_KeyboardScancodeStreamResponse(arg: any): Buffer;
 declare function deserialize_proto_KeyboardScancodeStreamResponse(buffer_arg: any): import("./keyboard_pb.js").KeyboardScancodeStreamResponse;
-declare function serialize_proto_KeyboardTextChunkStreamResponse(arg: any): Buffer;
-declare function deserialize_proto_KeyboardTextChunkStreamResponse(buffer_arg: any): import("./keyboard_pb.js").KeyboardTextChunkStreamResponse;
 declare function serialize_proto_KeyboardTextStreamResponse(arg: any): Buffer;
 declare function deserialize_proto_KeyboardTextStreamResponse(buffer_arg: any): import("./keyboard_pb.js").KeyboardTextStreamResponse;
+declare function serialize_proto_KeyboardCharacterStreamResponse(arg: any): Buffer;
+declare function deserialize_proto_KeyboardCharacterStreamResponse(buffer_arg: any): import("./keyboard_pb.js").KeyboardCharacterStreamResponse;
 export {};

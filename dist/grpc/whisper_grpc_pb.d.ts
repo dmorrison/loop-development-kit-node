@@ -28,7 +28,6 @@ export namespace WhisperService {
     }
 }
 export var WhisperClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_WhisperNewRequest(arg: any): Buffer;
 declare function deserialize_proto_WhisperNewRequest(buffer_arg: any): import("./whisper_pb.js").WhisperNewRequest;
 declare function serialize_proto_WhisperNewResponse(arg: any): Buffer;

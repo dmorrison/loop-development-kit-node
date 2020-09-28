@@ -78,4 +78,3 @@ var ClipboardService = exports.ClipboardService = {
     },
 };
 exports.ClipboardClient = grpc.makeGenericClientConstructor(ClipboardService);
-exports.grpc = grpc;

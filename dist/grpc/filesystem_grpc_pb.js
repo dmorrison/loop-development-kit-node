@@ -80,7 +80,7 @@ var FilesystemService = exports.FilesystemService = {
     filesystemDir: {
         path: '/proto.Filesystem/FilesystemDir',
         requestStream: false,
-        responseStream: true,
+        responseStream: false,
         requestType: filesystem_pb.FilesystemDirRequest,
         responseType: filesystem_pb.FilesystemDirResponse,
         requestSerialize: serialize_proto_FilesystemDirRequest,
@@ -104,7 +104,7 @@ var FilesystemService = exports.FilesystemService = {
     filesystemFile: {
         path: '/proto.Filesystem/FilesystemFile',
         requestStream: false,
-        responseStream: true,
+        responseStream: false,
         requestType: filesystem_pb.FilesystemFileRequest,
         responseType: filesystem_pb.FilesystemFileResponse,
         requestSerialize: serialize_proto_FilesystemFileRequest,
@@ -126,4 +126,3 @@ var FilesystemService = exports.FilesystemService = {
     },
 };
 exports.FilesystemClient = grpc.makeGenericClientConstructor(FilesystemService);
-exports.grpc = grpc;

@@ -28,7 +28,6 @@ export namespace HoverService {
     }
 }
 export var HoverClient: import("@grpc/grpc-js/build/src/make-client").ServiceClientConstructor;
-export var grpc: typeof import("@grpc/grpc-js");
 declare function serialize_proto_HoverReadRequest(arg: any): Buffer;
 declare function deserialize_proto_HoverReadRequest(buffer_arg: any): import("./hover_pb.js").HoverReadRequest;
 declare function serialize_proto_HoverReadResponse(arg: any): Buffer;

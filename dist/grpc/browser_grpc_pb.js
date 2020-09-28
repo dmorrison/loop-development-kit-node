@@ -99,4 +99,3 @@ var BrowserService = exports.BrowserService = {
     },
 };
 exports.BrowserClient = grpc.makeGenericClientConstructor(BrowserService);
-exports.grpc = grpc;
