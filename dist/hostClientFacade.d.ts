@@ -6,6 +6,7 @@ import KeyboardSensorClient from './hostClients/keyboardSensorClient';
 import { ClipboardSensorClient } from './hostClients/clipboardSensorClient';
 import { CursorHostClient } from './hostClients/cursorHostClient';
 import { HoverSensorClient } from './hostClients/hoverSensorClient';
+import { FileSystemHostClient } from './hostClients/fileSystemHostClient';
 export default class HostClientFacade implements HostServices {
     whisperClient: WhisperHostClient;
     storageClient: StorageHostClient;
@@ -13,5 +14,6 @@ export default class HostClientFacade implements HostServices {
     clipboardClient: ClipboardSensorClient;
     cursorClient: CursorHostClient;
     hoverClient: HoverSensorClient;
+    fileSystemClient: FileSystemHostClient;
     connect(connInfo: ConnInfo.AsObject): Promise<void[]>;
 }

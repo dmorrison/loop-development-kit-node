@@ -6,6 +6,7 @@ import KeyboardSensorClient from './hostClients/keyboardSensorClient';
 import { ClipboardSensorClient } from './hostClients/clipboardSensorClient';
 import { CursorHostClient } from './hostClients/cursorHostClient';
 import { HoverSensorClient } from './hostClients/hoverSensorClient';
+import { FileSystemHostClient } from './hostClients/fileSystemHostClient';
 
 export default class HostClientFacade implements HostServices {
   public whisperClient: WhisperHostClient = new WhisperHostClient();
@@ -20,6 +21,8 @@ export default class HostClientFacade implements HostServices {
 
   public hoverClient: HoverSensorClient = new HoverSensorClient();
 
+  public fileSystemClient: FileSystemHostClient = new FileSystemHostClient();
+
   connect(connInfo: ConnInfo.AsObject): Promise<void[]> {
     return Promise.all([
       this.whisperClient.connect(connInfo),
@@ -28,6 +31,7 @@ export default class HostClientFacade implements HostServices {
       this.clipboardClient.connect(connInfo),
       this.cursorClient.connect(connInfo),
       this.hoverClient.connect(connInfo),
+      this.fileSystemClient.connect(connInfo),
     ]);
   }
 }

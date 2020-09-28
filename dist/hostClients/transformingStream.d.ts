@@ -1,6 +1,6 @@
 import grpc from '@grpc/grpc-js';
 import { StoppableStream, StreamListener } from './stoppableStream';
-export declare type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
+export declare type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput | undefined;
 export declare type MessageWithError = {
     getError(): string;
 };

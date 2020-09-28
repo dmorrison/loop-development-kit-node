@@ -4,6 +4,7 @@ import { KeyboardHost } from './hostClients/keyboardHost';
 import { ClipboardHost } from './hostClients/clipboardHost';
 import { CursorHost } from './hostClients/cursorHost';
 import { HoverHost } from './hostClients/hoverHost';
+import { FileSystemHost } from './hostClients/filesystemHost';
 
 export interface HostServices {
   whisperClient: WhisperHost;
@@ -12,4 +13,5 @@ export interface HostServices {
   clipboardClient: ClipboardHost;
   cursorClient: CursorHost;
   hoverClient: HoverHost;
+  fileSystemClient: FileSystemHost;
 }

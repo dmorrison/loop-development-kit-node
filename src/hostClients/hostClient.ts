@@ -73,7 +73,7 @@ export default abstract class HostClient<THost extends CommonHostServer>
       callback: (err: ServiceError | null, response: TResponse) => void,
     ) => void,
     builder: () => TMessage,
-    renderer: (response: TResponse) => TOutput,
+    renderer: (response: TResponse) => TOutput | undefined,
   ): Promise<TOutput> {
     return new Promise((resolve, reject) => {
       const message = builder();

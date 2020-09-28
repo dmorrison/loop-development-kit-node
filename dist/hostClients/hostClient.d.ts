@@ -31,7 +31,7 @@ export default abstract class HostClient<THost extends CommonHostServer> impleme
      * @param builder - The function that builds the message.
      * @param renderer - The function that renders the message.
      */
-    buildQuery<TMessage, TResponse, TOutput>(clientRequest: (message: TMessage, callback: (err: ServiceError | null, response: TResponse) => void) => void, builder: () => TMessage, renderer: (response: TResponse) => TOutput): Promise<TOutput>;
+    buildQuery<TMessage, TResponse, TOutput>(clientRequest: (message: TMessage, callback: (err: ServiceError | null, response: TResponse) => void) => void, builder: () => TMessage, renderer: (response: TResponse) => TOutput | undefined): Promise<TOutput>;
     protected get client(): THost;
     protected set client(client: THost);
 }

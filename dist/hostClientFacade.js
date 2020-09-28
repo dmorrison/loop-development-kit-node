@@ -9,6 +9,7 @@ const keyboardSensorClient_1 = __importDefault(require("./hostClients/keyboardSe
 const clipboardSensorClient_1 = require("./hostClients/clipboardSensorClient");
 const cursorHostClient_1 = require("./hostClients/cursorHostClient");
 const hoverSensorClient_1 = require("./hostClients/hoverSensorClient");
+const fileSystemHostClient_1 = require("./hostClients/fileSystemHostClient");
 class HostClientFacade {
     constructor() {
         this.whisperClient = new whisperHostClient_1.default();
@@ -17,6 +18,7 @@ class HostClientFacade {
         this.clipboardClient = new clipboardSensorClient_1.ClipboardSensorClient();
         this.cursorClient = new cursorHostClient_1.CursorHostClient();
         this.hoverClient = new hoverSensorClient_1.HoverSensorClient();
+        this.fileSystemClient = new fileSystemHostClient_1.FileSystemHostClient();
     }
     connect(connInfo) {
         return Promise.all([
@@ -26,6 +28,7 @@ class HostClientFacade {
             this.clipboardClient.connect(connInfo),
             this.cursorClient.connect(connInfo),
             this.hoverClient.connect(connInfo),
+            this.fileSystemClient.connect(connInfo),
         ]);
     }
 }
