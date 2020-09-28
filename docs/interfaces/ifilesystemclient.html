@@ -101,14 +101,15 @@
 					<a name="filesystemdir" class="tsd-anchor"></a>
 					<h3>filesystem<wbr>Dir</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>Dir<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>Dir<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">grpc.Metadata</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>Dir<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
+						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>Dir<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
+						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>Dir<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L65">src/grpc/filesystem_grpc_pb.d.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L66">src/grpc/filesystem_grpc_pb.d.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -117,15 +118,36 @@
 									<h5>request: <a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+														</li>
+														<li>
+															<h5>response: <a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L66">src/grpc/filesystem_grpc_pb.d.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L67">src/grpc/filesystem_grpc_pb.d.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -134,13 +156,78 @@
 									<h5>request: <a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <span class="tsd-signature-type">grpc.Metadata</span></h5>
+									<h5>metadata: <span class="tsd-signature-type">Metadata</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+														</li>
+														<li>
+															<h5>response: <a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L68">src/grpc/filesystem_grpc_pb.d.ts:68</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="../classes/filesystemdirrequest.html" class="tsd-signature-type">FilesystemDirRequest</a></h5>
+								</li>
+								<li>
+									<h5>metadata: <span class="tsd-signature-type">Metadata</span></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+														</li>
+														<li>
+															<h5>response: <a href="../classes/filesystemdirresponse.html" class="tsd-signature-type">FilesystemDirResponse</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -155,7 +242,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L67">src/grpc/filesystem_grpc_pb.d.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L69">src/grpc/filesystem_grpc_pb.d.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -172,7 +259,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L68">src/grpc/filesystem_grpc_pb.d.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L70">src/grpc/filesystem_grpc_pb.d.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -195,14 +282,15 @@
 					<a name="filesystemfile" class="tsd-anchor"></a>
 					<h3>filesystem<wbr>File</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>File<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>File<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">grpc.Metadata</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>File<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
+						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>File<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
+						<li class="tsd-signature tsd-kind-icon">filesystem<wbr>File<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L69">src/grpc/filesystem_grpc_pb.d.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L71">src/grpc/filesystem_grpc_pb.d.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -211,15 +299,36 @@
 									<h5>request: <a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+														</li>
+														<li>
+															<h5>response: <a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L70">src/grpc/filesystem_grpc_pb.d.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L72">src/grpc/filesystem_grpc_pb.d.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,13 +337,78 @@
 									<h5>request: <a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <span class="tsd-signature-type">grpc.Metadata</span></h5>
+									<h5>metadata: <span class="tsd-signature-type">Metadata</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+														</li>
+														<li>
+															<h5>response: <a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L73">src/grpc/filesystem_grpc_pb.d.ts:73</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <a href="../classes/filesystemfilerequest.html" class="tsd-signature-type">FilesystemFileRequest</a></h5>
+								</li>
+								<li>
+									<h5>metadata: <span class="tsd-signature-type">Metadata</span></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+														</li>
+														<li>
+															<h5>response: <a href="../classes/filesystemfileresponse.html" class="tsd-signature-type">FilesystemFileResponse</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -249,7 +423,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L71">src/grpc/filesystem_grpc_pb.d.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L74">src/grpc/filesystem_grpc_pb.d.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -266,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_grpc_pb.d.ts#L72">src/grpc/filesystem_grpc_pb.d.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_grpc_pb.d.ts#L75">src/grpc/filesystem_grpc_pb.d.ts:75</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

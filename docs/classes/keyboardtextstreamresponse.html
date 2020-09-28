@@ -100,19 +100,17 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#clearmodifiers" class="tsd-kind-icon">clear<wbr>Modifiers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="keyboardtextstreamresponse.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="keyboardtextstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="keyboardtextstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="keyboardtextstreamresponse.html#getjspbmessageid" class="tsd-kind-icon">get<wbr>JsPb<wbr>Message<wbr>Id</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#getmodifiers" class="tsd-kind-icon">get<wbr>Modifiers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#gettext" class="tsd-kind-icon">get<wbr>Text</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#hasmodifiers" class="tsd-kind-icon">has<wbr>Modifiers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="keyboardtextstreamresponse.html#readbinaryextension" class="tsd-kind-icon">read<wbr>Binary<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="keyboardtextstreamresponse.html#serializebinary" class="tsd-kind-icon">serialize<wbr>Binary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="keyboardtextstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="keyboardtextstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#setmodifiers" class="tsd-kind-icon">set<wbr>Modifiers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="keyboardtextstreamresponse.html#settext" class="tsd-kind-icon">set<wbr>Text</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="keyboardtextstreamresponse.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="keyboardtextstreamresponse.html#toobject" class="tsd-kind-icon">to<wbr>Object</a></li>
@@ -162,17 +160,17 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-class tsd-is-static">
 					<a name="asobject" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> As<wbr>Object</h3>
-					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>modifiers<span class="tsd-signature-symbol">?: </span><a href="keyboardmodifiers.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol">; </span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L199">src/grpc/keyboard_pb.d.ts:199</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L131">src/grpc/keyboard_pb.d.ts:131</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> modifiers<span class="tsd-signature-symbol">?: </span><a href="keyboardmodifiers.html#asobject" class="tsd-signature-type">AsObject</a></h5>
+								<h5>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li class="tsd-parameter">
 								<h5>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
@@ -236,7 +234,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L191">src/grpc/keyboard_pb.d.ts:191</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L123">src/grpc/keyboard_pb.d.ts:123</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -255,7 +253,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensionsBinary</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L192">src/grpc/keyboard_pb.d.ts:192</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L124">src/grpc/keyboard_pb.d.ts:124</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -270,23 +268,6 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="clearmodifiers" class="tsd-anchor"></a>
-					<h3>clear<wbr>Modifiers</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">clear<wbr>Modifiers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L183">src/grpc/keyboard_pb.d.ts:183</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="clone" class="tsd-anchor"></a>
 					<h3>clone</h3>
@@ -320,6 +301,23 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="geterror" class="tsd-anchor"></a>
+					<h3>get<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L116">src/grpc/keyboard_pb.d.ts:116</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -372,23 +370,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getmodifiers" class="tsd-anchor"></a>
-					<h3>get<wbr>Modifiers</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Modifiers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardModifiers</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L184">src/grpc/keyboard_pb.d.ts:184</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">KeyboardModifiers</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="gettext" class="tsd-anchor"></a>
 					<h3>get<wbr>Text</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -398,27 +379,10 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L178">src/grpc/keyboard_pb.d.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L113">src/grpc/keyboard_pb.d.ts:113</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="hasmodifiers" class="tsd-anchor"></a>
-					<h3>has<wbr>Modifiers</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>Modifiers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L182">src/grpc/keyboard_pb.d.ts:182</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -498,7 +462,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L188">src/grpc/keyboard_pb.d.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L120">src/grpc/keyboard_pb.d.ts:120</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Uint8Array</span></h4>
@@ -567,6 +531,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="seterror" class="tsd-anchor"></a>
+					<h3>set<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Error<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="keyboardtextstreamresponse.html" class="tsd-signature-type">KeyboardTextStreamResponse</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L117">src/grpc/keyboard_pb.d.ts:117</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="keyboardtextstreamresponse.html" class="tsd-signature-type">KeyboardTextStreamResponse</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="setextension" class="tsd-anchor"></a>
 					<h3>set<wbr>Extension</h3>
@@ -601,29 +588,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setmodifiers" class="tsd-anchor"></a>
-					<h3>set<wbr>Modifiers</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Modifiers<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><a href="keyboardmodifiers.html" class="tsd-signature-type">KeyboardModifiers</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="keyboardtextstreamresponse.html" class="tsd-signature-type">KeyboardTextStreamResponse</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L185">src/grpc/keyboard_pb.d.ts:185</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <a href="keyboardmodifiers.html" class="tsd-signature-type">KeyboardModifiers</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="keyboardtextstreamresponse.html" class="tsd-signature-type">KeyboardTextStreamResponse</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="settext" class="tsd-anchor"></a>
 					<h3>set<wbr>Text</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -633,7 +597,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L179">src/grpc/keyboard_pb.d.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L114">src/grpc/keyboard_pb.d.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -675,7 +639,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L189">src/grpc/keyboard_pb.d.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L121">src/grpc/keyboard_pb.d.ts:121</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1078,7 +1042,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L194">src/grpc/keyboard_pb.d.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L126">src/grpc/keyboard_pb.d.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1102,7 +1066,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinaryFromReader</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L195">src/grpc/keyboard_pb.d.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L127">src/grpc/keyboard_pb.d.ts:127</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1516,7 +1480,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinaryToWriter</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L193">src/grpc/keyboard_pb.d.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L125">src/grpc/keyboard_pb.d.ts:125</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1762,7 +1726,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/keyboard_pb.d.ts#L190">src/grpc/keyboard_pb.d.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/keyboard_pb.d.ts#L122">src/grpc/keyboard_pb.d.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1948,14 +1912,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
 								<a href="keyboardtextstreamresponse.html#extensionsbinary" class="tsd-kind-icon">extensions<wbr>Binary</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="keyboardtextstreamresponse.html#clearmodifiers" class="tsd-kind-icon">clear<wbr>Modifiers</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="keyboardtextstreamresponse.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="keyboardtextstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="keyboardtextstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="keyboardtextstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a>
@@ -1964,13 +1928,7 @@
 								<a href="keyboardtextstreamresponse.html#getjspbmessageid" class="tsd-kind-icon">get<wbr>JsPb<wbr>Message<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="keyboardtextstreamresponse.html#getmodifiers" class="tsd-kind-icon">get<wbr>Modifiers</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="keyboardtextstreamresponse.html#gettext" class="tsd-kind-icon">get<wbr>Text</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="keyboardtextstreamresponse.html#hasmodifiers" class="tsd-kind-icon">has<wbr>Modifiers</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="keyboardtextstreamresponse.html#readbinaryextension" class="tsd-kind-icon">read<wbr>Binary<wbr>Extension</a>
@@ -1981,11 +1939,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="keyboardtextstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="keyboardtextstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="keyboardtextstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="keyboardtextstreamresponse.html#setmodifiers" class="tsd-kind-icon">set<wbr>Modifiers</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="keyboardtextstreamresponse.html#settext" class="tsd-kind-icon">set<wbr>Text</a>

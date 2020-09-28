@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IStorageService | Loop Development Kit for Node.js</title>
+	<title>KeyboardModifiers | Loop Development Kit for Node.js</title>
 	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="istorageservice.html">IStorageService</a>
+					<a href="keyboardmodifiers.html">KeyboardModifiers</a>
 				</li>
 			</ul>
-			<h1>Interface IStorageService</h1>
+			<h1>Interface KeyboardModifiers</h1>
 		</div>
 	</div>
 </header>
@@ -69,12 +69,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-symbol">{}</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">IStorageService</span>
-							</li>
-						</ul>
+						<span class="target">KeyboardModifiers</span>
 					</li>
 				</ul>
 			</section>
@@ -85,13 +80,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storagedelete" class="tsd-kind-icon">storage<wbr>Delete</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storagedeleteall" class="tsd-kind-icon">storage<wbr>Delete<wbr>All</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storagehaskey" class="tsd-kind-icon">storage<wbr>Has<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storagekeys" class="tsd-kind-icon">storage<wbr>Keys</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storageread" class="tsd-kind-icon">storage<wbr>Read</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storagereadall" class="tsd-kind-icon">storage<wbr>Read<wbr>All</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istorageservice.html#storagewrite" class="tsd-kind-icon">storage<wbr>Write</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#altl" class="tsd-kind-icon">altL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#altr" class="tsd-kind-icon">altR</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#ctrll" class="tsd-kind-icon">ctrlL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#ctrlr" class="tsd-kind-icon">ctrlR</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#metal" class="tsd-kind-icon">metaL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#metar" class="tsd-kind-icon">metaR</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#shiftl" class="tsd-kind-icon">shiftL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="keyboardmodifiers.html#shiftr" class="tsd-kind-icon">shiftR</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,72 +96,82 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storagedelete" class="tsd-anchor"></a>
-					<h3>storage<wbr>Delete</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Delete<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istoragedelete.html" class="tsd-signature-type">IStorageService_IStorageDelete</a></div>
+					<a name="altl" class="tsd-anchor"></a>
+					<h3>altL</h3>
+					<div class="tsd-signature tsd-kind-icon">altL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L17">src/grpc/storage_grpc_pb.d.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L4">src/hostClients/keyboardHost.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storagedeleteall" class="tsd-anchor"></a>
-					<h3>storage<wbr>Delete<wbr>All</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Delete<wbr>All<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istoragedeleteall.html" class="tsd-signature-type">IStorageService_IStorageDeleteAll</a></div>
+					<a name="altr" class="tsd-anchor"></a>
+					<h3>altR</h3>
+					<div class="tsd-signature tsd-kind-icon">altR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L18">src/grpc/storage_grpc_pb.d.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L5">src/hostClients/keyboardHost.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storagehaskey" class="tsd-anchor"></a>
-					<h3>storage<wbr>Has<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Has<wbr>Key<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istoragehaskey.html" class="tsd-signature-type">IStorageService_IStorageHasKey</a></div>
+					<a name="ctrll" class="tsd-anchor"></a>
+					<h3>ctrlL</h3>
+					<div class="tsd-signature tsd-kind-icon">ctrlL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L13">src/grpc/storage_grpc_pb.d.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L6">src/hostClients/keyboardHost.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storagekeys" class="tsd-anchor"></a>
-					<h3>storage<wbr>Keys</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Keys<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istoragekeys.html" class="tsd-signature-type">IStorageService_IStorageKeys</a></div>
+					<a name="ctrlr" class="tsd-anchor"></a>
+					<h3>ctrlR</h3>
+					<div class="tsd-signature tsd-kind-icon">ctrlR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L14">src/grpc/storage_grpc_pb.d.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L7">src/hostClients/keyboardHost.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storageread" class="tsd-anchor"></a>
-					<h3>storage<wbr>Read</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Read<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istorageread.html" class="tsd-signature-type">IStorageService_IStorageRead</a></div>
+					<a name="metal" class="tsd-anchor"></a>
+					<h3>metaL</h3>
+					<div class="tsd-signature tsd-kind-icon">metaL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L15">src/grpc/storage_grpc_pb.d.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L8">src/hostClients/keyboardHost.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storagereadall" class="tsd-anchor"></a>
-					<h3>storage<wbr>Read<wbr>All</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Read<wbr>All<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istoragereadall.html" class="tsd-signature-type">IStorageService_IStorageReadAll</a></div>
+					<a name="metar" class="tsd-anchor"></a>
+					<h3>metaR</h3>
+					<div class="tsd-signature tsd-kind-icon">metaR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L16">src/grpc/storage_grpc_pb.d.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L9">src/hostClients/keyboardHost.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="storagewrite" class="tsd-anchor"></a>
-					<h3>storage<wbr>Write</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<wbr>Write<span class="tsd-signature-symbol">:</span> <a href="istorageservice_istoragewrite.html" class="tsd-signature-type">IStorageService_IStorageWrite</a></div>
+					<a name="shiftl" class="tsd-anchor"></a>
+					<h3>shiftL</h3>
+					<div class="tsd-signature tsd-kind-icon">shiftL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/storage_grpc_pb.d.ts#L19">src/grpc/storage_grpc_pb.d.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L10">src/hostClients/keyboardHost.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="shiftr" class="tsd-anchor"></a>
+					<h3>shiftR</h3>
+					<div class="tsd-signature tsd-kind-icon">shiftR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L11">src/hostClients/keyboardHost.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -202,28 +208,31 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="istorageservice.html" class="tsd-kind-icon">IStorage<wbr>Service</a>
+						<a href="keyboardmodifiers.html" class="tsd-kind-icon">Keyboard<wbr>Modifiers</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storagedelete" class="tsd-kind-icon">storage<wbr>Delete</a>
+								<a href="keyboardmodifiers.html#altl" class="tsd-kind-icon">altL</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storagedeleteall" class="tsd-kind-icon">storage<wbr>Delete<wbr>All</a>
+								<a href="keyboardmodifiers.html#altr" class="tsd-kind-icon">altR</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storagehaskey" class="tsd-kind-icon">storage<wbr>Has<wbr>Key</a>
+								<a href="keyboardmodifiers.html#ctrll" class="tsd-kind-icon">ctrlL</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storagekeys" class="tsd-kind-icon">storage<wbr>Keys</a>
+								<a href="keyboardmodifiers.html#ctrlr" class="tsd-kind-icon">ctrlR</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storageread" class="tsd-kind-icon">storage<wbr>Read</a>
+								<a href="keyboardmodifiers.html#metal" class="tsd-kind-icon">metaL</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storagereadall" class="tsd-kind-icon">storage<wbr>Read<wbr>All</a>
+								<a href="keyboardmodifiers.html#metar" class="tsd-kind-icon">metaR</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="istorageservice.html#storagewrite" class="tsd-kind-icon">storage<wbr>Write</a>
+								<a href="keyboardmodifiers.html#shiftl" class="tsd-kind-icon">shiftL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="keyboardmodifiers.html#shiftr" class="tsd-kind-icon">shiftR</a>
 							</li>
 						</ul>
 					</li>

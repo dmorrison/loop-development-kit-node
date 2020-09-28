@@ -13,28 +13,27 @@ import {
   TextStream,
 } from './keyboardHost';
 
+const generateModifierFlag = (
+  modifiers: Partial<KeyboardModifiers>,
+): number => {
+  return (
+    (modifiers?.altL ? 1 : 0) +
+    (modifiers?.altR ? 2 : 0) +
+    (modifiers?.ctrlL ? 4 : 0) +
+    (modifiers?.ctrlR ? 8 : 0) +
+    (modifiers?.metaL ? 16 : 0) +
+    (modifiers?.metaR ? 32 : 0) +
+    (modifiers?.shiftL ? 64 : 0) +
+    (modifiers?.shiftR ? 128 : 0)
+  );
+};
+
 const transformTextStream: StreamTransformer<
   messages.KeyboardTextStreamResponse,
   TextStream
 > = (message) => {
-  let modifiers: KeyboardModifiers | null = null;
-  if (message.hasModifiers()) {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const mods = message.getModifiers()!.toObject();
-    modifiers = {
-      ctrlL: mods.ctrll,
-      ctrlR: mods.ctrlr,
-      altL: mods.altl,
-      altR: mods.altr,
-      shiftL: mods.shiftl,
-      shiftR: mods.shiftr,
-      metaL: mods.metal,
-      metaR: mods.metar,
-    };
-  }
   return {
     text: message.getText(),
-    modifiers,
   };
 };
 
@@ -56,17 +55,8 @@ function generateHotkeyStreamRequest(
 ): messages.KeyboardHotkeyStreamRequest {
   const keyMessages = keys.map((keyRequest) => {
     const request = new messages.KeyboardHotkey();
-    const modifiers = new messages.KeyboardModifiers();
-    modifiers.setAltl(keyRequest.modifiers.altL ?? false);
-    modifiers.setAltr(keyRequest.modifiers.altR ?? false);
-    modifiers.setCtrll(keyRequest.modifiers.ctrlL ?? false);
-    modifiers.setCtrlr(keyRequest.modifiers.ctrlR ?? false);
-    modifiers.setShiftl(keyRequest.modifiers.shiftL ?? false);
-    modifiers.setShiftr(keyRequest.modifiers.shiftR ?? false);
-    modifiers.setMetal(keyRequest.modifiers.metaL ?? false);
-    modifiers.setMetar(keyRequest.modifiers.metaR ?? false);
     request.setScancode(keyRequest.scanCode);
-    request.setModifiers(modifiers);
+    request.setModifiers(generateModifierFlag(keyRequest.modifiers));
     return request;
   });
   const message = new messages.KeyboardHotkeyStreamRequest();
@@ -86,7 +76,7 @@ const transformHotKeyEvent: StreamTransformer<
 export default class KeyboardSensorClient
   extends HostClient<KeyboardClient>
   implements KeyboardHost {
-  hotKeyStream(
+  streamHotKey(
     hotKeys: HotKeyRequest[],
     listener: (input: HotKeyEvent) => void,
   ): ReadableStream<HotKeyEvent> {
@@ -98,24 +88,24 @@ export default class KeyboardSensorClient
     );
   }
 
-  textChunks(): ReadableStream<string> {
+  streamText(): ReadableStream<string> {
     return new TransformingStream(
-      this.client.keyboardTextChunkStream(new Empty()),
+      this.client.keyboardTextStream(new Empty()),
       (response) => response.getText(),
     );
   }
 
-  textStream(
+  streamChar(
     listener: (input: TextStream) => void,
   ): ReadableStream<TextStream> {
     return new TransformingStream(
-      this.client.keyboardTextStream(new Empty()),
+      this.client.keyboardCharacterStream(new Empty()),
       transformTextStream,
       listener,
     );
   }
 
-  scanCodeStream(
+  streamScanCode(
     listener: (input: ScanCodeEvent) => void,
   ): ReadableStream<ScanCodeEvent> {
     return new TransformingStream(

@@ -103,6 +103,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="windowactivewindowstreamresponse.html#clearwindow" class="tsd-kind-icon">clear<wbr>Window</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="windowactivewindowstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#getjspbmessageid" class="tsd-kind-icon">get<wbr>JsPb<wbr>Message<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="windowactivewindowstreamresponse.html#getwindow" class="tsd-kind-icon">get<wbr>Window</a></li>
@@ -110,6 +111,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#readbinaryextension" class="tsd-kind-icon">read<wbr>Binary<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="windowactivewindowstreamresponse.html#serializebinary" class="tsd-kind-icon">serialize<wbr>Binary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="windowactivewindowstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="windowactivewindowstreamresponse.html#setwindow" class="tsd-kind-icon">set<wbr>Window</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="windowactivewindowstreamresponse.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
@@ -160,15 +162,18 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-class tsd-is-static">
 					<a name="asobject" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> As<wbr>Object</h3>
-					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>window<span class="tsd-signature-symbol">?: </span><a href="windowinfo.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>window<span class="tsd-signature-symbol">?: </span><a href="windowinfo.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L98">src/grpc/window_pb.d.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L101">src/grpc/window_pb.d.ts:101</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> window<span class="tsd-signature-symbol">?: </span><a href="windowinfo.html#asobject" class="tsd-signature-type">AsObject</a></h5>
 							</li>
@@ -231,7 +236,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L90">src/grpc/window_pb.d.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L93">src/grpc/window_pb.d.ts:93</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -250,7 +255,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensionsBinary</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L91">src/grpc/window_pb.d.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L94">src/grpc/window_pb.d.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -275,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L82">src/grpc/window_pb.d.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L82">src/grpc/window_pb.d.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -315,6 +320,23 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="geterror" class="tsd-anchor"></a>
+					<h3>get<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L86">src/grpc/window_pb.d.ts:86</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -376,7 +398,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L83">src/grpc/window_pb.d.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L83">src/grpc/window_pb.d.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="windowinfo.html" class="tsd-signature-type">WindowInfo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
@@ -393,7 +415,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L81">src/grpc/window_pb.d.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L81">src/grpc/window_pb.d.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -476,7 +498,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L87">src/grpc/window_pb.d.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L90">src/grpc/window_pb.d.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Uint8Array</span></h4>
@@ -545,6 +567,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="seterror" class="tsd-anchor"></a>
+					<h3>set<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Error<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="windowactivewindowstreamresponse.html" class="tsd-signature-type">WindowActiveWindowStreamResponse</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L87">src/grpc/window_pb.d.ts:87</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="windowactivewindowstreamresponse.html" class="tsd-signature-type">WindowActiveWindowStreamResponse</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="setextension" class="tsd-anchor"></a>
 					<h3>set<wbr>Extension</h3>
@@ -588,7 +633,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L84">src/grpc/window_pb.d.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L84">src/grpc/window_pb.d.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -630,7 +675,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L88">src/grpc/window_pb.d.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L91">src/grpc/window_pb.d.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1033,7 +1078,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L93">src/grpc/window_pb.d.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L96">src/grpc/window_pb.d.ts:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1057,7 +1102,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinaryFromReader</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L94">src/grpc/window_pb.d.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L97">src/grpc/window_pb.d.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1471,7 +1516,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinaryToWriter</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L92">src/grpc/window_pb.d.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L95">src/grpc/window_pb.d.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1717,7 +1762,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/window_pb.d.ts#L89">src/grpc/window_pb.d.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/window_pb.d.ts#L92">src/grpc/window_pb.d.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1912,6 +1957,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="windowactivewindowstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="windowactivewindowstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="windowactivewindowstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a>
 							</li>
@@ -1932,6 +1980,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="windowactivewindowstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="windowactivewindowstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="windowactivewindowstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a>

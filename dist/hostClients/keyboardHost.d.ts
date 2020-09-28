@@ -18,15 +18,14 @@ export interface HotKeyEvent {
 }
 export interface TextStream {
     text: string;
-    modifiers: KeyboardModifiers | null;
 }
 export interface ScanCodeEvent {
     scanCode: number;
     direction: 'up' | 'down';
 }
 export interface KeyboardHost {
-    textChunks(listener: (input: string) => void): ReadableStream<string>;
-    textStream(listener: (input: TextStream) => void): ReadableStream<TextStream>;
-    scanCodeStream(listener: (input: ScanCodeEvent) => void): ReadableStream<ScanCodeEvent>;
-    hotKeyStream(hotKeys: HotKeyRequest[], listener: (input: HotKeyEvent) => void): ReadableStream<HotKeyEvent>;
+    streamText(listener: (input: string) => void): ReadableStream<string>;
+    streamChar(listener: (input: TextStream) => void): ReadableStream<TextStream>;
+    streamScanCode(listener: (input: ScanCodeEvent) => void): ReadableStream<ScanCodeEvent>;
+    streamHotKey(hotKeys: HotKeyRequest[], listener: (input: HotKeyEvent) => void): ReadableStream<HotKeyEvent>;
 }

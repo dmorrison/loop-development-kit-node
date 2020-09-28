@@ -102,6 +102,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorpositionstreamresponse.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorpositionstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorpositionstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorpositionstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorpositionstreamresponse.html#getjspbmessageid" class="tsd-kind-icon">get<wbr>JsPb<wbr>Message<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorpositionstreamresponse.html#getscreen" class="tsd-kind-icon">get<wbr>Screen</a></li>
@@ -110,6 +111,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorpositionstreamresponse.html#readbinaryextension" class="tsd-kind-icon">read<wbr>Binary<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="cursorpositionstreamresponse.html#serializebinary" class="tsd-kind-icon">serialize<wbr>Binary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorpositionstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorpositionstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorpositionstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorpositionstreamresponse.html#setscreen" class="tsd-kind-icon">set<wbr>Screen</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorpositionstreamresponse.html#setx" class="tsd-kind-icon">setX</a></li>
@@ -162,15 +164,18 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-class tsd-is-static">
 					<a name="asobject" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> As<wbr>Object</h3>
-					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>screen<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>screen<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L61">src/grpc/cursor_pb.d.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L64">src/grpc/cursor_pb.d.ts:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
 							<li class="tsd-parameter">
 								<h5>screen<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 							</li>
@@ -239,7 +244,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L53">src/grpc/cursor_pb.d.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L56">src/grpc/cursor_pb.d.ts:56</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -258,7 +263,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensionsBinary</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L54">src/grpc/cursor_pb.d.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L57">src/grpc/cursor_pb.d.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -306,6 +311,23 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="geterror" class="tsd-anchor"></a>
+					<h3>get<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L49">src/grpc/cursor_pb.d.ts:49</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -367,7 +389,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L46">src/grpc/cursor_pb.d.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L46">src/grpc/cursor_pb.d.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -384,7 +406,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L40">src/grpc/cursor_pb.d.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L40">src/grpc/cursor_pb.d.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -401,7 +423,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L43">src/grpc/cursor_pb.d.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L43">src/grpc/cursor_pb.d.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -484,7 +506,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L50">src/grpc/cursor_pb.d.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L53">src/grpc/cursor_pb.d.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Uint8Array</span></h4>
@@ -553,6 +575,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="seterror" class="tsd-anchor"></a>
+					<h3>set<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Error<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="cursorpositionstreamresponse.html" class="tsd-signature-type">CursorPositionStreamResponse</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L50">src/grpc/cursor_pb.d.ts:50</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="cursorpositionstreamresponse.html" class="tsd-signature-type">CursorPositionStreamResponse</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="setextension" class="tsd-anchor"></a>
 					<h3>set<wbr>Extension</h3>
@@ -596,7 +641,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L47">src/grpc/cursor_pb.d.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L47">src/grpc/cursor_pb.d.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -619,7 +664,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L41">src/grpc/cursor_pb.d.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L41">src/grpc/cursor_pb.d.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -642,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L44">src/grpc/cursor_pb.d.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L44">src/grpc/cursor_pb.d.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -684,7 +729,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L51">src/grpc/cursor_pb.d.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L54">src/grpc/cursor_pb.d.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1087,7 +1132,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L56">src/grpc/cursor_pb.d.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L59">src/grpc/cursor_pb.d.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1111,7 +1156,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinaryFromReader</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L57">src/grpc/cursor_pb.d.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L60">src/grpc/cursor_pb.d.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1525,7 +1570,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinaryToWriter</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L55">src/grpc/cursor_pb.d.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L58">src/grpc/cursor_pb.d.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1771,7 +1816,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/cursor_pb.d.ts#L52">src/grpc/cursor_pb.d.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/cursor_pb.d.ts#L55">src/grpc/cursor_pb.d.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1963,6 +2008,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="cursorpositionstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="cursorpositionstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="cursorpositionstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a>
 							</li>
@@ -1986,6 +2034,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="cursorpositionstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="cursorpositionstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="cursorpositionstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a>

@@ -86,10 +86,10 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#hotkeystream" class="tsd-kind-icon">hot<wbr>Key<wbr>Stream</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#scancodestream" class="tsd-kind-icon">scan<wbr>Code<wbr>Stream</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#textchunks" class="tsd-kind-icon">text<wbr>Chunks</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#textstream" class="tsd-kind-icon">text<wbr>Stream</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#streamchar" class="tsd-kind-icon">stream<wbr>Char</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#streamhotkey" class="tsd-kind-icon">stream<wbr>Hot<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#streamscancode" class="tsd-kind-icon">stream<wbr>Scan<wbr>Code</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="keyboardhost.html#streamtext" class="tsd-kind-icon">stream<wbr>Text</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,16 +98,57 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="hotkeystream" class="tsd-anchor"></a>
-					<h3>hot<wbr>Key<wbr>Stream</h3>
+					<a name="streamchar" class="tsd-anchor"></a>
+					<h3>stream<wbr>Char</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">hot<wbr>Key<wbr>Stream<span class="tsd-signature-symbol">(</span>hotKeys<span class="tsd-signature-symbol">: </span><a href="hotkeyrequest.html" class="tsd-signature-type">HotKeyRequest</a><span class="tsd-signature-symbol">[]</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="hotkeyevent.html" class="tsd-signature-type">HotKeyEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="hotkeyevent.html" class="tsd-signature-type">HotKeyEvent</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Char<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/hostClients/keyboardHost.ts#L42">src/hostClients/keyboardHost.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L35">src/hostClients/keyboardHost.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>listener: <span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>input: <a href="textstream.html" class="tsd-signature-type">TextStream</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="streamhotkey" class="tsd-anchor"></a>
+					<h3>stream<wbr>Hot<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Hot<wbr>Key<span class="tsd-signature-symbol">(</span>hotKeys<span class="tsd-signature-symbol">: </span><a href="hotkeyrequest.html" class="tsd-signature-type">HotKeyRequest</a><span class="tsd-signature-symbol">[]</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="hotkeyevent.html" class="tsd-signature-type">HotKeyEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="hotkeyevent.html" class="tsd-signature-type">HotKeyEvent</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L41">src/hostClients/keyboardHost.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -142,16 +183,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="scancodestream" class="tsd-anchor"></a>
-					<h3>scan<wbr>Code<wbr>Stream</h3>
+					<a name="streamscancode" class="tsd-anchor"></a>
+					<h3>stream<wbr>Scan<wbr>Code</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">scan<wbr>Code<wbr>Stream<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="scancodeevent.html" class="tsd-signature-type">ScanCodeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="scancodeevent.html" class="tsd-signature-type">ScanCodeEvent</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Scan<wbr>Code<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="scancodeevent.html" class="tsd-signature-type">ScanCodeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="scancodeevent.html" class="tsd-signature-type">ScanCodeEvent</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/hostClients/keyboardHost.ts#L38">src/hostClients/keyboardHost.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L37">src/hostClients/keyboardHost.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -183,16 +224,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="textchunks" class="tsd-anchor"></a>
-					<h3>text<wbr>Chunks</h3>
+					<a name="streamtext" class="tsd-anchor"></a>
+					<h3>stream<wbr>Text</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">text<wbr>Chunks<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Text<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/hostClients/keyboardHost.ts#L34">src/hostClients/keyboardHost.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/hostClients/keyboardHost.ts#L33">src/hostClients/keyboardHost.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -220,47 +261,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="textstream" class="tsd-anchor"></a>
-					<h3>text<wbr>Stream</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">text<wbr>Stream<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/hostClients/keyboardHost.ts#L36">src/hostClients/keyboardHost.ts:36</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>listener: <span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>input: <a href="textstream.html" class="tsd-signature-type">TextStream</a></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="readablestream.html" class="tsd-signature-type">ReadableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="textstream.html" class="tsd-signature-type">TextStream</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -300,16 +300,16 @@
 						<a href="keyboardhost.html" class="tsd-kind-icon">Keyboard<wbr>Host</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="keyboardhost.html#hotkeystream" class="tsd-kind-icon">hot<wbr>Key<wbr>Stream</a>
+								<a href="keyboardhost.html#streamchar" class="tsd-kind-icon">stream<wbr>Char</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="keyboardhost.html#scancodestream" class="tsd-kind-icon">scan<wbr>Code<wbr>Stream</a>
+								<a href="keyboardhost.html#streamhotkey" class="tsd-kind-icon">stream<wbr>Hot<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="keyboardhost.html#textchunks" class="tsd-kind-icon">text<wbr>Chunks</a>
+								<a href="keyboardhost.html#streamscancode" class="tsd-kind-icon">stream<wbr>Scan<wbr>Code</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="keyboardhost.html#textstream" class="tsd-kind-icon">text<wbr>Stream</a>
+								<a href="keyboardhost.html#streamtext" class="tsd-kind-icon">stream<wbr>Text</a>
 							</li>
 						</ul>
 					</li>

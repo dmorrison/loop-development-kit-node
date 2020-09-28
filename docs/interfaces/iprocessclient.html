@@ -86,8 +86,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iprocessclient.html#processdiffstream" class="tsd-kind-icon">process<wbr>Diff<wbr>Stream</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iprocessclient.html#processlist" class="tsd-kind-icon">process<wbr>List</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iprocessclient.html#processstate" class="tsd-kind-icon">process<wbr>State</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iprocessclient.html#processstatestream" class="tsd-kind-icon">process<wbr>State<wbr>Stream</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,17 +96,18 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="processdiffstream" class="tsd-anchor"></a>
-					<h3>process<wbr>Diff<wbr>Stream</h3>
+					<a name="processstate" class="tsd-anchor"></a>
+					<h3>process<wbr>State</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">process<wbr>Diff<wbr>Stream<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processdiffstreamresponse.html" class="tsd-signature-type">ProcessDiffStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">process<wbr>Diff<wbr>Stream<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">grpc.Metadata</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processdiffstreamresponse.html" class="tsd-signature-type">ProcessDiffStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>State<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>State<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>State<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/process_grpc_pb.d.ts#L43">src/grpc/process_grpc_pb.d.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/process_grpc_pb.d.ts#L46">src/grpc/process_grpc_pb.d.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -115,59 +116,11 @@
 									<h5>request: <span class="tsd-signature-type">Empty</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processdiffstreamresponse.html" class="tsd-signature-type">ProcessDiffStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/process_grpc_pb.d.ts#L44">src/grpc/process_grpc_pb.d.ts:44</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>request: <span class="tsd-signature-type">Empty</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <span class="tsd-signature-type">grpc.Metadata</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processdiffstreamresponse.html" class="tsd-signature-type">ProcessDiffStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="processlist" class="tsd-anchor"></a>
-					<h3>process<wbr>List</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">process<wbr>List<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
-						<li class="tsd-signature tsd-kind-icon">process<wbr>List<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
-						<li class="tsd-signature tsd-kind-icon">process<wbr>List<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Metadata</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientUnaryCall</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/process_grpc_pb.d.ts#L45">src/grpc/process_grpc_pb.d.ts:45</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>request: <span class="tsd-signature-type">Empty</span></h5>
-								</li>
-								<li>
-									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
@@ -177,7 +130,7 @@
 															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 														</li>
 														<li>
-															<h5>response: <a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a></h5>
+															<h5>response: <a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -192,7 +145,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/process_grpc_pb.d.ts#L46">src/grpc/process_grpc_pb.d.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/process_grpc_pb.d.ts#L47">src/grpc/process_grpc_pb.d.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -204,11 +157,11 @@
 									<h5>metadata: <span class="tsd-signature-type">Metadata</span></h5>
 								</li>
 								<li>
-									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
@@ -218,7 +171,7 @@
 															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 														</li>
 														<li>
-															<h5>response: <a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a></h5>
+															<h5>response: <a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -233,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/process_grpc_pb.d.ts#L47">src/grpc/process_grpc_pb.d.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/process_grpc_pb.d.ts#L48">src/grpc/process_grpc_pb.d.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -248,11 +201,11 @@
 									<h5>options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
@@ -262,7 +215,7 @@
 															<h5>error: <span class="tsd-signature-type">grpc.ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 														</li>
 														<li>
-															<h5>response: <a href="../classes/processlistresponse.html" class="tsd-signature-type">ProcessListResponse</a></h5>
+															<h5>response: <a href="../classes/processstateresponse.html" class="tsd-signature-type">ProcessStateResponse</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -273,6 +226,53 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="processstatestream" class="tsd-anchor"></a>
+					<h3>process<wbr>State<wbr>Stream</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">process<wbr>State<wbr>Stream<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processstatestreamresponse.html" class="tsd-signature-type">ProcessStateStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>State<wbr>Stream<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Empty</span>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">grpc.Metadata</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processstatestreamresponse.html" class="tsd-signature-type">ProcessStateStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/process_grpc_pb.d.ts#L44">src/grpc/process_grpc_pb.d.ts:44</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <span class="tsd-signature-type">Empty</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processstatestreamresponse.html" class="tsd-signature-type">ProcessStateStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/process_grpc_pb.d.ts#L45">src/grpc/process_grpc_pb.d.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <span class="tsd-signature-type">Empty</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <span class="tsd-signature-type">grpc.Metadata</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CallOptions</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/processstatestreamresponse.html" class="tsd-signature-type">ProcessStateStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -312,10 +312,10 @@
 						<a href="iprocessclient.html" class="tsd-kind-icon">IProcess<wbr>Client</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iprocessclient.html#processdiffstream" class="tsd-kind-icon">process<wbr>Diff<wbr>Stream</a>
+								<a href="iprocessclient.html#processstate" class="tsd-kind-icon">process<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iprocessclient.html#processlist" class="tsd-kind-icon">process<wbr>List</a>
+								<a href="iprocessclient.html#processstatestream" class="tsd-kind-icon">process<wbr>State<wbr>Stream</a>
 							</li>
 						</ul>
 					</li>

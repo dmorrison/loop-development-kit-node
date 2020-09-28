@@ -171,6 +171,10 @@ This LDK can be used to write sensors for Olive Helps. More detail about sensors
 
 ## LDK Development
 
+### Dependencies
+
+The `.proto` files in `src/shared/proto` are inserted with Git subtrees. To update the subtree, and rebuild the protoc files, execute `npm run protoc`.
+
 ### Testing
 
 Tests are written with [`ts-jest`](https://kulshekhar.github.io/ts-jest/).

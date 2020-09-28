@@ -22,7 +22,6 @@ export interface HotKeyEvent {
 
 export interface TextStream {
   text: string;
-  modifiers: KeyboardModifiers | null;
 }
 
 export interface ScanCodeEvent {
@@ -31,15 +30,15 @@ export interface ScanCodeEvent {
 }
 
 export interface KeyboardHost {
-  textChunks(listener: (input: string) => void): ReadableStream<string>;
+  streamText(listener: (input: string) => void): ReadableStream<string>;
 
-  textStream(listener: (input: TextStream) => void): ReadableStream<TextStream>;
+  streamChar(listener: (input: TextStream) => void): ReadableStream<TextStream>;
 
-  scanCodeStream(
+  streamScanCode(
     listener: (input: ScanCodeEvent) => void,
   ): ReadableStream<ScanCodeEvent>;
 
-  hotKeyStream(
+  streamHotKey(
     hotKeys: HotKeyRequest[],
     listener: (input: HotKeyEvent) => void,
   ): ReadableStream<HotKeyEvent>;

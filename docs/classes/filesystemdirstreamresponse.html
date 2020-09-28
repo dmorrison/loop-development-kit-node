@@ -104,6 +104,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="filesystemdirstreamresponse.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="filesystemdirstreamresponse.html#clonemessage" class="tsd-kind-icon">clone<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="filesystemdirstreamresponse.html#getaction" class="tsd-kind-icon">get<wbr>Action</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="filesystemdirstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="filesystemdirstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="filesystemdirstreamresponse.html#getfiles" class="tsd-kind-icon">get<wbr>Files</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="filesystemdirstreamresponse.html#getjspbmessageid" class="tsd-kind-icon">get<wbr>JsPb<wbr>Message<wbr>Id</a></li>
@@ -112,6 +113,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="filesystemdirstreamresponse.html#serializebinary" class="tsd-kind-icon">serialize<wbr>Binary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="filesystemdirstreamresponse.html#serializebinaryextensions" class="tsd-kind-icon">serialize<wbr>Binary<wbr>Extensions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="filesystemdirstreamresponse.html#setaction" class="tsd-kind-icon">set<wbr>Action</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="filesystemdirstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="filesystemdirstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="filesystemdirstreamresponse.html#setfiles" class="tsd-kind-icon">set<wbr>Files</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="filesystemdirstreamresponse.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
@@ -162,10 +164,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-class tsd-is-static">
 					<a name="asobject" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> As<wbr>Object</h3>
-					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>action<span class="tsd-signature-symbol">: </span><a href="../enums/fileaction.html" class="tsd-signature-type">FileAction</a><span class="tsd-signature-symbol">; </span>files<span class="tsd-signature-symbol">?: </span><a href="fileinfo.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">As<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>action<span class="tsd-signature-symbol">: </span><a href="../enums/fileaction.html" class="tsd-signature-type">FileAction</a><span class="tsd-signature-symbol">; </span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>files<span class="tsd-signature-symbol">?: </span><a href="fileinfo.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L137">src/grpc/filesystem_pb.d.ts:137</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L140">src/grpc/filesystem_pb.d.ts:140</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -173,6 +175,9 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
 								<h5>action<span class="tsd-signature-symbol">: </span><a href="../enums/fileaction.html" class="tsd-signature-type">FileAction</a></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> files<span class="tsd-signature-symbol">?: </span><a href="fileinfo.html#asobject" class="tsd-signature-type">AsObject</a></h5>
@@ -236,7 +241,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L129">src/grpc/filesystem_pb.d.ts:129</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L132">src/grpc/filesystem_pb.d.ts:132</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -255,7 +260,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides Message.extensionsBinary</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L130">src/grpc/filesystem_pb.d.ts:130</a></li>
+							<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L133">src/grpc/filesystem_pb.d.ts:133</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -280,7 +285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L118">src/grpc/filesystem_pb.d.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L118">src/grpc/filesystem_pb.d.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -333,10 +338,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L122">src/grpc/filesystem_pb.d.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L122">src/grpc/filesystem_pb.d.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/fileaction.html" class="tsd-signature-type">FileAction</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="geterror" class="tsd-anchor"></a>
+					<h3>get<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Error<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L125">src/grpc/filesystem_pb.d.ts:125</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -380,7 +402,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L119">src/grpc/filesystem_pb.d.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L119">src/grpc/filesystem_pb.d.ts:119</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="fileinfo.html" class="tsd-signature-type">FileInfo</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
@@ -415,7 +437,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L117">src/grpc/filesystem_pb.d.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L117">src/grpc/filesystem_pb.d.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -498,7 +520,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L126">src/grpc/filesystem_pb.d.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L129">src/grpc/filesystem_pb.d.ts:129</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Uint8Array</span></h4>
@@ -577,13 +599,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L123">src/grpc/filesystem_pb.d.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L123">src/grpc/filesystem_pb.d.ts:123</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <a href="../enums/fileaction.html" class="tsd-signature-type">FileAction</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="filesystemdirstreamresponse.html" class="tsd-signature-type">FilesystemDirStreamResponse</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="seterror" class="tsd-anchor"></a>
+					<h3>set<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Error<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="filesystemdirstreamresponse.html" class="tsd-signature-type">FilesystemDirStreamResponse</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L126">src/grpc/filesystem_pb.d.ts:126</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="filesystemdirstreamresponse.html" class="tsd-signature-type">FilesystemDirStreamResponse</a></h4>
@@ -633,7 +678,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L120">src/grpc/filesystem_pb.d.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L120">src/grpc/filesystem_pb.d.ts:120</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -675,7 +720,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L127">src/grpc/filesystem_pb.d.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L130">src/grpc/filesystem_pb.d.ts:130</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1078,7 +1123,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinary</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L132">src/grpc/filesystem_pb.d.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L135">src/grpc/filesystem_pb.d.ts:135</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1102,7 +1147,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.deserializeBinaryFromReader</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L133">src/grpc/filesystem_pb.d.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L136">src/grpc/filesystem_pb.d.ts:136</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1516,7 +1561,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.serializeBinaryToWriter</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L131">src/grpc/filesystem_pb.d.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L134">src/grpc/filesystem_pb.d.ts:134</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1762,7 +1807,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Message.toObject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/13570e9/src/grpc/filesystem_pb.d.ts#L128">src/grpc/filesystem_pb.d.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/02a799d/src/grpc/filesystem_pb.d.ts#L131">src/grpc/filesystem_pb.d.ts:131</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1960,6 +2005,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="filesystemdirstreamresponse.html#getaction" class="tsd-kind-icon">get<wbr>Action</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="filesystemdirstreamresponse.html#geterror" class="tsd-kind-icon">get<wbr>Error</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="filesystemdirstreamresponse.html#getextension" class="tsd-kind-icon">get<wbr>Extension</a>
 							</li>
@@ -1983,6 +2031,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="filesystemdirstreamresponse.html#setaction" class="tsd-kind-icon">set<wbr>Action</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="filesystemdirstreamresponse.html#seterror" class="tsd-kind-icon">set<wbr>Error</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="filesystemdirstreamresponse.html#setextension" class="tsd-kind-icon">set<wbr>Extension</a>
