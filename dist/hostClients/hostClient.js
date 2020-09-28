@@ -37,6 +37,26 @@ class HostClient {
             });
         });
     }
+    /**
+     * This convenience function returns a promise that resolves once the request has been completed and the response
+     * converted to the desired output.
+     *
+     * @param clientRequest - A function that calls the client with the generated message and callback.
+     * @param builder - The function that builds the message.
+     * @param renderer - The function that renders the message.
+     */
+    buildQuery(clientRequest, builder, renderer) {
+        return new Promise((resolve, reject) => {
+            const message = builder();
+            const callback = (err, response) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(renderer(response));
+            };
+            clientRequest(message, callback);
+        });
+    }
     get client() {
         if (this._client === undefined) {
             throw new Error('Accessing client before connected');

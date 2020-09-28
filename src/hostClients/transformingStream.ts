@@ -1,5 +1,5 @@
 import grpc from '@grpc/grpc-js';
-import { ReadableStream, StreamListener } from './readableStream';
+import { StoppableStream, StreamListener } from './stoppableStream';
 
 export type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
 
@@ -14,7 +14,7 @@ export type MessageWithError = {
  * This is used when the Library sensor is providing a stream of events, instead of a one-time response.
  */
 export class TransformingStream<TInput extends MessageWithError, TOutput>
-  implements ReadableStream<TOutput> {
+  implements StoppableStream<TOutput> {
   private stream: grpc.ClientReadableStream<TInput>;
 
   private transformer: StreamTransformer<TInput, TOutput>;

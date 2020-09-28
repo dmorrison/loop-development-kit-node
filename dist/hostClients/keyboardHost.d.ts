@@ -1,4 +1,4 @@
-import { ReadableStream, StreamListener } from './readableStream';
+import { StoppableStream, StreamListener } from './stoppableStream';
 export interface KeyboardModifiers {
     altL: boolean;
     altR: boolean;
@@ -24,8 +24,8 @@ export interface ScanCodeEvent {
     direction: 'up' | 'down';
 }
 export interface KeyboardHost {
-    streamText(listener: StreamListener<string>): ReadableStream<string>;
-    streamChar(listener: StreamListener<TextStream>): ReadableStream<TextStream>;
-    streamScanCode(listener: StreamListener<ScanCodeEvent>): ReadableStream<ScanCodeEvent>;
-    streamHotKey(hotKeys: HotKeyRequest[], listener: StreamListener<HotKeyEvent>): ReadableStream<HotKeyEvent>;
+    streamText(listener: StreamListener<string>): StoppableStream<string>;
+    streamChar(listener: StreamListener<TextStream>): StoppableStream<TextStream>;
+    streamScanCode(listener: StreamListener<ScanCodeEvent>): StoppableStream<ScanCodeEvent>;
+    streamHotKey(hotKeys: HotKeyRequest[], listener: StreamListener<HotKeyEvent>): StoppableStream<HotKeyEvent>;
 }

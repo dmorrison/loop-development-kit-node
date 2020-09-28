@@ -1,3 +1,4 @@
+import { ServiceError } from '@grpc/grpc-js';
 import { ConnInfo } from '../grpc/broker_pb';
 import { CommonHostServer } from '../commonHostServer';
 import { CommonHostClient } from './commonHostClient';
@@ -55,6 +56,34 @@ export default abstract class HostClient<THost extends CommonHostServer>
         }
         return resolve();
       });
+    });
+  }
+
+  /**
+   * This convenience function returns a promise that resolves once the request has been completed and the response
+   * converted to the desired output.
+   *
+   * @param clientRequest - A function that calls the client with the generated message and callback.
+   * @param builder - The function that builds the message.
+   * @param renderer - The function that renders the message.
+   */
+  buildQuery<TMessage, TResponse, TOutput>(
+    clientRequest: (
+      message: TMessage,
+      callback: (err: ServiceError | null, response: TResponse) => void,
+    ) => void,
+    builder: () => TMessage,
+    renderer: (response: TResponse) => TOutput,
+  ): Promise<TOutput> {
+    return new Promise((resolve, reject) => {
+      const message = builder();
+      const callback = (err: ServiceError | null, response: TResponse) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(renderer(response));
+      };
+      clientRequest(message, callback);
     });
   }
 

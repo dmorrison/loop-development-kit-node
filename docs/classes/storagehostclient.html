@@ -98,6 +98,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="storagehostclient.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="storagehostclient.html#connect" class="tsd-kind-icon">connect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="storagehostclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="storagehostclient.html#storagedelete" class="tsd-kind-icon">storage<wbr>Delete</a></li>
@@ -126,7 +127,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from HostClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/hostClient.ts#L61">src/hostClients/hostClient.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/hostClient.ts#L90">src/hostClients/hostClient.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="storageclient.html" class="tsd-signature-type">StorageClient</a></h4>
@@ -135,7 +136,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from HostClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/hostClient.ts#L68">src/hostClients/hostClient.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/hostClient.ts#L97">src/hostClients/hostClient.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -151,6 +152,135 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="buildquery" class="tsd-anchor"></a>
+					<h3>build<wbr>Query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">build<wbr>Query&lt;TMessage, TResponse, TOutput&gt;<span class="tsd-signature-symbol">(</span>clientRequest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span>, builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TMessage</span>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from HostClient.buildQuery</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/hostClient.ts#L70">src/hostClients/hostClient.ts:70</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This convenience function returns a promise that resolves once the request has been completed and the response
+									converted to the desired output.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>TMessage</h4>
+								</li>
+								<li>
+									<h4>TResponse</h4>
+								</li>
+								<li>
+									<h4>TOutput</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>clientRequest: <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function that calls the client with the generated message and callback.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>message: <span class="tsd-signature-type">TMessage</span></h5>
+														</li>
+														<li>
+															<h5>callback: <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+															<ul class="tsd-parameters">
+																<li class="tsd-parameter-signature">
+																	<ul class="tsd-signatures tsd-kind-type-literal">
+																		<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+																	</ul>
+																	<ul class="tsd-descriptions">
+																		<li class="tsd-description">
+																			<h4 class="tsd-parameters-title">Parameters</h4>
+																			<ul class="tsd-parameters">
+																				<li>
+																					<h5>err: <span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+																				</li>
+																				<li>
+																					<h5>response: <span class="tsd-signature-type">TResponse</span></h5>
+																				</li>
+																			</ul>
+																			<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>builder: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TMessage</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function that builds the message.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TMessage</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function that renders the message.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TOutput</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>response: <span class="tsd-signature-type">TResponse</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TOutput</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="connect" class="tsd-anchor"></a>
 					<h3>connect</h3>
@@ -162,7 +292,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from HostClient.connect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/hostClient.ts#L34">src/hostClients/hostClient.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/hostClient.ts#L35">src/hostClients/hostClient.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +328,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides HostClient.generateClient</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L186">src/hostClients/storageHostClient.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L186">src/hostClients/storageHostClient.ts:186</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><a href="storageclient.html" class="tsd-signature-type">StorageClient</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -216,7 +346,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storagedelete">storageDelete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L19">src/hostClients/storageHostClient.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L19">src/hostClients/storageHostClient.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,7 +382,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storagedeleteall">storageDeleteAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L41">src/hostClients/storageHostClient.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L41">src/hostClients/storageHostClient.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,7 +405,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storagehaskey">storageHasKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L61">src/hostClients/storageHostClient.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L61">src/hostClients/storageHostClient.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,7 +442,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storagekeys">storageKeys</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L87">src/hostClients/storageHostClient.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L87">src/hostClients/storageHostClient.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -342,7 +472,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storageread">storageRead</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L107">src/hostClients/storageHostClient.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L107">src/hostClients/storageHostClient.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -375,7 +505,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storagereadall">storageReadAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L134">src/hostClients/storageHostClient.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L134">src/hostClients/storageHostClient.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -404,7 +534,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/storagehost.html">StorageHost</a>.<a href="../interfaces/storagehost.html#storagewrite">storageWrite</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/storageHostClient.ts#L162">src/hostClients/storageHostClient.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/storageHostClient.ts#L162">src/hostClients/storageHostClient.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -472,6 +602,9 @@
 						<ul>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="storagehostclient.html#client" class="tsd-kind-icon">client</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="storagehostclient.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="storagehostclient.html#connect" class="tsd-kind-icon">connect</a>

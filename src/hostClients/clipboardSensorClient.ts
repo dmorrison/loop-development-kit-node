@@ -4,7 +4,7 @@ import { ClipboardClient } from '../grpc/clipboard_grpc_pb';
 import messages from '../grpc/clipboard_pb';
 import { ClipboardHost } from './clipboardHost';
 import { StreamTransformer, TransformingStream } from './transformingStream';
-import { ReadableStream, StreamListener } from './readableStream';
+import { StoppableStream, StreamListener } from './stoppableStream';
 
 const clipboardTransformer: StreamTransformer<
   messages.ClipboardReadResponse | messages.ClipboardReadStreamResponse,
@@ -24,7 +24,7 @@ export class ClipboardSensorClient
     return Promise.resolve('');
   }
 
-  streamClipboard(listener: StreamListener<string>): ReadableStream<string> {
+  streamClipboard(listener: StreamListener<string>): StoppableStream<string> {
     return new TransformingStream<messages.ClipboardReadStreamResponse, string>(
       this.client.clipboardReadStream(new Empty()),
       clipboardTransformer,

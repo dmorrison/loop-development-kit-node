@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ReadableStream | Loop Development Kit for Node.js</title>
+	<title>CursorHost | Loop Development Kit for Node.js</title>
 	<meta name="description" content="Documentation for Loop Development Kit for Node.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,36 +55,28 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="readablestream.html">ReadableStream</a>
+					<a href="cursorhost.html">CursorHost</a>
 				</li>
 			</ul>
-			<h1>Interface ReadableStream&lt;T&gt;</h1>
+			<h1>Interface CursorHost</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T</h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ReadableStream</span>
+						<span class="target">CursorHost</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/transformingstream.html" class="tsd-signature-type">TransformingStream</a></li>
+					<li><a href="../classes/cursorhostclient.html" class="tsd-signature-type">CursorHostClient</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -94,8 +86,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="readablestream.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="readablestream.html#stop" class="tsd-kind-icon">stop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="cursorhost.html#querycursorposition" class="tsd-kind-icon">query<wbr>Cursor<wbr>Position</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="cursorhost.html#streamcursorposition" class="tsd-kind-icon">stream<wbr>Cursor<wbr>Position</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,42 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="setlistener" class="tsd-anchor"></a>
-					<h3>set<wbr>Listener</h3>
+					<a name="querycursorposition" class="tsd-anchor"></a>
+					<h3>query<wbr>Cursor<wbr>Position</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Listener<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#streamlistener" class="tsd-signature-type">StreamListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">query<wbr>Cursor<wbr>Position<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/readableStream.ts#L6">src/hostClients/readableStream.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/cursorHost.ts#L10">src/hostClients/cursorHost.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="streamcursorposition" class="tsd-anchor"></a>
+					<h3>stream<wbr>Cursor<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Cursor<wbr>Position<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#streamlistener" class="tsd-signature-type">StreamListener</a><span class="tsd-signature-symbol">&lt;</span><a href="cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="stoppablestream.html" class="tsd-signature-type">StoppableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/baae97f/src/hostClients/cursorHost.ts#L11">src/hostClients/cursorHost.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callback: <a href="../globals.html#streamlistener" class="tsd-signature-type">StreamListener</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>listener: <a href="../globals.html#streamlistener" class="tsd-signature-type">StreamListener</a><span class="tsd-signature-symbol">&lt;</span><a href="cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="stop" class="tsd-anchor"></a>
-					<h3>stop</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/ca957fd/src/hostClients/readableStream.ts#L4">src/hostClients/readableStream.ts:4</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="stoppablestream.html" class="tsd-signature-type">StoppableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -175,14 +167,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-has-type-parameter">
-						<a href="readablestream.html" class="tsd-kind-icon">Readable<wbr>Stream</a>
+					<li class="current tsd-kind-interface">
+						<a href="cursorhost.html" class="tsd-kind-icon">Cursor<wbr>Host</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="readablestream.html#setlistener" class="tsd-kind-icon">set<wbr>Listener</a>
+								<a href="cursorhost.html#querycursorposition" class="tsd-kind-icon">query<wbr>Cursor<wbr>Position</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="readablestream.html#stop" class="tsd-kind-icon">stop</a>
+								<a href="cursorhost.html#streamcursorposition" class="tsd-kind-icon">stream<wbr>Cursor<wbr>Position</a>
 							</li>
 						</ul>
 					</li>
