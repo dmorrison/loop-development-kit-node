@@ -1,4 +1,4 @@
-import { ReadableStream } from './readableStream';
+import { ReadableStream, StreamListener } from './readableStream';
 
 export interface KeyboardModifiers {
   altL: boolean;
@@ -30,16 +30,16 @@ export interface ScanCodeEvent {
 }
 
 export interface KeyboardHost {
-  streamText(listener: (input: string) => void): ReadableStream<string>;
+  streamText(listener: StreamListener<string>): ReadableStream<string>;
 
-  streamChar(listener: (input: TextStream) => void): ReadableStream<TextStream>;
+  streamChar(listener: StreamListener<TextStream>): ReadableStream<TextStream>;
 
   streamScanCode(
-    listener: (input: ScanCodeEvent) => void,
+    listener: StreamListener<ScanCodeEvent>,
   ): ReadableStream<ScanCodeEvent>;
 
   streamHotKey(
     hotKeys: HotKeyRequest[],
-    listener: (input: HotKeyEvent) => void,
+    listener: StreamListener<HotKeyEvent>,
   ): ReadableStream<HotKeyEvent>;
 }

@@ -1,7 +1,11 @@
 import grpc from '@grpc/grpc-js';
-import { ReadableStream } from './readableStream';
+import { ReadableStream, StreamListener } from './readableStream';
 
 export type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
+
+export type MessageWithError = {
+  getError(): string;
+};
 
 /**
  * The TransformingStream is a wrapper class that abstracts the grpc.ClientReadableStream interface away from the
@@ -9,13 +13,13 @@ export type StreamTransformer<TInput, TOutput> = (input: TInput) => TOutput;
  *
  * This is used when the Library sensor is providing a stream of events, instead of a one-time response.
  */
-export class TransformingStream<TInput, TOutput>
+export class TransformingStream<TInput extends MessageWithError, TOutput>
   implements ReadableStream<TOutput> {
   private stream: grpc.ClientReadableStream<TInput>;
 
   private transformer: StreamTransformer<TInput, TOutput>;
 
-  private listener: ((input: TOutput) => void) | undefined;
+  private listener: StreamListener<TOutput> | undefined;
 
   /**
    * @param stream - the stream object
@@ -25,7 +29,7 @@ export class TransformingStream<TInput, TOutput>
   constructor(
     stream: grpc.ClientReadableStream<TInput>,
     transformer: StreamTransformer<TInput, TOutput>,
-    listener?: (input: TOutput) => void,
+    listener?: StreamListener<TOutput>,
   ) {
     this.stream = stream;
     this.transformer = transformer;
@@ -33,13 +37,18 @@ export class TransformingStream<TInput, TOutput>
     this.stream.addListener('data', this.streamWatcher);
   }
 
-  setListener(callback: (input: TOutput) => void): void {
+  setListener(callback: StreamListener<TOutput>): void {
     this.listener = callback;
   }
 
   streamWatcher = (stream: TInput): void => {
     if (this.listener) {
-      this.listener(this.transformer(stream));
+      const error = stream.getError();
+      if (error !== '') {
+        this.listener(error);
+      } else {
+        this.listener(null, this.transformer(stream));
+      }
     }
   };
 

@@ -1,4 +1,5 @@
+export declare type StreamListener<T> = (error: string | null, input?: T) => void;
 export interface ReadableStream<T> {
     stop(): void;
-    setListener(callback: (input: T) => void): void;
+    setListener(callback: StreamListener<T>): void;
 }

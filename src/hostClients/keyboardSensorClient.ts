@@ -3,7 +3,7 @@ import { KeyboardClient } from '../grpc/keyboard_grpc_pb';
 import messages from '../grpc/keyboard_pb';
 import HostClient, { GRPCClientConstructor } from './hostClient';
 import { StreamTransformer, TransformingStream } from './transformingStream';
-import { ReadableStream } from './readableStream';
+import { ReadableStream, StreamListener } from './readableStream';
 import {
   HotKeyEvent,
   HotKeyRequest,
@@ -78,7 +78,7 @@ export default class KeyboardSensorClient
   implements KeyboardHost {
   streamHotKey(
     hotKeys: HotKeyRequest[],
-    listener: (input: HotKeyEvent) => void,
+    listener: StreamListener<HotKeyEvent>,
   ): ReadableStream<HotKeyEvent> {
     const message = generateHotkeyStreamRequest(hotKeys);
     return new TransformingStream(
@@ -95,9 +95,7 @@ export default class KeyboardSensorClient
     );
   }
 
-  streamChar(
-    listener: (input: TextStream) => void,
-  ): ReadableStream<TextStream> {
+  streamChar(listener: StreamListener<TextStream>): ReadableStream<TextStream> {
     return new TransformingStream(
       this.client.keyboardCharacterStream(new Empty()),
       transformTextStream,
@@ -106,7 +104,7 @@ export default class KeyboardSensorClient
   }
 
   streamScanCode(
-    listener: (input: ScanCodeEvent) => void,
+    listener: StreamListener<ScanCodeEvent>,
   ): ReadableStream<ScanCodeEvent> {
     return new TransformingStream(
       this.client.keyboardScancodeStream(new Empty()),

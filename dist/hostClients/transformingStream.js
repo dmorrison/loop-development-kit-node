@@ -16,7 +16,13 @@ class TransformingStream {
     constructor(stream, transformer, listener) {
         this.streamWatcher = (stream) => {
             if (this.listener) {
-                this.listener(this.transformer(stream));
+                const error = stream.getError();
+                if (error !== '') {
+                    this.listener(error);
+                }
+                else {
+                    this.listener(null, this.transformer(stream));
+                }
             }
         };
         this.stream = stream;
