@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import Messages, { WindowAction } from '../grpc/window_pb';
 import { WindowClient as WindowGRPCClient } from '../grpc/window_grpc_pb';
-import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
+import BaseClient, { GRPCClientConstructor } from './baseClient';
 import {
   WindowService,
   WindowInfoResponse,
@@ -31,7 +31,7 @@ function parseWindowAction(action: Messages.WindowAction): WindowStreamAction {
 }
 
 export class WindowClient
-  extends GRPCClient<WindowGRPCClient>
+  extends BaseClient<WindowGRPCClient>
   implements WindowService {
   protected generateClient(): GRPCClientConstructor<WindowGRPCClient> {
     return WindowGRPCClient;

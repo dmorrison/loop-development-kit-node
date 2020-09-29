@@ -1,5 +1,5 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
+import BaseClient, { GRPCClientConstructor } from './baseClient';
 import { StorageClient as StorageGRPCClient } from '../grpc/storage_grpc_pb';
 import messages from '../grpc/storage_pb';
 import { StorageService } from './storageService';
@@ -8,7 +8,7 @@ const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
 
 export default class StorageClient
-  extends GRPCClient<StorageGRPCClient>
+  extends BaseClient<StorageGRPCClient>
   implements StorageService {
   /**
    * Delete a key from storage.

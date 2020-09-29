@@ -14,16 +14,20 @@ export interface GRPCClientConstructor<T> {
 }
 
 /**
- * HostClient classes are responsible for connecting to, and making requests to client services (storage, sending whispers, sensors).
+ * The BaseClient class provides connectivity support to GRPC services as a client.
  *
- * They handle the abstraction of the services provided by Helps and hide the implementation details of how the LDK communicates with Helps.
+ * Subclasses handle the abstraction of making GRPC requests and parsing responses from LDK consumers.
  *
  * @internal
  */
-export default abstract class GRPCClient<THost extends CommonHostServer>
+export default abstract class BaseClient<THost extends CommonHostServer>
   implements CommonHostClient {
   private _client: THost | undefined;
 
+  /**
+   * Implementation should return the constructor function/class for the GRPC Client itself, imported from the SERVICE_grpc_pb file.
+   * @protected
+   */
   protected abstract generateClient(): GRPCClientConstructor<THost>;
 
   /**

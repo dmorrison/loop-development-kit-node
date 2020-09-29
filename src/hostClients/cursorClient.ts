@@ -1,5 +1,5 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
+import BaseClient, { GRPCClientConstructor } from './baseClient';
 import { CursorClient as CursorGRPCClient } from '../grpc/cursor_grpc_pb';
 import messages from '../grpc/cursor_pb';
 import { CursorService, CursorResponse } from './cursorService';
@@ -18,7 +18,7 @@ const cursorTransformer: StreamTransformer<
 };
 
 export class CursorClient
-  extends GRPCClient<CursorGRPCClient>
+  extends BaseClient<CursorGRPCClient>
   implements CursorService {
   protected generateClient(): GRPCClientConstructor<CursorGRPCClient> {
     return CursorGRPCClient;

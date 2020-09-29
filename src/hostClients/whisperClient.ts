@@ -2,7 +2,7 @@ import { Whisper } from './whisper';
 import messages from '../grpc/whisper_pb';
 import { WhisperClient as WhisperGRPCClient } from '../grpc/whisper_grpc_pb';
 import { WhisperService } from './whisperService';
-import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
+import BaseClient, { GRPCClientConstructor } from './baseClient';
 
 /**
  * Class used by the controller implementation to interact with the host process.
@@ -10,7 +10,7 @@ import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
  * @internal
  */
 class WhisperClient
-  extends GRPCClient<WhisperGRPCClient>
+  extends BaseClient<WhisperGRPCClient>
   implements WhisperService {
   /**
    * Send a Whisper to the host process.
