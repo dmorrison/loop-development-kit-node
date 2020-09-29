@@ -11,35 +11,35 @@ import { ProcessClient } from './hostClients/processClient';
 import { WindowClient } from './hostClients/windowClient';
 
 export default class HostClientFacade implements HostServices {
-  public whisperClient: WhisperClient = new WhisperClient();
+  public whisper: WhisperClient = new WhisperClient();
 
-  public storageClient: StorageClient = new StorageClient();
+  public storage: StorageClient = new StorageClient();
 
-  public keyboardClient: KeyboardClient = new KeyboardClient();
+  public keyboard: KeyboardClient = new KeyboardClient();
 
-  public clipboardClient: ClipboardClient = new ClipboardClient();
+  public clipboard: ClipboardClient = new ClipboardClient();
 
-  public cursorClient: CursorClient = new CursorClient();
+  public cursor: CursorClient = new CursorClient();
 
-  public hoverClient: HoverClient = new HoverClient();
+  public hover: HoverClient = new HoverClient();
 
-  public fileSystemClient: FileSystemClient = new FileSystemClient();
+  public fileSystem: FileSystemClient = new FileSystemClient();
 
-  public processClient: ProcessClient = new ProcessClient();
+  public process: ProcessClient = new ProcessClient();
 
-  public windowClient: WindowClient = new WindowClient();
+  public window: WindowClient = new WindowClient();
 
-  connect(connInfo: ConnInfo.AsObject): Promise<void[]> {
+  public connect(connInfo: ConnInfo.AsObject): Promise<void[]> {
     return Promise.all([
-      this.whisperClient.connect(connInfo),
-      this.storageClient.connect(connInfo),
-      this.keyboardClient.connect(connInfo),
-      this.clipboardClient.connect(connInfo),
-      this.cursorClient.connect(connInfo),
-      this.hoverClient.connect(connInfo),
-      this.fileSystemClient.connect(connInfo),
-      this.processClient.connect(connInfo),
-      this.windowClient.connect(connInfo),
+      this.whisper.connect(connInfo),
+      this.storage.connect(connInfo),
+      this.keyboard.connect(connInfo),
+      this.clipboard.connect(connInfo),
+      this.cursor.connect(connInfo),
+      this.hover.connect(connInfo),
+      this.fileSystem.connect(connInfo),
+      this.process.connect(connInfo),
+      this.window.connect(connInfo),
     ]);
   }
 }
