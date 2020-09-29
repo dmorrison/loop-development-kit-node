@@ -21,7 +21,11 @@ export class ClipboardClient
   }
 
   queryClipboard(): Promise<string> {
-    return Promise.resolve('');
+    return this.buildQuery<Empty, messages.ClipboardReadResponse, string>(
+      (message, callback) => this.client.clipboardRead(message, callback),
+      () => new Empty(),
+      clipboardTransformer,
+    );
   }
 
   streamClipboard(listener: StreamListener<string>): StoppableStream<string> {
@@ -33,6 +37,13 @@ export class ClipboardClient
   }
 
   writeClipboard(text: string): Promise<void> {
-    return Promise.resolve(undefined);
+    return this.buildQuery<messages.ClipboardWriteRequest, Empty, void>(
+      (message, callback) => {
+        this.client.clipboardWrite(message, callback);
+      },
+      () => new messages.ClipboardWriteRequest().setText(text),
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      () => {},
+    );
   }
 }

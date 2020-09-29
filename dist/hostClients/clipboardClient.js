@@ -7,6 +7,7 @@ exports.ClipboardClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const clipboard_grpc_pb_1 = require("../grpc/clipboard_grpc_pb");
+const clipboard_pb_1 = __importDefault(require("../grpc/clipboard_pb"));
 const transformingStream_1 = require("./transformingStream");
 const clipboardTransformer = (message) => {
     return message.getText();
@@ -16,13 +17,17 @@ class ClipboardClient extends GRPCClient_1.default {
         return clipboard_grpc_pb_1.ClipboardClient;
     }
     queryClipboard() {
-        return Promise.resolve('');
+        return this.buildQuery((message, callback) => this.client.clipboardRead(message, callback), () => new empty_pb_1.Empty(), clipboardTransformer);
     }
     streamClipboard(listener) {
         return new transformingStream_1.TransformingStream(this.client.clipboardReadStream(new empty_pb_1.Empty()), clipboardTransformer, listener);
     }
     writeClipboard(text) {
-        return Promise.resolve(undefined);
+        return this.buildQuery((message, callback) => {
+            this.client.clipboardWrite(message, callback);
+        }, () => new clipboard_pb_1.default.ClipboardWriteRequest().setText(text), 
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        () => { });
     }
 }
 exports.ClipboardClient = ClipboardClient;
