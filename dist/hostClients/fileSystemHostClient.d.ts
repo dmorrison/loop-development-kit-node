@@ -1,8 +1,8 @@
 import { FilesystemClient } from '../grpc/filesystem_grpc_pb';
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 import { FileSystemHost, FileSystemQueryDirectoryParams, FileSystemQueryDirectoryResponse, FileSystemQueryFileParams, FileSystemQueryFileResponse, FileSystemStreamDirectoryResponse, FileSystemStreamFileResponse } from './filesystemHost';
 import { StoppableStream, StreamListener } from './stoppableStream';
-export declare class FileSystemHostClient extends HostClient<FilesystemClient> implements FileSystemHost {
+export declare class FileSystemHostClient extends GRPCClient<FilesystemClient> implements FileSystemHost {
     protected generateClient(): GRPCClientConstructor<FilesystemClient>;
     queryDirectory(params: FileSystemQueryDirectoryParams): Promise<FileSystemQueryDirectoryResponse>;
     queryFile(params: FileSystemQueryFileParams): Promise<FileSystemQueryFileResponse>;

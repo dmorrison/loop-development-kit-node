@@ -8,7 +8,7 @@ const broker_grpc_pb_1 = require("../grpc/broker_grpc_pb");
  *
  * @internal
  */
-class HostClient {
+class GRPCClient {
     /**
      * Establish a connection to the host process.
      *
@@ -67,4 +67,4 @@ class HostClient {
         this._client = client;
     }
 }
-exports.default = HostClient;
+exports.default = GRPCClient;

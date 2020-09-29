@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { ProcessClient } from '../grpc/process_grpc_pb';
 import Messages, { ProcessAction } from '../grpc/process_pb';
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 import {
   ProcessHost,
   ProcessInfoResponse,
@@ -37,7 +37,7 @@ function parseProcessAction(
 }
 
 export class ProcessSensorClient
-  extends HostClient<ProcessClient>
+  extends GRPCClient<ProcessClient>
   implements ProcessHost {
   protected generateClient(): GRPCClientConstructor<ProcessClient> {
     return ProcessClient;

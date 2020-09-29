@@ -7,7 +7,7 @@ exports.WindowSensorClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const window_pb_1 = require("../grpc/window_pb");
 const window_grpc_pb_1 = require("../grpc/window_grpc_pb");
-const hostClient_1 = __importDefault(require("./hostClient"));
+const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const windowHost_1 = require("./windowHost");
 const transformingStream_1 = require("./transformingStream");
 /**
@@ -28,7 +28,7 @@ function parseWindowAction(action) {
             return windowHost_1.WindowStreamAction.Unknown;
     }
 }
-class WindowSensorClient extends hostClient_1.default {
+class WindowSensorClient extends GRPCClient_1.default {
     generateClient() {
         return window_grpc_pb_1.WindowClient;
     }

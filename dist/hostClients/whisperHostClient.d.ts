@@ -1,13 +1,13 @@
 import { Whisper } from './whisper';
 import { WhisperClient } from '../grpc/whisper_grpc_pb';
 import { WhisperHost } from './whisperHost';
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 /**
  * Class used by the controller implementation to interact with the host process.
  *
  * @internal
  */
-declare class WhisperHostClient extends HostClient<WhisperClient> implements WhisperHost {
+declare class WhisperHostClient extends GRPCClient<WhisperClient> implements WhisperHost {
     /**
      * Send a Whisper to the host process.
      *

@@ -20,7 +20,7 @@ export interface GRPCClientConstructor<T> {
  *
  * @internal
  */
-export default abstract class HostClient<THost extends CommonHostServer>
+export default abstract class GRPCClient<THost extends CommonHostServer>
   implements CommonHostClient {
   private _client: THost | undefined;
 

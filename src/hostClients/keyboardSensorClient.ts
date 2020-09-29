@@ -1,7 +1,7 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { KeyboardClient } from '../grpc/keyboard_grpc_pb';
 import messages from '../grpc/keyboard_pb';
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 import { StreamTransformer, TransformingStream } from './transformingStream';
 import { StoppableStream, StreamListener } from './stoppableStream';
 import {
@@ -74,7 +74,7 @@ const transformHotKeyEvent: StreamTransformer<
 };
 
 export default class KeyboardSensorClient
-  extends HostClient<KeyboardClient>
+  extends GRPCClient<KeyboardClient>
   implements KeyboardHost {
   streamHotKey(
     hotKeys: HotKeyRequest[],

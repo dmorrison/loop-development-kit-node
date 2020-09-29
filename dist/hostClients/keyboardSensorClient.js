@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const keyboard_grpc_pb_1 = require("../grpc/keyboard_grpc_pb");
 const keyboard_pb_1 = __importDefault(require("../grpc/keyboard_pb"));
-const hostClient_1 = __importDefault(require("./hostClient"));
+const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const transformingStream_1 = require("./transformingStream");
 const generateModifierFlag = (modifiers) => {
     return (((modifiers === null || modifiers === void 0 ? void 0 : modifiers.altL) ? 1 : 0) +
@@ -48,7 +48,7 @@ const transformHotKeyEvent = (message) => {
         direction: message.getPressed() ? 'down' : 'up',
     };
 };
-class KeyboardSensorClient extends hostClient_1.default {
+class KeyboardSensorClient extends GRPCClient_1.default {
     streamHotKey(hotKeys, listener) {
         const message = generateHotkeyStreamRequest(hotKeys);
         return new transformingStream_1.TransformingStream(this.client.keyboardHotkeyStream(message), transformHotKeyEvent, listener);

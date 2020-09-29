@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HoverSensorClient = void 0;
-const hostClient_1 = __importDefault(require("./hostClient"));
+const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const hover_grpc_pb_1 = require("../grpc/hover_grpc_pb");
 const hover_pb_1 = __importDefault(require("../grpc/hover_pb"));
 const transformingStream_1 = require("./transformingStream");
@@ -17,7 +17,7 @@ function updateRequest(request, message) {
         .setXfromcenter(request.xFromCenter)
         .setYfromcenter(request.yFromCenter);
 }
-class HoverSensorClient extends hostClient_1.default {
+class HoverSensorClient extends GRPCClient_1.default {
     generateClient() {
         return hover_grpc_pb_1.HoverClient;
     }

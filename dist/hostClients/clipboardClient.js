@@ -3,15 +3,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ClipboardSensorClient = void 0;
+exports.ClipboardClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const hostClient_1 = __importDefault(require("./hostClient"));
+const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const clipboard_grpc_pb_1 = require("../grpc/clipboard_grpc_pb");
 const transformingStream_1 = require("./transformingStream");
 const clipboardTransformer = (message) => {
     return message.getText();
 };
-class ClipboardSensorClient extends hostClient_1.default {
+class ClipboardClient extends GRPCClient_1.default {
     generateClient() {
         return clipboard_grpc_pb_1.ClipboardClient;
     }
@@ -25,4 +25,4 @@ class ClipboardSensorClient extends hostClient_1.default {
         return Promise.resolve(undefined);
     }
 }
-exports.ClipboardSensorClient = ClipboardSensorClient;
+exports.ClipboardClient = ClipboardClient;

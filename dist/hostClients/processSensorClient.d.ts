@@ -1,8 +1,8 @@
 import { ProcessClient } from '../grpc/process_grpc_pb';
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 import { ProcessHost, ProcessListResponse, ProcessStreamResponse } from './processHost';
 import { StoppableStream } from './stoppableStream';
-export declare class ProcessSensorClient extends HostClient<ProcessClient> implements ProcessHost {
+export declare class ProcessSensorClient extends GRPCClient<ProcessClient> implements ProcessHost {
     protected generateClient(): GRPCClientConstructor<ProcessClient>;
     queryProcesses(): Promise<ProcessListResponse>;
     streamProcesses(): StoppableStream<ProcessStreamResponse>;

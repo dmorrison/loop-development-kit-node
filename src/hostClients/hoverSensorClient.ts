@@ -1,4 +1,4 @@
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 import { HoverClient } from '../grpc/hover_grpc_pb';
 import messages from '../grpc/hover_pb';
 import { HoverHost, HoverReadRequest, HoverResponse } from './hoverHost';
@@ -18,7 +18,7 @@ function updateRequest<
 }
 
 export class HoverSensorClient
-  extends HostClient<HoverClient>
+  extends GRPCClient<HoverClient>
   implements HoverHost {
   protected generateClient(): GRPCClientConstructor<HoverClient> {
     return HoverClient;

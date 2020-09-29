@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileSystemHostClient = void 0;
 const filesystem_grpc_pb_1 = require("../grpc/filesystem_grpc_pb");
 const filesystem_pb_1 = __importStar(require("../grpc/filesystem_pb"));
-const hostClient_1 = __importDefault(require("./hostClient"));
+const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const filesystemHost_1 = require("./filesystemHost");
 const transformingStream_1 = require("./transformingStream");
 /**
@@ -61,7 +61,7 @@ function parseFileInfo(fileInfo) {
         isDir: fileInfo.getIsdir(),
     };
 }
-class FileSystemHostClient extends hostClient_1.default {
+class FileSystemHostClient extends GRPCClient_1.default {
     generateClient() {
         return filesystem_grpc_pb_1.FilesystemClient;
     }

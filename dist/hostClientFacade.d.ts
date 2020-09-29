@@ -3,7 +3,7 @@ import { HostServices } from './hostServices';
 import WhisperHostClient from './hostClients/whisperHostClient';
 import StorageHostClient from './hostClients/storageHostClient';
 import KeyboardSensorClient from './hostClients/keyboardSensorClient';
-import { ClipboardSensorClient } from './hostClients/clipboardSensorClient';
+import { ClipboardClient } from './hostClients/clipboardClient';
 import { CursorHostClient } from './hostClients/cursorHostClient';
 import { HoverSensorClient } from './hostClients/hoverSensorClient';
 import { FileSystemHostClient } from './hostClients/fileSystemHostClient';
@@ -13,7 +13,7 @@ export default class HostClientFacade implements HostServices {
     whisperClient: WhisperHostClient;
     storageClient: StorageHostClient;
     keyboardClient: KeyboardSensorClient;
-    clipboardClient: ClipboardSensorClient;
+    clipboardClient: ClipboardClient;
     cursorClient: CursorHostClient;
     hoverClient: HoverSensorClient;
     fileSystemClient: FileSystemHostClient;

@@ -1,6 +1,6 @@
 import { FilesystemClient } from '../grpc/filesystem_grpc_pb';
 import messages, { FileAction } from '../grpc/filesystem_pb';
-import HostClient, { GRPCClientConstructor } from './hostClient';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
 import {
   FileInfo,
   FileSystemHost,
@@ -50,7 +50,7 @@ function parseFileInfo(fileInfo: messages.FileInfo): FileInfo {
 }
 
 export class FileSystemHostClient
-  extends HostClient<FilesystemClient>
+  extends GRPCClient<FilesystemClient>
   implements FileSystemHost {
   protected generateClient(): GRPCClientConstructor<FilesystemClient> {
     return FilesystemClient;

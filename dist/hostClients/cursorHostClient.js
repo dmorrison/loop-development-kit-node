@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CursorHostClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const hostClient_1 = __importDefault(require("./hostClient"));
+const GRPCClient_1 = __importDefault(require("./GRPCClient"));
 const cursor_grpc_pb_1 = require("../grpc/cursor_grpc_pb");
 const transformingStream_1 = require("./transformingStream");
 const cursorTransformer = (message) => {
@@ -15,7 +15,7 @@ const cursorTransformer = (message) => {
         y: message.getY(),
     };
 };
-class CursorHostClient extends hostClient_1.default {
+class CursorHostClient extends GRPCClient_1.default {
     generateClient() {
         return cursor_grpc_pb_1.CursorClient;
     }

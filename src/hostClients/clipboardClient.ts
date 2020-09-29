@@ -1,6 +1,6 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import HostClient, { GRPCClientConstructor } from './hostClient';
-import { ClipboardClient } from '../grpc/clipboard_grpc_pb';
+import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
+import { ClipboardClient as ClipboardGRPCClient } from '../grpc/clipboard_grpc_pb';
 import messages from '../grpc/clipboard_pb';
 import { ClipboardHost } from './clipboardHost';
 import { StreamTransformer, TransformingStream } from './transformingStream';
@@ -13,11 +13,11 @@ const clipboardTransformer: StreamTransformer<
   return message.getText();
 };
 
-export class ClipboardSensorClient
-  extends HostClient<ClipboardClient>
+export class ClipboardClient
+  extends GRPCClient<ClipboardGRPCClient>
   implements ClipboardHost {
-  protected generateClient(): GRPCClientConstructor<ClipboardClient> {
-    return ClipboardClient;
+  protected generateClient(): GRPCClientConstructor<ClipboardGRPCClient> {
+    return ClipboardGRPCClient;
   }
 
   queryClipboard(): Promise<string> {
