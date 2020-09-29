@@ -6,6 +6,7 @@ import { CursorHost } from './hostClients/cursorHost';
 import { HoverHost } from './hostClients/hoverHost';
 import { FileSystemHost } from './hostClients/filesystemHost';
 import { ProcessHost } from './hostClients/processHost';
+import { WindowHost } from './hostClients/windowHost';
 
 export interface HostServices {
   whisperClient: WhisperHost;
@@ -16,4 +17,5 @@ export interface HostServices {
   hoverClient: HoverHost;
   fileSystemClient: FileSystemHost;
   processClient: ProcessHost;
+  windowClient: WindowHost;
 }

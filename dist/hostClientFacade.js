@@ -11,6 +11,7 @@ const cursorHostClient_1 = require("./hostClients/cursorHostClient");
 const hoverSensorClient_1 = require("./hostClients/hoverSensorClient");
 const fileSystemHostClient_1 = require("./hostClients/fileSystemHostClient");
 const processSensorClient_1 = require("./hostClients/processSensorClient");
+const windowSensorClient_1 = require("./hostClients/windowSensorClient");
 class HostClientFacade {
     constructor() {
         this.whisperClient = new whisperHostClient_1.default();
@@ -21,6 +22,7 @@ class HostClientFacade {
         this.hoverClient = new hoverSensorClient_1.HoverSensorClient();
         this.fileSystemClient = new fileSystemHostClient_1.FileSystemHostClient();
         this.processClient = new processSensorClient_1.ProcessSensorClient();
+        this.windowClient = new windowSensorClient_1.WindowSensorClient();
     }
     connect(connInfo) {
         return Promise.all([
@@ -32,6 +34,7 @@ class HostClientFacade {
             this.hoverClient.connect(connInfo),
             this.fileSystemClient.connect(connInfo),
             this.processClient.connect(connInfo),
+            this.windowClient.connect(connInfo),
         ]);
     }
 }
