@@ -1,33 +1,33 @@
 import { ConnInfo } from './grpc/broker_pb';
 import { HostServices } from './hostServices';
-import WhisperHostClient from './hostClients/whisperHostClient';
-import StorageHostClient from './hostClients/storageHostClient';
-import KeyboardSensorClient from './hostClients/keyboardSensorClient';
+import WhisperClient from './hostClients/whisperClient';
+import StorageClient from './hostClients/storageClient';
+import KeyboardClient from './hostClients/keyboardClient';
 import { ClipboardClient } from './hostClients/clipboardClient';
-import { CursorHostClient } from './hostClients/cursorHostClient';
-import { HoverSensorClient } from './hostClients/hoverSensorClient';
-import { FileSystemHostClient } from './hostClients/fileSystemHostClient';
-import { ProcessSensorClient } from './hostClients/processSensorClient';
-import { WindowSensorClient } from './hostClients/windowSensorClient';
+import { CursorClient } from './hostClients/cursorClient';
+import { HoverClient } from './hostClients/hoverClient';
+import { FileSystemClient } from './hostClients/fileSystemClient';
+import { ProcessClient } from './hostClients/processClient';
+import { WindowClient } from './hostClients/windowClient';
 
 export default class HostClientFacade implements HostServices {
-  public whisperClient: WhisperHostClient = new WhisperHostClient();
+  public whisperClient: WhisperClient = new WhisperClient();
 
-  public storageClient: StorageHostClient = new StorageHostClient();
+  public storageClient: StorageClient = new StorageClient();
 
-  public keyboardClient: KeyboardSensorClient = new KeyboardSensorClient();
+  public keyboardClient: KeyboardClient = new KeyboardClient();
 
   public clipboardClient: ClipboardClient = new ClipboardClient();
 
-  public cursorClient: CursorHostClient = new CursorHostClient();
+  public cursorClient: CursorClient = new CursorClient();
 
-  public hoverClient: HoverSensorClient = new HoverSensorClient();
+  public hoverClient: HoverClient = new HoverClient();
 
-  public fileSystemClient: FileSystemHostClient = new FileSystemHostClient();
+  public fileSystemClient: FileSystemClient = new FileSystemClient();
 
-  public processClient: ProcessSensorClient = new ProcessSensorClient();
+  public processClient: ProcessClient = new ProcessClient();
 
-  public windowClient: WindowSensorClient = new WindowSensorClient();
+  public windowClient: WindowClient = new WindowClient();
 
   connect(connInfo: ConnInfo.AsObject): Promise<void[]> {
     return Promise.all([

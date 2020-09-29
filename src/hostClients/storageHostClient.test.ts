@@ -3,7 +3,7 @@ import { mocked } from 'ts-jest/utils';
 import Services from '../grpc/storage_grpc_pb';
 import Messages from '../grpc/storage_pb';
 import { ConnInfo } from '../grpc/broker_pb';
-import StorageHostClient from './storageHostClient';
+import StorageClient from './storageClient';
 
 jest.mock('../proto/storage_pb');
 jest.mock('../proto/storage_grpc_pb');
@@ -16,7 +16,7 @@ type CallbackHandlerFunc<TRequest = any, TResponse = any> = (
 ) => void;
 
 describe('StorageHostClient', () => {
-  let subject: StorageHostClient;
+  let subject: StorageClient;
   let connInfo: ConnInfo.AsObject;
   let waitForReadyMock: jest.Mock;
   let storageDeleteMock: jest.Mock;
@@ -34,7 +34,7 @@ describe('StorageHostClient', () => {
   }
   beforeEach(() => {
     jest.resetAllMocks();
-    subject = new StorageHostClient();
+    subject = new StorageClient();
     connInfo = {
       address: 'a',
       serviceId: 1,

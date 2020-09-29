@@ -70,6 +70,9 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="tsd-signature-type">Client</span>
+					</li>
+					<li>
+						<span class="tsd-signature-type">GRPCClient</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CursorGRPCClient</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">CursorClient</span>
@@ -82,6 +85,8 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/icursorclient.html" class="tsd-signature-type">ICursorClient</a></li>
+					<li><span class="tsd-signature-type">CommonHostClient</span></li>
+					<li><a href="../interfaces/cursorservice.html" class="tsd-signature-type">CursorService</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -94,17 +99,28 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="cursorclient.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="cursorclient.html#client" class="tsd-kind-icon">client</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorclient.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorclient.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorclient.html#connect" class="tsd-kind-icon">connect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorclient.html#cursorposition" class="tsd-kind-icon">cursor<wbr>Position</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorclient.html#cursorpositionstream" class="tsd-kind-icon">cursor<wbr>Position<wbr>Stream</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="cursorclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorclient.html#getchannel" class="tsd-kind-icon">get<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorclient.html#makebidistreamrequest" class="tsd-kind-icon">make<wbr>Bidi<wbr>Stream<wbr>Request</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorclient.html#makeclientstreamrequest" class="tsd-kind-icon">make<wbr>Client<wbr>Stream<wbr>Request</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorclient.html#makeserverstreamrequest" class="tsd-kind-icon">make<wbr>Server<wbr>Stream<wbr>Request</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="cursorclient.html#makeunaryrequest" class="tsd-kind-icon">make<wbr>Unary<wbr>Request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorclient.html#querycursorposition" class="tsd-kind-icon">query<wbr>Cursor<wbr>Position</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cursorclient.html#streamcursorposition" class="tsd-kind-icon">stream<wbr>Cursor<wbr>Position</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="cursorclient.html#waitforready" class="tsd-kind-icon">wait<wbr>For<wbr>Ready</a></li>
 							</ul>
 						</section>
@@ -124,7 +140,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Client.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/cursor_grpc_pb.d.ts#L51">src/grpc/cursor_grpc_pb.d.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/cursor_grpc_pb.d.ts#L51">src/grpc/cursor_grpc_pb.d.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -144,8 +160,174 @@
 					</ul>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="client" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> client</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> client<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CursorGRPCClient</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> client<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CursorGRPCClient</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.client</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L90">src/hostClients/GRPCClient.ts:90</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">CursorGRPCClient</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.client</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L97">src/hostClients/GRPCClient.ts:97</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>client: <span class="tsd-signature-type">CursorGRPCClient</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="buildquery" class="tsd-anchor"></a>
+					<h3>build<wbr>Query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">build<wbr>Query&lt;TMessage, TResponse, TOutput&gt;<span class="tsd-signature-symbol">(</span>clientRequest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span>, builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TMessage</span>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.buildQuery</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L70">src/hostClients/GRPCClient.ts:70</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This convenience function returns a promise that resolves once the request has been completed and the response
+									converted to the desired output.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>TMessage</h4>
+								</li>
+								<li>
+									<h4>TResponse</h4>
+								</li>
+								<li>
+									<h4>TOutput</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>clientRequest: <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function that calls the client with the generated message and callback.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>message: <span class="tsd-signature-type">TMessage</span></h5>
+														</li>
+														<li>
+															<h5>callback: <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+															<ul class="tsd-parameters">
+																<li class="tsd-parameter-signature">
+																	<ul class="tsd-signatures tsd-kind-type-literal">
+																		<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+																	</ul>
+																	<ul class="tsd-descriptions">
+																		<li class="tsd-description">
+																			<h4 class="tsd-parameters-title">Parameters</h4>
+																			<ul class="tsd-parameters">
+																				<li>
+																					<h5>err: <span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+																				</li>
+																				<li>
+																					<h5>response: <span class="tsd-signature-type">TResponse</span></h5>
+																				</li>
+																			</ul>
+																			<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>builder: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TMessage</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function that builds the message.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TMessage</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function that renders the message.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>response: <span class="tsd-signature-type">TResponse</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
@@ -164,6 +346,42 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="connect" class="tsd-anchor"></a>
+					<h3>connect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span>connInfo<span class="tsd-signature-symbol">: </span><a href="conninfo.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.connect</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L35">src/hostClients/GRPCClient.ts:35</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Establish a connection to the host process.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>connInfo: <a href="conninfo.html#asobject" class="tsd-signature-type">AsObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object containing host process connection information.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="cursorposition" class="tsd-anchor"></a>
 					<h3>cursor<wbr>Position</h3>
@@ -176,7 +394,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/cursor_grpc_pb.d.ts#L53">src/grpc/cursor_grpc_pb.d.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/cursor_grpc_pb.d.ts#L53">src/grpc/cursor_grpc_pb.d.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -214,7 +432,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/cursor_grpc_pb.d.ts#L54">src/grpc/cursor_grpc_pb.d.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/cursor_grpc_pb.d.ts#L54">src/grpc/cursor_grpc_pb.d.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -255,7 +473,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/cursor_grpc_pb.d.ts#L55">src/grpc/cursor_grpc_pb.d.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/cursor_grpc_pb.d.ts#L55">src/grpc/cursor_grpc_pb.d.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -310,7 +528,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/icursorclient.html">ICursorClient</a>.<a href="../interfaces/icursorclient.html#cursorpositionstream">cursorPositionStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/cursor_grpc_pb.d.ts#L56">src/grpc/cursor_grpc_pb.d.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/cursor_grpc_pb.d.ts#L56">src/grpc/cursor_grpc_pb.d.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -328,7 +546,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/icursorclient.html">ICursorClient</a>.<a href="../interfaces/icursorclient.html#cursorpositionstream">cursorPositionStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/cursor_grpc_pb.d.ts#L57">src/grpc/cursor_grpc_pb.d.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/cursor_grpc_pb.d.ts#L57">src/grpc/cursor_grpc_pb.d.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -344,6 +562,24 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientReadableStream</span><span class="tsd-signature-symbol">&lt;</span><a href="cursorpositionstreamresponse.html" class="tsd-signature-type">CursorPositionStreamResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="generateclient" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> generate<wbr>Client</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Client<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CursorGRPCClient</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides GRPCClient.generateClient</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/cursorClient.ts#L23">src/hostClients/cursorClient.ts:23</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CursorGRPCClient</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1285,6 +1521,48 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="querycursorposition" class="tsd-anchor"></a>
+					<h3>query<wbr>Cursor<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">query<wbr>Cursor<wbr>Position<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/cursorservice.html">CursorService</a>.<a href="../interfaces/cursorservice.html#querycursorposition">queryCursorPosition</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/cursorClient.ts#L27">src/hostClients/cursorClient.ts:27</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="streamcursorposition" class="tsd-anchor"></a>
+					<h3>stream<wbr>Cursor<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stream<wbr>Cursor<wbr>Position<span class="tsd-signature-symbol">(</span>listener<span class="tsd-signature-symbol">: </span><a href="../globals.html#streamlistener" class="tsd-signature-type">StreamListener</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/stoppablestream.html" class="tsd-signature-type">StoppableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/cursorservice.html">CursorService</a>.<a href="../interfaces/cursorservice.html#streamcursorposition">streamCursorPosition</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/cursorClient.ts#L39">src/hostClients/cursorClient.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>listener: <a href="../globals.html#streamlistener" class="tsd-signature-type">StreamListener</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/stoppablestream.html" class="tsd-signature-type">StoppableStream</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/cursorresponse.html" class="tsd-signature-type">CursorResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="waitforready" class="tsd-anchor"></a>
 					<h3>wait<wbr>For<wbr>Ready</h3>
@@ -1368,14 +1646,26 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="cursorclient.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="cursorclient.html#client" class="tsd-kind-icon">client</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="cursorclient.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="cursorclient.html#close" class="tsd-kind-icon">close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="cursorclient.html#connect" class="tsd-kind-icon">connect</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="cursorclient.html#cursorposition" class="tsd-kind-icon">cursor<wbr>Position</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="cursorclient.html#cursorpositionstream" class="tsd-kind-icon">cursor<wbr>Position<wbr>Stream</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="cursorclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="cursorclient.html#getchannel" class="tsd-kind-icon">get<wbr>Channel</a>
@@ -1391,6 +1681,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="cursorclient.html#makeunaryrequest" class="tsd-kind-icon">make<wbr>Unary<wbr>Request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="cursorclient.html#querycursorposition" class="tsd-kind-icon">query<wbr>Cursor<wbr>Position</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="cursorclient.html#streamcursorposition" class="tsd-kind-icon">stream<wbr>Cursor<wbr>Position</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="cursorclient.html#waitforready" class="tsd-kind-icon">wait<wbr>For<wbr>Ready</a>

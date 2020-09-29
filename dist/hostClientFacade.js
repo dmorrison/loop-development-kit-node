@@ -3,26 +3,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const whisperHostClient_1 = __importDefault(require("./hostClients/whisperHostClient"));
-const storageHostClient_1 = __importDefault(require("./hostClients/storageHostClient"));
-const keyboardSensorClient_1 = __importDefault(require("./hostClients/keyboardSensorClient"));
+const whisperClient_1 = __importDefault(require("./hostClients/whisperClient"));
+const storageClient_1 = __importDefault(require("./hostClients/storageClient"));
+const keyboardClient_1 = __importDefault(require("./hostClients/keyboardClient"));
 const clipboardClient_1 = require("./hostClients/clipboardClient");
-const cursorHostClient_1 = require("./hostClients/cursorHostClient");
-const hoverSensorClient_1 = require("./hostClients/hoverSensorClient");
-const fileSystemHostClient_1 = require("./hostClients/fileSystemHostClient");
-const processSensorClient_1 = require("./hostClients/processSensorClient");
-const windowSensorClient_1 = require("./hostClients/windowSensorClient");
+const cursorClient_1 = require("./hostClients/cursorClient");
+const hoverClient_1 = require("./hostClients/hoverClient");
+const fileSystemClient_1 = require("./hostClients/fileSystemClient");
+const processClient_1 = require("./hostClients/processClient");
+const windowClient_1 = require("./hostClients/windowClient");
 class HostClientFacade {
     constructor() {
-        this.whisperClient = new whisperHostClient_1.default();
-        this.storageClient = new storageHostClient_1.default();
-        this.keyboardClient = new keyboardSensorClient_1.default();
+        this.whisperClient = new whisperClient_1.default();
+        this.storageClient = new storageClient_1.default();
+        this.keyboardClient = new keyboardClient_1.default();
         this.clipboardClient = new clipboardClient_1.ClipboardClient();
-        this.cursorClient = new cursorHostClient_1.CursorHostClient();
-        this.hoverClient = new hoverSensorClient_1.HoverSensorClient();
-        this.fileSystemClient = new fileSystemHostClient_1.FileSystemHostClient();
-        this.processClient = new processSensorClient_1.ProcessSensorClient();
-        this.windowClient = new windowSensorClient_1.WindowSensorClient();
+        this.cursorClient = new cursorClient_1.CursorClient();
+        this.hoverClient = new hoverClient_1.HoverClient();
+        this.fileSystemClient = new fileSystemClient_1.FileSystemClient();
+        this.processClient = new processClient_1.ProcessClient();
+        this.windowClient = new windowClient_1.WindowClient();
     }
     connect(connInfo) {
         return Promise.all([

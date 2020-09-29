@@ -3,7 +3,7 @@ import Services from '@grpc/grpc-js';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
 import { ConnInfo } from './grpc/broker_pb';
-import WhisperHostClient from './hostClients/whisperHostClient';
+import WhisperClient from './hostClients/whisperClient';
 import GRPCServer from './grpcServer';
 
 jest.mock('./proto/loop_grpc_pb');
@@ -12,7 +12,7 @@ jest.mock('./hostClients/whisperHostClient');
 
 const mockedServices = mocked(Services.Server);
 const mockedBroker = mocked(BrokerGrpcServer);
-const mockedClient = mocked(WhisperHostClient);
+const mockedClient = mocked(WhisperClient);
 
 describe('GrpcServer', () => {
   let server: GRPCServer;

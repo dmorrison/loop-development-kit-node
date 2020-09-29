@@ -70,6 +70,9 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="tsd-signature-type">Client</span>
+					</li>
+					<li>
+						<span class="tsd-signature-type">GRPCClient</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageGRPCClient</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">StorageClient</span>
@@ -82,6 +85,8 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/istorageclient.html" class="tsd-signature-type">IStorageClient</a></li>
+					<li><span class="tsd-signature-type">CommonHostClient</span></li>
+					<li><a href="../interfaces/storageservice.html" class="tsd-signature-type">StorageService</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -94,10 +99,19 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="storageclient.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="storageclient.html#client" class="tsd-kind-icon">client</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="storageclient.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="storageclient.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="storageclient.html#connect" class="tsd-kind-icon">connect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="storageclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="storageclient.html#getchannel" class="tsd-kind-icon">get<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="storageclient.html#makebidistreamrequest" class="tsd-kind-icon">make<wbr>Bidi<wbr>Stream<wbr>Request</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="storageclient.html#makeclientstreamrequest" class="tsd-kind-icon">make<wbr>Client<wbr>Stream<wbr>Request</a></li>
@@ -129,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Client.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L122">src/grpc/storage_grpc_pb.d.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L122">src/grpc/storage_grpc_pb.d.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -149,8 +163,174 @@
 					</ul>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="client" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> client</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> client<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">StorageGRPCClient</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> client<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">StorageGRPCClient</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.client</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L90">src/hostClients/GRPCClient.ts:90</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">StorageGRPCClient</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.client</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L97">src/hostClients/GRPCClient.ts:97</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>client: <span class="tsd-signature-type">StorageGRPCClient</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="buildquery" class="tsd-anchor"></a>
+					<h3>build<wbr>Query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">build<wbr>Query&lt;TMessage, TResponse, TOutput&gt;<span class="tsd-signature-symbol">(</span>clientRequest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span>, builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TMessage</span>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.buildQuery</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L70">src/hostClients/GRPCClient.ts:70</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This convenience function returns a promise that resolves once the request has been completed and the response
+									converted to the desired output.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>TMessage</h4>
+								</li>
+								<li>
+									<h4>TResponse</h4>
+								</li>
+								<li>
+									<h4>TOutput</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>clientRequest: <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A function that calls the client with the generated message and callback.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>message: <span class="tsd-signature-type">TMessage</span></h5>
+														</li>
+														<li>
+															<h5>callback: <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+															<ul class="tsd-parameters">
+																<li class="tsd-parameter-signature">
+																	<ul class="tsd-signatures tsd-kind-type-literal">
+																		<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+																	</ul>
+																	<ul class="tsd-descriptions">
+																		<li class="tsd-description">
+																			<h4 class="tsd-parameters-title">Parameters</h4>
+																			<ul class="tsd-parameters">
+																				<li>
+																					<h5>err: <span class="tsd-signature-type">ServiceError</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+																				</li>
+																				<li>
+																					<h5>response: <span class="tsd-signature-type">TResponse</span></h5>
+																				</li>
+																			</ul>
+																			<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>builder: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TMessage</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function that builds the message.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TMessage</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TMessage</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function that renders the message.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>response: <span class="tsd-signature-type">TResponse</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TOutput</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
@@ -166,6 +346,60 @@
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="connect" class="tsd-anchor"></a>
+					<h3>connect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span>connInfo<span class="tsd-signature-symbol">: </span><a href="conninfo.html#asobject" class="tsd-signature-type">AsObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from GRPCClient.connect</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L35">src/hostClients/GRPCClient.ts:35</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Establish a connection to the host process.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>connInfo: <a href="conninfo.html#asobject" class="tsd-signature-type">AsObject</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object containing host process connection information.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="generateclient" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> generate<wbr>Client</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Client<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageGRPCClient</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides GRPCClient.generateClient</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/storageClient.ts#L186">src/hostClients/storageClient.ts:186</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">StorageGRPCClient</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1119,9 +1353,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L136">src/grpc/storage_grpc_pb.d.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L136">src/grpc/storage_grpc_pb.d.ts:136</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete a key from storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1157,9 +1400,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L137">src/grpc/storage_grpc_pb.d.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L137">src/grpc/storage_grpc_pb.d.ts:137</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete a key from storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1198,9 +1450,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L138">src/grpc/storage_grpc_pb.d.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L138">src/grpc/storage_grpc_pb.d.ts:138</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete a key from storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1253,9 +1514,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L139">src/grpc/storage_grpc_pb.d.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L139">src/grpc/storage_grpc_pb.d.ts:139</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete all keys from storage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1291,9 +1557,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L140">src/grpc/storage_grpc_pb.d.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L140">src/grpc/storage_grpc_pb.d.ts:140</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete all keys from storage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1332,9 +1603,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L141">src/grpc/storage_grpc_pb.d.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L141">src/grpc/storage_grpc_pb.d.ts:141</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Delete all keys from storage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1387,9 +1663,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L124">src/grpc/storage_grpc_pb.d.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L124">src/grpc/storage_grpc_pb.d.ts:124</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a key has a value defined in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1421,13 +1706,23 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Returns true if the key has a defined value.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L125">src/grpc/storage_grpc_pb.d.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L125">src/grpc/storage_grpc_pb.d.ts:125</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a key has a value defined in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1462,13 +1757,23 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Returns true if the key has a defined value.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L126">src/grpc/storage_grpc_pb.d.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L126">src/grpc/storage_grpc_pb.d.ts:126</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a key has a value defined in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1506,6 +1811,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Returns true if the key has a defined value.</p>
 						</li>
 					</ul>
 				</section>
@@ -1521,9 +1827,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L127">src/grpc/storage_grpc_pb.d.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L127">src/grpc/storage_grpc_pb.d.ts:127</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return a list of all keys.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1555,13 +1870,25 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<ul>
+								<li>An array of the keys.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L128">src/grpc/storage_grpc_pb.d.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L128">src/grpc/storage_grpc_pb.d.ts:128</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return a list of all keys.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1596,13 +1923,25 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<ul>
+								<li>An array of the keys.</li>
+							</ul>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L129">src/grpc/storage_grpc_pb.d.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L129">src/grpc/storage_grpc_pb.d.ts:129</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return a list of all keys.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1640,6 +1979,9 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<ul>
+								<li>An array of the keys.</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -1655,9 +1997,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L130">src/grpc/storage_grpc_pb.d.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L130">src/grpc/storage_grpc_pb.d.ts:130</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the value of a key in storage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1689,13 +2036,19 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Promise resolving with the value of the key in storage.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L131">src/grpc/storage_grpc_pb.d.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L131">src/grpc/storage_grpc_pb.d.ts:131</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the value of a key in storage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1730,13 +2083,19 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Promise resolving with the value of the key in storage.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L132">src/grpc/storage_grpc_pb.d.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L132">src/grpc/storage_grpc_pb.d.ts:132</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the value of a key in storage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1774,6 +2133,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Promise resolving with the value of the key in storage.</p>
 						</li>
 					</ul>
 				</section>
@@ -1789,9 +2149,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L133">src/grpc/storage_grpc_pb.d.ts:133</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L133">src/grpc/storage_grpc_pb.d.ts:133</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an object of key value pairs in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1823,13 +2192,24 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Returns the storage object. Each key in the object
+							is a key in storage and the value of the key is the value in storage.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L134">src/grpc/storage_grpc_pb.d.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L134">src/grpc/storage_grpc_pb.d.ts:134</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an object of key value pairs in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1864,13 +2244,24 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Returns the storage object. Each key in the object
+							is a key in storage and the value of the key is the value in storage.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L135">src/grpc/storage_grpc_pb.d.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L135">src/grpc/storage_grpc_pb.d.ts:135</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an object of key value pairs in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1908,6 +2299,8 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">grpc.ClientUnaryCall</span></h4>
+							<p>Returns the storage object. Each key in the object
+							is a key in storage and the value of the key is the value in storage.</p>
 						</li>
 					</ul>
 				</section>
@@ -1923,9 +2316,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L142">src/grpc/storage_grpc_pb.d.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L142">src/grpc/storage_grpc_pb.d.ts:142</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the value of a key in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1961,9 +2363,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L143">src/grpc/storage_grpc_pb.d.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L143">src/grpc/storage_grpc_pb.d.ts:143</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the value of a key in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -2002,9 +2413,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/636d724/src/grpc/storage_grpc_pb.d.ts#L144">src/grpc/storage_grpc_pb.d.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/storage_grpc_pb.d.ts#L144">src/grpc/storage_grpc_pb.d.ts:144</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the value of a key in storage.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>async</dt>
+									<dd></dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -2128,8 +2548,20 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="storageclient.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="storageclient.html#client" class="tsd-kind-icon">client</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="storageclient.html#buildquery" class="tsd-kind-icon">build<wbr>Query</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="storageclient.html#close" class="tsd-kind-icon">close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="storageclient.html#connect" class="tsd-kind-icon">connect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="storageclient.html#generateclient" class="tsd-kind-icon">generate<wbr>Client</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="storageclient.html#getchannel" class="tsd-kind-icon">get<wbr>Channel</a>
