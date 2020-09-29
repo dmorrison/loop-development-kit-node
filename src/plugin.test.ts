@@ -1,14 +1,15 @@
 import { mocked } from 'ts-jest/utils';
-import Services from './grpc/loop_grpc_pb';
+import * as GRPC from '@grpc/grpc-js';
 import GrpcServer from './grpcServer';
 import Plugin from './plugin';
 import { prepareLogging } from './logging';
 
 const mockedGrpc = mocked(GrpcServer);
-const mockedServices = mocked(Services.grpc.Server);
+const mockedServices = mocked(GRPC.Server);
 
+jest.mock('@grpc/grpc-js');
 jest.mock('./grpcServer');
-jest.mock('./proto/loop_grpc_pb');
+jest.mock('./grpc/loop_grpc_pb');
 jest.mock('./logging');
 
 beforeEach(() => {
@@ -22,7 +23,7 @@ describe('Plugin', () => {
     it('consumes the mocked module', () => {
       plugin = new Plugin({} as any);
       expect(GrpcServer).toHaveBeenCalledTimes(1);
-      expect(Services.grpc.Server).toHaveBeenCalledTimes(1);
+      expect(GRPC.Server).toHaveBeenCalledTimes(1);
       const mockServer = mockedServices.mock.instances[0];
       // Called with BrokerService,HealthService,StdioService
       expect(mockServer.addService).toHaveBeenCalledTimes(3);

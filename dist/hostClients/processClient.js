@@ -7,7 +7,7 @@ exports.ProcessClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const process_grpc_pb_1 = require("../grpc/process_grpc_pb");
 const process_pb_1 = require("../grpc/process_pb");
-const GRPCClient_1 = __importDefault(require("./GRPCClient"));
+const baseClient_1 = __importDefault(require("./baseClient"));
 const processService_1 = require("./processService");
 const transformingStream_1 = require("./transformingStream");
 /**
@@ -30,7 +30,7 @@ function parseProcessAction(action) {
             return processService_1.ProcessStreamAction.Unknown;
     }
 }
-class ProcessClient extends GRPCClient_1.default {
+class ProcessClient extends baseClient_1.default {
     generateClient() {
         return process_grpc_pb_1.ProcessClient;
     }

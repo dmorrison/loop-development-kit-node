@@ -1,14 +1,14 @@
 import { mocked } from 'ts-jest/utils';
-import Services from '@grpc/grpc-js';
+import * as Services from '@grpc/grpc-js';
 import BrokerGrpcServer from './brokerGrpcServer';
 import { Loop } from './loop';
 import { ConnInfo } from './grpc/broker_pb';
 import WhisperClient from './hostClients/whisperClient';
 import GRPCServer from './grpcServer';
 
-jest.mock('./proto/loop_grpc_pb');
+jest.mock('@grpc/grpc-js');
 jest.mock('./brokerGrpcServer');
-jest.mock('./hostClients/whisperHostClient');
+jest.mock('./hostClients/whisperClient');
 
 const mockedServices = mocked(Services.Server);
 const mockedBroker = mocked(BrokerGrpcServer);

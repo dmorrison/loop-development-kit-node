@@ -5,13 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const whisper_pb_1 = __importDefault(require("../grpc/whisper_pb"));
 const whisper_grpc_pb_1 = require("../grpc/whisper_grpc_pb");
-const GRPCClient_1 = __importDefault(require("./GRPCClient"));
+const baseClient_1 = __importDefault(require("./baseClient"));
 /**
  * Class used by the controller implementation to interact with the host process.
  *
  * @internal
  */
-class WhisperClient extends GRPCClient_1.default {
+class WhisperClient extends baseClient_1.default {
     /**
      * Send a Whisper to the host process.
      *

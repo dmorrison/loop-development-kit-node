@@ -72,7 +72,7 @@
 						<span class="tsd-signature-type">Client</span>
 					</li>
 					<li>
-						<span class="tsd-signature-type">GRPCClient</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">WindowGRPCClient</span><span class="tsd-signature-symbol">&gt;</span>
+						<span class="tsd-signature-type">BaseClient</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">WindowGRPCClient</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">WindowClient</span>
@@ -144,7 +144,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Client.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L78">src/grpc/window_grpc_pb.d.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L78">src/grpc/window_grpc_pb.d.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,18 +176,18 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.client</p>
+								<p>Inherited from BaseClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L90">src/hostClients/GRPCClient.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L94">src/hostClients/baseClient.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">WindowGRPCClient</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.client</p>
+								<p>Inherited from BaseClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L97">src/hostClients/GRPCClient.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L101">src/hostClients/baseClient.ts:101</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,9 +212,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.buildQuery</p>
+								<p>Inherited from BaseClient.buildQuery</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L70">src/hostClients/GRPCClient.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L74">src/hostClients/baseClient.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,9 +359,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.connect</p>
+								<p>Inherited from BaseClient.connect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L35">src/hostClients/GRPCClient.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L39">src/hostClients/baseClient.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -395,9 +395,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides GRPCClient.generateClient</p>
+								<p>Overrides BaseClient.generateClient</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/windowClient.ts#L36">src/hostClients/windowClient.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/windowClient.ts#L36">src/hostClients/windowClient.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">WindowGRPCClient</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1353,7 +1353,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/windowservice.html">WindowService</a>.<a href="../interfaces/windowservice.html#queryactivewindow">queryActiveWindow</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/windowClient.ts#L40">src/hostClients/windowClient.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/windowClient.ts#L40">src/hostClients/windowClient.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/windowinforesponse.html" class="tsd-signature-type">WindowInfoResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1371,7 +1371,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/windowservice.html">WindowService</a>.<a href="../interfaces/windowservice.html#querywindows">queryWindows</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/windowClient.ts#L54">src/hostClients/windowClient.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/windowClient.ts#L54">src/hostClients/windowClient.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/windowinforesponse.html" class="tsd-signature-type">WindowInfoResponse</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1389,7 +1389,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/windowservice.html">WindowService</a>.<a href="../interfaces/windowservice.html#streamactivewindow">streamActiveWindow</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/windowClient.ts#L66">src/hostClients/windowClient.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/windowClient.ts#L66">src/hostClients/windowClient.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1413,7 +1413,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/windowservice.html">WindowService</a>.<a href="../interfaces/windowservice.html#streamwindows">streamWindows</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/windowClient.ts#L79">src/hostClients/windowClient.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/windowClient.ts#L79">src/hostClients/windowClient.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1483,7 +1483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L80">src/grpc/window_grpc_pb.d.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L80">src/grpc/window_grpc_pb.d.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1521,7 +1521,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L81">src/grpc/window_grpc_pb.d.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L81">src/grpc/window_grpc_pb.d.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1562,7 +1562,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L82">src/grpc/window_grpc_pb.d.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L82">src/grpc/window_grpc_pb.d.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1617,7 +1617,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/iwindowclient.html">IWindowClient</a>.<a href="../interfaces/iwindowclient.html#windowactivewindowstream">windowActiveWindowStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L83">src/grpc/window_grpc_pb.d.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L83">src/grpc/window_grpc_pb.d.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1635,7 +1635,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/iwindowclient.html">IWindowClient</a>.<a href="../interfaces/iwindowclient.html#windowactivewindowstream">windowActiveWindowStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L84">src/grpc/window_grpc_pb.d.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L84">src/grpc/window_grpc_pb.d.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1666,7 +1666,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L85">src/grpc/window_grpc_pb.d.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L85">src/grpc/window_grpc_pb.d.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1704,7 +1704,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L86">src/grpc/window_grpc_pb.d.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L86">src/grpc/window_grpc_pb.d.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1745,7 +1745,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L87">src/grpc/window_grpc_pb.d.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L87">src/grpc/window_grpc_pb.d.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1800,7 +1800,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/iwindowclient.html">IWindowClient</a>.<a href="../interfaces/iwindowclient.html#windowstatestream">windowStateStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L88">src/grpc/window_grpc_pb.d.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L88">src/grpc/window_grpc_pb.d.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1818,7 +1818,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/iwindowclient.html">IWindowClient</a>.<a href="../interfaces/iwindowclient.html#windowstatestream">windowStateStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/window_grpc_pb.d.ts#L89">src/grpc/window_grpc_pb.d.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/window_grpc_pb.d.ts#L89">src/grpc/window_grpc_pb.d.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

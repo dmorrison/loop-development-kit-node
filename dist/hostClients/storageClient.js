@@ -4,12 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const GRPCClient_1 = __importDefault(require("./GRPCClient"));
+const baseClient_1 = __importDefault(require("./baseClient"));
 const storage_grpc_pb_1 = require("../grpc/storage_grpc_pb");
 const storage_pb_1 = __importDefault(require("../grpc/storage_pb"));
 const errMissingRequiredKey = new Error('key is required');
 const errMissingRequiredValue = new Error('value is required');
-class StorageClient extends GRPCClient_1.default {
+class StorageClient extends baseClient_1.default {
     /**
      * Delete a key from storage.
      *

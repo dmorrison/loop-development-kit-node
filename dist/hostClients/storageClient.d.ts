@@ -1,7 +1,7 @@
-import GRPCClient, { GRPCClientConstructor } from './GRPCClient';
+import BaseClient, { GRPCClientConstructor } from './baseClient';
 import { StorageClient as StorageGRPCClient } from '../grpc/storage_grpc_pb';
 import { StorageService } from './storageService';
-export default class StorageClient extends GRPCClient<StorageGRPCClient> implements StorageService {
+export default class StorageClient extends BaseClient<StorageGRPCClient> implements StorageService {
     /**
      * Delete a key from storage.
      *

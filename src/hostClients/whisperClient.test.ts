@@ -4,8 +4,8 @@ import Messages from '../grpc/whisper_pb';
 import WhisperClient from './whisperClient';
 import { ConnInfo } from '../grpc/broker_pb';
 
-jest.mock('../proto/whisper_pb');
-jest.mock('../proto/whisper_grpc_pb');
+jest.mock('../grpc/whisper_pb');
+jest.mock('../grpc/whisper_grpc_pb');
 
 const WHISPER_ID = '1234-abcd';
 const hostClient = mocked(Services.WhisperClient);

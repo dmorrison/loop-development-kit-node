@@ -5,14 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClipboardClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
-const GRPCClient_1 = __importDefault(require("./GRPCClient"));
+const baseClient_1 = __importDefault(require("./baseClient"));
 const clipboard_grpc_pb_1 = require("../grpc/clipboard_grpc_pb");
 const clipboard_pb_1 = __importDefault(require("../grpc/clipboard_pb"));
 const transformingStream_1 = require("./transformingStream");
 const clipboardTransformer = (message) => {
     return message.getText();
 };
-class ClipboardClient extends GRPCClient_1.default {
+class ClipboardClient extends baseClient_1.default {
     generateClient() {
         return clipboard_grpc_pb_1.ClipboardClient;
     }

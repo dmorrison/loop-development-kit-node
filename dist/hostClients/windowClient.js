@@ -7,7 +7,7 @@ exports.WindowClient = void 0;
 const empty_pb_1 = require("google-protobuf/google/protobuf/empty_pb");
 const window_pb_1 = require("../grpc/window_pb");
 const window_grpc_pb_1 = require("../grpc/window_grpc_pb");
-const GRPCClient_1 = __importDefault(require("./GRPCClient"));
+const baseClient_1 = __importDefault(require("./baseClient"));
 const windowService_1 = require("./windowService");
 const transformingStream_1 = require("./transformingStream");
 /**
@@ -28,7 +28,7 @@ function parseWindowAction(action) {
             return windowService_1.WindowStreamAction.Unknown;
     }
 }
-class WindowClient extends GRPCClient_1.default {
+class WindowClient extends baseClient_1.default {
     generateClient() {
         return window_grpc_pb_1.WindowClient;
     }

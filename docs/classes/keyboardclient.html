@@ -72,7 +72,7 @@
 						<span class="tsd-signature-type">Client</span>
 					</li>
 					<li>
-						<span class="tsd-signature-type">GRPCClient</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">KeyboardGRPCClient</span><span class="tsd-signature-symbol">&gt;</span>
+						<span class="tsd-signature-type">BaseClient</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">KeyboardGRPCClient</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">KeyboardClient</span>
@@ -144,7 +144,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Client.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L76">src/grpc/keyboard_grpc_pb.d.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L76">src/grpc/keyboard_grpc_pb.d.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,18 +176,18 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.client</p>
+								<p>Inherited from BaseClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L90">src/hostClients/GRPCClient.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L94">src/hostClients/baseClient.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">KeyboardGRPCClient</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.client</p>
+								<p>Inherited from BaseClient.client</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L97">src/hostClients/GRPCClient.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L101">src/hostClients/baseClient.ts:101</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,9 +212,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.buildQuery</p>
+								<p>Inherited from BaseClient.buildQuery</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L70">src/hostClients/GRPCClient.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L74">src/hostClients/baseClient.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,9 +359,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from GRPCClient.connect</p>
+								<p>Inherited from BaseClient.connect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/GRPCClient.ts#L35">src/hostClients/GRPCClient.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/baseClient.ts#L39">src/hostClients/baseClient.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -395,9 +395,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides GRPCClient.generateClient</p>
+								<p>Overrides BaseClient.generateClient</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/keyboardClient.ts#L118">src/hostClients/keyboardClient.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/keyboardClient.ts#L118">src/hostClients/keyboardClient.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/grpcclientconstructor.html" class="tsd-signature-type">GRPCClientConstructor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">KeyboardGRPCClient</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -434,7 +434,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardcharacterstream">keyboardCharacterStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L84">src/grpc/keyboard_grpc_pb.d.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L84">src/grpc/keyboard_grpc_pb.d.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -452,7 +452,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardcharacterstream">keyboardCharacterStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L85">src/grpc/keyboard_grpc_pb.d.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L85">src/grpc/keyboard_grpc_pb.d.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -483,7 +483,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardhotkeystream">keyboardHotkeyStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L78">src/grpc/keyboard_grpc_pb.d.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L78">src/grpc/keyboard_grpc_pb.d.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -501,7 +501,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardhotkeystream">keyboardHotkeyStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L79">src/grpc/keyboard_grpc_pb.d.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L79">src/grpc/keyboard_grpc_pb.d.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -532,7 +532,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardscancodestream">keyboardScancodeStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L80">src/grpc/keyboard_grpc_pb.d.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L80">src/grpc/keyboard_grpc_pb.d.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -550,7 +550,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardscancodestream">keyboardScancodeStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L81">src/grpc/keyboard_grpc_pb.d.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L81">src/grpc/keyboard_grpc_pb.d.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -581,7 +581,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardtextstream">keyboardTextStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L82">src/grpc/keyboard_grpc_pb.d.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L82">src/grpc/keyboard_grpc_pb.d.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -599,7 +599,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ikeyboardclient.html">IKeyboardClient</a>.<a href="../interfaces/ikeyboardclient.html#keyboardtextstream">keyboardTextStream</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/grpc/keyboard_grpc_pb.d.ts#L83">src/grpc/keyboard_grpc_pb.d.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/grpc/keyboard_grpc_pb.d.ts#L83">src/grpc/keyboard_grpc_pb.d.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1549,7 +1549,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/keyboardservice.html">KeyboardService</a>.<a href="../interfaces/keyboardservice.html#streamchar">streamChar</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/keyboardClient.ts#L98">src/hostClients/keyboardClient.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/keyboardClient.ts#L98">src/hostClients/keyboardClient.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1573,7 +1573,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/keyboardservice.html">KeyboardService</a>.<a href="../interfaces/keyboardservice.html#streamhotkey">streamHotKey</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/keyboardClient.ts#L79">src/hostClients/keyboardClient.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/keyboardClient.ts#L79">src/hostClients/keyboardClient.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1600,7 +1600,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/keyboardservice.html">KeyboardService</a>.<a href="../interfaces/keyboardservice.html#streamscancode">streamScanCode</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/keyboardClient.ts#L108">src/hostClients/keyboardClient.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/keyboardClient.ts#L108">src/hostClients/keyboardClient.ts:108</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1623,7 +1623,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/88edd08/src/hostClients/keyboardClient.ts#L91">src/hostClients/keyboardClient.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/open-olive/loop-development-kit-node/blob/722da87/src/hostClients/keyboardClient.ts#L91">src/hostClients/keyboardClient.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/stoppablestream.html" class="tsd-signature-type">StoppableStream</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
