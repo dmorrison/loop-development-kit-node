@@ -99,7 +99,7 @@ Olive Helps expects the following files when running a plugin:
 
 ### Commands
 
-We've made the following commands available to you:
+If the Node LDK package is installed globally (`npm i -g @oliveai/ldk`), the following commands are available:
 
 ```shell
 ldk build # Builds your project. Expects that you have index.js as your entry point, plugin.json, storage.json files.
